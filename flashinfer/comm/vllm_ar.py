@@ -20,6 +20,7 @@ from typing import List, Tuple
 
 import torch
 
+from ..api_logging import flashinfer_api
 from ..jit.comm import gen_vllm_comm_module
 from ..utils import register_custom_op
 
@@ -91,6 +92,7 @@ def get_vllm_comm_module():
     )
 
 
+@flashinfer_api
 def init_custom_ar(
     ipc_tensors: List[int], rank_data: torch.Tensor, rank: int, full_nvlink: bool
 ) -> int:
@@ -118,6 +120,7 @@ def init_custom_ar(
     )
 
 
+@flashinfer_api
 def dispose(fa: int) -> None:
     r"""Release the resources held by a vLLM custom all-reduce handle.
 
@@ -129,6 +132,7 @@ def dispose(fa: int) -> None:
     get_vllm_comm_module().dispose(fa)
 
 
+@flashinfer_api
 def all_reduce(
     fa: int,
     inp: torch.Tensor,
@@ -160,6 +164,7 @@ def all_reduce(
     )
 
 
+@flashinfer_api
 def get_graph_buffer_ipc_meta(fa: int) -> Tuple[List[int], List[int]]:
     r"""Return IPC metadata for graph-capture buffers.
 
@@ -177,6 +182,7 @@ def get_graph_buffer_ipc_meta(fa: int) -> Tuple[List[int], List[int]]:
     return get_vllm_comm_module().get_graph_buffer_ipc_meta(fa)
 
 
+@flashinfer_api
 def register_buffer(fa: int, fake_ipc_ptrs: List[int]) -> None:
     r"""Register a peer's IPC-shared buffer with the local all-reduce handle.
 
@@ -190,6 +196,7 @@ def register_buffer(fa: int, fake_ipc_ptrs: List[int]) -> None:
     return get_vllm_comm_module().register_buffer(fa, fake_ipc_ptrs)
 
 
+@flashinfer_api
 def register_graph_buffers(
     fa: int, handles: List[List[int]], offsets: List[List[int]]
 ) -> None:

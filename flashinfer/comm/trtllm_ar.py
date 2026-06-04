@@ -26,6 +26,7 @@ import torch
 import torch.distributed as dist
 from torch.distributed import ProcessGroup
 
+from ..api_logging import flashinfer_api
 from ..jit.comm import gen_trtllm_comm_module
 from ..utils import register_custom_op, round_up
 
@@ -433,6 +434,7 @@ _symm_workspace_refs: dict[int, list[torch.Tensor]] = {}
 @deprecated(
     "trtllm_create_ipc_workspace_for_all_reduce and trtllm_custom_all_reduce are deprecated and will be removed in the next major bump, use allreduce.py instead."
 )
+@flashinfer_api
 def trtllm_create_ipc_workspace_for_all_reduce(
     rank: int,
     tp_size: int,
@@ -554,6 +556,7 @@ MAX_COMM_SIZE = 2147483647 & ~((1 << 21) - 1)  # MAX_INT32 rounded down to 2MB
 @deprecated(
     "use the unified API allreduce.py instead. It will internally call trtllm_create_ipc_workspace_for_all_reduce_fusion."
 )
+@flashinfer_api
 def trtllm_create_ipc_workspace_for_all_reduce_fusion(
     tp_rank: int,
     tp_size: int,
@@ -789,6 +792,7 @@ def compute_fp4_swizzled_layout_sf_size(total_row: int, total_column: int) -> in
     return padded_row * padded_column
 
 
+@flashinfer_api
 def trtllm_lamport_initialize(buffer_ptr: int, size: int, dtype: torch.dtype) -> None:
     r"""Initialize a single Lamport-style buffer to negative zero.
 
@@ -804,6 +808,7 @@ def trtllm_lamport_initialize(buffer_ptr: int, size: int, dtype: torch.dtype) ->
     get_trtllm_comm_module().trtllm_lamport_initialize(buffer_ptr, size, dtype)
 
 
+@flashinfer_api
 def trtllm_lamport_initialize_all(
     buffer_0_ptr: int,
     buffer_1_ptr: int,
@@ -835,6 +840,7 @@ def trtllm_lamport_initialize_all(
 @deprecated(
     "trtllm_create_ipc_workspace_for_all_reduce and trtllm_custom_all_reduce are deprecated, use trtllm_create_ipc_workspace_for_all_reduce_fusion and trtllm_allreduce_fusion instead"
 )
+@flashinfer_api
 def trtllm_custom_all_reduce(
     inp: torch.Tensor,
     out: torch.Tensor,
@@ -977,6 +983,7 @@ def check_trtllm_allreduce_fusion_workspace_metadata(
 @deprecated(
     "use the unified API allreduce.py instead. It will internally call trtllm_allreduce_fusion."
 )
+@flashinfer_api
 def trtllm_allreduce_fusion(
     allreduce_in: torch.Tensor,
     world_size: int,
@@ -1094,6 +1101,7 @@ def trtllm_allreduce_fusion(
     )
 
 
+@flashinfer_api
 def trtllm_moe_allreduce_fusion(
     world_size: int,
     world_rank: int,
@@ -1177,6 +1185,7 @@ def trtllm_moe_allreduce_fusion(
     )
 
 
+@flashinfer_api
 def trtllm_moe_finalize_allreduce_fusion(
     allreduce_in: torch.Tensor,
     residual_in: torch.Tensor,

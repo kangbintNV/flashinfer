@@ -16,6 +16,7 @@ from typing_extensions import deprecated
 from flashinfer.comm.mapping import Mapping
 from flashinfer.comm.mnnvl import TorchDistBackend
 
+from ..api_logging import flashinfer_api
 from ..jit import gen_trtllm_mnnvl_comm_module
 from ..utils import register_custom_op
 from ..fp4_quantization import _compute_swizzled_layout_sf_size
@@ -365,6 +366,7 @@ def get_trtllm_mnnvl_comm_module():
     )
 
 
+@flashinfer_api
 def trtllm_mnnvl_allreduce(
     input: torch.Tensor,
     workspace: MNNVLAllReduceFusionWorkspace,
@@ -467,6 +469,7 @@ def trtllm_mnnvl_allreduce(
     return output
 
 
+@flashinfer_api
 def trtllm_mnnvl_fused_allreduce_add_rmsnorm(
     input: torch.Tensor,
     residual_in: torch.Tensor,
@@ -566,6 +569,7 @@ def trtllm_mnnvl_fused_allreduce_add_rmsnorm(
     return output, residual_out
 
 
+@flashinfer_api
 def trtllm_mnnvl_fused_allreduce_add_rmsnorm_quant(
     input: torch.Tensor,
     residual_in: torch.Tensor,

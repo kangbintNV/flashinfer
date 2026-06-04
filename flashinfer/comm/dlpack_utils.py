@@ -27,6 +27,8 @@ from ctypes import (
 
 import torch
 
+from ..api_logging import flashinfer_api
+
 
 # Define data structures required for DLPack
 class DLDataType(ctypes.Structure):
@@ -188,6 +190,7 @@ def create_dlpack_capsule(
     return capsule_wrapper
 
 
+@flashinfer_api
 def pack_strided_memory(
     ptr: int,
     segment_size: int,

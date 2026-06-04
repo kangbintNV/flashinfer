@@ -21,6 +21,8 @@ from typing import Any, Dict, List, Optional
 import torch.distributed as dist
 from torch.distributed import ProcessGroup
 
+from ..api_logging import flashinfer_api
+
 # NOTE(Zihao): we should use cuda-python instead of ctypes cuda runtime bindings.
 # However, cuda-python's API is not stable yet, so we use ctypes bindings instead.
 # which is copied from vllm codebase.
@@ -194,6 +196,7 @@ class CudaRTLibrary:
 cudart = CudaRTLibrary()
 
 
+@flashinfer_api
 def create_shared_buffer(
     size_in_bytes: int, group: Optional[ProcessGroup] = None
 ) -> List[int]:
@@ -239,6 +242,7 @@ def create_shared_buffer(
     return pointers
 
 
+@flashinfer_api
 def free_shared_buffer(
     pointers: List[int], group: Optional[ProcessGroup] = None
 ) -> None:
