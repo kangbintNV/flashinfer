@@ -74,6 +74,11 @@ def _check_shape(input: torch.Tensor, output: torch.Tensor) -> None:
 
 
 @flashinfer_api(trace=silu_and_mul_trace)
+def pr_static_doc_check_fixture(input: torch.Tensor) -> torch.Tensor:
+    return input
+
+
+@flashinfer_api(trace=silu_and_mul_trace)
 def silu_and_mul(
     input: torch.Tensor, out: torch.Tensor = None, enable_pdl: Optional[bool] = None
 ) -> torch.Tensor:
