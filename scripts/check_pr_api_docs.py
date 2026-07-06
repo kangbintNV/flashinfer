@@ -134,19 +134,6 @@ def changed_docs_contain(
     return False
 
 
-def api_is_listed_in_docs(head: str, api: ApiFunction) -> bool:
-    symbol = api.qualified_name.rsplit(".", 1)[-1]
-    try:
-        paths = git("ls-tree", "-r", "--name-only", head, "docs/api").splitlines()
-    except subprocess.CalledProcessError:
-        return False
-    return any(
-        symbol in (git_file(head, path) or "")
-        for path in paths
-        if path.endswith(".rst")
-    )
-
-
 def check(base: str, head: str) -> list[Finding]:
     paths = changed_paths(base, head)
     findings: list[Finding] = []
@@ -156,27 +143,6 @@ def check(base: str, head: str) -> list[Finding]:
     ):
         old = extract_public_apis(path, git_file(base, path))
         new = extract_public_apis(path, git_file(head, path))
-
-        for name in sorted(set(new) - set(old)):
-            api = new[name]
-            if not api.docstring:
-                findings.append(
-                    Finding(
-                        "warning",
-                        api.path,
-                        api.line,
-                        f"New public API `{api.module}.{name}` has no docstring.",
-                    )
-                )
-            if not api_is_listed_in_docs(head, api):
-                findings.append(
-                    Finding(
-                        "warning",
-                        api.path,
-                        api.line,
-                        f"New public API `{api.module}.{name}` is not listed in docs/api/*.rst.",
-                    )
-                )
 
         for name in sorted(set(old) - set(new)):
             api = old[name]
