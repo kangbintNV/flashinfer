@@ -14,9 +14,10 @@ from __future__ import annotations
 
 import argparse
 import ast
+import json
 import subprocess
 from dataclasses import dataclass
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
 
 
 @dataclass(frozen=True)
@@ -234,6 +235,7 @@ def main() -> int:
     parser.add_argument(
         "--strict", action="store_true", help="Return non-zero when findings exist"
     )
+    parser.add_argument("--report-json", type=Path, help="Write findings as JSON")
     args = parser.parse_args()
 
     findings = check(args.base, args.head)
@@ -242,6 +244,20 @@ def main() -> int:
         emit(finding, args.github_actions)
     if not findings:
         print("No public API/documentation drift introduced by this PR.")
+    if args.report_json:
+        args.report_json.parent.mkdir(parents=True, exist_ok=True)
+        args.report_json.write_text(
+            json.dumps(
+                {
+                    "check": "public_api",
+                    "base": args.base,
+                    "head": args.head,
+                    "findings": [finding.__dict__ for finding in findings],
+                },
+                indent=2,
+            )
+            + "\n"
+        )
     return 1 if args.strict and findings else 0
 
 

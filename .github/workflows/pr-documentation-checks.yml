@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check public API signature and export changes
         env:
@@ -26,7 +27,8 @@ jobs:
           python scripts/check_pr_api_docs.py \
             --base "$BASE_SHA" \
             --head "$HEAD_SHA" \
-            --github-actions | tee api-doc-check.txt
+            --github-actions \
+            --report-json reports/public-api.json | tee api-doc-check.txt
           cat api-doc-check.txt >> "$GITHUB_STEP_SUMMARY"
 
       - name: Check all new static documentation drift
@@ -37,5 +39,14 @@ jobs:
           python scripts/check_pr_documentation.py \
             --base "$BASE_SHA" \
             --head "$HEAD_SHA" \
-            --github-actions | tee static-doc-check.txt
+            --github-actions \
+            --report-json reports/static-documentation.json | tee static-doc-check.txt
           cat static-doc-check.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload documentation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-documentation-report
+          path: reports/*.json
+          retention-days: 1
