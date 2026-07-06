@@ -1,0 +1,66 @@
+name: PR Documentation Summary
+
+on:
+  workflow_run:
+    workflows: ["PR Documentation Checks"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment:
+    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.pull_requests[0]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download untrusted report data
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-documentation-report
+          path: reports
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Update PR documentation summary
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- flashinfer-pr-documentation-summary -->';
+            const prNumber = Number(process.env.PR_NUMBER);
+            const runUrl = process.env.RUN_URL;
+            const escape = (value) => String(value)
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/\r?\n/g, ' ')
+              .slice(0, 500);
+            const findings = [];
+            for (const file of ['reports/public-api.json', 'reports/static-documentation.json']) {
+              if (!fs.existsSync(file)) continue;
+              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+              for (const finding of report.findings || []) findings.push(finding);
+            }
+            const unique = new Map();
+            for (const finding of findings) {
+              unique.set([finding.path, finding.line, finding.message].join(':'), finding);
+            }
+            const rows = [...unique.values()].slice(0, 20);
+            const body = rows.length
+              ? `${marker}\n## Documentation checks ⚠️ ${rows.length} new finding(s)\n\n${rows.map((f) => `- \`${escape(f.path)}:${Number(f.line) || 1}\` — ${escape(f.message)}`).join('\n')}\n\n[View the full check run](${runUrl})`
+              : `${marker}\n## Documentation checks ✅\n\nNo new API or documentation drift was introduced by this PR. [View the check run](${runUrl})`;
+            const { owner, repo } = context.repo;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const previous = comments.find((comment) => comment.body.includes(marker));
+            if (previous) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            }

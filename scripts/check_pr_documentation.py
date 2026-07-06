@@ -141,6 +141,7 @@ def main() -> int:
     parser.add_argument(
         "--strict", action="store_true", help="Fail when this PR introduces findings"
     )
+    parser.add_argument("--report-json", type=Path, help="Write findings as JSON")
     args = parser.parse_args()
 
     with tempfile.TemporaryDirectory(prefix="flashinfer-pr-doc-check-") as temp:
@@ -158,6 +159,20 @@ def main() -> int:
         emit(finding, args.github_actions)
     if not new_findings:
         print("No new static documentation findings introduced by this PR.")
+    if args.report_json:
+        args.report_json.parent.mkdir(parents=True, exist_ok=True)
+        args.report_json.write_text(
+            json.dumps(
+                {
+                    "check": "static_documentation",
+                    "base": args.base,
+                    "head": args.head,
+                    "findings": [finding.__dict__ for finding in new_findings],
+                },
+                indent=2,
+            )
+            + "\n"
+        )
     return 1 if args.strict and new_findings else 0
 
 
