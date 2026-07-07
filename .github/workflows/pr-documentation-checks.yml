@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write # Test-only: validates visible reporting on PR #5.
 
 jobs:
   documentation:
@@ -50,3 +51,33 @@ jobs:
           name: pr-documentation-report
           path: reports/*.json
           retention-days: 1
+
+      - name: Post test-only documentation summary
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- flashinfer-pr-documentation-summary-test -->';
+            const findings = [];
+            for (const file of ['reports/public-api.json', 'reports/static-documentation.json']) {
+              if (!fs.existsSync(file)) continue;
+              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+              findings.push(...(report.findings || []));
+            }
+            const unique = new Map();
+            for (const finding of findings) unique.set(`${finding.path}:${finding.line}:${finding.message}`, finding);
+            const rows = [...unique.values()].slice(0, 20);
+            const body = `${marker}\n## Documentation checks (test) ${rows.length ? '⚠️' : '✅'}\n\n` +
+              (rows.length
+                ? rows.map((f) => `- \`${f.path}:${f.line || 1}\` — ${f.message}`).join('\n')
+                : 'No new API or documentation drift was introduced by this PR.') +
+              `\n\n[Test run](${process.env.RUN_URL})`;
+            const { owner, repo } = context.repo;
+            const issue_number = Number(process.env.PR_NUMBER);
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
+            const old = comments.find((comment) => comment.body.includes(marker));
+            if (old) await github.rest.issues.updateComment({ owner, repo, comment_id: old.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
