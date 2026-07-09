@@ -22,7 +22,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHECKER_DIR = ROOT / "scripts" / "pr_static_checks" / "doc_checks"
+CHECKER_DIR = ROOT / "scripts" / "pr_checks"
 
 
 @dataclass(frozen=True, order=True)
