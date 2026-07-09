@@ -28,7 +28,7 @@ import sys
 from dataclasses import asdict
 from pathlib import Path
 
-from checks import (
+from .registry import (
     DOCS_INDEX_REFS,
     ENV_VARS_CONSISTENCY,
     QUICKREF_PATHS,
@@ -37,7 +37,7 @@ from checks import (
     Finding,
     get_check,
 )
-from common import (
+from .config import (
     CLAUDE_MD,
     CSRC_DIR,
     DOCS_DIR,
