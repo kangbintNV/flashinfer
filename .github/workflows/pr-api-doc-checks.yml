@@ -24,7 +24,7 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          python scripts/check_pr_api_docs.py \
+          python scripts/check_pr_api_diff.py \
             --base "$BASE_SHA" \
             --head "$HEAD_SHA" \
             --github-actions \
@@ -36,7 +36,7 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          python scripts/check_pr_documentation.py \
+          python scripts/check_pr_document.py \
             --base "$BASE_SHA" \
             --head "$HEAD_SHA" \
             --github-actions \
