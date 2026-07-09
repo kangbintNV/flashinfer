@@ -127,8 +127,10 @@ jobs:
               const line = Number(finding.line);
               const path = String(finding.path || '');
               const key = [finding.check, path, line, finding.message].join(':');
+              const legacyKey = [path, line, finding.message].join(':');
               if (!Number.isInteger(line) || line < 1 || !path || path.includes('..')) continue;
-              if (!fs.existsSync(path) || !fs.statSync(path).isFile() || existingKeys.has(key)) continue;
+              if (!fs.existsSync(path) || !fs.statSync(path).isFile()) continue;
+              if (existingKeys.has(key) || existingKeys.has(legacyKey)) continue;
               inline.push({
                 path,
                 line,
