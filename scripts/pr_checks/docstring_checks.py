@@ -2,7 +2,7 @@
 """
 FlashInfer documentation static checks.
 
-Extends flashinfer_doc_test.py (the API <-> docs/api/*.rst check) with two
+Extends api_rst_check.py (the API <-> docs/api/*.rst check) with two
 higher-ROI checks:
 
   docstring_completeness
@@ -27,14 +27,14 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-from ast_utils import func_arg_names, iter_decorated_functions
-from checks import (
+from .ast_utils import func_arg_names, iter_decorated_functions
+from .registry import (
     ARGS_CONSISTENCY,
     DOCSTRING_COMPLETENESS,
     Finding,
     get_check,
 )
-from common import FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
+from .config import FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
 
 # Module exclusions.
 SKIP_MODULES = {"flashinfer.testing"}
@@ -253,7 +253,9 @@ def collect_records(pkg_root: Path) -> list[FuncRecord]:
     for py_file, mod, node in iter_decorated_functions(
         pkg_root, "flashinfer_api", scope="all"
     ):
-        if mod in SKIP_MODULES:
+        if any(
+            mod == skipped or mod.startswith(f"{skipped}.") for skipped in SKIP_MODULES
+        ):
             continue
         records.append(
             FuncRecord(
@@ -372,7 +374,7 @@ def main(argv: list[str]) -> int:
                 print(f"  [fail] {f.module}.{f.symbol}  ({f.file}:{f.line})")
                 print(f"          {f.message}")
 
-    out_json = out_dir / "flashinfer_doc_check_extended.json"
+    out_json = out_dir / "docstring_checks.json"
     out_json.write_text(
         json.dumps(
             {
@@ -385,7 +387,7 @@ def main(argv: list[str]) -> int:
     )
     print(f"\nWrote: {out_json}")
 
-    out_md = out_dir / "flashinfer_doc_check_extended.md"
+    out_md = out_dir / "docstring_checks.md"
     lines = [
         "# FlashInfer Documentation Static Check",
         "",

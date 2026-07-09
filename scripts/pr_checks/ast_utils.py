@@ -1,8 +1,8 @@
 """Shared AST helpers for the flashinfer_document_check tooling.
 
 The two checker scripts that walk the flashinfer source tree
-(flashinfer_doc_test.py and doc_check_extended.py) used to each carry their
-own near-duplicate copy of these helpers — the doc_check_extended version
+(api_rst_check.py and docstring_checks.py) used to each carry their
+own near-duplicate copy of these helpers — the docstring_checks version
 was strictly more correct (handles arbitrarily nested attribute chains in
 decorator calls), so we lift that one into shared code and have both
 scripts import it.
@@ -92,13 +92,13 @@ def module_name(py_file: Path, pkg_root: Path) -> str:
 # Either header form (with or without underline) is enough to flag the symbol
 # as intentionally deprecated, alongside the AST-level ``@deprecated`` check.
 _DEPRECATED_DOCSTRING_RE = re.compile(
-    r"(?m)"
     r"(?:"
-    r"^\s*\.\.\s+deprecated::"  # Sphinx directive
-    r"|^\s*Deprecated\s*:\s*$"  # Google-style "Deprecated:"
-    r"|^\s*Deprecated\s*\n\s*[-=]{3,}"  # NumPy-style "Deprecated\n----"
-    r"|^\s*Deprecated\b"  # leading-line "Deprecated pointer-based ..."
+    r"\.\.\s+deprecated::"  # Sphinx directive
+    r"|Deprecated\s*:\s*$"  # Google-style "Deprecated:"
+    r"|Deprecated\s*\n\s*[-=]{3,}"  # NumPy-style "Deprecated\n----"
+    r"|Deprecated\b"  # leading-line "Deprecated pointer-based ..."
     r")",
+    re.MULTILINE,
 )
 
 
@@ -120,7 +120,7 @@ def is_function_deprecated(fn: ast.FunctionDef | ast.AsyncFunctionDef) -> bool:
         if name == "deprecated" or name.endswith(".deprecated"):
             return True
     doc = ast.get_docstring(fn)
-    if doc and _DEPRECATED_DOCSTRING_RE.search(doc):
+    if doc and _DEPRECATED_DOCSTRING_RE.match(doc.lstrip()):
         return True
     return False
 
@@ -250,13 +250,15 @@ def collect_module_alias_exports(
             continue
         importer_mod = module_name(py_file, pkg_root)
         importer_parts = importer_mod.split(".")
+        is_package = py_file.name == "__init__.py"
         for node in ast.walk(tree):
             if not isinstance(node, ast.ImportFrom):
                 continue
             level = node.level or 0
             target_mod: str
             if level > 0:
-                base_parts = importer_parts[: max(0, len(importer_parts) - level + 1)]
+                base_length = len(importer_parts) - level + (1 if is_package else 0)
+                base_parts = importer_parts[: max(0, base_length)]
                 if not base_parts or base_parts[0] != pkg_dotted:
                     continue
                 tail = [node.module] if node.module else []

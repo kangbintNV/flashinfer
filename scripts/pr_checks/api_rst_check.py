@@ -12,12 +12,12 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from ast_utils import (
+from .ast_utils import (
     collect_deprecated_symbols,
     collect_module_alias_exports,
     iter_decorated_functions,
 )
-from common import DOCS_API_DIR, FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
+from .config import DOCS_API_DIR, FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
 
 
 def _detect_version() -> str:
@@ -185,9 +185,8 @@ def run_check(
 
     results = []
 
-    documented_modules = sorted(doc_symbols.keys())
-    for mod in documented_modules:
-        doc_syms = doc_symbols[mod]
+    for mod in sorted(set(api_by_module) | set(doc_symbols)):
+        doc_syms = doc_symbols.get(mod, set())
 
         # Gather @flashinfer_api functions exported by this module.
         #
@@ -365,8 +364,8 @@ def main():
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    write_json(results, OUTPUT_DIR / f"flashinfer_{VERSION}_doc_gap_{ts}.json")
-    write_markdown(results, OUTPUT_DIR / f"flashinfer_{VERSION}_doc_gap_{ts}.md")
+    write_json(results, OUTPUT_DIR / f"api_rst_{VERSION}_{ts}.json")
+    write_markdown(results, OUTPUT_DIR / f"api_rst_{VERSION}_{ts}.md")
 
     total_issues = sum(len(r["missing"]) + len(r["stale"]) for r in results)
     return 0 if total_issues == 0 else 1

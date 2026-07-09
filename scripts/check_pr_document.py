@@ -17,20 +17,20 @@ import subprocess
 import sys
 import tarfile
 import tempfile
-from dataclasses import dataclass
 from pathlib import Path
+
+from pr_checks.registry import API_RST_MISSING, API_RST_STALE
+from pr_checks.reporting import PrFinding, emit_finding, write_report
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHECKER_DIR = ROOT / "scripts" / "pr_checks"
+SCRIPTS_DIR = ROOT / "scripts"
 
-
-@dataclass(frozen=True, order=True)
-class Finding:
-    check: str
-    path: str
-    line: int
-    message: str
+CHECKER_MODULES = (
+    "pr_checks.api_rst_check",
+    "pr_checks.docstring_checks",
+    "pr_checks.cross_source_check",
+)
 
 
 def git(*args: str) -> bytes:
@@ -50,13 +50,10 @@ def run_checker(source: Path, output: Path, label: str) -> None:
         "DOC_CHECK_OUT": str(output),
         "DOC_CHECK_VERSION": label,
     }
-    for script in (
-        "flashinfer_doc_test.py",
-        "doc_check_extended.py",
-        "cross_source_check.py",
-    ):
+    for module in CHECKER_MODULES:
         result = subprocess.run(
-            [sys.executable, str(CHECKER_DIR / script)],
+            [sys.executable, "-m", module],
+            cwd=SCRIPTS_DIR,
             env=env,
             text=True,
             capture_output=True,
@@ -65,7 +62,7 @@ def run_checker(source: Path, output: Path, label: str) -> None:
         # A result of 1 means the checker found drift.  Any other non-zero
         # result is an execution failure and must not be mistaken for a finding.
         if result.returncode not in (0, 1):
-            raise RuntimeError(f"{script} failed:\n{result.stdout}\n{result.stderr}")
+            raise RuntimeError(f"{module} failed:\n{result.stdout}\n{result.stderr}")
 
 
 def location_parts(location: str) -> tuple[str, int]:
@@ -75,17 +72,17 @@ def location_parts(location: str) -> tuple[str, int]:
     return location or "docs", 1
 
 
-def load_findings(output: Path) -> set[Finding]:
-    findings: set[Finding] = set()
+def load_findings(output: Path) -> set[PrFinding]:
+    findings: set[PrFinding] = set()
 
-    for report in output.glob("*doc_gap_*.json"):
+    for report in output.glob("api_rst_*.json"):
         payload = json.loads(report.read_text())
         for module in payload.get("modules", []):
             name = module["module"]
             for symbol in module.get("missing", []):
                 findings.add(
-                    Finding(
-                        "api_rst_missing",
+                    PrFinding(
+                        API_RST_MISSING,
                         "docs/api",
                         1,
                         f"{name}.{symbol} is absent from docs/api/*.rst",
@@ -93,8 +90,8 @@ def load_findings(output: Path) -> set[Finding]:
                 )
             for symbol in module.get("stale", []):
                 findings.add(
-                    Finding(
-                        "api_rst_stale",
+                    PrFinding(
+                        API_RST_STALE,
                         "docs/api",
                         1,
                         f"{name}.{symbol} is documented but no longer public",
@@ -102,7 +99,7 @@ def load_findings(output: Path) -> set[Finding]:
                 )
 
     for filename in (
-        "flashinfer_doc_check_extended.json",
+        "docstring_checks.json",
         "flashinfer_cross_source_check.json",
     ):
         report = output / filename
@@ -118,17 +115,8 @@ def load_findings(output: Path) -> set[Finding]:
                 if part
             )
             message = f"{subject}: {item['message']}" if subject else item["message"]
-            findings.add(Finding(item["check"], path, line or 1, message))
+            findings.add(PrFinding(item["check"], path, line or 1, message))
     return findings
-
-
-def emit(finding: Finding, github_actions: bool) -> str:
-    text = f"[{finding.check}] {finding.path}:{finding.line} {finding.message}"
-    if github_actions:
-        escaped = text.replace("%", "%25").replace("\n", " ").replace("\r", "")
-        print(f"::warning file={finding.path},line={finding.line}::{escaped}")
-    print(text)
-    return text
 
 
 def main() -> int:
@@ -156,22 +144,16 @@ def main() -> int:
 
     print(f"Static documentation checks: {len(new_findings)} new finding(s)")
     for finding in new_findings:
-        emit(finding, args.github_actions)
+        emit_finding(finding, args.github_actions)
     if not new_findings:
         print("No new static documentation findings introduced by this PR.")
     if args.report_json:
-        args.report_json.parent.mkdir(parents=True, exist_ok=True)
-        args.report_json.write_text(
-            json.dumps(
-                {
-                    "check": "static_documentation",
-                    "base": args.base,
-                    "head": args.head,
-                    "findings": [finding.__dict__ for finding in new_findings],
-                },
-                indent=2,
-            )
-            + "\n"
+        write_report(
+            args.report_json,
+            "static_documentation",
+            args.base,
+            args.head,
+            new_findings,
         )
     return 1 if args.strict and new_findings else 0
 

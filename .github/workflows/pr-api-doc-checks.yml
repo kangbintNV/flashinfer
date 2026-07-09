@@ -30,6 +30,7 @@ jobs:
             --base "$BASE_SHA" \
             --head "$HEAD_SHA" \
             --github-actions \
+            --strict \
             --report-json reports/public-api.json | tee api-doc-check.txt
           cat api-doc-check.txt >> "$GITHUB_STEP_SUMMARY"
 
