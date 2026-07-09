@@ -27,14 +27,14 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-from _internal.ast_utils import func_arg_names, iter_decorated_functions
-from _internal.checks import (
+from ast_utils import func_arg_names, iter_decorated_functions
+from checks import (
     ARGS_CONSISTENCY,
     DOCSTRING_COMPLETENESS,
     Finding,
     get_check,
 )
-from _internal.common import FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
+from common import FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
 
 # Module exclusions.
 SKIP_MODULES = {"flashinfer.testing"}
