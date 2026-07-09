@@ -12,12 +12,12 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from _internal.ast_utils import (
+from ast_utils import (
     collect_deprecated_symbols,
     collect_module_alias_exports,
     iter_decorated_functions,
 )
-from _internal.common import DOCS_API_DIR, FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
+from common import DOCS_API_DIR, FLASHINFER_PKG, FLASHINFER_ROOT, OUTPUT_DIR
 
 
 def _detect_version() -> str:
