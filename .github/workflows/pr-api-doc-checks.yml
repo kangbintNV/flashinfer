@@ -69,11 +69,15 @@ jobs:
             const findings = [];
             for (const file of ['reports/public-api.json', 'reports/static-documentation.json']) {
               if (!fs.existsSync(file)) continue;
-              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
-              findings.push(...(report.findings || []));
+              try {
+                const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+                findings.push(...(report.findings || []));
+              } catch (error) {
+                core.warning(`Ignoring malformed report ${file}: ${error.message}`);
+              }
             }
             const unique = new Map();
-            for (const finding of findings) unique.set(`${finding.path}:${finding.line}:${finding.message}`, finding);
+            for (const finding of findings) unique.set(`${finding.check}:${finding.path}:${finding.line}:${finding.message}`, finding);
             const rows = [...unique.values()].slice(0, 20);
             const body = `${marker}\n## Documentation checks (test) ${rows.length ? '⚠️' : '✅'}\n\n` +
               (rows.length
@@ -100,8 +104,12 @@ jobs:
             const findings = [];
             for (const file of ['reports/public-api.json', 'reports/static-documentation.json']) {
               if (!fs.existsSync(file)) continue;
-              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
-              findings.push(...(report.findings || []));
+              try {
+                const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+                findings.push(...(report.findings || []));
+              } catch (error) {
+                core.warning(`Ignoring malformed report ${file}: ${error.message}`);
+              }
             }
             const { owner, repo } = context.repo;
             const pull_number = Number(process.env.PR_NUMBER);
@@ -118,7 +126,7 @@ jobs:
             for (const finding of findings) {
               const line = Number(finding.line);
               const path = String(finding.path || '');
-              const key = [path, line, finding.message].join(':');
+              const key = [finding.check, path, line, finding.message].join(':');
               if (!Number.isInteger(line) || line < 1 || !path || path.includes('..')) continue;
               if (!fs.existsSync(path) || !fs.statSync(path).isFile() || existingKeys.has(key)) continue;
               inline.push({
