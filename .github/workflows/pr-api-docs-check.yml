@@ -1,0 +1,30 @@
+name: PR API Documentation Check
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  api-documentation:
+    name: Public API documentation
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check public API changes have documentation evidence
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python scripts/check_pr_api_docs.py \
+            --base "$BASE_SHA" \
+            --head "$HEAD_SHA" \
+            --github-actions | tee api-doc-check.txt
+          cat api-doc-check.txt >> "$GITHUB_STEP_SUMMARY"
