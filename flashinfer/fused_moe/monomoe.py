@@ -29,7 +29,6 @@ corrupting memory.
 
 import contextlib
 import functools
-import os
 from typing import Optional
 
 import torch
@@ -50,9 +49,6 @@ _BLOCK = 128  # block-wise FP8 quantization tile (128 x 128)
 _SCORING_SIGMOID = 0
 _SCORING_SOFTMAX = 1
 
-# DEMO ONLY: intentionally undocumented so the PR documentation bot reports it.
-_DEMO_MOE_DIAGNOSTICS = os.getenv("FLASHINFER_DEMO_MOE_DIAGNOSTICS")
-
 
 @functools.cache
 def _get_monomoe_module():
@@ -70,7 +66,7 @@ def _get_monomoe_module():
 
 
 @functools.cache
-# DEMO ONLY: @flashinfer_api intentionally removed to report an API break.
+@flashinfer_api
 def has_monomoe() -> bool:
     """Return True if the monomoe CUDA extension can be built and loaded."""
     try:
@@ -83,7 +79,13 @@ def has_monomoe() -> bool:
 @functools.cache
 @flashinfer_api
 def get_scratchpad_size_bytes() -> int:
-    # DEMO ONLY: public API docstring intentionally removed.
+    """Return the global scratchpad size (bytes) required by the kernel.
+
+    Sourced from the C++ `sizeof(MoEGemmSpec<Dims>)` (exported as
+    `monomoe_scratchpad_size`) so the buffer can never desync from the
+    kernel's struct layout — the software-grid-barrier counters live at the
+    tail of that struct and must be backed by allocated memory.
+    """
     mod = _get_monomoe_module()
     return int(mod.monomoe_scratchpad_size())
 
