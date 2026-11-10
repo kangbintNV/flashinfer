@@ -100,6 +100,16 @@ output_column_dict = {
         "inter_tp_size",
         "inter_dp_size",
     ],
+    "moe_comm": [
+        "rank_token_schedule",
+        "expert_output_ndim",
+        "output_mode",
+        "max_num_tokens_per_rank",
+        "schedule_stage",
+        "measurement_rank",
+        "dispatch_median_time",
+        "dispatch_std_time",
+    ],
     "norm": [
         "num_heads",
         "scale",
@@ -226,6 +236,7 @@ full_output_columns = (
     + output_column_dict["moe"]
     + output_column_dict["allreduce_comm"]
     + output_column_dict["mixed_comm"]
+    + output_column_dict["moe_comm"]
     + output_column_dict["norm"]
     + output_column_dict["quantization"]
     + output_column_dict["sampling"]
@@ -281,6 +292,9 @@ benchmark_apis = {
     ],
     "mixed_comm": [
         "mixed_comm",
+    ],
+    "moe_comm": [
+        "moe_ep_comm",
     ],
     "norm": [
         "rmsnorm",
