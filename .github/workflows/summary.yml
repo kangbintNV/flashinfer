@@ -1,0 +1,19 @@
+name: Bot Run 50-PR Experiment Summary
+on:
+  push:
+    branches: ['codex/bot-run-demo-20261125/summary']
+permissions:
+  contents: read
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Render all 50 native Check results
+        run: python3 scripts/render_summary.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bot-run-50-pr-results
+          path: reports/
