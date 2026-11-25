@@ -1,12 +1,20 @@
-name: API concurrency queue validation
+name: API review regression validation
 on: workflow_dispatch
 permissions:
   contents: read
 jobs:
-  queue:
+  api:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     concurrency:
       group: api-review-queue-validation
       queue: max
     steps:
-      - run: echo 'GitHub accepted queue max'
+      - uses: actions/checkout@v4
+        with:
+          ref: 5e3acb9513a76b4a4e5aee47ab70c831ba9fd4b7
+          persist-credentials: false
+      - name: Python scanner regression tests
+        run: python3 -m unittest discover -s scripts/infra/tests -p '*api*.py' -v
+      - name: Node gate and report regression tests
+        run: node --test scripts/infra/tests/test_api_*.cjs
