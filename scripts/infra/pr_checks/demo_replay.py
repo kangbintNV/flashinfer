@@ -68,7 +68,29 @@ def target_pr(client, head_sha, expected_base):
 def preflight():
     model = InferenceHub()
     model.deadline = time.monotonic() + 120
-    result = model.complete({"purpose": "API connectivity smoke test; no source code"}, 'Return JSON only: {"ok": true}.')
+    try:
+        result = model.complete({"purpose": "API connectivity smoke test; no source code"}, 'Return JSON only: {"ok": true}.')
+    except TargetSelectionError:
+        # Inspect only structured server error fields; never print the key,
+        # request headers, raw bodies, or environment values.
+        import urllib.request
+        import urllib.error
+        request = urllib.request.Request(model.base_url + "/models", headers={"Authorization": "Bearer " + model.api_key})
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                models = json.load(response)
+            ids = [item.get("id") for item in models.get("data", [])]
+            print("Models endpoint readable; configured model listed:", model.model in ids)
+        except urllib.error.HTTPError as error:
+            try:
+                payload = json.loads(error.read(5000))
+                details = payload.get("error", payload)
+                if isinstance(details, dict):
+                    details = {key: details.get(key) for key in ("code", "type", "message", "detail") if key in details}
+                print("Models endpoint HTTP", error.code, gate._public_prose(json.dumps(details), (model.api_key,), limit=700))
+            except (ValueError, TypeError):
+                print("Models endpoint HTTP", error.code, "(no structured error)")
+        raise
     if result.get("ok") is not True:
         raise TargetSelectionError("Inference API preflight did not return the expected response")
     print("Inference API preflight passed. Secret value was not logged.")
