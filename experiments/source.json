@@ -1,0 +1,1 @@
+{"mode": "preflight", "gate_version": "b63b3fcbd7c27f92a6866b4c1baa98d4484f120e", "selector_fix": "validate evidence read_paths against full pinned regular-file blobs"}
