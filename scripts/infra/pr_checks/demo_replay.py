@@ -81,6 +81,8 @@ def preflight():
                 models = json.load(response)
             ids = [item.get("id") for item in models.get("data", [])]
             print("Models endpoint readable; configured model listed:", model.model in ids)
+            compatible = [name for name in ids if isinstance(name, str) and any(vendor in name.lower() for vendor in ("anthropic", "openai"))]
+            print("Available compatible model IDs:", gate._public_prose(json.dumps(compatible[:20]), (model.api_key,), limit=2500))
         except urllib.error.HTTPError as error:
             try:
                 payload = json.loads(error.read(5000))
