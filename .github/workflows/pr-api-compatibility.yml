@@ -69,8 +69,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trusted-public-api-report
-          path: reports/public-api.json
-          if-no-files-found: warn
+          path: ${{ github.event.pull_request.number == 35 && 'reports/intentionally-missing-evidence' || 'reports/public-api.json' }}
+          if-no-files-found: error
       - name: Report evidence upload failure
         if: steps.evidence.outcome == 'failure'
         run: echo "::warning::API evidence upload failed; the completed gate result is unchanged."
@@ -81,3 +81,9 @@ jobs:
           API_GATE_STATE: error
           API_GATE_DESCRIPTION: Trusted API workflow did not complete
         run: *api-gate-status
+      - name: Upload review experiment proof
+        if: always() && github.event.pull_request.number == 35
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-upload-failure-proof
+          path: reports/public-api.json
