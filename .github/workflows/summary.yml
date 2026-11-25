@@ -1,0 +1,19 @@
+name: Bot Run 50-PR Inventory Fix Comparison
+on:
+  push:
+    branches: ['codex/bot-run-demo-inventory-fix-20261126/summary']
+permissions:
+  contents: read
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Render 50 audited before-and-after Check results
+        run: python3 scripts/render_summary.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bot-run-inventory-fix-comparison
+          path: reports/
