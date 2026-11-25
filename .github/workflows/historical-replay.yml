@@ -1,0 +1,34 @@
+name: Bot Run Historical Demo
+on:
+  push:
+    branches:
+      - 'codex/bot-run-demo-20261125/**'
+permissions:
+  contents: read
+  pull-requests: read
+  checks: write
+jobs:
+  replay:
+    if: endsWith(github.ref, '/head') || endsWith(github.ref, '/preflight')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            scripts
+            experiments
+      - name: Replay original evidence without executing PR source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INFERENCE_API_KEY: ${{ secrets.INFERENCE_API_KEY }}
+          INFERENCE_BASE_URL: ${{ vars.INFERENCE_BASE_URL }}
+          CI_BOT_TARGET_MODEL: ${{ vars.CI_BOT_TARGET_MODEL }}
+          CI_BOT_TARGET_TIMEOUT_SECONDS: '360'
+        run: python3 scripts/infra/pr_checks/demo_replay.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: historical-replay-result
+          path: reports/result.json
