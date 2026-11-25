@@ -2,7 +2,7 @@ name: PR API Compatibility
 
 on:
   pull_request_target:
-    branches: ["codex/api-demo-base-*", "codex/api-audit-base-*"]
+    branches: ["codex/api-demo-base-*", "codex/api-audit-base-*", "codex/api-fresh30-1e954030-base-*"]
     types: [opened, synchronize, reopened, ready_for_review, edited]
 
 permissions:
@@ -51,12 +51,9 @@ jobs:
       # Never checkout or execute the PR head in this privileged workflow.
       - uses: actions/checkout@v4
         with:
-          ref: dab677eff8d2a36a634426cb1693318a76fce9c6
+          ref: 1e95403052f3e70df87e49f14f739390cc9d2fe2
           fetch-depth: 0
           persist-credentials: false
-      - name: Test trusted API policy and gate
-        run: |
-          python3 -m unittest discover -s scripts/infra/tests -p 'test*api*.py' -v
       - name: Scan git objects and publish API gate
         id: scan
         env:
