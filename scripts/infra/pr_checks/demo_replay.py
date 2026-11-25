@@ -1,5 +1,4 @@
 """Replay frozen upstream evidence and publish Checks on an isolated demo PR."""
-import base64
 import copy
 from dataclasses import asdict, replace
 import json
@@ -46,13 +45,26 @@ class HistoricalSource(gate.Client):
         return commit
 
     def get_repository_tree(self, repository, sha):
-        return self.api(f"repos/{DESTINATION}/git/trees/{sha}?recursive=1")
+        tree = self.api(f"repos/{DESTINATION}/git/trees/{sha}?recursive=1")
+        self.blobs = {item["sha"]: item["path"] for item in tree.get("tree", []) if item["type"] == "blob"}
+        return tree
 
     def get_repository_blob(self, repository, sha, max_bytes):
-        data = self.api(f"repos/{DESTINATION}/git/blobs/{sha}")
-        if data.get("encoding") != "base64" or data.get("size", 0) > max_bytes:
-            raise TargetSelectionError("Historical evidence blob is unavailable or too large")
-        return base64.b64decode(data["content"]).decode("utf-8")
+        # Public immutable source via CDN avoids exhausting the fork's shared
+        # GITHUB_TOKEN REST quota across 50 independent inference jobs.
+        import hashlib
+        import urllib.request
+        from urllib.parse import quote
+        path = self.blobs[sha]
+        url = "https://raw.githubusercontent.com/flashinfer-ai/flashinfer/" + self.manifest["source_merge_sha"] + "/" + quote(path, safe="/")
+        with urllib.request.urlopen(url, timeout=30) as response:
+            content = response.read(max_bytes + 1)
+        if len(content) > max_bytes:
+            raise TargetSelectionError("Historical evidence blob exceeds size limit")
+        digest = hashlib.sha1(f"blob {len(content)}\0".encode() + content).hexdigest()
+        if digest != sha:
+            raise TargetSelectionError("Historical evidence blob identity mismatch")
+        return content.decode("utf-8")
 
 
 def target_pr(client, head_sha, expected_base):
