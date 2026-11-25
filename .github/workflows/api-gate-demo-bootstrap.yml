@@ -1,31 +1,29 @@
 name: Bootstrap API gate demo PR
 on:
   workflow_dispatch:
-    inputs:
-      upstream_pr:
-        description: Upstream PR to replay
-        required: true
-        type: choice
-        options: ['8953', '8907', '8910']
 permissions:
   contents: read
   pull-requests: write
 jobs:
   create-demo:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/github-script@v7
         with:
           script: |
-            const number = context.payload.inputs.upstream_pr;
-            if (!['8953', '8907', '8910'].includes(number)) throw Error('Unknown demo');
-            const base = `codex/api-demo-base-${number}`;
-            const head = `codex/api-demo-head-${number}`;
-            const { data: existing } = await github.rest.pulls.list({ ...context.repo, state: 'open', base, head: `${context.repo.owner}:${head}` });
-            if (existing.length) { core.notice(existing[0].html_url); return; }
-            const { data: pr } = await github.rest.pulls.create({
-              ...context.repo, base, head,
-              title: `[API gate demo] Replay upstream #${number}`,
-              body: `Fork-only demo of https://github.com/flashinfer-ai/flashinfer/pull/${number}, referenced by https://github.com/flashinfer-ai/flashinfer/issues/9444.\n\nReplays the merged PR's actual source-tree change. Only workflow files are replaced by an isolated demo harness. Checker code is pinned to upstream PR #10011 commit 07cd4f8457768c81dd56cb9295ae7db1e3fb7c5e.\n\nNo merge is intended. This PR is created by GitHub Actions so that the repository owner can independently exercise maintainer exception approval.`,
-            });
-            core.notice(pr.html_url);
+            const samples = [{"number": 6621, "audit_disposition": "true_issue"}, {"number": 6198, "audit_disposition": "true_issue"}, {"number": 5364, "audit_disposition": "true_issue"}, {"number": 5003, "audit_disposition": "true_issue"}, {"number": 4980, "audit_disposition": "true_issue"}, {"number": 4876, "audit_disposition": "true_issue"}, {"number": 4793, "audit_disposition": "true_issue"}, {"number": 4518, "audit_disposition": "true_issue"}, {"number": 4460, "audit_disposition": "true_issue"}, {"number": 2906, "audit_disposition": "true_issue"}, {"number": 7089, "audit_disposition": "expected"}, {"number": 6956, "audit_disposition": "expected"}, {"number": 6047, "audit_disposition": "expected"}, {"number": 5989, "audit_disposition": "expected"}, {"number": 5927, "audit_disposition": "expected"}, {"number": 5494, "audit_disposition": "expected"}, {"number": 5218, "audit_disposition": "expected"}, {"number": 5039, "audit_disposition": "expected"}, {"number": 5082, "audit_disposition": "expected"}, {"number": 4625, "audit_disposition": "expected"}, {"number": 5697, "audit_disposition": "false_positive"}, {"number": 5612, "audit_disposition": "false_positive"}, {"number": 5286, "audit_disposition": "false_positive"}, {"number": 5257, "audit_disposition": "false_positive"}, {"number": 5138, "audit_disposition": "false_positive"}, {"number": 5070, "audit_disposition": "false_positive"}, {"number": 4697, "audit_disposition": "false_positive"}, {"number": 4624, "audit_disposition": "false_positive"}, {"number": 4596, "audit_disposition": "false_positive"}, {"number": 4302, "audit_disposition": "false_positive"}];
+            for (const sample of samples) {
+              const number = sample.number;
+              const base = `codex/api-audit-base-${number}`;
+              const head = `codex/api-audit-head-${number}`;
+              const { data: existing } = await github.rest.pulls.list({ ...context.repo, state: 'open', base, head: `${context.repo.owner}:${head}` });
+              if (existing.length) { core.notice(existing[0].html_url); continue; }
+              const { data: pr } = await github.rest.pulls.create({
+                ...context.repo, base, head,
+                title: `[API audit demo] Replay upstream #${number}`,
+                body: `Fork-only replay of https://github.com/flashinfer-ai/flashinfer/pull/${number}.\n\nSelected from the 2026-10-28 API alert audit. Historical disposition: **${sample.audit_disposition}** (reference only; the current checker applies its own rules).\n\nThe original source-tree change is preserved; only workflows are replaced with an isolated demo harness. Checker revision: cbe3ee7dff49b55a53ab13dae87489b24cb8d28f. Source snapshot details are in the local experiment manifest.\n\nThis PR is created by GitHub Actions to permit independent maintainer expected-command testing. No merge is intended.`,
+              });
+              core.notice(`${number}: ${pr.html_url}`);
+              await new Promise(resolve => setTimeout(resolve, 1200));
+            }

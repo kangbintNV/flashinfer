@@ -2,7 +2,7 @@ name: PR API Compatibility
 
 on:
   pull_request_target:
-    branches: ["codex/api-demo-base-*"]
+    branches: ["codex/api-demo-base-*", "codex/api-audit-base-*"]
     types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
@@ -33,7 +33,7 @@ jobs:
       # Never checkout or execute the PR head in this privileged workflow.
       - uses: actions/checkout@v4
         with:
-          ref: 07cd4f8457768c81dd56cb9295ae7db1e3fb7c5e
+          ref: cbe3ee7dff49b55a53ab13dae87489b24cb8d28f
           fetch-depth: 0
           persist-credentials: false
       - name: Test trusted API policy and gate
