@@ -51,7 +51,7 @@ jobs:
       # Never checkout or execute the PR head in this privileged workflow.
       - uses: actions/checkout@v4
         with:
-          ref: 12d038069e9a433c8f4e1a4877d9598419e83b48
+          ref: dab677eff8d2a36a634426cb1693318a76fce9c6
           fetch-depth: 0
           persist-credentials: false
       - name: Test trusted API policy and gate
@@ -69,8 +69,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trusted-public-api-report
-          path: ${{ github.event.pull_request.number == 35 && 'reports/intentionally-missing-evidence' || 'reports/public-api.json' }}
-          if-no-files-found: error
+          path: reports/public-api.json
+          if-no-files-found: warn
       - name: Report evidence upload failure
         if: steps.evidence.outcome == 'failure'
         run: echo "::warning::API evidence upload failed; the completed gate result is unchanged."
@@ -81,9 +81,3 @@ jobs:
           API_GATE_STATE: error
           API_GATE_DESCRIPTION: Trusted API workflow did not complete
         run: *api-gate-status
-      - name: Upload review experiment proof
-        if: always() && github.event.pull_request.number == 35
-        uses: actions/upload-artifact@v4
-        with:
-          name: review-upload-failure-proof
-          path: reports/public-api.json
