@@ -1,0 +1,31 @@
+name: Bootstrap API gate demo PR
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_pr:
+        description: Upstream PR to replay
+        required: true
+        type: choice
+        options: ['8953', '8907', '8910']
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  create-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const number = context.payload.inputs.upstream_pr;
+            if (!['8953', '8907', '8910'].includes(number)) throw Error('Unknown demo');
+            const base = `codex/api-demo-base-${number}`;
+            const head = `codex/api-demo-head-${number}`;
+            const { data: existing } = await github.rest.pulls.list({ ...context.repo, state: 'open', base, head: `${context.repo.owner}:${head}` });
+            if (existing.length) { core.notice(existing[0].html_url); return; }
+            const { data: pr } = await github.rest.pulls.create({
+              ...context.repo, base, head,
+              title: `[API gate demo] Replay upstream #${number}`,
+              body: `Fork-only demo of https://github.com/flashinfer-ai/flashinfer/pull/${number}, referenced by https://github.com/flashinfer-ai/flashinfer/issues/9444.\n\nReplays the merged PR's actual source-tree change. Only workflow files are replaced by an isolated demo harness. Checker code is pinned to upstream PR #10011 commit 07cd4f8457768c81dd56cb9295ae7db1e3fb7c5e.\n\nNo merge is intended. This PR is created by GitHub Actions so that the repository owner can independently exercise maintainer exception approval.`,
+            });
+            core.notice(pr.html_url);
