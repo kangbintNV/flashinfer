@@ -24,7 +24,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           INFERENCE_API_KEY: ${{ secrets.INFERENCE_API_KEY }}
           INFERENCE_BASE_URL: ${{ vars.INFERENCE_BASE_URL }}
-          CI_BOT_TARGET_MODEL: ${{ vars.CI_BOT_TARGET_MODEL }}
+          CI_BOT_TARGET_MODEL: 'azure/anthropic/claude-opus-5'
           CI_BOT_TARGET_TIMEOUT_SECONDS: '360'
         run: python3 scripts/infra/pr_checks/demo_replay.py
       - uses: actions/upload-artifact@v4
