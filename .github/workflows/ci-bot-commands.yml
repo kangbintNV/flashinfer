@@ -297,7 +297,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 1e95403052f3e70df87e49f14f739390cc9d2fe2
+          ref: 4680ebf45363e1bdb31b20f1f45c561a42068843
           fetch-depth: 0
           persist-credentials: false
       - name: Handle API BREAK expected or revoke
