@@ -11,7 +11,7 @@ name: CI Bot Commands
 
 on:
   issue_comment:
-    types: [created]
+    types: [created, edited, deleted]
 
 permissions:
   contents: read
@@ -22,6 +22,7 @@ jobs:
   handle-command:
     # Only run on PR comments mentioning @flashinfer-bot
     if: |
+      github.event.action == 'created' &&
       github.event.issue.pull_request &&
       contains(github.event.comment.body, '@flashinfer-bot') &&
       !contains(github.event.comment.body, 'API BREAK')
@@ -281,7 +282,7 @@ jobs:
   api-break-command:
     if: >-
       github.event.issue.pull_request &&
-      contains(github.event.comment.body, '@flashinfer-bot')
+      (github.event.action != 'created' || contains(github.event.comment.body, '@flashinfer-bot'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -296,7 +297,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 74de407c1f07e280ca82dca2cf06bcad0c470060
+          ref: 12d038069e9a433c8f4e1a4877d9598419e83b48
           fetch-depth: 0
           persist-credentials: false
       - name: Handle API BREAK expected or revoke
