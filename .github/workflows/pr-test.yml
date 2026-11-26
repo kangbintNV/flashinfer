@@ -1,8 +1,6 @@
 name: Inference Hub JSON Diagnosis
 on:
-  push:
-    branches:
-      - 'codex/bot-json-diagnosis-20261126/**'
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
