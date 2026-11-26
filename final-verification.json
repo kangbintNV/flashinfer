@@ -1,0 +1,21 @@
+{
+  "verified_at": "2026-11-26T09:33:20.577800+00:00",
+  "original_prs": 50,
+  "old_sample_originals_excluded": 90,
+  "old_fork_prs_excluded": 175,
+  "overlapping_originals": 0,
+  "new_open_experiment_prs": 50,
+  "formal_statuses_verified": 50,
+  "diagnostic_statuses_verified": 23,
+  "pr_documentation_verified": 50,
+  "source_paths_blobs_comment_hashes_verified": 50,
+  "fork_main_before_and_after": "3d617e70142f67a84e678a90b2e4eb5bfa1b50c8",
+  "fork_main_unchanged": true,
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "isolated_checker_checkout_clean": true,
+  "native_check_runs": 0,
+  "gpu_tests_launched": 0,
+  "bot_commands_posted": 0,
+  "settings_or_protection_changes": 0,
+  "prs_merged": 0
+}

@@ -77,16 +77,17 @@
       "Bot Run Request Check": {
         "state": "success",
         "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
-        "id": 59953328922,
-        "creator": "not included by combined-status endpoint"
+        "id": 59953328922
       },
       "GPU Impact Diagnostic (no original replies)": {
         "state": "failure",
         "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
-        "id": 59953405828,
-        "creator": "not included by combined-status endpoint"
+        "id": 59953405828
       }
-    }
+    },
+    "experiment_pr_open": true,
+    "documentation_verified": true,
+    "final_status_matches": true
   },
   "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
   "formal_result": {

@@ -7,8 +7,11 @@
     },
     "formal_assessment": {
       "correct_allow": 38,
-      "pending_manual": 2,
-      "correct_block": 10
+      "pending_manual": 3,
+      "correct_block": 9,
+      "false_allow": 0,
+      "false_block": 0,
+      "model_failure": 0
     },
     "formal_reasons": {
       "bot_response_found": 23,
@@ -26,8 +29,8 @@
       "unknown": 3
     },
     "classification_assessment": {
-      "match": 42,
-      "pending_manual": 4,
+      "match": 41,
+      "pending_manual": 5,
       "mismatch": 1,
       "model_failure": 3
     },
@@ -107,16 +110,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9369.json",
-            "id": 59952858027,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952858027
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9369.json",
-            "id": 59952860641,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952860641
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -197,10 +201,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9045.json",
-            "id": 59952795099,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952795099
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -291,10 +297,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7135.json",
-            "id": 59952854672,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952854672
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -387,10 +395,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6412.json",
-            "id": 59952854253,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952854253
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -481,10 +491,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/4162.json",
-            "id": 59952854256,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952854256
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -575,10 +587,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3941.json",
-            "id": 59952854260,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952854260
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -679,10 +693,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9639.json",
-            "id": 59952922034,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952922034
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -807,10 +823,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9655.json",
-            "id": 59952919436,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952919436
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -949,16 +967,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9739.json",
-            "id": 59952865164,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952865164
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9739.json",
-            "id": 59952926490,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952926490
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1061,10 +1080,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/4945.json",
-            "id": 59952900319,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952900319
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1189,10 +1210,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5383.json",
-            "id": 59952900454,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952900454
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1318,10 +1341,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9465.json",
-            "id": 59952925864,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952925864
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1444,10 +1469,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7077.json",
-            "id": 59952903781,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952903781
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1568,16 +1595,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
-            "id": 59952903734,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952903734
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
-            "id": 59952906215,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952906215
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1659,10 +1687,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9200.json",
-            "id": 59952907198,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952907198
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1753,10 +1783,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7653.json",
-            "id": 59952915598,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952915598
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -1861,10 +1893,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9681.json",
-            "id": 59952998447,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952998447
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2007,16 +2041,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9481.json",
-            "id": 59952931161,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952931161
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9481.json",
-            "id": 59953010173,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953010173
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2144,16 +2179,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
-            "id": 59952958291,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952958291
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
-            "id": 59953029158,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953029158
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2288,16 +2324,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9395.json",
-            "id": 59952976307,
-            "creator": "not included by combined-status endpoint"
+            "id": 59952976307
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9395.json",
-            "id": 59953069339,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953069339
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2413,10 +2450,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9706.json",
-            "id": 59953044580,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953044580
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2578,10 +2617,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9669.json",
-            "id": 59953045362,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953045362
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2738,10 +2779,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9375.json",
-            "id": 59953080005,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953080005
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -2896,10 +2939,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/10036.json",
-            "id": 59953116089,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953116089
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3042,10 +3087,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9659.json",
-            "id": 59953091262,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953091262
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3206,16 +3253,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9649.json",
-            "id": 59953053613,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953053613
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9649.json",
-            "id": 59953145250,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953145250
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3361,16 +3409,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9949.json",
-            "id": 59953053614,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953053614
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9949.json",
-            "id": 59953137236,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953137236
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3465,7 +3514,7 @@
         "default"
       ],
       "manual_expected_classification": "gpu_required",
-      "manual_reason": "Stable CUDA/kernel execution path changes; CUDA diff is substantive.",
+      "manual_reason": "GPU Python Mamba/SSD dispatch and generated-kernel execution paths change; device behavior is affected despite the .py suffix.",
       "formal_assessment": "correct_block",
       "classification_assessment": "match",
       "source_audit": {
@@ -3483,10 +3532,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9550.json",
-            "id": 59953125415,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953125415
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3640,16 +3691,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
-            "id": 59953089097,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953089097
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
-            "id": 59953175513,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953175513
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3791,16 +3843,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
-            "id": 59953094985,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953094985
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
-            "id": 59953184281,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953184281
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -3917,16 +3970,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6711.json",
-            "id": 59953119480,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953119480
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6711.json",
-            "id": 59953215632,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953215632
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4044,16 +4098,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9554.json",
-            "id": 59953128741,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953128741
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9554.json",
-            "id": 59953196525,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953196525
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4187,16 +4242,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8766.json",
-            "id": 59953140404,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953140404
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8766.json",
-            "id": 59953221869,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953221869
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4324,16 +4380,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
-            "id": 59953154497,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953154497
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
-            "id": 59953223592,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953223592
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4456,16 +4513,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9327.json",
-            "id": 59953188927,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953188927
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9327.json",
-            "id": 59953253374,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953253374
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4599,16 +4657,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
-            "id": 59953178660,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953178660
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
-            "id": 59953260485,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953260485
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4720,10 +4779,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/1163.json",
-            "id": 59953257417,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953257417
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4880,16 +4941,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9478.json",
-            "id": 59953218718,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953218718
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9478.json",
-            "id": 59953297406,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953297406
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -4993,10 +5055,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8889.json",
-            "id": 59953279466,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953279466
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5129,16 +5193,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9765.json",
-            "id": 59953229763,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953229763
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9765.json",
-            "id": 59953275275,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953275275
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5258,16 +5323,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9693.json",
-            "id": 59953260888,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953260888
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9693.json",
-            "id": 59953412108,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953412108
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5384,16 +5450,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9687.json",
-            "id": 59953256787,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953256787
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9687.json",
-            "id": 59953325655,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953325655
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5522,16 +5589,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8815.json",
-            "id": 59953268478,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953268478
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8815.json",
-            "id": 59953432320,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953432320
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5642,10 +5710,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6458.json",
-            "id": 59953380753,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953380753
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5794,16 +5864,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9640.json",
-            "id": 59953284347,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953284347
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9640.json",
-            "id": 59953374765,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953374765
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -5925,16 +5996,17 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
-            "id": 59953328922,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953328922
           },
           "GPU Impact Diagnostic (no original replies)": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
-            "id": 59953405828,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953405828
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -6041,10 +6113,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7067.json",
-            "id": 59953396168,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953396168
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -6193,10 +6267,12 @@
           "Bot Run Request Check": {
             "state": "success",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8932.json",
-            "id": 59953487467,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953487467
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -6346,10 +6422,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7819.json",
-            "id": 59953461899,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953461899
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -6463,10 +6541,10 @@
         "default",
         "default"
       ],
-      "manual_expected_classification": "gpu_required",
-      "manual_reason": "Despite docs title, adds GegluTanh to gated activations; this helper influences GEMM intermediate dimensions (current fused_moe/core.py I_gemm1) and thus stable GPU layout behavior.",
-      "formal_assessment": "correct_block",
-      "classification_assessment": "match",
+      "manual_expected_classification": "pending",
+      "manual_reason": "The docs-titled PR also changes GegluTanh CPU enum/helper behavior. Current code consumes this in GEMM dimensions, but the pinned historical fused_moe/core.py does not show that consumer; GPU effect at this snapshot versus sufficient CPU utility tests needs owner confirmation.",
+      "formal_assessment": "pending_manual",
+      "classification_assessment": "pending_manual",
       "source_audit": {
         "upstream_number": 3827,
         "experiment_pr": 225,
@@ -6482,10 +6560,12 @@
           "Bot Run Request Check": {
             "state": "failure",
             "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json",
-            "id": 59953488150,
-            "creator": "not included by combined-status endpoint"
+            "id": 59953488150
           }
-        }
+        },
+        "experiment_pr_open": true,
+        "documentation_verified": true,
+        "final_status_matches": true
       },
       "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
       "formal_result": {
@@ -6560,6 +6640,12 @@
     "actions_dispatch_error": "Actions has been disabled for this repository. HTTP 422",
     "native_check_error": "You must authenticate via a GitHub App. HTTP 403",
     "settings_changed": false,
-    "result_transport": "GitHub commit statuses; not native Check Runs"
+    "result_transport": "GitHub commit statuses; not native Check Runs",
+    "permissions_read_response": {
+      "enabled": true,
+      "allowed_actions": "all",
+      "sha_pinning_required": false
+    },
+    "infrastructure_root_cause": "Unverified: dispatch reports disabled although permissions read says enabled; no settings changed."
   }
 }

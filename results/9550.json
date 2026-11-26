@@ -43,7 +43,7 @@
     "default"
   ],
   "manual_expected_classification": "gpu_required",
-  "manual_reason": "Stable CUDA/kernel execution path changes; CUDA diff is substantive.",
+  "manual_reason": "GPU Python Mamba/SSD dispatch and generated-kernel execution paths change; device behavior is affected despite the .py suffix.",
   "formal_assessment": "correct_block",
   "classification_assessment": "match",
   "source_audit": {
@@ -61,10 +61,12 @@
       "Bot Run Request Check": {
         "state": "failure",
         "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9550.json",
-        "id": 59953125415,
-        "creator": "not included by combined-status endpoint"
+        "id": 59953125415
       }
-    }
+    },
+    "experiment_pr_open": true,
+    "documentation_verified": true,
+    "final_status_matches": true
   },
   "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
   "formal_result": {

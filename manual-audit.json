@@ -541,7 +541,7 @@
       "gpu_required"
     ],
     "confidence": "classification_supported_by_diff",
-    "reason": "Stable CUDA/kernel execution path changes; CUDA diff is substantive.",
+    "reason": "GPU Python Mamba/SSD dispatch and generated-kernel execution paths change; device behavior is affected despite the .py suffix.",
     "reviewed_paths": [
       "flashinfer/mamba/cake_ssd_combined.py",
       "flashinfer/mamba/ssd_combined.py",
@@ -983,12 +983,12 @@
   },
   {
     "upstream_number": 3827,
-    "expected_classification": "gpu_required",
+    "expected_classification": "pending",
     "allowed_classifications": [
-      "gpu_required"
+      "pending"
     ],
-    "confidence": "classification_supported_by_diff",
-    "reason": "Despite docs title, adds GegluTanh to gated activations; this helper influences GEMM intermediate dimensions (current fused_moe/core.py I_gemm1) and thus stable GPU layout behavior.",
+    "confidence": "needs_owner_confirmation",
+    "reason": "The docs-titled PR also changes GegluTanh CPU enum/helper behavior. Current code consumes this in GEMM dimensions, but the pinned historical fused_moe/core.py does not show that consumer; GPU effect at this snapshot versus sufficient CPU utility tests needs owner confirmation.",
     "reviewed_paths": [
       "docs/api/page.rst",
       "docs/api/quantization.rst",
@@ -998,7 +998,7 @@
       "tests/utils/test_tllm_enums.py"
     ],
     "reply_evidence_ids": [],
-    "expected_formal": "failure",
+    "expected_formal": "pending_manual",
     "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
   }
 ]

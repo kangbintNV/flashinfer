@@ -42,10 +42,10 @@
     "default",
     "default"
   ],
-  "manual_expected_classification": "gpu_required",
-  "manual_reason": "Despite docs title, adds GegluTanh to gated activations; this helper influences GEMM intermediate dimensions (current fused_moe/core.py I_gemm1) and thus stable GPU layout behavior.",
-  "formal_assessment": "correct_block",
-  "classification_assessment": "match",
+  "manual_expected_classification": "pending",
+  "manual_reason": "The docs-titled PR also changes GegluTanh CPU enum/helper behavior. Current code consumes this in GEMM dimensions, but the pinned historical fused_moe/core.py does not show that consumer; GPU effect at this snapshot versus sufficient CPU utility tests needs owner confirmation.",
+  "formal_assessment": "pending_manual",
+  "classification_assessment": "pending_manual",
   "source_audit": {
     "upstream_number": 3827,
     "experiment_pr": 225,
@@ -61,10 +61,12 @@
       "Bot Run Request Check": {
         "state": "failure",
         "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json",
-        "id": 59953488150,
-        "creator": "not included by combined-status endpoint"
+        "id": 59953488150
       }
-    }
+    },
+    "experiment_pr_open": true,
+    "documentation_verified": true,
+    "final_status_matches": true
   },
   "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
   "formal_result": {

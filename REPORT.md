@@ -5,28 +5,32 @@
 ## 先说明平台限制
 
 本批已创建 50 个全新 fork 实验 PR，完成真实 `run_pr` 入口重放，并发布 50 个正式 GitHub commit status 和 23 个独立分类诊断 status。它们显示在 PR 的状态检查列表（Checks/statusCheckRollup）并带 Details 链接。**它们不是原生 GitHub App Check Run，也没有实际 Actions 实验 run。**
-fork 的 workflow dispatch 明确返回 `Actions has been disabled for this repository` (HTTP 422)；当前 OAuth token 创建原生 Check Run 返回 `You must authenticate via a GitHub App` (HTTP 403)。未修改设置、main、branch protection，未合并任何 PR。也因此本批不能证明 Actions 自动触发或 required-check 合并强制执行。
+fork 的 workflow dispatch 明确返回 `Actions has been disabled for this repository` (HTTP 422)；只读 permissions 查询却返回 enabled=true，平台状态存在不一致，根因未核实。当前 OAuth token 创建原生 Check Run 返回 `You must authenticate via a GitHub App` (HTTP 403)，与 [GitHub Checks API 的凭据要求](https://docs.github.com/en/rest/checks/runs#create-a-check-run) 一致。未修改设置、main、branch protection，未合并任何 PR。也因此本批不能证明 Actions 自动触发或 required-check 合并强制执行。
 
 ## 结果统计
 
 - 正式：38 通过，12 失败；有原始内部回复 23 个，无回复 27 个。
-- 人工对照正式策略：正确放行 38；正确判需阻塞 10；误放行 0；误阻塞 0；待确认 2。
+- 人工对照正式策略：正确放行 38；正确判需阻塞 9；误放行 0；误阻塞 0；待确认 3。
 - 正式路径模型失败 0；独立分类诊断模型失败 3；逐例执行/状态发布基础设施失败 0；全局 Actions/原生 Check 平台障碍 1 项。
-- 分类（有回复时来自单独诊断，未覆盖正式结果）：{'docs_only': 8, 'cpu_only': 8, 'experimental_only': 4, 'gpu_required': 27, 'unknown': 3}。人工分类对照：{'match': 42, 'pending_manual': 4, 'mismatch': 1, 'model_failure': 3}。
+- 分类（有回复时来自单独诊断，未覆盖正式结果）：{'docs_only': 8, 'cpu_only': 8, 'experimental_only': 4, 'gpu_required': 27, 'unknown': 3}。人工分类对照：{'match': 41, 'pending_manual': 5, 'mismatch': 1, 'model_failure': 3}。
 - minimal 分析重试 5 例，恢复 2 例；另有 HTTP temperature 参数兼容重试 83 次，属于固定实现的传输兼容处理，不是额外 minimal 分析重试。
 - 旧 run artifact 的 50 个原 PR 和已有实验均已排除；本批原 PR 零重复。逐 PR 源文件路径、Git blob/status 和评论快照 hash 均 50/50 一致。
-- 待确认的 JIT/host-resource 边界为 #9681、#9481、#9327、#7067；其中 #9681/#7067 的正式阻塞也保留为待确认，不为它们强行标注正确或错误。
+- 待确认的边界为 #9681、#9481、#9327、#7067、#3827；其中 #9681/#7067/#3827 的正式阻塞也保留为待确认，不为它们强行标注正确或错误。
 
 ## 具体问题与代表案例
 
 - **#8815：GPU 分类仍受选测错误影响。** 默认和 minimal 的最终 JSON 都明确 `gpu_required`，但推荐测试正文因 context budget 未提供，目标校验抛出 `AI target has no inspected executable test candidate in the merged tree`；有效 GPU 结论随之变成 unknown。正式路径因已有内部回复而通过，但诊断失败不可被绿色结果掩盖。详见证据 zip 中 8815 的 call-4/call-6 response 与 request。未修改 #10020。
 - **#8081 / #8433：历史源树与当前 CI 路径不一致。** 两次都请求历史树中不存在的 `scripts/infra/task_jit_run_tests_part*.sh` 等路径，校验拒绝并最终 unknown。相应历史树保留的是旧路径，不能称为原 PR 当时的 bot 生产故障。
 - **#9693：缺少可选 case 不代表 CPU-only。** minimal 后保留 `gpu_required`、targets 为空，并指出 persistent decode barrier / empty-KV 的 GPU 同步影响。符合独立判断要求。
-- **#3827：docs 标题包含运行时改动。** diff 增加 gated activation 的 GegluTanh 分支，影响 GEMM 维度语义；无内部回复，正式检查失败。
+- **#3827：docs 标题包含运行时改动。** diff 除文档还增加 GegluTanh 的 enum/helper 分支；无内部回复，模型判 GPU 并失败。但固定历史源树尚未确认该 helper 的 GPU 消费路径，不能用当前版本调用方替代历史证据，因此人工结论保留待确认。
 - **#8889：Python 文件也可纯文档。** 实际只改 DeepGEMM docstrings/doctest 文本，正确豁免。
 - **#8561：experimental 豁免不是 CPU-only。** 实际修改 GPU top-k radix/barrier 和 GPU 测试，但改动完全受 experimental 路径包含策略豁免。
 - **#8932：重试恢复。** 默认阶段文件请求失败，minimal 后按 lazy import/打包元数据的 CPU 行为正确放行。
-- **#5658：分类标签不准确。** 实际是 experimental SM110 CUDA kernel 改动，另有 benchmark shape JSON；模型以 experimental 豁免为理由输出 cpu_only。正式放行符合回复/豁免策略，但不能把这类 GPU kernel 改动称作 CPU-only。计为 1 个分类标签不符，不计为正式误放行。
+- **#5658：分类接口的标签局限。** 实际是 experimental SM110 CUDA kernel 改动，另有 benchmark shape JSON；模型以 experimental 豁免为理由输出 cpu_only。当前模型枚举只有 docs_only/cpu_only/gpu_required/unknown，experimental_only 仅为路径快捷分支的输出，因此这属于标签表达局限，不是模型选择了非法类别，也不是错误放行。按行为语义计 1 个分类标签不符，不计为正式误放行。
+
+- **#6458：公开回复不能替代内部回复。** 原始快照中有公开 bot 回复，但没有符合内部规则的回复；正式检查为 waiting_for_bot/failure。
+- **#9706 / #9669 / #9550：通用文件名兜底被实际使用。** 输出保留 filename_only_evidence，分别涉及预算省略的 CUDA/JIT 或 GPU Python 文件；没有为文件添加特例。另有 12 例缺少部分原始 patch，分析仍使用可用内容，没有统一否决。
+- **#1163 / #8081：新增测试同样纳入 GPU 判断。** 前者新增 CUDA green context API 和设备测试，无内部回复而正式失败；后者即使新增的 PTX 检查可在 CPU 执行，实际同步代码仍被纳入审阅。
 
 ## 完整结果表
 
@@ -83,14 +87,14 @@ fork 的 workflow dispatch 明确返回 `Actions has been disabled for this repo
 | 47 | [#7067](https://github.com/flashinfer-ai/flashinfer/pull/7067) | [#222](https://github.com/kangbintNV/flashinfer/pull/222) | [详情](https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7067.json) | GPU | 无 | ❌ | 无 | 待确认 |
 | 48 | [#8932](https://github.com/flashinfer-ai/flashinfer/pull/8932) | [#223](https://github.com/kangbintNV/flashinfer/pull/223) | [详情](https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8932.json) | CPU | 无 | ✅ | 恢复 | 正确放行 |
 | 49 | [#7819](https://github.com/flashinfer-ai/flashinfer/pull/7819) | [#224](https://github.com/kangbintNV/flashinfer/pull/224) | [详情](https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7819.json) | GPU | 无 | ❌ | 无 | 正确判阻塞 |
-| 50 | [#3827](https://github.com/flashinfer-ai/flashinfer/pull/3827) | [#225](https://github.com/kangbintNV/flashinfer/pull/225) | [详情](https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json) | GPU | 无 | ❌ | 无 | 正确判阻塞 |
+| 50 | [#3827](https://github.com/flashinfer-ai/flashinfer/pull/3827) | [#225](https://github.com/kangbintNV/flashinfer/pull/225) | [详情](https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json) | GPU | 无 | ❌ | 无 | 待确认 |
 
 ## 验证范围与不能证明的部分
 
-已验证：固定代码真实入口、冻结源 diff/评论、回复快捷通过、公开 bot 回复排除、文档/CPU/experimental 豁免、GPU 与 case 独立输出、一次 minimal 重试及未知结果保守处理。CPU 验证 44 项通过。
+已覆盖：固定代码真实入口、冻结源 diff/评论、回复快捷通过、公开 bot 回复排除、文档/CPU/experimental 豁免、无可选 case 时的 GPU 判断、一次 minimal 重试及未知结果保守处理。GPU 与 case 完全独立的要求仍受 #8815 所示错误耦合影响，不能视为全部通过。CPU 验证 44 项通过。
 不能证明：GPU 数值/性能正确、测试覆盖充分、真实 bot 服务健康、最新 commit 已实际测试、Actions 事件自动触发、原生 Check Run 发布，以及 Required check 是否真的禁止合并。本批没有 GPU 测试，也没有发送 /bot run 命令。
-人工审阅仅判断改动类别及策略合理性，不是对全部 kernel 实现的完整代码审查。无法独立确认的边界保留待确认；模型为非确定输出，本结果不应当作跨版本因果 A/B。
+表中的人工对照来自本次助手逐例静态审阅，并非独立维护者标注；仅判断改动类别及策略合理性，不是对全部 kernel 实现的完整代码审查。无法独立确认的边界保留待确认；模型为非确定输出，本结果不应当作跨版本因果 A/B。
 
 ## 数据
 
-[CSV](results.csv) · [完整 JSON](results.json) · [人工审阅](manual-audit.json) · [源/评论审计](remote-audit.json) · [排重集合](exclusions.json) · [请求响应证据包](evidence-traces.zip)
+[最终 GitHub 状态核对](final-verification.json) · [问题复现索引](issues.json) · [CSV](results.csv) · [完整 JSON](results.json) · [人工审阅](manual-audit.json) · [源/评论审计](remote-audit.json) · [排重集合](exclusions.json) · [请求响应证据包](evidence-traces.zip)

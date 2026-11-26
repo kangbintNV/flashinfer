@@ -1,0 +1,69 @@
+{
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "issues": [
+    {
+      "id": "selection-validation-discards-gpu-impact",
+      "original_pr": 8815,
+      "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/218",
+      "severity": "conservative classification failure",
+      "formal": "success via original internal response",
+      "diagnostic": "unknown after default and minimal",
+      "expected": "retain the independently valid gpu_required conclusion even when target validation fails",
+      "actual_error": "AI target has no inspected executable test candidate in the merged tree",
+      "evidence": [
+        "traces/8815/reports/call-4-request.json",
+        "traces/8815/reports/call-4-response.json",
+        "traces/8815/reports/call-6-request.json",
+        "traces/8815/reports/call-6-response.json"
+      ],
+      "checker_locations": [
+        "scripts/infra/pr_checks/ai_test_scope.py:641",
+        "scripts/infra/pr_checks/ai_test_scope.py:695",
+        "scripts/infra/pr_checks/check_bot_run_request.py:107"
+      ],
+      "source_patch_applied": false
+    },
+    {
+      "id": "historical-tree-current-ci-routing-mismatch",
+      "original_prs": [
+        8081,
+        8433
+      ],
+      "diagnostic": "unknown after default and minimal",
+      "actual_error": "AI requested a file outside the supplied repository inventory",
+      "interpretation": "Requested scripts/infra CI paths are absent in the pinned historical trees. The current trusted CI routing references newer locations. This is not proof of a historical production bot incident.",
+      "source_patch_applied": false
+    },
+    {
+      "id": "experimental-gpu-exemption-label-limitation",
+      "original_pr": 5658,
+      "actual": "cpu_only with explicit experimental GPU exemption reason",
+      "expected_semantic_category": "experimental_only",
+      "interpretation": "Model enum has no experimental_only value; that value is only emitted by the path-containment shortcut. This is a presentation/schema limitation, not an invalid model enum or a demonstrated false allow.",
+      "formal": "success via original internal response",
+      "source_patch_applied": false
+    },
+    {
+      "id": "requires-owner-confirmation",
+      "original_prs": [
+        9681,
+        9481,
+        9327,
+        7067,
+        3827
+      ],
+      "formal_failure_pending_review": [
+        9681,
+        7067,
+        3827
+      ],
+      "interpretation": "JIT discovery/object-name contracts, worker lifetime, binding-cache deferral and historical helper consumers need owner confirmation. No forced correctness label."
+    },
+    {
+      "id": "platform-native-check-unavailable",
+      "evidence": "infra-actions-disabled.json",
+      "interpretation": "Dispatch says Actions disabled, permissions read says enabled; root cause remains unverified. Both available credentials are personal/OAuth tokens, not App credentials. No settings changed.",
+      "documentation": "https://docs.github.com/en/rest/checks/runs#create-a-check-run"
+    }
+  ]
+}

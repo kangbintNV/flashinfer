@@ -2,5 +2,11 @@
   "actions_dispatch_error": "Actions has been disabled for this repository. HTTP 422",
   "native_check_error": "You must authenticate via a GitHub App. HTTP 403",
   "settings_changed": false,
-  "result_transport": "GitHub commit statuses; not native Check Runs"
+  "result_transport": "GitHub commit statuses; not native Check Runs",
+  "permissions_read_response": {
+    "enabled": true,
+    "allowed_actions": "all",
+    "sha_pinning_required": false
+  },
+  "infrastructure_root_cause": "Unverified: dispatch reports disabled although permissions read says enabled; no settings changed."
 }
