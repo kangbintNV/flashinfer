@@ -1,0 +1,22 @@
+{
+  "normalization": "remove one complete enclosing JSON code fence",
+  "downstream_validation": "passed",
+  "outcome": "selected",
+  "targets": [
+    "tests/attention/test_attention_ts_decode_mixed_precision.py"
+  ],
+  "gpu_impact": {
+    "classification": "gpu_required",
+    "reason": "Changes are CUTLASS-DSL device code: packed NVFP4-&gt;FP8 row converters switching to the dense mul.rn.e4m3x4.e2m1x4.e4m3x4 form, stage-sliced scale-word gathering in helpers_common.load_nvfp4_row_scale_words, duplicated P into TMEM lane panels (smem_p/tmem_o), grouped-slot QK/PV MMA issue from one elected block (tmem_s._qk_mma_slot, tmem_o._vp_mma_slot), run-time head-dim stage selection in the SMEM transform loop, new D512 Keeps profile/auto-selection and split-reducer warp-convergence fixes. These alter tensor-core operand addressing, SMEM/TMEM layout and synchronization, so only GPU execution can validate numerics and convergence; CPU-only checks cannot cover them.",
+    "evidence_paths": [
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_transformed_kv.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_p.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+      "tests/attention/test_attention_ts_decode_mixed_precision.py"
+    ],
+    "case_gap": "The PR's own new cases in tests/attention/test_attention_ts_decode.py (grouped Keeps auto-selection, separate split reducer at D512) could not be inspected (file size limit), and no Blackwell lane appears in pr-test.yml, so these assertions may not execute in the standard lanes."
+  }
+}

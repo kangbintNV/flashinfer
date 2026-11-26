@@ -96,6 +96,13 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     secrets = tuple(value for value in (model.api_key, os.getenv('GH_TOKEN'), os.getenv('GITHUB_TOKEN')) if value)
     report = {'metadata': frozen['metadata'], 'model': model.model, 'responses': []}
+    expected_payload = {
+        'model': model.model, 'max_tokens': 4000, 'temperature': 0,
+        'messages': [{'role': 'system', 'content': scope.SYSTEM_PROMPT + '\n' + frozen['task']}, {'role': 'user', 'content': json.dumps(frozen['context'])}],
+    }
+    assert hashlib.sha256(json.dumps(expected_payload).encode()).hexdigest() == frozen['metadata']['payload_sha256']
+    without_temperature = {key: value for key, value in expected_payload.items() if key != 'temperature'}
+    allowed_hashes = {frozen['metadata']['payload_sha256'], hashlib.sha256(json.dumps(without_temperature).encode()).hexdigest()}
 
     def save():
         output.write_text(json.dumps(redact(report, secrets), ensure_ascii=True))
@@ -106,8 +113,8 @@ def main():
         start = time.monotonic()
         payload = json.loads(request.data)
         observed_hash = hashlib.sha256(request.data).hexdigest()
-        assert observed_hash == frozen['metadata']['payload_sha256'], 'Payload differs from frozen original request'
-        entry = {'request_sha256': observed_hash, 'max_tokens': payload['max_tokens'], 'http_timeout_seconds': timeout}
+        assert observed_hash in allowed_hashes, 'Payload differs from frozen original request or its existing temperature fallback'
+        entry = {'request_sha256': observed_hash, 'max_tokens': payload['max_tokens'], 'temperature_present': 'temperature' in payload, 'http_timeout_seconds': timeout}
         report['responses'].append(entry)
         try:
             with real_open(request, timeout=timeout) as response:

@@ -1,0 +1,66 @@
+[
+  {
+    "upstream_number": 9964,
+    "original_logged_selection_chars": [
+      279390
+    ],
+    "reconstructed_chars": 279390,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 9974,
+    "original_logged_selection_chars": [
+      294559
+    ],
+    "reconstructed_chars": 294559,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 9771,
+    "original_logged_selection_chars": [
+      280491
+    ],
+    "reconstructed_chars": 280491,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 9894,
+    "original_logged_selection_chars": [
+      252425
+    ],
+    "reconstructed_chars": 252425,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 9846,
+    "original_logged_selection_chars": [
+      295615
+    ],
+    "reconstructed_chars": 295615,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 9834,
+    "original_logged_selection_chars": [
+      293324
+    ],
+    "reconstructed_chars": 293324,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 8464,
+    "original_logged_selection_chars": [
+      296418
+    ],
+    "reconstructed_chars": 296418,
+    "matches_logged_size": true
+  },
+  {
+    "upstream_number": 9916,
+    "original_logged_selection_chars": [
+      295823
+    ],
+    "reconstructed_chars": 295823,
+    "matches_logged_size": true
+  }
+]
