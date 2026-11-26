@@ -5,7 +5,7 @@
 ## 当前状态
 
 原 100 个实验 PR 已更新，另建 50 个新实验 PR。已核对原始 diff/源码树、评论快照和全部 750 个检查器文件版本。当前已验证的原生正式 Check 数：**0/150**。
-如果显示“未运行”，表示尚未获得实际 Actions 执行结果，不能读作 unknown、通过或失败。fork 的 Actions dispatch 曾返回 disabled；没有将 commit status 充作原生 Check Run。已准备的手动工作流只运行检查器，不运行 GPU 测试。
+如果显示“未运行”，表示尚未获得实际 Actions 执行结果，不能读作 unknown、通过或失败。[fork Actions 页面](https://github.com/kangbintNV/flashinfer/actions) 明确提示因 Actions 使用规模暂停 workflow，需要维护者重新启用；dispatch 返回 disabled。普通权限开关 enabled=true 并不表示暂停已解除。没有将 commit status 充作原生 Check Run。已准备的手动工作流只运行检查器，不运行 GPU 测试。
 
 ## 修正规则与验证
 

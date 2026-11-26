@@ -583,7 +583,7 @@
       "original_number": 8464,
       "cohort": "old50",
       "expected_classification": "docs_only",
-      "reason": "API RST and Python docstrings only; inspected non-doc AST unchanged.",
+      "reason": "API RST, docstrings and documentation-text constants only; the AST difference in cake_windows.py is documentation text, not GPU execution.",
       "source_paths": [
         "docs/api/comm.rst",
         "docs/api/gemm.rst",
