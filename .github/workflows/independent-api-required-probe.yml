@@ -1,0 +1,17 @@
+name: Independent API required workflow probe
+on:
+  pull_request_target:
+    branches: [codex/independent-api-native-20261126-base]
+permissions:
+  contents: read
+jobs:
+  isolated-decision:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate independent PR decisions for ruleset binding only
+        env:
+          PROBE_PR: ${{ github.event.pull_request.number }}
+        run: |
+          echo "Ruleset binding probe only; not production authorization."
+          if [[ "$PROBE_PR" == "244" ]]; then exit 0; fi
+          exit 1
