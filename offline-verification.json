@@ -1,0 +1,570 @@
+[
+  {
+    "pr": 9843,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9814,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9818,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9818,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "selection"
+    ]
+  },
+  {
+    "pr": 9731,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9834,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9989,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9788,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 8930,
+    "docs_fast_path": true
+  },
+  {
+    "pr": 9858,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9819,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9771,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9897,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9815,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence"
+    ]
+  },
+  {
+    "pr": 9815,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 10013,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 10005,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 8960,
+    "docs_fast_path": true
+  },
+  {
+    "pr": 8464,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence"
+    ]
+  },
+  {
+    "pr": 8464,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence"
+    ]
+  },
+  {
+    "pr": 9865,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9865,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "selection"
+    ]
+  },
+  {
+    "pr": 9916,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9307,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence"
+    ]
+  },
+  {
+    "pr": 9307,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9716,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9917,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9813,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9844,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9871,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9332,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9332,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "selection"
+    ]
+  },
+  {
+    "pr": 9892,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9847,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9846,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9651,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9885,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9978,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9958,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 10006,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9974,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9990,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9894,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9857,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9816,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9545,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9836,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9861,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9908,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9964,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9876,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9749,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9358,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9817,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9817,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "selection"
+    ]
+  },
+  {
+    "pr": 9694,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9694,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "selection"
+    ]
+  },
+  {
+    "pr": 9991,
+    "effort": "default",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "evidence",
+      "selection"
+    ]
+  },
+  {
+    "pr": 9991,
+    "effort": "minimal",
+    "saved_outcome_reproduced": true,
+    "request_contexts_match": true,
+    "model_stages": [
+      "selection"
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "model": "azure/anthropic/claude-opus-5",
+  "max_tokens_per_request": 4000,
+  "first_effort": "default",
+  "retry_effort": "minimal",
+  "max_analysis_attempts": 2,
+  "retry_on": [
+    "TargetSelectionError",
+    "invalid or incomplete JSON",
+    "unknown GPU impact"
+  ],
+  "no_retry_on": [
+    "known GPU impact requiring bot response",
+    "valid CPU-only result",
+    "historical bot response"
+  ],
+  "scope": "50 pinned original PRs; fresh evidence and final selection; no-reply diagnostics share analysis with formal checks",
+  "guard": "full pinned regular-file blobs",
+  "code_sha256": {
+    "ai_test_scope.py": "98746aa0b8097cf968a3963c0d6c1190a0609a7ef754d9796cd9bf88d335bcba",
+    "gpu_impact.py": "9a0c68d381775dda5baabde163e28fbfeb794bbfba8d3b08f71ddb0d44a6f0ef",
+    "scope_evidence.py": "95cf913d8b4c9f3ee62cf7d6884196d31919e7a4f46adb89a60d9ea55c93720a",
+    "merged_source.py": "abf28b279286c572f810adcf8f0a39d65a72cf5dce84d5901698505b7b36e314",
+    "check_bot_run_request.py": "2c50597db362ab6597e5184ff7a0eb01fab4329d47a48c89c87446138fe88806"
+  }
+}

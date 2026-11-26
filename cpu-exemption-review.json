@@ -1,0 +1,37 @@
+[
+  {
+    "pr": 9788,
+    "review": "supports cpu_only",
+    "basis": "Only version.txt changes 0.7.5 to 0.7.6; no executable GPU path edited."
+  },
+  {
+    "pr": 9990,
+    "review": "supports cpu_only",
+    "basis": "Only Python floor metadata, type-check configuration and installation documentation change; no runtime GPU implementation edited."
+  },
+  {
+    "pr": 9814,
+    "review": "supports cpu_only",
+    "basis": "Only baseline_grid_ctas report accounting changes. Whole pinned repository git grep finds this key only in its report dictionary definition, not launch consumers."
+  },
+  {
+    "pr": 9908,
+    "review": "supports cpu_only",
+    "basis": "Only RUN_H100 workflow gate changes true to false; CI configuration validation needs no GPU product execution."
+  },
+  {
+    "pr": 9843,
+    "review": "borderline host-validation-only test change; no numerical kernel test added",
+    "basis": "Diff only derives negative-test ring depth from static SMEM constants and skips it for SM107 compile targets. Read the complete changed test and compile-target helper; no kernel launch in changed test. This does not establish that the entire test module is GPU-free."
+  },
+  {
+    "pr": 9847,
+    "review": "supports cpu_only",
+    "basis": "Only installed package-data discovery and CPU manifest/hash integrity tests change. New test explicitly isolates the package and asserts it is never imported; no CUDA execution path added."
+  },
+  {
+    "pr": 9894,
+    "review": "supports cpu_only",
+    "basis": "Only simulated CUDA test doubles change: fake capture accepts pool and fake current_device/graph_pool_handle are added. Existing CPU/Gloo simulation path exercises the change; no real kernel/graph implementation is edited."
+  }
+]
