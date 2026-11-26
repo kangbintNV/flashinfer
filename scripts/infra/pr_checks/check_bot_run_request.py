@@ -2,6 +2,7 @@
 """Publish a response-only internal /bot run gate without posting PR comments."""
 
 import argparse
+import copy
 from dataclasses import dataclass
 import html
 import json
@@ -10,9 +11,12 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import time
 
 from ai_test_scope import (
+    EVIDENCE_PROMPT,
     GitHub,
+    InferenceHub,
     PytestTargetSelector,
     TargetSelectionError,
     _public_prose,
@@ -23,6 +27,107 @@ CHECK_NAME = "Bot Run Request Check"
 BOT_ID = 236526959  # Stable GitHub account ID; never rely on copied display text.
 PUBLIC_NOTE = "<!-- flashinfer-bot:ci-bot-commands-note -->"
 VERSION = "bot-run-request-v1"
+
+
+class PinnedPRSource:
+    """Bind source analysis to one immutable base/head/file-list snapshot."""
+
+    def __init__(self, client, pr, base_sha, changed):
+        self.client = client
+        self.number = pr["number"]
+        self.base_sha = base_sha
+        self.changed = copy.deepcopy(changed)
+
+    def __getattr__(self, name):
+        return getattr(self.client, name)
+
+    @property
+    def deadline(self):
+        return self.client.deadline
+
+    @deadline.setter
+    def deadline(self, value):
+        self.client.deadline = value
+
+    def get_current_base_sha(self, pr):
+        # run_pr checks the real current base separately before publication.
+        return self.base_sha
+
+    def get_pr_files(self, number):
+        if number != self.number:
+            raise TargetSelectionError("Unexpected PR for pinned file list")
+        return copy.deepcopy(self.changed)
+
+
+class RetryingImpactInference:
+    """Reuse validated file requests only while their pinned context is identical."""
+
+    def __init__(self, model):
+        self.model = model
+        self.api_key = model.api_key
+        self.deadline = None
+        self.retry = False
+        self.evidence = None
+        self.evidence_context = None
+        self.confirmed = False
+
+    def complete(self, context, task):
+        if task == EVIDENCE_PROMPT:
+            key = json.dumps(context, sort_keys=True)
+            if self.retry and self.confirmed and key == self.evidence_context:
+                return copy.deepcopy(self.evidence)
+            self.confirmed = False
+        else:
+            # Selection is reached only after the selector validates read_paths.
+            self.confirmed = True
+        self.model.deadline = self.deadline
+        result = self.model.complete(context, task)
+        if task == EVIDENCE_PROMPT:
+            self.evidence = copy.deepcopy(result)
+            self.evidence_context = key
+        return result
+
+
+def analyze_gpu_impact(client, pr, read_ci_file, inference=None):
+    model = inference or InferenceHub()
+    wrapped = RetryingImpactInference(model)
+    deadline = client.deadline
+    attempts = []
+    secrets = (model.api_key, os.getenv("GH_TOKEN"), os.getenv("GITHUB_TOKEN"))
+    for index, effort in enumerate((None, "minimal")):
+        model.reasoning_effort = effort
+        wrapped.retry = index > 0
+        try:
+            # Share the outer budget between attempts and leave publication time.
+            available = _remaining(deadline, 540) - 60
+            if available <= 0:
+                raise TargetSelectionError("Insufficient time for analysis retry")
+            selector = PytestTargetSelector(client, read_ci_file, inference=wrapped)
+            selector.timeout = min(selector.timeout, available / (2 - index))
+            selection = selector.select(pr, include_gpu_impact=True)
+            impact = {**selection.gpu_impact, "targets": selection.paths}
+            if impact["classification"] == "unknown":
+                raise TargetSelectionError(impact["reason"])
+        except (TargetSelectionError, ValueError) as error:
+            attempts.append(
+                {
+                    "effort": effort or "default",
+                    "error": _public_prose(str(error), secrets),
+                }
+            )
+        else:
+            attempts.append({"effort": effort or "default", "success": True})
+            return {**impact, "analysis_attempts": attempts}
+        finally:
+            client.deadline = deadline
+    return {
+        "classification": "unknown",
+        "reason": attempts[-1]["error"],
+        "evidence_paths": [],
+        "targets": [],
+        "case_gap": "",
+        "analysis_attempts": attempts,
+    }
 
 
 def is_run_command(body):
@@ -123,15 +228,27 @@ def evaluate(comments, analyze):
         details += "\n\nSuggested tests: " + ", ".join(
             html.escape(path) for path in impact["targets"]
         )
+    if impact.get("missing_patch_paths"):
+        details += "\n\nPatch content unavailable (informational): " + ", ".join(
+            html.escape(path) for path in impact["missing_patch_paths"]
+        )
+        count = impact["missing_patch_count"]
+        if count > len(impact["missing_patch_paths"]):
+            details += f" (showing the first 30 of {count} files)"
     if impact.get("case_gap"):
         details += "\n\nTest selection gap: " + _public_prose(
             impact["case_gap"], limit=1000
+        )
+    if len(impact.get("analysis_attempts", [])) > 1:
+        details += "\n\nAnalysis attempts:\n" + "\n".join(
+            "- " + item["effort"] + ": " + item.get("error", "succeeded")
+            for item in impact["analysis_attempts"]
         )
     if kind in {"cpu_only", "docs_only"}:
         return Result("success", kind, "Bot run not required", details, impact)
     if kind == "unknown":
         title, reason = "Unable to determine GPU impact", "unknown"
-        details += "\n\nNo CPU-only exemption could be established. Rerun this check, or comment `/bot run` and wait for the bot response."
+        details += "\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response."
     elif command:
         title, reason = "Waiting for flashinfer-bot", "waiting_for_bot"
     else:
@@ -147,6 +264,32 @@ def evaluate(comments, analyze):
 
 
 class Client(GitHub):
+    def get_pr_files_at(self, pr, base_sha):
+        head_sha = pr["head"]["sha"]
+        if not all(
+            isinstance(sha, str) and re.fullmatch(r"[0-9a-f]{40}", sha)
+            for sha in (base_sha, head_sha)
+        ):
+            raise TargetSelectionError("Invalid pinned comparison commits")
+        comparison = self.request(
+            f"repos/{self.repository}/compare/{base_sha}...{head_sha}?per_page=1"
+        )
+        files = comparison.get("files") if isinstance(comparison, dict) else None
+        if (
+            not isinstance(files, list)
+            or len(files) != pr.get("changed_files")
+            or any(
+                not isinstance(item, dict) or not isinstance(item.get("filename"), str)
+                for item in files
+            )
+            or not isinstance(comparison.get("base_commit"), dict)
+            or comparison.get("base_commit", {}).get("sha") != base_sha
+        ):
+            # GitHub's immutable compare response contains at most 300 files.
+            # Never use a partial list to grant a documentation/CPU exemption.
+            raise TargetSelectionError("Pinned changed-file comparison is incomplete")
+        return files
+
     def request(self, endpoint, method="GET", data=None):
         args = ["gh", "api", "--method", method, endpoint]
         if data is not None:
@@ -294,75 +437,92 @@ def docs_only(changed, expected_count):
 
 
 def run_pr(client, number):
-    pr = client.get_pr_details(number)
-    if pr["state"] != "open" or pr["base"]["ref"] != "main":
-        return None
-    checks = client.checks(pr["head"]["sha"])
-    owned = [
-        item
-        for item in checks
-        if item.get("app", {}).get("slug") == "github-actions"
-        and item.get("external_id") == f"{VERSION}:{number}"
-        and item.get("name") == CHECK_NAME
-    ]
-    existing_id = max((item["id"] for item in owned), default=None)
-    existing_id = client.begin(pr, existing_id)
-    base_sha = client.get_current_base_sha(pr)
-    try:
-        comments = client.comments(number)
-        saved = cached_analysis(owned, pr, base_sha)
+    for attempt in range(2):
+        pr = copy.deepcopy(client.get_pr_details(number))
+        if pr["state"] != "open" or pr["base"]["ref"] != "main":
+            return None
+        checks = client.checks(pr["head"]["sha"])
+        owned = [
+            item
+            for item in checks
+            if item.get("app", {}).get("slug") == "github-actions"
+            and item.get("external_id") == f"{VERSION}:{number}"
+            and item.get("name") == CHECK_NAME
+        ]
+        existing_id = max((item["id"] for item in owned), default=None)
+        existing_id = client.begin(pr, existing_id)
+        base_sha = None
+        retry = False
+        try:
+            base_sha = client.get_current_base_sha(pr)
+            comments = client.comments(number)
+            saved = cached_analysis(owned, pr, base_sha)
 
-        def analyze():
-            if saved:
-                return saved
-            changed = client.get_pr_files(number)
-            if docs_only(changed, pr.get("changed_files")):
-                return {
-                    "classification": "docs_only",
-                    "reason": "Only Markdown/RST documentation changed.",
-                    "evidence_paths": [item["filename"] for item in changed],
-                    "case_gap": "",
-                    "targets": [],
-                }
-            root = Path(__file__).resolve().parents[3]
-            selector = PytestTargetSelector(
-                client, lambda path: (root / path).read_text()
+            def analyze():
+                if saved:
+                    return saved
+                changed = client.get_pr_files_at(pr, base_sha)
+                if docs_only(changed, pr.get("changed_files")):
+                    return {
+                        "classification": "docs_only",
+                        "reason": "Only Markdown/RST documentation changed.",
+                        "evidence_paths": [item["filename"] for item in changed],
+                        "case_gap": "",
+                        "targets": [],
+                    }
+                root = Path(__file__).resolve().parents[3]
+                return analyze_gpu_impact(
+                    PinnedPRSource(client, pr, base_sha, changed),
+                    pr,
+                    lambda path: (root / path).read_text(),
+                )
+
+            result = evaluate(comments, analyze)
+            latest = client.get_pr_details(number)
+            fresh = (
+                latest["head"]["sha"] == pr["head"]["sha"]
+                and latest["base"]["ref"] == pr["base"]["ref"]
+                and latest["state"] == "open"
             )
-            # Inference has its own shorter deadline. Reserve the outer budget
-            # so even a timed-out analysis can publish a useful failing Check.
-            deadline = client.deadline
-            try:
-                selection = selector.select(pr, include_gpu_impact=True)
-            finally:
-                client.deadline = deadline
-            return {**selection.gpu_impact, "targets": selection.paths}
-
-        result = evaluate(comments, analyze)
-    except TargetSelectionError as error:
-        result = Result(
-            "failure",
-            "evidence_error",
-            "Unable to read bot request evidence",
-            _public_prose(str(error)),
-        )
-    latest = client.get_pr_details(number)
-    if (
-        latest["head"]["sha"] != pr["head"]["sha"]
-        or latest["base"]["ref"] != pr["base"]["ref"]
-        or latest["state"] != "open"
-        or client.get_current_base_sha(latest) != base_sha
-    ):
-        print("PR changed during evaluation; discard stale result")
-        return None
-    client.publish(pr, result, existing_id, base_sha)
-    summary = (
-        f"## {CHECK_NAME} — PR #{number}\n\n**{result.title}**\n\n{result.summary}\n"
-    )
-    if os.getenv("GITHUB_STEP_SUMMARY"):
-        with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as stream:
-            stream.write(summary)
-    print(f"PR #{number}: {result.reason} ({result.conclusion})")
-    return result
+            if not fresh or client.get_current_base_sha(latest) != base_sha:
+                retry = latest["state"] == "open" and latest["base"]["ref"] == "main"
+                result = Result(
+                    "failure",
+                    "stale_evaluation",
+                    "PR changed during evaluation",
+                    "The captured head/base changed. No stale success was published. "
+                    + (
+                        "Re-evaluating the current snapshot once."
+                        if attempt == 0 and retry
+                        else "Rerun this check against the current snapshot."
+                    ),
+                )
+        except TargetSelectionError as error:
+            result = Result(
+                "failure",
+                "evidence_error",
+                "Unable to read bot request evidence",
+                _public_prose(str(error)),
+            )
+        # A read can exhaust the evidence deadline. Give completion its own
+        # bounded budget so an already-started Check is not left in progress.
+        deadline = client.deadline
+        client.deadline = time.monotonic() + 45
+        try:
+            client.publish(pr, result, existing_id, base_sha)
+        finally:
+            client.deadline = deadline
+        summary = f"## {CHECK_NAME} — PR #{number}\n\n**{result.title}**\n\n{result.summary}\n"
+        if os.getenv("GITHUB_STEP_SUMMARY"):
+            with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as stream:
+                stream.write(summary)
+        print(f"PR #{number}: {result.reason} ({result.conclusion})")
+        if not retry or attempt == 1:
+            return result
+        try:
+            _remaining(client.deadline, 1)
+        except TargetSelectionError:
+            return result
 
 
 def main():
