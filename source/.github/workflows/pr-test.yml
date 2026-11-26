@@ -1,0 +1,625 @@
+# CI_BOT_PR_TEST_DISPATCH_V1: routing lives in pr-test-dispatch.yml.
+# Keep this path pinned to main in the runner-group workflow allowlist.
+# PR triggers and setup live in pr-test-dispatch.yml; this workflow authorizes
+# the original event before running the caller's selected source.
+name: PR Test Runners
+
+on:
+  workflow_call:
+    inputs:
+      test_matrix:
+        type: string
+        required: true
+      test_count:
+        type: string
+        required: true
+      spec_lint_matrix:
+        type: string
+        required: true
+      spec_lint_count:
+        type: string
+        required: true
+      docker_tag:
+        type: string
+        required: true
+      checkout_sha:
+        type: string
+        required: true
+      snapshot_base:
+        type: string
+        required: false
+      snapshot_tree:
+        type: string
+        required: false
+    secrets:
+      SCCACHE_AWS_ACCESS_KEY_ID:
+        required: false
+      SCCACHE_AWS_SECRET_ACCESS_KEY:
+        required: false
+
+env:
+  EXECUTOR_NUMBER: "0"
+
+jobs:
+  # This check is defined on main, alongside the admitted self-hosted jobs.
+  # The PR-editable dispatcher and workflow_call inputs cannot authorize a run.
+  authorize:
+    name: Authorize self-hosted checks
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      statuses: read
+    outputs:
+      authorized: ${{ steps.check.outputs.authorized }}
+      checkout_sha: ${{ steps.check.outputs.checkout_sha }}
+      snapshot_base: ${{ steps.check.outputs.snapshot_base }}
+      snapshot_tree: ${{ steps.check.outputs.snapshot_tree }}
+    steps:
+      - name: Check trusted triggering event
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_CHECKOUT: ${{ inputs.checkout_sha }}
+          INPUT_BASE: ${{ inputs.snapshot_base }}
+          INPUT_TREE: ${{ inputs.snapshot_tree }}
+        shell: python
+        run: |
+          import hashlib
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          event_name = os.environ["GITHUB_EVENT_NAME"]
+          repository = os.environ["GITHUB_REPOSITORY"]
+          ref = os.environ["GITHUB_REF"]
+          trusted_repo = "flashinfer-ai/flashinfer"
+          authorized = False
+          if repository == trusted_repo:
+              if event_name == "pull_request":
+                  base = event.get("pull_request", {}).get("base", {})
+                  authorized = (
+                      event.get("action") == "labeled"
+                      and event.get("label", {}).get("name") in {"run-ci", "run-ci-focused"}
+                      and base.get("ref") == "main"
+                      and base.get("repo", {}).get("full_name") == trusted_repo
+                  )
+              elif event_name in {"schedule", "workflow_dispatch"}:
+                  authorized = ref == "refs/heads/main"
+          if not authorized:
+              raise SystemExit("Self-hosted CI requires an approved PR label event or a main-branch scheduled/manual run")
+
+          checkout = os.environ["GITHUB_SHA"]
+          snapshot_base = os.environ.get("INPUT_BASE", "")
+          snapshot_tree = os.environ.get("INPUT_TREE", "")
+          focused = event_name == "pull_request" and event["label"]["name"] == "run-ci-focused"
+          if focused or snapshot_base or snapshot_tree:
+              if event_name != "pull_request" or not all(
+                  re.fullmatch(r"[0-9a-f]{40}", value) for value in (snapshot_base, snapshot_tree)
+              ):
+                  raise SystemExit("A focused run requires a complete source snapshot")
+              checkout = event["pull_request"]["head"]["sha"]
+              if not re.fullmatch(r"[0-9a-f]{40}", checkout):
+                  raise SystemExit("Invalid PR head")
+              # Read routing metadata independently of the PR-editable caller.
+              response = subprocess.check_output(
+                  ["gh", "api", "--paginate", f"repos/{repository}/commits/{checkout}/status?per_page=100"],
+                  text=True, timeout=60,
+              )
+              statuses = {}
+              decoder = json.JSONDecoder()
+              while response.strip():
+                  page, end = decoder.raw_decode(response.lstrip())
+                  response = response.lstrip()[end:]
+                  for status in page["statuses"]:
+                      statuses.setdefault(status["context"], status)
+              snapshot = statuses.get("ci/test-snapshot", {})
+              description = snapshot.get("description") or ""
+              if snapshot.get("state") != "success" or not re.fullmatch(
+                  r"[0-9a-f]{40} [0-9a-f]{40} [0-9a-f]{40} [0-9a-f]{16}", description
+              ):
+                  raise SystemExit("Missing or invalid published source snapshot")
+              base, merge, tree, digest = description.split()
+              chunks = sorted(
+                  (int(name.removeprefix("ci/test-scope-")), status)
+                  for name, status in statuses.items() if re.fullmatch(r"ci/test-scope-[0-9]+", name)
+              )
+              if any(status.get("state") != "success" for _, status in chunks):
+                  raise SystemExit("Invalid published test scope")
+              scope = " ".join(status["description"] for _, status in chunks if status.get("description"))
+              if hashlib.sha256(scope.encode()).hexdigest()[:16] != digest:
+                  raise SystemExit("Published test scope differs from its source snapshot")
+              if (snapshot_base, snapshot_tree) != (base, tree):
+                  raise SystemExit("Caller snapshot differs from published source snapshot")
+          if os.environ["INPUT_CHECKOUT"] != checkout:
+              raise SystemExit("Caller checkout differs from the triggering source")
+          if event_name == "pull_request":
+              # Record the source actually checked out, including ordinary full runs.
+              head = event["pull_request"]["head"]["sha"]
+              if snapshot_base:
+                  base, tree = snapshot_base, snapshot_tree
+              else:
+                  commit = json.loads(subprocess.check_output(
+                      ["gh", "api", f"repos/{repository}/git/commits/{checkout}"],
+                      text=True, timeout=60,
+                  ))
+                  parents = [parent["sha"] for parent in commit["parents"]]
+                  if len(parents) != 2 or parents[1] != head:
+                      raise SystemExit("Triggering merge does not match the PR head")
+                  base, tree = parents[0], commit["tree"]["sha"]
+              Path(os.environ["RUNNER_TEMP"], "pr-test-source.json").write_text(
+                  json.dumps(dict(head=head, base=base, tree=tree))
+              )
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"authorized=true\ncheckout_sha={checkout}\n")
+              output.write(f"snapshot_base={snapshot_base}\nsnapshot_tree={snapshot_tree}\n")
+
+      - name: Record tested PR source
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-test-source-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/pr-test-source.json
+          if-no-files-found: error
+          retention-days: 14
+
+  # ---------------------------------------------------------------------------
+  # Tests - AOT build imports and GPU unit tests
+  #
+  # Every test is one entry of a single matrix so that fail-fast cancels all of
+  # them on the first failure. As separate jobs, fail-fast is scoped per group
+  # and the other groups keep running on billed on-demand capacity long after
+  # the result is known. Entries still start in parallel; nothing is serialized.
+  # Scheduled runs on main turn fail-fast off: they exist to report every broken
+  # lane, not the first one.
+  # ---------------------------------------------------------------------------
+  test:
+    name: ${{ matrix.name }}
+    needs: authorize
+    if: needs.authorize.outputs.authorized == 'true' && inputs.test_count != '0'
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: ${{ matrix.timeout }}
+    permissions:
+      contents: read
+      actions: read
+      # Scheduled runs on main request the compile-cache upload role (see
+      # "Get compile cache upload credentials"). The role's trust policy, not
+      # this file, restricts it to refs/heads/main: a pull request run, even
+      # one that edits this workflow, gets a token whose subject the policy
+      # rejects.
+      id-token: write
+    strategy:
+      fail-fast: ${{ github.event_name != 'schedule' }}
+      matrix: ${{ fromJSON(inputs.test_matrix) }}
+    env:
+      DOCKER_IMAGE: flashinfer/flashinfer-ci-${{ matrix.cuda }}:${{ inputs.docker_tag }}
+      MATRIX_ARCH: ${{ matrix.runner[2] }}
+      MATRIX_CUDA: ${{ matrix.cuda }}
+      CI_GPU_NAME: ${{ matrix.gpu_name }}
+      MATRIX_KIND: ${{ matrix.kind }}
+      TEST_SCRIPT: ${{ matrix.script }}
+      # Empty for every lane except the experimental one. Quoted at the use site and
+      # never interpolated into script text - it originates from the PR body.
+      TEST_PATH_ARG: ${{ matrix.test_path }}
+      # GPU lanes route their JIT compiles through the AOT lanes' S3 sccache.
+      # On unless the repository variable FLASHINFER_GPU_TEST_SCCACHE is '0',
+      # which turns it off for A/B timing without a code change. The `|| '1'`
+      # matters: an unset variable is null, and `null != '0'` is false because
+      # mismatched types are compared as numbers (null and '0' both become 0).
+      # The CPU lane compiles nothing, so it skips sccache too.
+      GPU_TEST_SCCACHE: ${{ matrix.kind != 'aot' && matrix.kind != 'cpu' && (vars.FLASHINFER_GPU_TEST_SCCACHE || '1') != '0' && '1' || '0' }}
+    steps:
+      - name: Cleanup
+        env:
+          CI_JOB_WORKSPACE: ${{ github.workspace }}
+        run: |
+          # Runner selection is caller-controlled; any host may be shared.
+          # ci/bash.sh mounts the checkout itself, so match that source exactly.
+          for cid in $(docker ps -aq); do
+            if docker inspect "$cid" --format '{{range .Mounts}}{{println .Source}}{{end}}' 2>/dev/null | grep -Fxq "$CI_JOB_WORKSPACE"; then
+              docker rm -f "$cid" 2>/dev/null || true
+            fi
+          done
+          sudo rm -rf "${CI_JOB_WORKSPACE:?}"/* || true
+          sudo rm -rf "${CI_JOB_WORKSPACE:?}"/.[!.]* || true
+          rm -rf ~/.cache/flashinfer_jit || true
+          docker image prune -f || true
+          docker builder prune -f --filter "until=24h" || true
+          if [ -n "${CUDA_VISIBLE_DEVICES:-}" ]; then
+            nvidia-smi -i "$CUDA_VISIBLE_DEVICES" || true
+          else
+            nvidia-smi || true
+          fi
+
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.authorize.outputs.checkout_sha }}
+          # Self-hosted runners keep the workspace between jobs, so the token
+          # must not be left behind in .git/config. Nothing here uses git after
+          # checkout. Submodules initialize after source snapshot verification.
+          persist-credentials: false
+
+      - name: Prepare selected source and submodules
+        env:
+          SELECTED_BASE: ${{ needs.authorize.outputs.snapshot_base }}
+          SELECTED_TREE: ${{ needs.authorize.outputs.snapshot_tree }}
+        run: |
+          if [ -n "$SELECTED_BASE" ]; then
+            [[ "$SELECTED_BASE" =~ ^[0-9a-f]{40}$ && "$SELECTED_TREE" =~ ^[0-9a-f]{40}$ ]]
+            PINNED_HEAD=$(git rev-parse HEAD)
+            if [ "$(git rev-parse --is-shallow-repository)" = true ]; then
+              git fetch --no-tags --unshallow origin "$PINNED_HEAD" "$SELECTED_BASE"
+            fi
+            git cat-file -e "${SELECTED_BASE}^{commit}" 2>/dev/null || git fetch --no-tags origin "$SELECTED_BASE"
+            git -c core.hooksPath=/dev/null checkout --detach "$SELECTED_BASE"
+            GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1 \
+              git -c user.name=flashinfer-ci -c user.email=flashinfer-ci@nvidia.com \
+              -c core.hooksPath=/dev/null -c rerere.enabled=false \
+              merge --no-ff --no-edit "$PINNED_HEAD"
+            [ "$(git rev-parse 'HEAD^{tree}')" = "$SELECTED_TREE" ]
+          fi
+          git submodule update --init --recursive
+
+      - name: Show Node Info
+        run: ./scripts/infra/task_show_node_info.sh
+        env:
+          NODE_NAME: ${{ runner.name }}
+          WORKSPACE: ${{ github.workspace }}
+          BUILD_NUMBER: ${{ github.run_number }}
+
+      - name: Run Test
+        if: matrix.kind == 'aot'
+        env:
+          SCCACHE_BUCKET: ${{ vars.SCCACHE_BUCKET }}
+          SCCACHE_REGION: ${{ vars.SCCACHE_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.SCCACHE_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SCCACHE_AWS_SECRET_ACCESS_KEY }}
+          # Provider builds overlapped per job (see the script). The repository
+          # variable AOT_PROVIDER_CONCURRENCY overrides it, and 1 restores the
+          # serial loop, for A/B timing without a code change.
+          AOT_PROVIDER_CONCURRENCY: ${{ vars.AOT_PROVIDER_CONCURRENCY || '2' }}
+        run: |
+          if [ "${TEST_SCRIPT}" != "task_test_jit_cache_package_build_import.sh" ]; then
+            echo "::error::Unexpected AOT test script: ${TEST_SCRIPT}"
+            exit 1
+          fi
+          mkdir -p "${GITHUB_WORKSPACE}/sccache-stats"
+          bash ci/bash.sh "${DOCKER_IMAGE}" \
+            -e SCCACHE_BUCKET "${SCCACHE_BUCKET}" \
+            -e SCCACHE_REGION "${SCCACHE_REGION}" \
+            -e AWS_ACCESS_KEY_ID \
+            -e AWS_SECRET_ACCESS_KEY \
+            -e SCCACHE_STATS_DIR /workspace/sccache-stats \
+            -e AOT_PROVIDER_CONCURRENCY "${AOT_PROVIDER_CONCURRENCY}" \
+            --no-gpu "./scripts/infra/${TEST_SCRIPT}"
+
+      - name: Configure compile cache
+        if: matrix.kind != 'aot' && matrix.kind != 'cpu'
+        env:
+          S3_BUCKET: ${{ vars.SCCACHE_BUCKET || 'flashinfer-build-cache' }}
+          S3_REGION: ${{ vars.SCCACHE_REGION || 'us-west-2' }}
+          UPLOAD_ROLE: ${{ vars.COMPILE_CACHE_S3_ROLE_ARN }}
+        run: |
+          # Shared S3 layer of the compile cache (see ci/compile_cache_s3.sh):
+          # one tarball per CI image ID, GPU and lane. A10G shards test different
+          # files, so each shard is its own lane; targeted runs share the lane
+          # of the bare run they narrow.
+          case "${TEST_SCRIPT}" in
+            task_jit_run_tests_part[1-5].sh) LANE="${TEST_SCRIPT#task_jit_run_tests_}"; LANE="${LANE%.sh}" ;;
+            *) LANE=all ;;
+          esac
+          if [ -n "${S3_BUCKET}" ] && [ -n "${S3_REGION}" ]; then
+            echo "CI_COMPILE_CACHE_S3_URL=https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/compile-cache/main" >> "${GITHUB_ENV}"
+            echo "CI_COMPILE_CACHE_S3_LANE=${CI_GPU_NAME}/${LANE}" >> "${GITHUB_ENV}"
+            # Only scheduled runs on main write, and only once an admin has
+            # created the upload role. A writer compiles in a directory no
+            # earlier job on this runner (any of them a pull request) can have
+            # touched: a new path per job, and no shared pip cache, which PR
+            # containers write as root.
+            if [ "${GITHUB_EVENT_NAME}" = "schedule" ] && [ "${GITHUB_REF}" = "refs/heads/main" ] \
+                && [ -n "${UPLOAD_ROLE}" ]; then
+              echo "CI_COMPILE_CACHE_WRITER_DIR=$(mktemp -u "${RUNNER_TEMP}/compile-cache-writer.XXXXXXXX")" >> "${GITHUB_ENV}"
+              echo "CI_PIP_CACHE_DIR=" >> "${GITHUB_ENV}"
+            fi
+          fi
+
+      - name: Run Test
+        if: matrix.kind != 'aot'
+        env:
+          SCCACHE_BUCKET: ${{ vars.SCCACHE_BUCKET }}
+          SCCACHE_REGION: ${{ vars.SCCACHE_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ env.GPU_TEST_SCCACHE == '1' && secrets.SCCACHE_AWS_ACCESS_KEY_ID || '' }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.GPU_TEST_SCCACHE == '1' && secrets.SCCACHE_AWS_SECRET_ACCESS_KEY || '' }}
+          # Kernel compile cache kept across this runner's jobs (see ci/bash.sh).
+          # The checkout's parent is the runner work directory, so Cleanup's
+          # wipe of the checkout leaves it, and on the H100 hosts it sits on the
+          # large NVMe work volume rather than the small root filesystem.
+          CI_COMPILE_CACHE_DIR: ${{ github.workspace }}/../flashinfer-compile-cache
+          CI_COMPILE_CACHE_RUNNER: ${{ runner.name }}
+          # PR/manual runs consume private copies. Only scheduled runs on main
+          # update seeds; main has no push trigger, so a push condition here
+          # would leave every seed empty.
+          CI_COMPILE_CACHE_MODE: ${{ github.event_name == 'schedule' && github.ref == 'refs/heads/main' && 'read-write' || 'read-only' }}
+        run: |
+          case "${TEST_SCRIPT}" in
+            task_jit_run_tests_part[1-5].sh|task_jit_run_tests_t4.sh|task_run_unit_tests.sh) ;;
+            *)
+              echo "::error::Unexpected GPU test script: ${TEST_SCRIPT}"
+              exit 1
+              ;;
+          esac
+          # ci/bash.sh options must precede the command. The credentials are
+          # forwarded by name so ci/bash.sh never echoes their values.
+          DOCKER_ARGS=()
+          LANE_COMMAND=("./scripts/infra/${TEST_SCRIPT}")
+          if [ "${GPU_TEST_SCCACHE}" = "1" ]; then
+            mkdir -p "${GITHUB_WORKSPACE}/sccache-stats"
+            DOCKER_ARGS+=(
+              -e SCCACHE_BUCKET "${SCCACHE_BUCKET}"
+              -e SCCACHE_REGION "${SCCACHE_REGION}"
+              -e AWS_ACCESS_KEY_ID
+              -e AWS_SECRET_ACCESS_KEY
+              -e SCCACHE_STATS_DIR /workspace/sccache-stats
+            )
+            LANE_COMMAND=(./scripts/infra/run_with_test_sccache.sh "${LANE_COMMAND[@]}")
+          fi
+          TEST_RUNNER_ARGS=()
+          if [ "${MATRIX_KIND}" = "h100" ]; then
+            TEST_RUNNER_ARGS+=(--workers-per-gpu 2)
+            # The CPU Unittest lane runs tests/cpu on every run, so the H100
+            # lane's tests/ collection leaves it out. ci/bash.sh appends its own
+            # --ignore and forwards PYTEST_ADDOPTS into GPU containers.
+            export PYTEST_ADDOPTS="${PYTEST_ADDOPTS:+${PYTEST_ADDOPTS} }--ignore=tests/cpu"
+          elif [ "${MATRIX_KIND}" = "cpu" ]; then
+            # No GPU in the container. ci/bash.sh forwards the lane identity
+            # only for GPU containers, so pass it here for summary.py.
+            # tests/cpu peaks near 4 GiB host RSS per file on H100, so 16
+            # workers fit the CPU runners the AOT lanes use (the arm64 one has
+            # 64 vCPU and ~500 GiB). More would not help: the slowest file,
+            # about 250 s, sets the floor.
+            DOCKER_ARGS+=(
+              --no-gpu
+              -e CI_GPU_NAME "${CI_GPU_NAME}"
+              -e CI_TEST_SCRIPT "${TEST_SCRIPT}"
+              -e CI_MATRIX_CUDA "${MATRIX_CUDA}"
+            )
+            TEST_RUNNER_ARGS+=(--workers 16)
+          fi
+          # Per-build compile times, summarized by the "Summarize JIT build times"
+          # step. Appended: DOCKER_ARGS already carries the sccache settings.
+          mkdir -p junit
+          DOCKER_ARGS+=(-e FLASHINFER_JIT_BUILD_LOG /workspace/junit/jit-builds.jsonl)
+          if [ "${MATRIX_KIND}" = "gpu" ] && [ "${TEST_SCRIPT}" = "task_run_unit_tests.sh" ]; then
+            # Targeted T4 runs compile with the same Ninja parallelism as the
+            # bare-run T4 script (MAX_JOBS=nproc) instead of test_utils.sh's
+            # 12 GB-per-nvcc budget, which was sized for H100 and resolves to
+            # MAX_JOBS=1 on these 8-vCPU / 30 GiB runners. The shard scripts have
+            # run these files at nproc without an OOM, and a 9-job targeted run of
+            # test_batch_prefill_kernels.py peaked at 12.3 GiB process-tree RSS.
+            DOCKER_ARGS+=(-e MAX_JOBS "$(nproc)")
+          fi
+          TEST_TARGETS=()
+          if [ -n "${TEST_PATH_ARG:-}" ]; then
+            # Read into an array and expand quoted, rather than relying on word
+            # splitting: this keeps the shell safe on its own terms instead of
+            # inheriting the validator's charset guarantee. Globbing is off for the
+            # same reason.
+            set -f
+            read -r -a TEST_TARGETS <<< "${TEST_PATH_ARG}"
+            set +f
+          fi
+          if [ "${#TEST_TARGETS[@]}" -gt 0 ] && [ "${TEST_SCRIPT}" != "task_run_unit_tests.sh" ]; then
+            # A10G shard scripts take no arguments; their pytest wrapper skips files
+            # outside JIT_TEST_SCOPE. Comma-joined because ci/bash.sh word-splits
+            # -e values.
+            DOCKER_ARGS+=(-e JIT_TEST_SCOPE "$(IFS=,; echo "${TEST_TARGETS[*]}")")
+            bash ci/bash.sh "${DOCKER_IMAGE}" "${DOCKER_ARGS[@]}" "${LANE_COMMAND[@]}"
+          elif [ "${#TEST_TARGETS[@]}" -gt 0 ]; then
+            # --test-path, not bare positionals: task_run_unit_tests.sh forwards "$@"
+            # to unit_test_runner.py, whose parser takes the scope as an option (or the
+            # TEST_PATH env var, which ci/bash.sh does not forward into the container).
+            # Bare paths fail argument-preflight with "unrecognized arguments".
+            bash ci/bash.sh "${DOCKER_IMAGE}" "${DOCKER_ARGS[@]}" "${LANE_COMMAND[@]}" "${TEST_RUNNER_ARGS[@]}" --test-path "${TEST_TARGETS[@]}"
+          else
+            bash ci/bash.sh "${DOCKER_IMAGE}" "${DOCKER_ARGS[@]}" "${LANE_COMMAND[@]}" "${TEST_RUNNER_ARGS[@]}"
+          fi
+
+      # Runs even when tests fail or the run is cancelled: whatever was
+      # compiled is still valid. Credentials are requested only now, so they
+      # never reach the test step and stay short-lived.
+      - name: Get compile cache upload credentials
+        if: always() && env.CI_COMPILE_CACHE_WRITER_DIR != ''
+        continue-on-error: true
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.COMPILE_CACHE_S3_ROLE_ARN }}
+          aws-region: ${{ vars.SCCACHE_REGION || 'us-west-2' }}
+          role-session-name: compile-cache-${{ github.run_id }}
+          role-duration-seconds: 900
+
+      - name: Upload compile cache
+        if: always() && env.CI_COMPILE_CACHE_WRITER_DIR != ''
+        env:
+          S3_BUCKET: ${{ vars.SCCACHE_BUCKET || 'flashinfer-build-cache' }}
+        run: |
+          # Keyed by the immutable image ID, as ci/compile_cache.sh restores it.
+          IMAGE_ID=$(docker image inspect --format '{{.Id}}' "${DOCKER_IMAGE}" 2>/dev/null || true)
+          if [[ ${IMAGE_ID} =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            bash ci/compile_cache_s3.sh upload "s3://${S3_BUCKET}/compile-cache/main" \
+              "${IMAGE_ID#sha256:}" "${CI_COMPILE_CACHE_S3_LANE}" "${CI_COMPILE_CACHE_WRITER_DIR}" || true
+          else
+            echo "::warning::image ID of ${DOCKER_IMAGE} unavailable; compile cache not uploaded"
+          fi
+          sudo -n rm -rf "${CI_COMPILE_CACHE_WRITER_DIR}" || rm -rf "${CI_COMPILE_CACHE_WRITER_DIR}" || true
+
+      - name: Display sccache stats
+        if: always() && (matrix.kind == 'aot' || env.GPU_TEST_SCCACHE == '1')
+        run: |
+          STATS_FILE="${GITHUB_WORKSPACE}/sccache-stats/sccache-stats.txt"
+          if [ -s "${STATS_FILE}" ]; then
+            cat "${STATS_FILE}"
+          else
+            echo "::warning::sccache stats were not produced"
+          fi
+
+      - name: Record sccache job metadata
+        if: always() && (matrix.kind == 'aot' || env.GPU_TEST_SCCACHE == '1')
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/sccache-stats"
+          IMAGE_DIGESTS=$(docker image inspect --format '{{json .RepoDigests}}' "${DOCKER_IMAGE}" 2>/dev/null || printf 'unavailable')
+          {
+            printf 'git_commit=%s\n' "$(git rev-parse HEAD)"
+            printf 'docker_image=%s\n' "${DOCKER_IMAGE}"
+            printf 'docker_image_repo_digests=%s\n' "${IMAGE_DIGESTS}"
+            printf 'matrix_cuda=%s\n' "${MATRIX_CUDA}"
+            printf 'matrix_arch=%s\n' "${MATRIX_ARCH}"
+            printf 'matrix_kind=%s\n' "${MATRIX_KIND}"
+            printf 'test_script=%s\n' "${TEST_SCRIPT}"
+          } > "${GITHUB_WORKSPACE}/sccache-stats/job-metadata.txt"
+
+      - name: Upload sccache stats
+        if: always() && (matrix.kind == 'aot' || env.GPU_TEST_SCCACHE == '1')
+        uses: actions/upload-artifact@v4
+        with:
+          # GPU lanes share a CUDA/runner pair, so they add the matrix index.
+          name: ${{ matrix.kind == 'aot' && format('sccache-stats-{0}-{1}', matrix.cuda, matrix.runner[2]) || format('sccache-stats-{0}-{1}-{2}', matrix.kind, matrix.cuda, strategy.job-index) }}
+          path: sccache-stats/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Summarize JIT build times
+        if: always() && matrix.kind != 'aot'
+        run: |
+          if command -v python3 >/dev/null; then
+            python3 scripts/infra/summarize_jit_builds.py junit/jit-builds.jsonl || true
+            python3 scripts/infra/summarize_jit_builds.py --markdown \
+              junit/jit-builds.jsonl >> "${GITHUB_STEP_SUMMARY}" || true
+          else
+            echo "::warning::python3 unavailable on runner; JIT build summary skipped"
+          fi
+
+      - name: Make JUnit XML readable
+        if: ${{ always() && matrix.kind != 'aot' }}
+        run: |
+          if [ -d junit ]; then
+            sudo chmod -R a+rX junit
+          fi
+
+      - name: Upload JUnit XML and telemetry
+        if: ${{ always() && matrix.kind != 'aot' }}
+        uses: actions/upload-artifact@v4
+        with:
+          # Non-H100 names add the runner SM: A10G and T4 rows can run the same script.
+          name: junit-${{ (matrix.kind == 'h100' || matrix.kind == 'cpu') && matrix.kind || format('{0}-{1}', matrix.script, matrix.runner[4]) }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            junit/**/*.xml
+            junit/**/*.telemetry.json
+            junit/**/*.meta.json
+            junit/**/*.results.json
+            junit/**/*.log
+            junit/**/*.memory.csv
+            junit/resource-telemetry/**/*
+            junit/memory_summary.csv
+            junit/test_timings.csv
+            junit/source_summary.csv
+            junit/collection-*/*.log
+            junit/jit-builds.jsonl
+            junit/run-summary.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Make shard JUnit XML readable
+        if: ${{ always() && matrix.kind == 'gpu' }}
+        run: |
+          if [ -d junit-shard ]; then
+            sudo chmod -R a+rX junit-shard
+          fi
+
+      - name: Upload shard JUnit XML
+        if: ${{ always() && matrix.kind == 'gpu' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-shard-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            junit-shard/**/*.xml
+            junit-shard/**/resource-telemetry/**/*
+            junit-shard/**/*.memory.csv
+            junit-shard/**/memory_summary.csv
+            junit-shard/**/test_timings.csv
+            junit-shard/**/source_summary.csv
+            junit-shard/**/run-summary.json
+            junit-shard/**/*.telemetry.json
+            junit-shard/**/*.meta.json
+            junit-shard/**/*.results.json
+            junit-shard/**/*.log
+          if-no-files-found: warn
+          retention-days: 14
+
+
+  # ---------------------------------------------------------------------------
+  # Provider spec lint - quick CUDA-target check ahead of the AOT builds
+  #
+  # The AOT lanes build every provider wheel (hours). The release builds reject a
+  # provider whose modules carry another architecture's CUDA target or PTX, which
+  # a PR used to find out only from the nightly. This generates each provider's
+  # spec list (no compiling, no GPU) and checks the explicit -gencode flags. The
+  # AOT lanes repeat it first thing, so their fail-fast still stops the matrix.
+  # ---------------------------------------------------------------------------
+  spec-lint:
+    name: Provider Spec Lint (${{ matrix.cuda }})
+    needs: authorize
+    if: needs.authorize.outputs.authorized == 'true' && inputs.spec_lint_count != '0'
+    runs-on: [self-hosted, linux, x64, cpu, on-demand]
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(inputs.spec_lint_matrix) }}
+    env:
+      DOCKER_IMAGE: flashinfer/flashinfer-ci-${{ matrix.cuda }}:${{ inputs.docker_tag }}
+    steps:
+      - name: Cleanup
+        env:
+          CI_JOB_WORKSPACE: ${{ github.workspace }}
+        run: |
+          for cid in $(docker ps -aq); do
+            if docker inspect "$cid" --format '{{range .Mounts}}{{println .Source}}{{end}}' 2>/dev/null | grep -Fxq "$CI_JOB_WORKSPACE"; then
+              docker rm -f "$cid" 2>/dev/null || true
+            fi
+          done
+          sudo rm -rf "${CI_JOB_WORKSPACE:?}"/* || true
+          sudo rm -rf "${CI_JOB_WORKSPACE:?}"/.[!.]* || true
+          docker image prune -f || true
+
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.authorize.outputs.checkout_sha }}
+          persist-credentials: false
+
+      - name: Prepare selected source and submodules
+        env:
+          SELECTED_BASE: ${{ needs.authorize.outputs.snapshot_base }}
+          SELECTED_TREE: ${{ needs.authorize.outputs.snapshot_tree }}
+        run: |
+          if [ -n "$SELECTED_BASE" ]; then
+            [[ "$SELECTED_BASE" =~ ^[0-9a-f]{40}$ && "$SELECTED_TREE" =~ ^[0-9a-f]{40}$ ]]
+            PINNED_HEAD=$(git rev-parse HEAD)
+            if [ "$(git rev-parse --is-shallow-repository)" = true ]; then
+              git fetch --no-tags --unshallow origin "$PINNED_HEAD" "$SELECTED_BASE"
+            fi
+            git cat-file -e "${SELECTED_BASE}^{commit}" 2>/dev/null || git fetch --no-tags origin "$SELECTED_BASE"
+            git -c core.hooksPath=/dev/null checkout --detach "$SELECTED_BASE"
+            GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1 \
+              git -c user.name=flashinfer-ci -c user.email=flashinfer-ci@nvidia.com \
+              -c core.hooksPath=/dev/null -c rerere.enabled=false \
+              merge --no-ff --no-edit "$PINNED_HEAD"
+            [ "$(git rev-parse 'HEAD^{tree}')" = "$SELECTED_TREE" ]
+          fi
+          git submodule update --init --recursive
+
+      - name: Lint provider spec CUDA targets
+        run: bash ci/bash.sh "${DOCKER_IMAGE}" --no-gpu ./scripts/infra/task_check_jit_spec_gencodes.sh
