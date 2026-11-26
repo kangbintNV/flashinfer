@@ -1,14 +1,12 @@
 name: Bot Run Fresh 50 Historical Experiment
 on:
-  push:
-    branches: ['codex/bot-run-fresh50-20261126/**']
+  workflow_dispatch:
 permissions:
   contents: read
   pull-requests: read
   checks: write
 jobs:
   replay:
-    if: endsWith(github.ref, '/head') || endsWith(github.ref, '/preflight')
     runs-on: ubuntu-latest
     timeout-minutes: 22
     steps:
