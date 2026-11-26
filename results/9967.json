@@ -13,23 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/a9dc65a91746abd4acf239b5f5e2f0736f8ce6de/experiments/source.json",
   "comment_snapshot_sha256": "410b706b4cd9bcb4ae70f9b0a0162346643f4ec898f050328a2e3ce75831ca4c",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891954770",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814879764",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891954770",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Persistent static 2CTA MLA decode now launches with the physical cluster limit instead of a live-extent-balanced grid; launch geometry/scheduling change needs GPU execution and numerics validation.",
+  "case_gap": "No inspected, CI-routed test covering sparse NVFP4 2CTA persistent grid sizing or kernel-reuse across row buckets.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): use full cluster grid for persistent sparse MLA",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9967,
     "experiment_pr": 271,
@@ -53,5 +58,168 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9967,
+    "experiment_pr": 271,
+    "experiment_head": "a9dc65a91746abd4acf239b5f5e2f0736f8ce6de",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "f7610f64a30579f4ff8235dd847223a781ea31a6",
+    "comparison_head_sha": "1ec9ad31183e2d4356f17b8ffeeb9994ab2752bc",
+    "comment_snapshot_sha256": "410b706b4cd9bcb4ae70f9b0a0162346643f4ec898f050328a2e3ce75831ca4c",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "0449a170cc979994a80eb3923095a8e477ffda2c6fc636f7e679b04d3bc013cd",
+        "http_status": 400,
+        "seconds": 1.57
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "0449a170cc979994a80eb3923095a8e477ffda2c6fc636f7e679b04d3bc013cd",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1370,
+          "prompt_tokens": 105299,
+          "total_tokens": 106669,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1103,
+            "text_tokens": 267
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 104642,
+            "cache_creation_tokens": 104642,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 104642,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 104642,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.017
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "29ecef457fabff7b00f91ce9c467c37607e255a295827212d42fa27dd5ea6ea1",
+        "http_status": 400,
+        "seconds": 1.631
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "29ecef457fabff7b00f91ce9c467c37607e255a295827212d42fa27dd5ea6ea1",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1629,
+          "prompt_tokens": 134643,
+          "total_tokens": 136272,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1275,
+            "text_tokens": 354
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 132142,
+            "cache_creation_tokens": 132142,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 132142,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 132142,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.043
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Persistent static 2CTA MLA decode now launches with the physical cluster limit instead of a live-extent-balanced grid; launch geometry/scheduling change needs GPU execution and numerics validation.\n\nEvidence: flashinfer/attention/prims_ts/kernels/mla_decode/throughput_2cta/kernel.py, flashinfer/attention/prims_ts/mla_decode.py\n\nTest selection gap: No inspected, CI-routed test covering sparse NVFP4 2CTA persistent grid sizing or kernel-reuse across row buckets.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Persistent static 2CTA MLA decode now launches with the physical cluster limit instead of a live-extent-balanced grid; launch geometry/scheduling change needs GPU execution and numerics validation.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/kernels/mla_decode/throughput_2cta/kernel.py",
+            "flashinfer/attention/prims_ts/mla_decode.py"
+          ],
+          "case_gap": "No inspected, CI-routed test covering sparse NVFP4 2CTA persistent grid sizing or kernel-reuse across row buckets.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891954770,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Persistent static 2CTA MLA decode now launches with the physical cluster limit instead of a live-extent-balanced grid; launch geometry/scheduling change needs GPU execution and numerics validation.\n\nEvidence: flashinfer/attention/prims_ts/kernels/mla_decode/throughput_2cta/kernel.py, flashinfer/attention/prims_ts/mla_decode.py\n\nTest selection gap: No inspected, CI-routed test covering sparse NVFP4 2CTA persistent grid sizing or kernel-reuse across row buckets.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Persistent static 2CTA MLA decode now launches with the physical cluster limit instead of a live-extent-balanced grid; launch geometry/scheduling change needs GPU execution and numerics validation.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/kernels/mla_decode/throughput_2cta/kernel.py",
+            "flashinfer/attention/prims_ts/mla_decode.py"
+          ],
+          "case_gap": "No inspected, CI-routed test covering sparse NVFP4 2CTA persistent grid sizing or kernel-reuse across row buckets.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891954770,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139891954770,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891954770",
+        "head_sha": "a9dc65a91746abd4acf239b5f5e2f0736f8ce6de",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814879764,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814879764",
+    "artifact_id": 15115485761
+  }
 }

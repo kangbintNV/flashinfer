@@ -34,23 +34,32 @@
       "first_line": "[SUCCESS] Pipeline [#81452285](https://nv/flashinfer-ci/-/pipelines/81452285): 29/29 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888698666",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813935710",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888733199",
+  "classification": "unknown",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "AI requested a file outside the supplied repository inventory",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI requested a file outside the supplied repository inventory"
+    },
+    {
+      "effort": "minimal",
+      "error": "AI requested a file outside the supplied repository inventory"
+    }
+  ],
+  "minimal_retry": true,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mega_gate): experimental SM120 CuTe DSL backend for prepare_mega_gate",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "analysis_failure",
   "source_audit": {
     "original_number": 8479,
     "experiment_pr": 247,
@@ -74,5 +83,154 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8479,
+    "experiment_pr": 247,
+    "experiment_head": "f45e6dcbe37c2b3057de764fa1c1e9b676a20eb7",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a63f775b5c150704dd66e4fad9aac4dd2acf8e83",
+    "comparison_head_sha": "0df46f4a66154ecc302fcd84ad7d8c9c23fbf7c4",
+    "comment_snapshot_sha256": "4642eb4540686e9ca2d1956989ad6fad01313043cacd4217ec99f86814795cb1",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "a7c0f8299785eec59f81a1a0afe8e7799901f1b707430eb546a73d1720d80a93",
+        "http_status": 400,
+        "seconds": 1.077
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "a7c0f8299785eec59f81a1a0afe8e7799901f1b707430eb546a73d1720d80a93",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1293,
+          "prompt_tokens": 118984,
+          "total_tokens": 120277,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1168,
+            "text_tokens": 125
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 118327,
+            "cache_creation_tokens": 118327,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118327,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 118327,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.965
+      },
+      {
+        "index": 3,
+        "effort": "minimal",
+        "context_sha256": "a7c0f8299785eec59f81a1a0afe8e7799901f1b707430eb546a73d1720d80a93",
+        "http_status": 400,
+        "seconds": 0.929
+      },
+      {
+        "index": 4,
+        "effort": "minimal",
+        "context_sha256": "a7c0f8299785eec59f81a1a0afe8e7799901f1b707430eb546a73d1720d80a93",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1902,
+          "prompt_tokens": 118984,
+          "total_tokens": 120886,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1754,
+            "text_tokens": 148
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 118982,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 118982,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.863
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8479#issuecomment-6813765933)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139888698666,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "unknown",
+        "title": "Unable to determine GPU impact",
+        "summary": "AI requested a file outside the supplied repository inventory\n\nAnalysis attempts:\n- default: AI requested a file outside the supplied repository inventory\n- minimal: AI requested a file outside the supplied repository inventory\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response.",
+        "analysis": {
+          "classification": "unknown",
+          "reason": "AI requested a file outside the supplied repository inventory",
+          "evidence_paths": [],
+          "targets": [],
+          "case_gap": "",
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI requested a file outside the supplied repository inventory"
+            },
+            {
+              "effort": "minimal",
+              "error": "AI requested a file outside the supplied repository inventory"
+            }
+          ]
+        },
+        "check_id": 139888733199,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888698666,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888698666",
+        "head_sha": "f45e6dcbe37c2b3057de764fa1c1e9b676a20eb7",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139888733199,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888733199",
+        "head_sha": "f45e6dcbe37c2b3057de764fa1c1e9b676a20eb7",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813935710,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813935710",
+    "artifact_id": 15114930562
+  }
 }

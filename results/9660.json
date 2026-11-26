@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/a4d2570cdc8eaa4fccb38af3a9463fea69f31893/experiments/source.json",
   "comment_snapshot_sha256": "247e7e0fbaf46654295ba3129b8d8e286959a402fcf477a35914694fa7598548",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889039861",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814033589",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889039861",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Adds sm_107a locality-domain GEMM kernels/bindings, dual-die VMM allocator, per-die counters, cake backend routing and CUDA-graph capture paths; needs GPU validation.",
+  "case_gap": "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py body not inspected; no CI lane provides sm_107a, so device cases skip.",
+  "selected_tests": [
+    "tests/test_cake_locality.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_batch_deepgemm_fp8): locality-domain serving GEMM for dual-die SM107a",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9660,
     "experiment_pr": 250,
@@ -53,5 +60,198 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9660,
+    "experiment_pr": 250,
+    "experiment_head": "a4d2570cdc8eaa4fccb38af3a9463fea69f31893",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "f963060eb0f87c14eabab6bcff7d810eb9e87e34",
+    "comparison_head_sha": "a6234a606b56437359e2d5addd89b43871b8118d",
+    "comment_snapshot_sha256": "247e7e0fbaf46654295ba3129b8d8e286959a402fcf477a35914694fa7598548",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "3cd833b3b6610bb46f042d3be369e9a87b2922f65017c9017c19786e8a619732",
+        "http_status": 400,
+        "seconds": 5.862
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "3cd833b3b6610bb46f042d3be369e9a87b2922f65017c9017c19786e8a619732",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 288,
+          "prompt_tokens": 122460,
+          "total_tokens": 122748,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 288
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 121803,
+            "cache_creation_tokens": 121803,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 121803,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 121803,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 11.391
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "8a3764a727a92318abb023fff320686602b9972f2485322bdee441d6eb119a16",
+        "http_status": 400,
+        "seconds": 1.366
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "8a3764a727a92318abb023fff320686602b9972f2485322bdee441d6eb119a16",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2345,
+          "prompt_tokens": 147058,
+          "total_tokens": 149403,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1877,
+            "text_tokens": 468
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 144557,
+            "cache_creation_tokens": 144557,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 144557,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 144557,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 37.18
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds sm_107a locality-domain GEMM kernels/bindings, dual-die VMM allocator, per-die counters, cake backend routing and CUDA-graph capture paths; needs GPU validation.\n\nEvidence: csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu, flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py, tests/test_cake_locality.py\n\nSuggested tests: tests/test_cake_locality.py\n\nPatch content unavailable (informational): csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_kernel.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_kernel.cu, csrc/cake_locality.cu, flashinfer/cake_locality.py, flashinfer/gemm/cake_batch_deepgemm_fp8.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py, tests/test_cake_locality.py\n\nTest selection gap: tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py body not inspected; no CI lane provides sm_107a, so device cases skip.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds sm_107a locality-domain GEMM kernels/bindings, dual-die VMM allocator, per-die counters, cake backend routing and CUDA-graph capture paths; needs GPU validation.",
+          "evidence_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu",
+            "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/test_cake_locality.py"
+          ],
+          "case_gap": "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py body not inspected; no CI lane provides sm_107a, so device cases skip.",
+          "missing_patch_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_kernel.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_kernel.cu",
+            "csrc/cake_locality.cu",
+            "flashinfer/cake_locality.py",
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py",
+            "tests/test_cake_locality.py"
+          ],
+          "missing_patch_count": 9,
+          "targets": [
+            "tests/test_cake_locality.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889039861,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds sm_107a locality-domain GEMM kernels/bindings, dual-die VMM allocator, per-die counters, cake backend routing and CUDA-graph capture paths; needs GPU validation.\n\nEvidence: csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu, flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py, tests/test_cake_locality.py\n\nSuggested tests: tests/test_cake_locality.py\n\nPatch content unavailable (informational): csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_kernel.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_kernel.cu, csrc/cake_locality.cu, flashinfer/cake_locality.py, flashinfer/gemm/cake_batch_deepgemm_fp8.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py, tests/test_cake_locality.py\n\nTest selection gap: tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py body not inspected; no CI lane provides sm_107a, so device cases skip.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds sm_107a locality-domain GEMM kernels/bindings, dual-die VMM allocator, per-die counters, cake backend routing and CUDA-graph capture paths; needs GPU validation.",
+          "evidence_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu",
+            "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/test_cake_locality.py"
+          ],
+          "case_gap": "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py body not inspected; no CI lane provides sm_107a, so device cases skip.",
+          "missing_patch_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_kernel.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_kernel.cu",
+            "csrc/cake_locality.cu",
+            "flashinfer/cake_locality.py",
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py",
+            "tests/test_cake_locality.py"
+          ],
+          "missing_patch_count": 9,
+          "targets": [
+            "tests/test_cake_locality.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889039861,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139889039861,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139889039861",
+        "head_sha": "a4d2570cdc8eaa4fccb38af3a9463fea69f31893",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814033589,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814033589",
+    "artifact_id": 15113584124
+  }
 }

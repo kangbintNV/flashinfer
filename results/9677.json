@@ -34,23 +34,31 @@
       "first_line": "GitLab MR [!2959](https://nv/flashinfer/-/merge_requests/2959) has been updated with latest changes, and the CI pipeline [#83736747](https://nv/flashinfer-ci/-/pipelines/83736747) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891542048",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814758853",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891550788",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "New stateless GDN launch path, checkpoint index tensors, zero-state workspace and kernel checkpoint outputs change device kernel launches and numerics; CPU validation cannot check bitwise rows/states",
+  "case_gap": "Selected tests skip unless SM100/103/107 with CUDA 13; PR-visible CI lanes (A10G/T4/H100) may not provide such hardware.",
+  "selected_tests": [
+    "tests/gdn/test_batch_invariant_gdn_stateless.py",
+    "tests/gdn/test_batch_invariant_gdn.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(batch_invariant): stateless call of the GDN class `gdn.bf16.c64` (a trainer's forward pass) with its boundary states",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9677,
     "experiment_pr": 268,
@@ -74,5 +82,163 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9677,
+    "experiment_pr": 268,
+    "experiment_head": "23e2dc44809c25485a277bdb0f631c54c105666b",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "4f24496fc78299a6deb5157dd3a514c4430f2360",
+    "comparison_head_sha": "f6290475e8367d2a7e7a0a396f2935f3b3f7a8f7",
+    "comment_snapshot_sha256": "011bb33df008f11e154c0013085223e6079a27df4597deeeccaba41d620a3c3b",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "26a4897349eda9a0147d287601b1682f1d4109c558dd4a3d20864981f8e605fc",
+        "http_status": 400,
+        "seconds": 4.944
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "26a4897349eda9a0147d287601b1682f1d4109c558dd4a3d20864981f8e605fc",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1537,
+          "prompt_tokens": 111764,
+          "total_tokens": 113301,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1231,
+            "text_tokens": 306
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 111107,
+            "cache_creation_tokens": 111107,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 111107,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 111107,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.591
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "68ee9bb18b93704c4b612a8d4ca20b5df7a14630fa52b93909c6d02b2849d3c6",
+        "http_status": 400,
+        "seconds": 1.338
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "68ee9bb18b93704c4b612a8d4ca20b5df7a14630fa52b93909c6d02b2849d3c6",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1159,
+          "prompt_tokens": 146356,
+          "total_tokens": 147515,
+          "completion_tokens_details": {
+            "reasoning_tokens": 594,
+            "text_tokens": 565
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143855,
+            "cache_creation_tokens": 143855,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143855,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143855,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 21.605
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9677#issuecomment-7022787743)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139891542048,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "New stateless GDN launch path, checkpoint index tensors, zero-state workspace and kernel checkpoint outputs change device kernel launches and numerics; CPU validation cannot check bitwise rows/states\n\nEvidence: flashinfer/batch_invariant/gdn/train.py, flashinfer/batch_invariant/gdn/pool.py, tests/gdn/test_batch_invariant_gdn_stateless.py\n\nSuggested tests: tests/gdn/test_batch_invariant_gdn_stateless.py, tests/gdn/test_batch_invariant_gdn.py\n\nPatch content unavailable (informational): flashinfer/batch_invariant/README.md, flashinfer/batch_invariant/gdn/api.py, tests/gdn/test_batch_invariant_gdn_stateless.py\n\nTest selection gap: Selected tests skip unless SM100/103/107 with CUDA 13; PR-visible CI lanes (A10G/T4/H100) may not provide such hardware.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New stateless GDN launch path, checkpoint index tensors, zero-state workspace and kernel checkpoint outputs change device kernel launches and numerics; CPU validation cannot check bitwise rows/states",
+          "evidence_paths": [
+            "flashinfer/batch_invariant/gdn/train.py",
+            "flashinfer/batch_invariant/gdn/pool.py",
+            "tests/gdn/test_batch_invariant_gdn_stateless.py"
+          ],
+          "case_gap": "Selected tests skip unless SM100/103/107 with CUDA 13; PR-visible CI lanes (A10G/T4/H100) may not provide such hardware.",
+          "missing_patch_paths": [
+            "flashinfer/batch_invariant/README.md",
+            "flashinfer/batch_invariant/gdn/api.py",
+            "tests/gdn/test_batch_invariant_gdn_stateless.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/gdn/test_batch_invariant_gdn_stateless.py",
+            "tests/gdn/test_batch_invariant_gdn.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891550788,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139891542048,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891542048",
+        "head_sha": "23e2dc44809c25485a277bdb0f631c54c105666b",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139891550788,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891550788",
+        "head_sha": "23e2dc44809c25485a277bdb0f631c54c105666b",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814758853,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814758853",
+    "artifact_id": 15114209778
+  }
 }

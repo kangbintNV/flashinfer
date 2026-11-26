@@ -29,23 +29,31 @@
       "first_line": "GitLab MR [!2954](https://nv/flashinfer/-/merge_requests/2954) has been updated with latest changes, and the CI pipeline [#83718210](https://nv/flashinfer-ci/-/pipelines/83718210) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891322890",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814674089",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891330941",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Entry now routes stateless/checkpointed KDA calls to the CuTe prefill kernel with new buffer/workspace and state_checkpoints writes; bitwise kernel equality needs GPU validation",
+  "case_gap": "flashinfer/batch_invariant/kda/api.py and kda.py bodies judged from filename/patch context only; API patch not inspected",
+  "selected_tests": [
+    "tests/kda/test_batch_invariant_kda_stateless.py",
+    "tests/kda/test_batch_invariant_recurrent_kda.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(batch_invariant): stateless call of the KDA class `kda.bf16.c16` (a trainer's forward pass)",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9676,
     "experiment_pr": 266,
@@ -69,5 +77,162 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9676,
+    "experiment_pr": 266,
+    "experiment_head": "ef85f2cb2402080621e40a9ad5b803f4fb52859c",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "e2192284bf3d8c74a78f2a113b184540f8c056d3",
+    "comparison_head_sha": "f4939b643263a7b5616006a8260a21b401d7e79e",
+    "comment_snapshot_sha256": "e01a1e2158eac90f8cd861ec489734b8af0488b452e9a6a12418307d1255747c",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "772f8314dde9bd281365d30819dd2fc239c44f4628f50bfe3785b0d0b048f18b",
+        "http_status": 400,
+        "seconds": 1.509
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "772f8314dde9bd281365d30819dd2fc239c44f4628f50bfe3785b0d0b048f18b",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1543,
+          "prompt_tokens": 118682,
+          "total_tokens": 120225,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1281,
+            "text_tokens": 262
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 118025,
+            "cache_creation_tokens": 118025,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118025,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 118025,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.159
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "dc7ebf909844daca4e72c8faa866b669c49d2676b9beabd491ca99670d3cfc2a",
+        "http_status": 400,
+        "seconds": 2.83
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "dc7ebf909844daca4e72c8faa866b669c49d2676b9beabd491ca99670d3cfc2a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 529,
+          "prompt_tokens": 146743,
+          "total_tokens": 147272,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 529
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 144242,
+            "cache_creation_tokens": 144242,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 144242,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 144242,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 9.385
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9676#issuecomment-7020916382)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139891322890,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Entry now routes stateless/checkpointed KDA calls to the CuTe prefill kernel with new buffer/workspace and state_checkpoints writes; bitwise kernel equality needs GPU validation\n\nEvidence: flashinfer/kda.py, tests/kda/test_batch_invariant_kda_stateless.py\n\nSuggested tests: tests/kda/test_batch_invariant_kda_stateless.py, tests/kda/test_batch_invariant_recurrent_kda.py\n\nPatch content unavailable (informational): flashinfer/batch_invariant/README.md, flashinfer/batch_invariant/kda/api.py, tests/kda/test_batch_invariant_kda_stateless.py\n\nTest selection gap: flashinfer/batch_invariant/kda/api.py and kda.py bodies judged from filename/patch context only; API patch not inspected\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Entry now routes stateless/checkpointed KDA calls to the CuTe prefill kernel with new buffer/workspace and state_checkpoints writes; bitwise kernel equality needs GPU validation",
+          "evidence_paths": [
+            "flashinfer/kda.py",
+            "tests/kda/test_batch_invariant_kda_stateless.py"
+          ],
+          "case_gap": "flashinfer/batch_invariant/kda/api.py and kda.py bodies judged from filename/patch context only; API patch not inspected",
+          "missing_patch_paths": [
+            "flashinfer/batch_invariant/README.md",
+            "flashinfer/batch_invariant/kda/api.py",
+            "tests/kda/test_batch_invariant_kda_stateless.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/kda/test_batch_invariant_kda_stateless.py",
+            "tests/kda/test_batch_invariant_recurrent_kda.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891330941,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139891322890,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891322890",
+        "head_sha": "ef85f2cb2402080621e40a9ad5b803f4fb52859c",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139891330941,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891330941",
+        "head_sha": "ef85f2cb2402080621e40a9ad5b803f4fb52859c",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814674089,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814674089",
+    "artifact_id": 15115046080
+  }
 }

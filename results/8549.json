@@ -39,23 +39,30 @@
       "first_line": "[SUCCESS] Pipeline [#82747999](https://nv/flashinfer-ci/-/pipelines/82747999): 30/30 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892952888",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815162720",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892963324",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "FmhaTs now sets corr_skip_threshold_log2 only for 16-bit V, changing online-softmax row max and P scaling before the E4M3 PV cast; numerics verifiable only on SM100-class GPUs",
+  "case_gap": "PR-added regression test in tests/attention/test_attention_ts_context.py could not be selected: file body unavailable (file size limit)",
+  "selected_tests": [
+    "tests/attention/test_attention_ts_context_sage.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(prims_ts): exact row max for E4M3 V in fmha context",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8549,
     "experiment_pr": 279,
@@ -79,5 +86,155 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8549,
+    "experiment_pr": 279,
+    "experiment_head": "4351f2b152b40fdc145d6f1f7c5d7862c5af4bb7",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "4d20ab49775258406e4309329962d25c71fcefbc",
+    "comparison_head_sha": "21e077fc80d5f600f8c3f82407d6264333073abe",
+    "comment_snapshot_sha256": "8d9d67e3d1b0fee402367201df598dd4b65ae97cd15d9b9207ce73b38a5e31ed",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "15f40ffb5134fdadfded965625df0ea9febdb8c979202cdc6ee8b5611dd59ca0",
+        "http_status": 400,
+        "seconds": 1.586
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "15f40ffb5134fdadfded965625df0ea9febdb8c979202cdc6ee8b5611dd59ca0",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1855,
+          "prompt_tokens": 109062,
+          "total_tokens": 110917,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1556,
+            "text_tokens": 299
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 108405,
+            "cache_creation_tokens": 108405,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 108405,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 108405,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.982
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "a5ba6242bffd062932a5b981f2bc28eccb10815e71b5019731dbc26c70c4c915",
+        "http_status": 400,
+        "seconds": 1.3
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "a5ba6242bffd062932a5b981f2bc28eccb10815e71b5019731dbc26c70c4c915",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2126,
+          "prompt_tokens": 145223,
+          "total_tokens": 147349,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1716,
+            "text_tokens": 410
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142722,
+            "cache_creation_tokens": 142722,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142722,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142722,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 33.967
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8549#issuecomment-6941072903)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139892952888,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "FmhaTs now sets corr_skip_threshold_log2 only for 16-bit V, changing online-softmax row max and P scaling before the E4M3 PV cast; numerics verifiable only on SM100-class GPUs\n\nEvidence: flashinfer/attention/prims_ts/kernels/fmha_context/fmha_kernel.py, tests/attention/test_attention_ts_context_sage.py\n\nSuggested tests: tests/attention/test_attention_ts_context_sage.py\n\nTest selection gap: PR-added regression test in tests/attention/test_attention_ts_context.py could not be selected: file body unavailable (file size limit)\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "FmhaTs now sets corr_skip_threshold_log2 only for 16-bit V, changing online-softmax row max and P scaling before the E4M3 PV cast; numerics verifiable only on SM100-class GPUs",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/kernels/fmha_context/fmha_kernel.py",
+            "tests/attention/test_attention_ts_context_sage.py"
+          ],
+          "case_gap": "PR-added regression test in tests/attention/test_attention_ts_context.py could not be selected: file body unavailable (file size limit)",
+          "targets": [
+            "tests/attention/test_attention_ts_context_sage.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892963324,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139892952888,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892952888",
+        "head_sha": "4351f2b152b40fdc145d6f1f7c5d7862c5af4bb7",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139892963324,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892963324",
+        "head_sha": "4351f2b152b40fdc145d6f1f7c5d7862c5af4bb7",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815162720,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815162720",
+    "artifact_id": 15115466198
+  }
 }

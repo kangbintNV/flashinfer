@@ -13,23 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/b2a3160be5cb8f10cd3764f4d0332f332b20c2fe/experiments/source.json",
   "comment_snapshot_sha256": "8f63b1230cdcccf18679aea361d5a110c38cdcec4b5de03e8a7b9111ec6fcdcf",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893529200",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815323270",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893529200",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only a container build script's NCCL wheel version selection changed (pick max of installed vs 2.30.7 floor); effect is pip pin/package metadata resolution, verifiable without a GPU.",
+  "case_gap": "No pytest covers the EP setup script's NCCL version selection; runtime EP/multi-GPU validation would need the cu134 EP lane.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "pending",
   "static_reason": "EP setup preserves newer NCCL wheels; effect on communication runtime compatibility versus bounded packaging behavior needs confirmation.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "pending_review",
+  "classification_assessment": "pending_review",
   "source_audit": {
     "original_number": 10006,
     "experiment_pr": 130,
@@ -64,5 +69,166 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139379242708",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 10006,
+    "experiment_pr": 130,
+    "experiment_head": "b2a3160be5cb8f10cd3764f4d0332f332b20c2fe",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "3e2fae8e6117ab49e4ac12cf2fea6d55e1578476",
+    "comparison_head_sha": "3625c5dba3cd3a0e39cb6e890361084f77f4d15b",
+    "comment_snapshot_sha256": "8f63b1230cdcccf18679aea361d5a110c38cdcec4b5de03e8a7b9111ec6fcdcf",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "85efae64f5433bd4a61649b5d7bdac19dc7515e4d4b4e77c5d6a567d06b334c2",
+        "http_status": 400,
+        "seconds": 5.935
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "85efae64f5433bd4a61649b5d7bdac19dc7515e4d4b4e77c5d6a567d06b334c2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1699,
+          "prompt_tokens": 107409,
+          "total_tokens": 109108,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1534,
+            "text_tokens": 165
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 106752,
+            "cache_creation_tokens": 106752,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 106752,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 106752,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 21.594
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "938e59f56d1f050363ce346f1957e725d1abd0e1db7881fd7a0018cdd8cb4a0f",
+        "http_status": 400,
+        "seconds": 6.921
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "938e59f56d1f050363ce346f1957e725d1abd0e1db7881fd7a0018cdd8cb4a0f",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 270,
+          "prompt_tokens": 144718,
+          "total_tokens": 144988,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 270
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142217,
+            "cache_creation_tokens": 142217,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142217,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142217,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 6.979
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only a container build script's NCCL wheel version selection changed (pick max of installed vs 2.30.7 floor); effect is pip pin/package metadata resolution, verifiable without a GPU.\n\nEvidence: docker/install/build_flashinfer_ep_pytorch.sh\n\nTest selection gap: No pytest covers the EP setup script's NCCL version selection; runtime EP/multi-GPU validation would need the cu134 EP lane.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only a container build script's NCCL wheel version selection changed (pick max of installed vs 2.30.7 floor); effect is pip pin/package metadata resolution, verifiable without a GPU.",
+          "evidence_paths": [
+            "docker/install/build_flashinfer_ep_pytorch.sh"
+          ],
+          "case_gap": "No pytest covers the EP setup script's NCCL version selection; runtime EP/multi-GPU validation would need the cu134 EP lane.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893529200,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only a container build script's NCCL wheel version selection changed (pick max of installed vs 2.30.7 floor); effect is pip pin/package metadata resolution, verifiable without a GPU.\n\nEvidence: docker/install/build_flashinfer_ep_pytorch.sh\n\nTest selection gap: No pytest covers the EP setup script's NCCL version selection; runtime EP/multi-GPU validation would need the cu134 EP lane.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only a container build script's NCCL wheel version selection changed (pick max of installed vs 2.30.7 floor); effect is pip pin/package metadata resolution, verifiable without a GPU.",
+          "evidence_paths": [
+            "docker/install/build_flashinfer_ep_pytorch.sh"
+          ],
+          "case_gap": "No pytest covers the EP setup script's NCCL version selection; runtime EP/multi-GPU validation would need the cu134 EP lane.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893529200,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893529200,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893529200",
+        "head_sha": "b2a3160be5cb8f10cd3764f4d0332f332b20c2fe",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815323270,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815323270",
+    "artifact_id": 15115381504
+  }
 }

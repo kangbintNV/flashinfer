@@ -13,23 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/d0eb24474396a61bb3140768b4b85c347a365b41/experiments/source.json",
   "comment_snapshot_sha256": "3f6e0ab07314cc3752a79c4cbe0eb98d97586554ecb79db69e0d15c4b343abfd",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889019675",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814027888",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889019675",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Adds two sm_107a FP8 GEMM kernels/bindings (cta_group::2 clusters, TMA tensor maps, oversized shared memory) plus JIT program registration and expected_m-based dispatch; correctness/masking needs GPU execution.",
+  "case_gap": "Changed test file body unavailable; cannot confirm masked-row/expected_m threshold coverage or sm_107a-only routing of the new pair programs.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_batch_deepgemm_fp8): masked pair program for large expected_m on 212-SM sm_107a",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9773,
     "experiment_pr": 249,
@@ -53,5 +58,186 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9773,
+    "experiment_pr": 249,
+    "experiment_head": "d0eb24474396a61bb3140768b4b85c347a365b41",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "86ab1c74561d1ae7ef70ece38f2c34007848d030",
+    "comparison_head_sha": "aac74db18a99fa2e5b45a70d9dc1915b5540e450",
+    "comment_snapshot_sha256": "3f6e0ab07314cc3752a79c4cbe0eb98d97586554ecb79db69e0d15c4b343abfd",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "861b5c2741ff43a5fb2126883fda2d4208b94ea4638045381a4760f65c240019",
+        "http_status": 400,
+        "seconds": 1.376
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "861b5c2741ff43a5fb2126883fda2d4208b94ea4638045381a4760f65c240019",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1287,
+          "prompt_tokens": 115471,
+          "total_tokens": 116758,
+          "completion_tokens_details": {
+            "reasoning_tokens": 980,
+            "text_tokens": 307
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 114814,
+            "cache_creation_tokens": 114814,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 114814,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 114814,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.376
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "17b1742020c9bd3dafdcb6003344f82d936c095a6c6188dfcc1b40fade2ce34d",
+        "http_status": 400,
+        "seconds": 1.271
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "17b1742020c9bd3dafdcb6003344f82d936c095a6c6188dfcc1b40fade2ce34d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 802,
+          "prompt_tokens": 133792,
+          "total_tokens": 134594,
+          "completion_tokens_details": {
+            "reasoning_tokens": 420,
+            "text_tokens": 382
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131291,
+            "cache_creation_tokens": 131291,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131291,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131291,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 13.365
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds two sm_107a FP8 GEMM kernels/bindings (cta_group::2 clusters, TMA tensor maps, oversized shared memory) plus JIT program registration and expected_m-based dispatch; correctness/masking needs GPU execution.\n\nEvidence: csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu, flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py\n\nPatch content unavailable (informational): csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_kernel.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_kernel.cu, flashinfer/gemm/cake_batch_deepgemm_fp8.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py\n\nTest selection gap: Changed test file body unavailable; cannot confirm masked-row/expected_m threshold coverage or sm_107a-only routing of the new pair programs.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds two sm_107a FP8 GEMM kernels/bindings (cta_group::2 clusters, TMA tensor maps, oversized shared memory) plus JIT program registration and expected_m-based dispatch; correctness/masking needs GPU execution.",
+          "evidence_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu",
+            "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py"
+          ],
+          "case_gap": "Changed test file body unavailable; cannot confirm masked-row/expected_m threshold coverage or sm_107a-only routing of the new pair programs.",
+          "missing_patch_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_kernel.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_kernel.cu",
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889019675,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds two sm_107a FP8 GEMM kernels/bindings (cta_group::2 clusters, TMA tensor maps, oversized shared memory) plus JIT program registration and expected_m-based dispatch; correctness/masking needs GPU execution.\n\nEvidence: csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu, flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py\n\nPatch content unavailable (informational): csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_kernel.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_binding.cu, csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_kernel.cu, flashinfer/gemm/cake_batch_deepgemm_fp8.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py\n\nTest selection gap: Changed test file body unavailable; cannot confirm masked-row/expected_m threshold coverage or sm_107a-only routing of the new pair programs.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds two sm_107a FP8 GEMM kernels/bindings (cta_group::2 clusters, TMA tensor maps, oversized shared memory) plus JIT program registration and expected_m-based dispatch; correctness/masking needs GPU execution.",
+          "evidence_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu",
+            "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py"
+          ],
+          "case_gap": "Changed test file body unavailable; cannot confirm masked-row/expected_m threshold coverage or sm_107a-only routing of the new pair programs.",
+          "missing_patch_paths": [
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_kernel.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_binding.cu",
+            "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_kernel.cu",
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889019675,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139889019675,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139889019675",
+        "head_sha": "d0eb24474396a61bb3140768b4b85c347a365b41",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814027888,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814027888",
+    "artifact_id": 15114519117
+  }
 }

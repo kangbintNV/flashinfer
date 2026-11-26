@@ -29,23 +29,30 @@
       "first_line": "GitLab MR [!3079](https://nv/flashinfer/-/merge_requests/3079) has been updated with latest changes, and the CI pipeline [#85230032](https://nv/flashinfer-ci/-/pipelines/85230032) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893039972",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815173747",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893048229",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changed wrapper transposes/copies CUDA tensors into dst-major before the NCCL symmetric-memory fused A2A+LSE-reduce kernel; layout mis-resolution changes numeric results and graph-replay paths",
+  "case_gap": "Head-major parity case needs torchrun multi-GPU; A10G/T4 shard lanes cover no tests/comm file, so only the CPU-only layout check may execute",
+  "selected_tests": [
+    "tests/comm/test_dcp_lse_reduce.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(comm): deprecate head-major decode_cp_a2a_lse_reduce inputs instead of misreading them",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 10013,
     "experiment_pr": 127,
@@ -80,5 +87,155 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139377938704",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 10013,
+    "experiment_pr": 127,
+    "experiment_head": "35130b32848470469c23277295a8d401180c69c7",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "5228ea6be8ec42a5abd656a9f89cad75d505389e",
+    "comparison_head_sha": "91699fe04add8d72bac04f2a3f1df867b7afe83a",
+    "comment_snapshot_sha256": "5d06d72859057cde3abe76dad4a522d38eec0a7b36620a752a4f0e6eaaba32f5",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "44d66eea8d4c29091e01863c0b7176d4c4e2f8aebd95cbe17182edbc785e016a",
+        "http_status": 400,
+        "seconds": 0.947
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "44d66eea8d4c29091e01863c0b7176d4c4e2f8aebd95cbe17182edbc785e016a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1989,
+          "prompt_tokens": 115405,
+          "total_tokens": 117394,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1738,
+            "text_tokens": 251
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 114748,
+            "cache_creation_tokens": 114748,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 114748,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 114748,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.529
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "3e7fc5b697626d3e70255035756b5f30c170c2145d91577967c44cccfc550d14",
+        "http_status": 400,
+        "seconds": 0.858
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "3e7fc5b697626d3e70255035756b5f30c170c2145d91577967c44cccfc550d14",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1368,
+          "prompt_tokens": 141478,
+          "total_tokens": 142846,
+          "completion_tokens_details": {
+            "reasoning_tokens": 920,
+            "text_tokens": 448
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 138977,
+            "cache_creation_tokens": 138977,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 138977,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 138977,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.588
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/10013#issuecomment-7152368777)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139893039972,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changed wrapper transposes/copies CUDA tensors into dst-major before the NCCL symmetric-memory fused A2A+LSE-reduce kernel; layout mis-resolution changes numeric results and graph-replay paths\n\nEvidence: flashinfer/comm/dcp_lse_reduce.py, tests/comm/test_dcp_lse_reduce.py\n\nSuggested tests: tests/comm/test_dcp_lse_reduce.py\n\nTest selection gap: Head-major parity case needs torchrun multi-GPU; A10G/T4 shard lanes cover no tests/comm file, so only the CPU-only layout check may execute\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changed wrapper transposes/copies CUDA tensors into dst-major before the NCCL symmetric-memory fused A2A+LSE-reduce kernel; layout mis-resolution changes numeric results and graph-replay paths",
+          "evidence_paths": [
+            "flashinfer/comm/dcp_lse_reduce.py",
+            "tests/comm/test_dcp_lse_reduce.py"
+          ],
+          "case_gap": "Head-major parity case needs torchrun multi-GPU; A10G/T4 shard lanes cover no tests/comm file, so only the CPU-only layout check may execute",
+          "targets": [
+            "tests/comm/test_dcp_lse_reduce.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893048229,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893039972,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893039972",
+        "head_sha": "35130b32848470469c23277295a8d401180c69c7",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139893048229,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893048229",
+        "head_sha": "35130b32848470469c23277295a8d401180c69c7",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815173747,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815173747",
+    "artifact_id": 15115441095
+  }
 }

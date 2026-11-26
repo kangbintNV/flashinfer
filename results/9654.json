@@ -13,23 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/ce111ed3f197eccbd276181d30c9ade195955f66/experiments/source.json",
   "comment_snapshot_sha256": "703d3178e6a71f4fcab0dea7cf60e395f115a68386d24aea718abc3ba9a4b3db",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890048376",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814312034",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890048376",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Retuned SM90/SM103 decode kernels: unroll pragmas and LAUNCH_MIN_BLOCKS occupancy bounds in recurrent-state loops; three further kernel .cu files judged by filename (bodies unavailable). Numerics/occupancy need GPU validation.",
+  "case_gap": "No inspected test executes cake_gated_delta_product_mtp on SM90/SM103; GPU numerical coverage for the five retuned programs is unverified.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_gdp): retune five n = 3 static decode programs on SM90 and SM103",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9654,
     "experiment_pr": 256,
@@ -53,5 +58,184 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9654,
+    "experiment_pr": 256,
+    "experiment_head": "ce111ed3f197eccbd276181d30c9ade195955f66",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a1cebab0def38dde8133370c02bfedaf7c1995cd",
+    "comparison_head_sha": "4fec89015f3d456b20b42a1c067543b564efd4e0",
+    "comment_snapshot_sha256": "703d3178e6a71f4fcab0dea7cf60e395f115a68386d24aea718abc3ba9a4b3db",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "200fc4ddd143d4aa5351d8d481139c8d15ddb4e7ab3fe0109534fe46feb95623",
+        "http_status": 400,
+        "seconds": 2.783
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "200fc4ddd143d4aa5351d8d481139c8d15ddb4e7ab3fe0109534fe46feb95623",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2947,
+          "prompt_tokens": 103301,
+          "total_tokens": 106248,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2532,
+            "text_tokens": 415
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102644,
+            "cache_creation_tokens": 102644,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102644,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102644,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 37.552
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "8ffd9556418a48a887ff909afc5676a6d95ab177886216243f813a5c02f5e6fa",
+        "http_status": 400,
+        "seconds": 1.337
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "8ffd9556418a48a887ff909afc5676a6d95ab177886216243f813a5c02f5e6fa",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1041,
+          "prompt_tokens": 146593,
+          "total_tokens": 147634,
+          "completion_tokens_details": {
+            "reasoning_tokens": 631,
+            "text_tokens": 410
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 144092,
+            "cache_creation_tokens": 144092,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 144092,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 144092,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.648
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Retuned SM90/SM103 decode kernels: unroll pragmas and LAUNCH_MIN_BLOCKS occupancy bounds in recurrent-state loops; three further kernel .cu files judged by filename (bodies unavailable). Numerics/occupancy need GPU validation.\n\nEvidence: flashinfer/cake_gdp_backend/csrc/cake_gdp_450bb0db3b79acafa419_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_f0b0248a8e7d3ad6047d_kernel.cu, flashinfer/cake_gdp.py\n\nPatch content unavailable (informational): flashinfer/cake_gdp_backend/build.json, flashinfer/cake_gdp_backend/csrc/cake_gdp_1a3d01a5826508d64a06_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_a226c899893599e679a3_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_c51f69d9ac126bbaab36_kernel.cu\n\nTest selection gap: No inspected test executes cake_gated_delta_product_mtp on SM90/SM103; GPU numerical coverage for the five retuned programs is unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Retuned SM90/SM103 decode kernels: unroll pragmas and LAUNCH_MIN_BLOCKS occupancy bounds in recurrent-state loops; three further kernel .cu files judged by filename (bodies unavailable). Numerics/occupancy need GPU validation.",
+          "evidence_paths": [
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_450bb0db3b79acafa419_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_f0b0248a8e7d3ad6047d_kernel.cu",
+            "flashinfer/cake_gdp.py"
+          ],
+          "case_gap": "No inspected test executes cake_gated_delta_product_mtp on SM90/SM103; GPU numerical coverage for the five retuned programs is unverified.",
+          "missing_patch_paths": [
+            "flashinfer/cake_gdp_backend/build.json",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_1a3d01a5826508d64a06_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_a226c899893599e679a3_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_c51f69d9ac126bbaab36_kernel.cu"
+          ],
+          "missing_patch_count": 4,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139890048376,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Retuned SM90/SM103 decode kernels: unroll pragmas and LAUNCH_MIN_BLOCKS occupancy bounds in recurrent-state loops; three further kernel .cu files judged by filename (bodies unavailable). Numerics/occupancy need GPU validation.\n\nEvidence: flashinfer/cake_gdp_backend/csrc/cake_gdp_450bb0db3b79acafa419_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_f0b0248a8e7d3ad6047d_kernel.cu, flashinfer/cake_gdp.py\n\nPatch content unavailable (informational): flashinfer/cake_gdp_backend/build.json, flashinfer/cake_gdp_backend/csrc/cake_gdp_1a3d01a5826508d64a06_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_a226c899893599e679a3_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_c51f69d9ac126bbaab36_kernel.cu\n\nTest selection gap: No inspected test executes cake_gated_delta_product_mtp on SM90/SM103; GPU numerical coverage for the five retuned programs is unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Retuned SM90/SM103 decode kernels: unroll pragmas and LAUNCH_MIN_BLOCKS occupancy bounds in recurrent-state loops; three further kernel .cu files judged by filename (bodies unavailable). Numerics/occupancy need GPU validation.",
+          "evidence_paths": [
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_450bb0db3b79acafa419_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_f0b0248a8e7d3ad6047d_kernel.cu",
+            "flashinfer/cake_gdp.py"
+          ],
+          "case_gap": "No inspected test executes cake_gated_delta_product_mtp on SM90/SM103; GPU numerical coverage for the five retuned programs is unverified.",
+          "missing_patch_paths": [
+            "flashinfer/cake_gdp_backend/build.json",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_1a3d01a5826508d64a06_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_a226c899893599e679a3_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_c51f69d9ac126bbaab36_kernel.cu"
+          ],
+          "missing_patch_count": 4,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139890048376,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139890048376,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139890048376",
+        "head_sha": "ce111ed3f197eccbd276181d30c9ade195955f66",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814312034,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814312034",
+    "artifact_id": 15113404923
+  }
 }

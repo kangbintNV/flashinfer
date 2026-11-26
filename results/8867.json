@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/bb016d02a18e40b0fb40d719ccc6092b4d7105ed/experiments/source.json",
   "comment_snapshot_sha256": "8c16208bee0c3bc6abfc7375bd30c1535941d891923087352f6d49f171f96dae",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888160375",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813776888",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888160375",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Adds BF16 MLA value-projection+sigmoid-gate CUDA kernel, tvm-ffi launcher with alignment/grid checks, PDL attribute, JIT/AOT manifest; numerics, graphs and launch paths need GPU",
+  "case_gap": "CI lanes are A10G/T4/H100; no SM100a/SM103a runner, so kernel cases skip and only arch-refusal/prepare checks execute",
+  "selected_tests": [
+    "tests/experimental/test_cake_mla_value_gate.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_mla_value_gate): add an experimental fused MLA value projection + sigmoid gate",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8867,
     "experiment_pr": 241,
@@ -53,5 +60,192 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8867,
+    "experiment_pr": 241,
+    "experiment_head": "bb016d02a18e40b0fb40d719ccc6092b4d7105ed",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a40d5c1a93ecaeb90b360e7d6e7ba018d0ffd8d9",
+    "comparison_head_sha": "6ae7f55392527f3bbe5381af05804d377597c085",
+    "comment_snapshot_sha256": "8c16208bee0c3bc6abfc7375bd30c1535941d891923087352f6d49f171f96dae",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "77f079aef0cd6b686ee565acebc34ea4f82158596dee9a0b677e48cc91fdc909",
+        "http_status": 400,
+        "seconds": 1.285
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "77f079aef0cd6b686ee565acebc34ea4f82158596dee9a0b677e48cc91fdc909",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1841,
+          "prompt_tokens": 120761,
+          "total_tokens": 122602,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1555,
+            "text_tokens": 286
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 120104,
+            "cache_creation_tokens": 120104,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 120104,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 120104,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.053
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "51b02d93c2848e77c714614319e480fa8d9f087e07c5978ee90ac343aca8ac88",
+        "http_status": 400,
+        "seconds": 1.439
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "51b02d93c2848e77c714614319e480fa8d9f087e07c5978ee90ac343aca8ac88",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1253,
+          "prompt_tokens": 146438,
+          "total_tokens": 147691,
+          "completion_tokens_details": {
+            "reasoning_tokens": 770,
+            "text_tokens": 483
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143937,
+            "cache_creation_tokens": 143937,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143937,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143937,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.646
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds BF16 MLA value-projection+sigmoid-gate CUDA kernel, tvm-ffi launcher with alignment/grid checks, PDL attribute, JIT/AOT manifest; numerics, graphs and launch paths need GPU\n\nEvidence: flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_binding.cu, tests/experimental/test_cake_mla_value_gate.py, flashinfer/experimental/cake_mla_value_gate/build.json\n\nSuggested tests: tests/experimental/test_cake_mla_value_gate.py\n\nPatch content unavailable (informational): flashinfer/experimental/cake_mla_value_gate/README.md, flashinfer/experimental/cake_mla_value_gate/cake_backend.py, flashinfer/experimental/cake_mla_value_gate/cake_build.py, flashinfer/experimental/cake_mla_value_gate/cake_jit.py, flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_kernel.cu, tests/experimental/test_cake_mla_value_gate.py\n\nTest selection gap: CI lanes are A10G/T4/H100; no SM100a/SM103a runner, so kernel cases skip and only arch-refusal/prepare checks execute\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds BF16 MLA value-projection+sigmoid-gate CUDA kernel, tvm-ffi launcher with alignment/grid checks, PDL attribute, JIT/AOT manifest; numerics, graphs and launch paths need GPU",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_binding.cu",
+            "tests/experimental/test_cake_mla_value_gate.py",
+            "flashinfer/experimental/cake_mla_value_gate/build.json"
+          ],
+          "case_gap": "CI lanes are A10G/T4/H100; no SM100a/SM103a runner, so kernel cases skip and only arch-refusal/prepare checks execute",
+          "missing_patch_paths": [
+            "flashinfer/experimental/cake_mla_value_gate/README.md",
+            "flashinfer/experimental/cake_mla_value_gate/cake_backend.py",
+            "flashinfer/experimental/cake_mla_value_gate/cake_build.py",
+            "flashinfer/experimental/cake_mla_value_gate/cake_jit.py",
+            "flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_kernel.cu",
+            "tests/experimental/test_cake_mla_value_gate.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/experimental/test_cake_mla_value_gate.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888160375,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds BF16 MLA value-projection+sigmoid-gate CUDA kernel, tvm-ffi launcher with alignment/grid checks, PDL attribute, JIT/AOT manifest; numerics, graphs and launch paths need GPU\n\nEvidence: flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_binding.cu, tests/experimental/test_cake_mla_value_gate.py, flashinfer/experimental/cake_mla_value_gate/build.json\n\nSuggested tests: tests/experimental/test_cake_mla_value_gate.py\n\nPatch content unavailable (informational): flashinfer/experimental/cake_mla_value_gate/README.md, flashinfer/experimental/cake_mla_value_gate/cake_backend.py, flashinfer/experimental/cake_mla_value_gate/cake_build.py, flashinfer/experimental/cake_mla_value_gate/cake_jit.py, flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_kernel.cu, tests/experimental/test_cake_mla_value_gate.py\n\nTest selection gap: CI lanes are A10G/T4/H100; no SM100a/SM103a runner, so kernel cases skip and only arch-refusal/prepare checks execute\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds BF16 MLA value-projection+sigmoid-gate CUDA kernel, tvm-ffi launcher with alignment/grid checks, PDL attribute, JIT/AOT manifest; numerics, graphs and launch paths need GPU",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_binding.cu",
+            "tests/experimental/test_cake_mla_value_gate.py",
+            "flashinfer/experimental/cake_mla_value_gate/build.json"
+          ],
+          "case_gap": "CI lanes are A10G/T4/H100; no SM100a/SM103a runner, so kernel cases skip and only arch-refusal/prepare checks execute",
+          "missing_patch_paths": [
+            "flashinfer/experimental/cake_mla_value_gate/README.md",
+            "flashinfer/experimental/cake_mla_value_gate/cake_backend.py",
+            "flashinfer/experimental/cake_mla_value_gate/cake_build.py",
+            "flashinfer/experimental/cake_mla_value_gate/cake_jit.py",
+            "flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_kernel.cu",
+            "tests/experimental/test_cake_mla_value_gate.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/experimental/test_cake_mla_value_gate.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888160375,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888160375,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888160375",
+        "head_sha": "bb016d02a18e40b0fb40d719ccc6092b4d7105ed",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813776888,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813776888",
+    "artifact_id": 15113568910
+  }
 }

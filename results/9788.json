@@ -13,23 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6da34f2c346700560391d1a5c1a310828cd0ea89/experiments/source.json",
   "comment_snapshot_sha256": "f8484351407122c4ef42c820521e46902a17754039281089397fc2bbf2d727cc",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892983107",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815168143",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892983107",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Single release version string; flashinfer/version.py exposes it from _build_meta for packaging/reporting only, with no kernel, dispatch, JIT or launcher behavior affected, so GPU-free validation suffices.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "cpu_only",
   "static_reason": "Version metadata changes from 0.7.5 to 0.7.6; package-version validation is GPU-free.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9788,
     "experiment_pr": 126,
@@ -64,5 +69,170 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139377846124",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9788,
+    "experiment_pr": 126,
+    "experiment_head": "6da34f2c346700560391d1a5c1a310828cd0ea89",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "05cad9ac4ee4f278efe4d284a29f60cd595bb422",
+    "comparison_head_sha": "0c17e03b6f9a5f1bd4f8daf178bfa78c1b332bee",
+    "comment_snapshot_sha256": "f8484351407122c4ef42c820521e46902a17754039281089397fc2bbf2d727cc",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "2197e75945e9c29edffb02a69092662368c99a44c7d5425b247e2666da4e4a94",
+        "http_status": 400,
+        "seconds": 2.225
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "2197e75945e9c29edffb02a69092662368c99a44c7d5425b247e2666da4e4a94",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1547,
+          "prompt_tokens": 100223,
+          "total_tokens": 101770,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1240,
+            "text_tokens": 307
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99566,
+            "cache_creation_tokens": 99566,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99566,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99566,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.485
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "31f4a9e8ba82f2212e23276081690ce561f67abd27cfd74a721d871284000658",
+        "http_status": 400,
+        "seconds": 1.383
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "31f4a9e8ba82f2212e23276081690ce561f67abd27cfd74a721d871284000658",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 608,
+          "prompt_tokens": 145913,
+          "total_tokens": 146521,
+          "completion_tokens_details": {
+            "reasoning_tokens": 375,
+            "text_tokens": 233
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143412,
+            "cache_creation_tokens": 143412,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143412,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143412,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 11.137
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Single release version string; flashinfer/version.py exposes it from _build_meta for packaging/reporting only, with no kernel, dispatch, JIT or launcher behavior affected, so GPU-free validation suffices.\n\nEvidence: version.txt, flashinfer/version.py, pyproject.toml",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Single release version string; flashinfer/version.py exposes it from _build_meta for packaging/reporting only, with no kernel, dispatch, JIT or launcher behavior affected, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "version.txt",
+            "flashinfer/version.py",
+            "pyproject.toml"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892983107,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Single release version string; flashinfer/version.py exposes it from _build_meta for packaging/reporting only, with no kernel, dispatch, JIT or launcher behavior affected, so GPU-free validation suffices.\n\nEvidence: version.txt, flashinfer/version.py, pyproject.toml",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Single release version string; flashinfer/version.py exposes it from _build_meta for packaging/reporting only, with no kernel, dispatch, JIT or launcher behavior affected, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "version.txt",
+            "flashinfer/version.py",
+            "pyproject.toml"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892983107,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139892983107,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892983107",
+        "head_sha": "6da34f2c346700560391d1a5c1a310828cd0ea89",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815168143,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815168143",
+    "artifact_id": 15115686059
+  }
 }

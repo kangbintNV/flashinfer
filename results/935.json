@@ -13,23 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/111ae1c8184364b179dc8b34d86dc83841b453db/experiments/source.json",
   "comment_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891931327",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814872561",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891931327",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only docstring text deleted in flashinfer/sampling.py; kernel args, bindings and launch paths unchanged, so no GPU execution is affected.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "docs_only",
   "static_reason": "Deletes two obsolete argument-description lines from the sampling docstring; executable AST unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 935,
     "experiment_pr": 270,
@@ -53,5 +58,166 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 935,
+    "experiment_pr": 270,
+    "experiment_head": "111ae1c8184364b179dc8b34d86dc83841b453db",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "738460ff82e2230ebcc8dff50e49e1d6278e011a",
+    "comparison_head_sha": "d462a9d1033f8a518e9a8c9abb03f707f1da5ccc",
+    "comment_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "23b1f009a6632cf7dee1dea65522505505638b6d177e73899a1932eae04aaa4e",
+        "http_status": 400,
+        "seconds": 1.232
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "23b1f009a6632cf7dee1dea65522505505638b6d177e73899a1932eae04aaa4e",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 496,
+          "prompt_tokens": 63053,
+          "total_tokens": 63549,
+          "completion_tokens_details": {
+            "reasoning_tokens": 472,
+            "text_tokens": 24
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 62396,
+            "cache_creation_tokens": 62396,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 62396,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 62396,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 7.749
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "9292a21232bb8c29c195f5d341032c98d222a49e3c4110a386ec0d822a9f9228",
+        "http_status": 400,
+        "seconds": 1.359
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "9292a21232bb8c29c195f5d341032c98d222a49e3c4110a386ec0d822a9f9228",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 435,
+          "prompt_tokens": 74341,
+          "total_tokens": 74776,
+          "completion_tokens_details": {
+            "reasoning_tokens": 245,
+            "text_tokens": 190
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 71840,
+            "cache_creation_tokens": 71840,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 71840,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 71840,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 7.457
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only docstring text deleted in flashinfer/sampling.py; kernel args, bindings and launch paths unchanged, so no GPU execution is affected.\n\nEvidence: flashinfer/sampling.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only docstring text deleted in flashinfer/sampling.py; kernel args, bindings and launch paths unchanged, so no GPU execution is affected.",
+          "evidence_paths": [
+            "flashinfer/sampling.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891931327,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only docstring text deleted in flashinfer/sampling.py; kernel args, bindings and launch paths unchanged, so no GPU execution is affected.\n\nEvidence: flashinfer/sampling.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only docstring text deleted in flashinfer/sampling.py; kernel args, bindings and launch paths unchanged, so no GPU execution is affected.",
+          "evidence_paths": [
+            "flashinfer/sampling.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891931327,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139891931327,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891931327",
+        "head_sha": "111ae1c8184364b179dc8b34d86dc83841b453db",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814872561,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814872561",
+    "artifact_id": 15115960054
+  }
 }

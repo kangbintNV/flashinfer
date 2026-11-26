@@ -13,23 +13,31 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/4ac8272131c559694fcf657d079e2e502f4c78dd/experiments/source.json",
   "comment_snapshot_sha256": "5be3bbad26f998c601d7cdb08d64532394189ccab70a86ef2cd4267d54b2a1e4",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892632363",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815071679",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892632363",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changes launch cap p_bound, pass1/pass2 grids, workspace allocation/views and plan reuse for multi-sequence affine-split GDN prefill kernels; numerics, CUDA-graph replay and state writes need GPU validation",
+  "case_gap": "No supplied CI lane provides SM103, so the GPU test self-skips; gdn_prefill.py host routing patch was not inspected (file size limit).",
+  "selected_tests": [
+    "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+    "tests/gdn/test_cake_gdn_affine_split.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdn): several sequences per call in the opt-in Cake GDN sequence split",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9663,
     "experiment_pr": 277,
@@ -53,5 +61,184 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9663,
+    "experiment_pr": 277,
+    "experiment_head": "4ac8272131c559694fcf657d079e2e502f4c78dd",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "4a936721275d5e0d50ff4cc08805669556885a5b",
+    "comparison_head_sha": "6a4e4d5c0f3827b4e4b82c6249f5198262a9e7a6",
+    "comment_snapshot_sha256": "5be3bbad26f998c601d7cdb08d64532394189ccab70a86ef2cd4267d54b2a1e4",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "69a99089504be1cce3880df12ec118dc2ab8e3c72465faf5623b5ca9da6244ef",
+        "http_status": 400,
+        "seconds": 1.221
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "69a99089504be1cce3880df12ec118dc2ab8e3c72465faf5623b5ca9da6244ef",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1798,
+          "prompt_tokens": 115965,
+          "total_tokens": 117763,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1621,
+            "text_tokens": 177
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115308,
+            "cache_creation_tokens": 115308,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115308,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115308,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.761
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "a38fa59d0137ec6f8da74c6384824f865b47cc3082cea83ebd978f3499c0f34e",
+        "http_status": 400,
+        "seconds": 1.488
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "a38fa59d0137ec6f8da74c6384824f865b47cc3082cea83ebd978f3499c0f34e",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1890,
+          "prompt_tokens": 145409,
+          "total_tokens": 147299,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1297,
+            "text_tokens": 593
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142908,
+            "cache_creation_tokens": 142908,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142908,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142908,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.879
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes launch cap p_bound, pass1/pass2 grids, workspace allocation/views and plan reuse for multi-sequence affine-split GDN prefill kernels; numerics, CUDA-graph replay and state writes need GPU validation\n\nEvidence: flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nSuggested tests: tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nPatch content unavailable (informational): flashinfer/gdn_prefill.py, tests/gdn/test_cake_gdn_affine_split.py\n\nTest selection gap: No supplied CI lane provides SM103, so the GPU test self-skips; gdn_prefill.py host routing patch was not inspected (file size limit).\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes launch cap p_bound, pass1/pass2 grids, workspace allocation/views and plan reuse for multi-sequence affine-split GDN prefill kernels; numerics, CUDA-graph replay and state writes need GPU validation",
+          "evidence_paths": [
+            "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "case_gap": "No supplied CI lane provides SM103, so the GPU test self-skips; gdn_prefill.py host routing patch was not inspected (file size limit).",
+          "missing_patch_paths": [
+            "flashinfer/gdn_prefill.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892632363,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes launch cap p_bound, pass1/pass2 grids, workspace allocation/views and plan reuse for multi-sequence affine-split GDN prefill kernels; numerics, CUDA-graph replay and state writes need GPU validation\n\nEvidence: flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nSuggested tests: tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nPatch content unavailable (informational): flashinfer/gdn_prefill.py, tests/gdn/test_cake_gdn_affine_split.py\n\nTest selection gap: No supplied CI lane provides SM103, so the GPU test self-skips; gdn_prefill.py host routing patch was not inspected (file size limit).\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes launch cap p_bound, pass1/pass2 grids, workspace allocation/views and plan reuse for multi-sequence affine-split GDN prefill kernels; numerics, CUDA-graph replay and state writes need GPU validation",
+          "evidence_paths": [
+            "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "case_gap": "No supplied CI lane provides SM103, so the GPU test self-skips; gdn_prefill.py host routing patch was not inspected (file size limit).",
+          "missing_patch_paths": [
+            "flashinfer/gdn_prefill.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892632363,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139892632363,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892632363",
+        "head_sha": "4ac8272131c559694fcf657d079e2e502f4c78dd",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815071679,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815071679",
+    "artifact_id": 15116090210
+  }
 }

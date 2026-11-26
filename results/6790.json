@@ -24,23 +24,30 @@
       "first_line": "[FAILED] Pipeline [#75366077](https://nv/flashinfer-ci/-/pipelines/75366077) — 26/31 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889001601",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814022487",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889009959",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "New JIT cluster kernel (.cu), launcher/backend dispatch, dtype/alignment checks, PDL and CUDA-graph capture; numerics vs composable path need SM100/SM103 GPU validation.",
+  "case_gap": "Cluster-kernel cases skip unless an SM100/SM103 runner executes the experimental file; CI lanes shown are A10G/T4/H100.",
+  "selected_tests": [
+    "tests/experimental/test_mhc_pre_big_fuse_with_norm.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mhc): add experimental mhc_pre_big_fuse_with_norm",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 6790,
     "experiment_pr": 248,
@@ -64,5 +71,162 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 6790,
+    "experiment_pr": 248,
+    "experiment_head": "f8bb179b3dd6146e10b2d6dc645da6c92bba753f",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "ad54ecec509aa0a4ee7f86f35d10b9cb6e7fc6fe",
+    "comparison_head_sha": "b5bbf7f1cbaacf53e3d9b9bc7fdf0276d6ea894b",
+    "comment_snapshot_sha256": "fedfe24a181accd1dc8850becfb56e1c30a192eacecd9d1411de2c5b1b2ba97b",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "65ecf0ad6c35b2232d9eeb1af0c0c79e5ce7fb6f2e037812a440d337aff6c917",
+        "http_status": 400,
+        "seconds": 3.272
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "65ecf0ad6c35b2232d9eeb1af0c0c79e5ce7fb6f2e037812a440d337aff6c917",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1833,
+          "prompt_tokens": 119545,
+          "total_tokens": 121378,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1669,
+            "text_tokens": 164
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 118888,
+            "cache_creation_tokens": 118888,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118888,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 118888,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.23
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "172116c5e8996207731e578cf33cc5756b622464c721ed2e332fe9c48c9ba5f7",
+        "http_status": 400,
+        "seconds": 2.513
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "172116c5e8996207731e578cf33cc5756b622464c721ed2e332fe9c48c9ba5f7",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 953,
+          "prompt_tokens": 144615,
+          "total_tokens": 145568,
+          "completion_tokens_details": {
+            "reasoning_tokens": 474,
+            "text_tokens": 479
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142114,
+            "cache_creation_tokens": 142114,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142114,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142114,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.301
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/6790#issuecomment-6325133828)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139889001601,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "New JIT cluster kernel (.cu), launcher/backend dispatch, dtype/alignment checks, PDL and CUDA-graph capture; numerics vs composable path need SM100/SM103 GPU validation.\n\nEvidence: flashinfer/experimental/mhc_pre_big_fuse_with_norm/backend.py, flashinfer/experimental/mhc_pre_big_fuse_with_norm/jit.py, tests/experimental/test_mhc_pre_big_fuse_with_norm.py\n\nSuggested tests: tests/experimental/test_mhc_pre_big_fuse_with_norm.py\n\nPatch content unavailable (informational): flashinfer/experimental/mhc_pre_big_fuse_with_norm/backend.py, flashinfer/experimental/mhc_pre_big_fuse_with_norm/csrc/mhc_pre_big_fuse_with_norm_cluster.cu, tests/experimental/test_mhc_pre_big_fuse_with_norm.py\n\nTest selection gap: Cluster-kernel cases skip unless an SM100/SM103 runner executes the experimental file; CI lanes shown are A10G/T4/H100.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New JIT cluster kernel (.cu), launcher/backend dispatch, dtype/alignment checks, PDL and CUDA-graph capture; numerics vs composable path need SM100/SM103 GPU validation.",
+          "evidence_paths": [
+            "flashinfer/experimental/mhc_pre_big_fuse_with_norm/backend.py",
+            "flashinfer/experimental/mhc_pre_big_fuse_with_norm/jit.py",
+            "tests/experimental/test_mhc_pre_big_fuse_with_norm.py"
+          ],
+          "case_gap": "Cluster-kernel cases skip unless an SM100/SM103 runner executes the experimental file; CI lanes shown are A10G/T4/H100.",
+          "missing_patch_paths": [
+            "flashinfer/experimental/mhc_pre_big_fuse_with_norm/backend.py",
+            "flashinfer/experimental/mhc_pre_big_fuse_with_norm/csrc/mhc_pre_big_fuse_with_norm_cluster.cu",
+            "tests/experimental/test_mhc_pre_big_fuse_with_norm.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/experimental/test_mhc_pre_big_fuse_with_norm.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889009959,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139889001601,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139889001601",
+        "head_sha": "f8bb179b3dd6146e10b2d6dc645da6c92bba753f",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139889009959,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139889009959",
+        "head_sha": "f8bb179b3dd6146e10b2d6dc645da6c92bba753f",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814022487,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814022487",
+    "artifact_id": 15114319688
+  }
 }

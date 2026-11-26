@@ -13,23 +13,35 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/5f30cb93f167140c969ebb528248e705da86475b/experiments/source.json",
   "comment_snapshot_sha256": "3995716e06641dc7d90ed4970820467fb58b934ab4bf46755a9981fcb9e4df85",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890948393",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814587595",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890948393",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "classification_reason": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.",
+  "case_gap": "Kernel/binding .cu bodies and gdn_prefill.py patch were budget/size omitted; GPU relevance judged from filenames and inspected specs/tests.",
+  "selected_tests": [
+    "tests/gdn/test_cake_gdn_affine_split.py",
+    "tests/cpu/gdn/test_cake_gdn_affine_split.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "GPU-impact evidence was not inspected"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdn): opt-in exact sequence split for the Cake GDN prefill on SM103",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9628,
     "experiment_pr": 264,
@@ -53,5 +65,257 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9628,
+    "experiment_pr": 264,
+    "experiment_head": "5f30cb93f167140c969ebb528248e705da86475b",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "e790af2e413e07899b691736e60bbf877bb48193",
+    "comparison_head_sha": "a7d9e18658d3954527675a3d3a9e7b2ec75b2eae",
+    "comment_snapshot_sha256": "3995716e06641dc7d90ed4970820467fb58b934ab4bf46755a9981fcb9e4df85",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "a1d8956fe00b0b00434c3ac5ce5c323b69fd4fcc9d8c82f93f7004f9626f66fb",
+        "http_status": 400,
+        "seconds": 1.602
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "a1d8956fe00b0b00434c3ac5ce5c323b69fd4fcc9d8c82f93f7004f9626f66fb",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1542,
+          "prompt_tokens": 121704,
+          "total_tokens": 123246,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1193,
+            "text_tokens": 349
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 121047,
+            "cache_creation_tokens": 121047,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 121047,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 121047,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.108
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "48d3eee4693216a0e29b75daf2f037b77d78eebdb610caa92fea1f8cd7fb7bf2",
+        "http_status": 400,
+        "seconds": 1.642
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "48d3eee4693216a0e29b75daf2f037b77d78eebdb610caa92fea1f8cd7fb7bf2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1289,
+          "prompt_tokens": 148566,
+          "total_tokens": 149855,
+          "completion_tokens_details": {
+            "reasoning_tokens": 684,
+            "text_tokens": 605
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 146065,
+            "cache_creation_tokens": 146065,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 146065,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 146065,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.796
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "48d3eee4693216a0e29b75daf2f037b77d78eebdb610caa92fea1f8cd7fb7bf2",
+        "http_status": 400,
+        "seconds": 1.372
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "48d3eee4693216a0e29b75daf2f037b77d78eebdb610caa92fea1f8cd7fb7bf2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 598,
+          "prompt_tokens": 148566,
+          "total_tokens": 149164,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 598
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 148564,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 148564,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 10.963
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.\n\nEvidence: flashinfer/jit/cake_gdn_affine_split.py, flashinfer/gdn_kernels/blackwell/__init__.py, tests/gdn/test_cake_gdn_affine_split.py\n\nSuggested tests: tests/gdn/test_cake_gdn_affine_split.py, tests/cpu/gdn/test_cake_gdn_affine_split.py\n\nPatch content unavailable (informational): csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu, flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py, flashinfer/gdn_prefill.py, tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nTest selection gap: Kernel/binding .cu bodies and gdn_prefill.py patch were budget/size omitted; GPU relevance judged from filenames and inspected specs/tests.\n\nAnalysis attempts:\n- default: GPU-impact evidence was not inspected\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.",
+          "evidence_paths": [
+            "flashinfer/jit/cake_gdn_affine_split.py",
+            "flashinfer/gdn_kernels/blackwell/__init__.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "case_gap": "Kernel/binding .cu bodies and gdn_prefill.py patch were budget/size omitted; GPU relevance judged from filenames and inspected specs/tests.",
+          "missing_patch_paths": [
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+            "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+            "flashinfer/gdn_prefill.py",
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "missing_patch_count": 12,
+          "targets": [
+            "tests/gdn/test_cake_gdn_affine_split.py",
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "GPU-impact evidence was not inspected"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139890948393,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.\n\nEvidence: flashinfer/jit/cake_gdn_affine_split.py, flashinfer/gdn_kernels/blackwell/__init__.py, tests/gdn/test_cake_gdn_affine_split.py\n\nSuggested tests: tests/gdn/test_cake_gdn_affine_split.py, tests/cpu/gdn/test_cake_gdn_affine_split.py\n\nPatch content unavailable (informational): csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_binding.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu, flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py, flashinfer/gdn_prefill.py, tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nTest selection gap: Kernel/binding .cu bodies and gdn_prefill.py patch were budget/size omitted; GPU relevance judged from filenames and inspected specs/tests.\n\nAnalysis attempts:\n- default: GPU-impact evidence was not inspected\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.",
+          "evidence_paths": [
+            "flashinfer/jit/cake_gdn_affine_split.py",
+            "flashinfer/gdn_kernels/blackwell/__init__.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "case_gap": "Kernel/binding .cu bodies and gdn_prefill.py patch were budget/size omitted; GPU relevance judged from filenames and inspected specs/tests.",
+          "missing_patch_paths": [
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_binding.cu",
+            "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+            "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+            "flashinfer/gdn_prefill.py",
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "missing_patch_count": 12,
+          "targets": [
+            "tests/gdn/test_cake_gdn_affine_split.py",
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "GPU-impact evidence was not inspected"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139890948393,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139890948393,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139890948393",
+        "head_sha": "5f30cb93f167140c969ebb528248e705da86475b",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814587595,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814587595",
+    "artifact_id": 15115555291
+  }
 }

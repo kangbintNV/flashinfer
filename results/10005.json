@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/b264acc3373bc8665c8763d830e6a96a9aca8196/experiments/source.json",
   "comment_snapshot_sha256": "09d65d40151212b11e105a54af05923e225bc48a4c9d979f0d6014dd9052dcbd",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893357949",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815260420",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893357949",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "CI image now pins cuda-core&lt;1.3, changing the cuda.core/cuda-bindings pair (MemoryResource/Buffer) used by nvshmem4py symmetric-memory GPU paths; text assertions alone cannot validate runtime import/allocation.",
+  "case_gap": "No inspected test asserts the cuda-core constraint or exercises NVSHMEM collection with the new bindings pair.",
+  "selected_tests": [
+    "tests/cpu/infra/test_cuda_tile_ci.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "pending",
   "static_reason": "CI dependency constraint changes cuda-core binding selection. Confirm whether GPU-free environment/import validation suffices for the exact binding compatibility issue.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "pending_review",
+  "classification_assessment": "pending_review",
   "source_audit": {
     "original_number": 10005,
     "experiment_pr": 129,
@@ -64,5 +71,172 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139379181237",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 10005,
+    "experiment_pr": 129,
+    "experiment_head": "b264acc3373bc8665c8763d830e6a96a9aca8196",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "f0294689bf607055eb3aa0179cb9c0537a4cade4",
+    "comparison_head_sha": "a877727564ee2b5ebd7ffaf6bfb4b36d84208884",
+    "comment_snapshot_sha256": "09d65d40151212b11e105a54af05923e225bc48a4c9d979f0d6014dd9052dcbd",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "c2fc65fc22cf00257080a7bca90d38dd59c985e8492a7972b2ff0102be43d660",
+        "http_status": 400,
+        "seconds": 0.844
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "c2fc65fc22cf00257080a7bca90d38dd59c985e8492a7972b2ff0102be43d660",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 961,
+          "prompt_tokens": 104157,
+          "total_tokens": 105118,
+          "completion_tokens_details": {
+            "reasoning_tokens": 844,
+            "text_tokens": 117
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 103500,
+            "cache_creation_tokens": 103500,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 103500,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 103500,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 15.127
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "ba3b8bd49d41e933e02ee37157a235a3d67dda38f776faca9966942ca5027e4b",
+        "http_status": 400,
+        "seconds": 3.281
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "ba3b8bd49d41e933e02ee37157a235a3d67dda38f776faca9966942ca5027e4b",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1212,
+          "prompt_tokens": 118987,
+          "total_tokens": 120199,
+          "completion_tokens_details": {
+            "reasoning_tokens": 820,
+            "text_tokens": 392
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 116486,
+            "cache_creation_tokens": 116486,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 116486,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 116486,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 29.732
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "CI image now pins cuda-core&amp;lt;1.3, changing the cuda.core/cuda-bindings pair (MemoryResource/Buffer) used by nvshmem4py symmetric-memory GPU paths; text assertions alone cannot validate runtime import/allocation.\n\nEvidence: docker/install/install_python_packages.sh, tests/cpu/infra/test_cuda_tile_ci.py\n\nSuggested tests: tests/cpu/infra/test_cuda_tile_ci.py\n\nTest selection gap: No inspected test asserts the cuda-core constraint or exercises NVSHMEM collection with the new bindings pair.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "CI image now pins cuda-core&lt;1.3, changing the cuda.core/cuda-bindings pair (MemoryResource/Buffer) used by nvshmem4py symmetric-memory GPU paths; text assertions alone cannot validate runtime import/allocation.",
+          "evidence_paths": [
+            "docker/install/install_python_packages.sh",
+            "tests/cpu/infra/test_cuda_tile_ci.py"
+          ],
+          "case_gap": "No inspected test asserts the cuda-core constraint or exercises NVSHMEM collection with the new bindings pair.",
+          "targets": [
+            "tests/cpu/infra/test_cuda_tile_ci.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893357949,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "CI image now pins cuda-core&amp;lt;1.3, changing the cuda.core/cuda-bindings pair (MemoryResource/Buffer) used by nvshmem4py symmetric-memory GPU paths; text assertions alone cannot validate runtime import/allocation.\n\nEvidence: docker/install/install_python_packages.sh, tests/cpu/infra/test_cuda_tile_ci.py\n\nSuggested tests: tests/cpu/infra/test_cuda_tile_ci.py\n\nTest selection gap: No inspected test asserts the cuda-core constraint or exercises NVSHMEM collection with the new bindings pair.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "CI image now pins cuda-core&lt;1.3, changing the cuda.core/cuda-bindings pair (MemoryResource/Buffer) used by nvshmem4py symmetric-memory GPU paths; text assertions alone cannot validate runtime import/allocation.",
+          "evidence_paths": [
+            "docker/install/install_python_packages.sh",
+            "tests/cpu/infra/test_cuda_tile_ci.py"
+          ],
+          "case_gap": "No inspected test asserts the cuda-core constraint or exercises NVSHMEM collection with the new bindings pair.",
+          "targets": [
+            "tests/cpu/infra/test_cuda_tile_ci.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893357949,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893357949,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893357949",
+        "head_sha": "b264acc3373bc8665c8763d830e6a96a9aca8196",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815260420,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815260420",
+    "artifact_id": 15115576312
+  }
 }

@@ -24,23 +24,30 @@
       "first_line": "[FAILED] Pipeline [#82998278](https://nv/flashinfer-ci/-/pipelines/82998278) — 27/30 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890036513",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814322491",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890044688",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "New CUTLASS swap-AB GEMM kernel instantiations, tile/epilogue shapes and runtime SM-count-based dispatch in gemm_groupwise_sm120.cuh; numerics and CUDA-graph legality need GPU validation",
+  "case_gap": "Selected tests skip on non-SM120 lanes; CI evidence shows no SM120 runner, so new tile paths may go unexecuted.",
+  "selected_tests": [
+    "tests/gemm/test_groupwise_scaled_gemm_fp8.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(gemm): swap-AB small-M tiles for the SM120 FP8 groupwise GEMM",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9464,
     "experiment_pr": 258,
@@ -64,5 +71,159 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9464,
+    "experiment_pr": 258,
+    "experiment_head": "5aac1a0306d7f48f32d1da42ea331dc2604286a4",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a1e0200c1e5ab0a3e78031a09322f80762bcee01",
+    "comparison_head_sha": "e65caf5cbb90cbc1a6e90ad6aab1c38ff8132291",
+    "comment_snapshot_sha256": "d1a767b75c6b0c30273c86f791fafe5c7809399db4f6eb53b12d1b3227ceae1a",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "f903deafdacf9b37c684d7281db0c05fb4fb63076ee628cb3d6086453471409c",
+        "http_status": 400,
+        "seconds": 2.739
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "f903deafdacf9b37c684d7281db0c05fb4fb63076ee628cb3d6086453471409c",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1322,
+          "prompt_tokens": 112341,
+          "total_tokens": 113663,
+          "completion_tokens_details": {
+            "reasoning_tokens": 983,
+            "text_tokens": 339
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 111684,
+            "cache_creation_tokens": 111684,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 111684,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 111684,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.367
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "63bd652dfdebe204c9b06a473786d793a86d7f60fe0802c4897464482d0821b3",
+        "http_status": 400,
+        "seconds": 1.297
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "63bd652dfdebe204c9b06a473786d793a86d7f60fe0802c4897464482d0821b3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 409,
+          "prompt_tokens": 148967,
+          "total_tokens": 149376,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 409
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 146466,
+            "cache_creation_tokens": 146466,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 146466,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 146466,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 9.196
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9464#issuecomment-6981793114)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139890036513,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "New CUTLASS swap-AB GEMM kernel instantiations, tile/epilogue shapes and runtime SM-count-based dispatch in gemm_groupwise_sm120.cuh; numerics and CUDA-graph legality need GPU validation\n\nEvidence: include/flashinfer/gemm/gemm_groupwise_sm120.cuh, tests/gemm/test_groupwise_scaled_gemm_fp8.py\n\nSuggested tests: tests/gemm/test_groupwise_scaled_gemm_fp8.py\n\nPatch content unavailable (informational): include/flashinfer/gemm/gemm_groupwise_sm120.cuh\n\nTest selection gap: Selected tests skip on non-SM120 lanes; CI evidence shows no SM120 runner, so new tile paths may go unexecuted.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New CUTLASS swap-AB GEMM kernel instantiations, tile/epilogue shapes and runtime SM-count-based dispatch in gemm_groupwise_sm120.cuh; numerics and CUDA-graph legality need GPU validation",
+          "evidence_paths": [
+            "include/flashinfer/gemm/gemm_groupwise_sm120.cuh",
+            "tests/gemm/test_groupwise_scaled_gemm_fp8.py"
+          ],
+          "case_gap": "Selected tests skip on non-SM120 lanes; CI evidence shows no SM120 runner, so new tile paths may go unexecuted.",
+          "missing_patch_paths": [
+            "include/flashinfer/gemm/gemm_groupwise_sm120.cuh"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/gemm/test_groupwise_scaled_gemm_fp8.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139890044688,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139890036513,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139890036513",
+        "head_sha": "5aac1a0306d7f48f32d1da42ea331dc2604286a4",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139890044688,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139890044688",
+        "head_sha": "5aac1a0306d7f48f32d1da42ea331dc2604286a4",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814322491,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814322491",
+    "artifact_id": 15113494084
+  }
 }

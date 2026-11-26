@@ -13,23 +13,33 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/b73c2b52492e858a21181edab69b1ae17062e0f6/experiments/source.json",
   "comment_snapshot_sha256": "fe1e82808bc4a1e7bde940d38bbfd7711e84d2a7a0a5199b1f4336b3cd7c47db",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889360345",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814122875",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889360345",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Change is CI workflow routing (dispatcher vs reusable pr-test.yml), docs, and stdlib-only Python helpers (pr_test_history.py, ai_test_scope.py routing evidence); no kernel, binding, JIT or dispatch code touched, so workflow/CPU validation suffices.",
+  "case_gap": "pr-test-dispatch.yml judged from filename/docs (patch omitted); tests/infra/test_sharding changed tests not inspected and their lane routing unverified.",
+  "selected_tests": [
+    "tests/cpu/infra/test_pr_test_workflows.py",
+    "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+    "tests/cpu/infra/test_jit_cache_release.py",
+    "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "cpu_only",
   "static_reason": "Trusted workflow dispatch/ref selection, history helper and CPU workflow tests; product GPU implementations are unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 10046,
     "experiment_pr": 251,
@@ -53,5 +63,198 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 10046,
+    "experiment_pr": 251,
+    "experiment_head": "b73c2b52492e858a21181edab69b1ae17062e0f6",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "1ec9ad31183e2d4356f17b8ffeeb9994ab2752bc",
+    "comparison_head_sha": "edefa080987d1940b97fdb62e3cfc2f0b3ce4d2f",
+    "comment_snapshot_sha256": "fe1e82808bc4a1e7bde940d38bbfd7711e84d2a7a0a5199b1f4336b3cd7c47db",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "887a7e0180d527c956d4a8b332c23d752da78e634b7cad97aa9e854ed9b84178",
+        "http_status": 400,
+        "seconds": 1.15
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "887a7e0180d527c956d4a8b332c23d752da78e634b7cad97aa9e854ed9b84178",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2197,
+          "prompt_tokens": 118390,
+          "total_tokens": 120587,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1864,
+            "text_tokens": 333
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 117733,
+            "cache_creation_tokens": 117733,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 117733,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 117733,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.207
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "e189737294328c1a497f12578b9a7881ad723cf49fba189cf9f79a817e847324",
+        "http_status": 400,
+        "seconds": 1.056
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "e189737294328c1a497f12578b9a7881ad723cf49fba189cf9f79a817e847324",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 3945,
+          "prompt_tokens": 142526,
+          "total_tokens": 146471,
+          "completion_tokens_details": {
+            "reasoning_tokens": 3022,
+            "text_tokens": 923
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140025,
+            "cache_creation_tokens": 140025,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140025,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140025,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 50.004
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Change is CI workflow routing (dispatcher vs reusable pr-test.yml), docs, and stdlib-only Python helpers (pr_test_history.py, ai_test_scope.py routing evidence); no kernel, binding, JIT or dispatch code touched, so workflow/CPU validation suffices.\n\nEvidence: tests/cpu/infra/test_pr_test_workflows.py, scripts/infra/pr_checks/pr_test_history.py, .github/workflows/pr-test.yml\n\nSuggested tests: tests/cpu/infra/test_pr_test_workflows.py, tests/cpu/infra/test_aot_cache_seed_workflow.py, tests/cpu/infra/test_jit_cache_release.py, tests/cpu/jit/test_jit_spec_gencode_lint.py\n\nPatch content unavailable (informational): .github/workflows/pr-test-dispatch.yml, .github/workflows/pr-test.yml, tests/cpu/infra/test_pr_test_workflows.py\n\nTest selection gap: pr-test-dispatch.yml judged from filename/docs (patch omitted); tests/infra/test_sharding changed tests not inspected and their lane routing unverified.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Change is CI workflow routing (dispatcher vs reusable pr-test.yml), docs, and stdlib-only Python helpers (pr_test_history.py, ai_test_scope.py routing evidence); no kernel, binding, JIT or dispatch code touched, so workflow/CPU validation suffices.",
+          "evidence_paths": [
+            "tests/cpu/infra/test_pr_test_workflows.py",
+            "scripts/infra/pr_checks/pr_test_history.py",
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "pr-test-dispatch.yml judged from filename/docs (patch omitted); tests/infra/test_sharding changed tests not inspected and their lane routing unverified.",
+          "filename_only_evidence": [
+            ".github/workflows/pr-test.yml"
+          ],
+          "missing_patch_paths": [
+            ".github/workflows/pr-test-dispatch.yml",
+            ".github/workflows/pr-test.yml",
+            "tests/cpu/infra/test_pr_test_workflows.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/cpu/infra/test_pr_test_workflows.py",
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+            "tests/cpu/infra/test_jit_cache_release.py",
+            "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889360345,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Change is CI workflow routing (dispatcher vs reusable pr-test.yml), docs, and stdlib-only Python helpers (pr_test_history.py, ai_test_scope.py routing evidence); no kernel, binding, JIT or dispatch code touched, so workflow/CPU validation suffices.\n\nEvidence: tests/cpu/infra/test_pr_test_workflows.py, scripts/infra/pr_checks/pr_test_history.py, .github/workflows/pr-test.yml\n\nSuggested tests: tests/cpu/infra/test_pr_test_workflows.py, tests/cpu/infra/test_aot_cache_seed_workflow.py, tests/cpu/infra/test_jit_cache_release.py, tests/cpu/jit/test_jit_spec_gencode_lint.py\n\nPatch content unavailable (informational): .github/workflows/pr-test-dispatch.yml, .github/workflows/pr-test.yml, tests/cpu/infra/test_pr_test_workflows.py\n\nTest selection gap: pr-test-dispatch.yml judged from filename/docs (patch omitted); tests/infra/test_sharding changed tests not inspected and their lane routing unverified.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Change is CI workflow routing (dispatcher vs reusable pr-test.yml), docs, and stdlib-only Python helpers (pr_test_history.py, ai_test_scope.py routing evidence); no kernel, binding, JIT or dispatch code touched, so workflow/CPU validation suffices.",
+          "evidence_paths": [
+            "tests/cpu/infra/test_pr_test_workflows.py",
+            "scripts/infra/pr_checks/pr_test_history.py",
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "pr-test-dispatch.yml judged from filename/docs (patch omitted); tests/infra/test_sharding changed tests not inspected and their lane routing unverified.",
+          "filename_only_evidence": [
+            ".github/workflows/pr-test.yml"
+          ],
+          "missing_patch_paths": [
+            ".github/workflows/pr-test-dispatch.yml",
+            ".github/workflows/pr-test.yml",
+            "tests/cpu/infra/test_pr_test_workflows.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/cpu/infra/test_pr_test_workflows.py",
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+            "tests/cpu/infra/test_jit_cache_release.py",
+            "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139889360345,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139889360345,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139889360345",
+        "head_sha": "b73c2b52492e858a21181edab69b1ae17062e0f6",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814122875,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814122875",
+    "artifact_id": 15114459846
+  }
 }

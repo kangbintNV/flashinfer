@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!3076](https://nv/flashinfer/-/merge_requests/3076) has been created, and the CI pipeline [#85150186](https://nv/flashinfer-ci/-/pipelines/85150186) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892593886",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815060548",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892604078",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "CuTe-DSL SM100/SM103 kernel epilogue change (compact decode tiles, packed cvt.rn.bf16x2, skipped padding stores, 64-bit addressing); bitwise FP4/scale output needs GPU validation",
+  "case_gap": "Kernel file body not inspected (file size limit); compact-path coverage judged from added GPU tests and docstring change only.",
+  "selected_tests": [
+    "tests/moe/test_routed_nvfp4.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe): faster pre-FC2 GEMM1 epilogue (compact decode tiles, packed BF16 rounding)",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9848,
     "experiment_pr": 275,
@@ -59,5 +66,163 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9848,
+    "experiment_pr": 275,
+    "experiment_head": "c9dfa1ab189814bf5aaebdbd4b8cf3a455a9b7d6",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "af5a474da924c79dfa216ec5adfad7a5ceb1a53c",
+    "comparison_head_sha": "ae93aaed3d19c9c309dcea0c0d9026e9e53baf76",
+    "comment_snapshot_sha256": "d7b31a1bec53efaa0764660f90fe92bd2fdbf94bfdb5a896277e9a80e9c4a117",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "6af6bfffbfb44b34e5391d40fd7bf8a48a2b46e426ab52750b6569297e9209f4",
+        "http_status": 400,
+        "seconds": 1.21
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "6af6bfffbfb44b34e5391d40fd7bf8a48a2b46e426ab52750b6569297e9209f4",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1114,
+          "prompt_tokens": 103519,
+          "total_tokens": 104633,
+          "completion_tokens_details": {
+            "reasoning_tokens": 821,
+            "text_tokens": 293
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102862,
+            "cache_creation_tokens": 102862,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102862,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102862,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 14.339
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "d093e2699e17d5887ad691da609e13d3a429f5fcb4255c786b6b2d7cf2e0ad9a",
+        "http_status": 400,
+        "seconds": 1.282
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "d093e2699e17d5887ad691da609e13d3a429f5fcb4255c786b6b2d7cf2e0ad9a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 490,
+          "prompt_tokens": 145580,
+          "total_tokens": 146070,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 490
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143079,
+            "cache_creation_tokens": 143079,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143079,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143079,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 9.843
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9848#issuecomment-7144687059)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139892593886,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "CuTe-DSL SM100/SM103 kernel epilogue change (compact decode tiles, packed cvt.rn.bf16x2, skipped padding stores, 64-bit addressing); bitwise FP4/scale output needs GPU validation\n\nEvidence: flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py, tests/moe/test_routed_nvfp4.py, flashinfer/fused_moe/cute_dsl/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py\n\nSuggested tests: tests/moe/test_routed_nvfp4.py\n\nPatch content unavailable (informational): flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py\n\nTest selection gap: Kernel file body not inspected (file size limit); compact-path coverage judged from added GPU tests and docstring change only.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "CuTe-DSL SM100/SM103 kernel epilogue change (compact decode tiles, packed cvt.rn.bf16x2, skipped padding stores, 64-bit addressing); bitwise FP4/scale output needs GPU validation",
+          "evidence_paths": [
+            "flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py",
+            "tests/moe/test_routed_nvfp4.py",
+            "flashinfer/fused_moe/cute_dsl/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py"
+          ],
+          "case_gap": "Kernel file body not inspected (file size limit); compact-path coverage judged from added GPU tests and docstring change only.",
+          "filename_only_evidence": [
+            "flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py"
+          ],
+          "missing_patch_paths": [
+            "flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/moe/test_routed_nvfp4.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892604078,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139892593886,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892593886",
+        "head_sha": "c9dfa1ab189814bf5aaebdbd4b8cf3a455a9b7d6",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139892604078,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892604078",
+        "head_sha": "c9dfa1ab189814bf5aaebdbd4b8cf3a455a9b7d6",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815060548,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815060548",
+    "artifact_id": 15115056431
+  }
 }

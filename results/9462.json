@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/3fa16673fb79ad9d358c987bfde589cd84e70168/experiments/source.json",
   "comment_snapshot_sha256": "b23ff95b940685dc5976ad50a74d40e1dd9d716ca57fa0a82d299c458943b525",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888076869",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813754873",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888076869",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changes are release/packaging tooling: a Windows wheel-build orchestrator plus wheel metadata/library-name validation (module.dll, shim .dll rejection) and docs; no kernel, dispatch or runtime path altered, and checks read wheel archives",
+  "case_gap": "scripts/build_windows_arm64_wheels.py body not inspected (budget); real win-arm64 provider builds are unrouted in CI and only simulated by mocks",
+  "selected_tests": [
+    "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "pending",
   "static_reason": "New native Windows ARM64 wheel/JIT-provider driver and DLL layout validation; requires native build evidence to decide whether GPU-free validation sufficiently covers generated-provider integration.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "pending_review",
+  "classification_assessment": "pending_review",
   "source_audit": {
     "original_number": 9462,
     "experiment_pr": 237,
@@ -53,5 +60,184 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9462,
+    "experiment_pr": 237,
+    "experiment_head": "3fa16673fb79ad9d358c987bfde589cd84e70168",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "dc99c09c60f33291e6753cbc3ee97026217b7be8",
+    "comparison_head_sha": "f3f46d3ba64988ea6b570ef4d6d64ffdd8d4e558",
+    "comment_snapshot_sha256": "b23ff95b940685dc5976ad50a74d40e1dd9d716ca57fa0a82d299c458943b525",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "8c56417bd144c31f5afa81645c0d0cfe20ca29881dac7b37459f1269abc964b1",
+        "http_status": 400,
+        "seconds": 1.296
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "8c56417bd144c31f5afa81645c0d0cfe20ca29881dac7b37459f1269abc964b1",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1514,
+          "prompt_tokens": 118602,
+          "total_tokens": 120116,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1272,
+            "text_tokens": 242
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 117945,
+            "cache_creation_tokens": 117945,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 117945,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 117945,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.341
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "561b8075ebab8e183fe48ce7fc30e23ef55a259afb8232c4e2c5d330a02bc69f",
+        "http_status": 400,
+        "seconds": 2.833
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "561b8075ebab8e183fe48ce7fc30e23ef55a259afb8232c4e2c5d330a02bc69f",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1454,
+          "prompt_tokens": 142794,
+          "total_tokens": 144248,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1022,
+            "text_tokens": 432
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140293,
+            "cache_creation_tokens": 140293,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140293,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140293,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.646
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changes are release/packaging tooling: a Windows wheel-build orchestrator plus wheel metadata/library-name validation (module.dll, shim .dll rejection) and docs; no kernel, dispatch or runtime path altered, and checks read wheel archives\n\nEvidence: scripts/jit_cache_provider_validation.py, scripts/verify_jit_cache_provider_artifact.py, tests/cpu/infra/test_build_windows_arm64_wheels.py\n\nSuggested tests: tests/cpu/infra/test_build_windows_arm64_wheels.py\n\nPatch content unavailable (informational): scripts/build_windows_arm64_wheels.py, tests/cpu/infra/test_build_windows_arm64_wheels.py\n\nTest selection gap: scripts/build_windows_arm64_wheels.py body not inspected (budget); real win-arm64 provider builds are unrouted in CI and only simulated by mocks",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changes are release/packaging tooling: a Windows wheel-build orchestrator plus wheel metadata/library-name validation (module.dll, shim .dll rejection) and docs; no kernel, dispatch or runtime path altered, and checks read wheel archives",
+          "evidence_paths": [
+            "scripts/jit_cache_provider_validation.py",
+            "scripts/verify_jit_cache_provider_artifact.py",
+            "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+          ],
+          "case_gap": "scripts/build_windows_arm64_wheels.py body not inspected (budget); real win-arm64 provider builds are unrouted in CI and only simulated by mocks",
+          "missing_patch_paths": [
+            "scripts/build_windows_arm64_wheels.py",
+            "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888076869,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changes are release/packaging tooling: a Windows wheel-build orchestrator plus wheel metadata/library-name validation (module.dll, shim .dll rejection) and docs; no kernel, dispatch or runtime path altered, and checks read wheel archives\n\nEvidence: scripts/jit_cache_provider_validation.py, scripts/verify_jit_cache_provider_artifact.py, tests/cpu/infra/test_build_windows_arm64_wheels.py\n\nSuggested tests: tests/cpu/infra/test_build_windows_arm64_wheels.py\n\nPatch content unavailable (informational): scripts/build_windows_arm64_wheels.py, tests/cpu/infra/test_build_windows_arm64_wheels.py\n\nTest selection gap: scripts/build_windows_arm64_wheels.py body not inspected (budget); real win-arm64 provider builds are unrouted in CI and only simulated by mocks",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changes are release/packaging tooling: a Windows wheel-build orchestrator plus wheel metadata/library-name validation (module.dll, shim .dll rejection) and docs; no kernel, dispatch or runtime path altered, and checks read wheel archives",
+          "evidence_paths": [
+            "scripts/jit_cache_provider_validation.py",
+            "scripts/verify_jit_cache_provider_artifact.py",
+            "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+          ],
+          "case_gap": "scripts/build_windows_arm64_wheels.py body not inspected (budget); real win-arm64 provider builds are unrouted in CI and only simulated by mocks",
+          "missing_patch_paths": [
+            "scripts/build_windows_arm64_wheels.py",
+            "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888076869,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888076869,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888076869",
+        "head_sha": "3fa16673fb79ad9d358c987bfde589cd84e70168",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813754873,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813754873",
+    "artifact_id": 15114243279
+  }
 }

@@ -19,23 +19,28 @@
       "first_line": "GitLab MR [!3087](https://nv/flashinfer/-/merge_requests/3087) has been created, and the CI pipeline [#85406466](https://nv/flashinfer-ci/-/pipelines/85406466) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892263354",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814961332",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139892273924",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Patch alters _resolve_grouped_q_launch_candidates so D512 Keeps Q64 retains multi-wave split-kv fanout, changing selected decode kernel config and split counts for NVFP4 KV; launch/split behavior needs GPU validation.",
+  "case_gap": "Expanded D512 selection asserts only planned config on a mocked SM100; no inspected routed GPU execution/numerics case for the new split counts.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prim_ts) keep D512 grouped Keeps for decode planned at a long max_kv_len",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9998,
     "experiment_pr": 274,
@@ -59,5 +64,153 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9998,
+    "experiment_pr": 274,
+    "experiment_head": "21cb75a4ff6069374c4ac6cc78af498f370aa8c6",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "6022b5e826714d92cf699a48d3b52f749fcf8063",
+    "comparison_head_sha": "51557e8e0af6de60b5f1d8d73eebdad1c04f811b",
+    "comment_snapshot_sha256": "672d28065ade3c15a80c7daa1c387362d5be4d6c07f389bbd42c5e8d0a595dcf",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "f612d01e6f92c6e51e7a3e75d7337e2af0828c1e4020c8ea89a803b1733cc0d4",
+        "http_status": 400,
+        "seconds": 1.05
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "f612d01e6f92c6e51e7a3e75d7337e2af0828c1e4020c8ea89a803b1733cc0d4",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1593,
+          "prompt_tokens": 101884,
+          "total_tokens": 103477,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1348,
+            "text_tokens": 245
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 101227,
+            "cache_creation_tokens": 101227,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 101227,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 101227,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.223
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "285c5919e77a5e9c7f2e322b5f9bada4994377427110799306cf0c4779c79c21",
+        "http_status": 400,
+        "seconds": 2.682
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "285c5919e77a5e9c7f2e322b5f9bada4994377427110799306cf0c4779c79c21",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1822,
+          "prompt_tokens": 131184,
+          "total_tokens": 133006,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1468,
+            "text_tokens": 354
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 128683,
+            "cache_creation_tokens": 128683,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 128683,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 128683,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 28.15
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9998#issuecomment-7169964271)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139892263354,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Patch alters _resolve_grouped_q_launch_candidates so D512 Keeps Q64 retains multi-wave split-kv fanout, changing selected decode kernel config and split counts for NVFP4 KV; launch/split behavior needs GPU validation.\n\nEvidence: flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py, tests/attention/test_attention_ts_decode.py\n\nTest selection gap: Expanded D512 selection asserts only planned config on a mocked SM100; no inspected routed GPU execution/numerics case for the new split counts.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Patch alters _resolve_grouped_q_launch_candidates so D512 Keeps Q64 retains multi-wave split-kv fanout, changing selected decode kernel config and split counts for NVFP4 KV; launch/split behavior needs GPU validation.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+            "tests/attention/test_attention_ts_decode.py"
+          ],
+          "case_gap": "Expanded D512 selection asserts only planned config on a mocked SM100; no inspected routed GPU execution/numerics case for the new split counts.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139892273924,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139892263354,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892263354",
+        "head_sha": "21cb75a4ff6069374c4ac6cc78af498f370aa8c6",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139892273924,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139892273924",
+        "head_sha": "21cb75a4ff6069374c4ac6cc78af498f370aa8c6",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814961332,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814961332",
+    "artifact_id": 15114976729
+  }
 }

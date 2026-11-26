@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!3002](https://nv/flashinfer/-/merge_requests/3002) has been created, and the CI pipeline [#83872335](https://nv/flashinfer-ci/-/pipelines/83872335) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890264928",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814391008",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890272717",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "New CUDA FFI trtllm_fp4_moe_default_tile_n builds per-device MoE runners, loads cubins and validates configs; Python query/op share runner+tuning config, and added test runs FP4 MoE kernels",
+  "case_gap": "core.py body/patch not supplied (file size limit); its GPU relevance judged from launcher/dispatch role, not an inspected diff",
+  "selected_tests": [
+    "tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(moe): routing tile query for routed FP4 MoE routing metadata",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9745,
     "experiment_pr": 259,
@@ -59,5 +66,164 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9745,
+    "experiment_pr": 259,
+    "experiment_head": "6e3b376ff124e391aea0341e5150e567a77d6d36",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "1c5e136f0bf92d0e6c05d0deffa87bddfdf3b84d",
+    "comparison_head_sha": "28665393925f29b10b74500a0615457041d84c53",
+    "comment_snapshot_sha256": "f2e037c91aa8461d575a541d9686f1618db9ba5edf46aebaf26dc01559247f46",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "74ab7953554d26cc7c78c669b12cdce41a4e9b7b68593bcace9739a5adbb3623",
+        "http_status": 400,
+        "seconds": 3.244
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "74ab7953554d26cc7c78c669b12cdce41a4e9b7b68593bcace9739a5adbb3623",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2389,
+          "prompt_tokens": 111150,
+          "total_tokens": 113539,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2059,
+            "text_tokens": 330
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 110493,
+            "cache_creation_tokens": 110493,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 110493,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 110493,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 32.141
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "e7fa11de4276830551070cc6aaa6264d7387ac7dba86cdb77c89ad542e0d7a89",
+        "http_status": 400,
+        "seconds": 1.392
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "e7fa11de4276830551070cc6aaa6264d7387ac7dba86cdb77c89ad542e0d7a89",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1046,
+          "prompt_tokens": 141316,
+          "total_tokens": 142362,
+          "completion_tokens_details": {
+            "reasoning_tokens": 568,
+            "text_tokens": 478
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 138815,
+            "cache_creation_tokens": 138815,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 138815,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 138815,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 16.214
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9745#issuecomment-7031186743)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139890264928,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "New CUDA FFI trtllm_fp4_moe_default_tile_n builds per-device MoE runners, loads cubins and validates configs; Python query/op share runner+tuning config, and added test runs FP4 MoE kernels\n\nEvidence: csrc/trtllm_fused_moe_kernel_launcher.cu, flashinfer/fused_moe/core.py, tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py\n\nSuggested tests: tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py\n\nPatch content unavailable (informational): flashinfer/fused_moe/core.py, tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py\n\nTest selection gap: core.py body/patch not supplied (file size limit); its GPU relevance judged from launcher/dispatch role, not an inspected diff\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New CUDA FFI trtllm_fp4_moe_default_tile_n builds per-device MoE runners, loads cubins and validates configs; Python query/op share runner+tuning config, and added test runs FP4 MoE kernels",
+          "evidence_paths": [
+            "csrc/trtllm_fused_moe_kernel_launcher.cu",
+            "flashinfer/fused_moe/core.py",
+            "tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py"
+          ],
+          "case_gap": "core.py body/patch not supplied (file size limit); its GPU relevance judged from launcher/dispatch role, not an inspected diff",
+          "filename_only_evidence": [
+            "flashinfer/fused_moe/core.py"
+          ],
+          "missing_patch_paths": [
+            "flashinfer/fused_moe/core.py",
+            "tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139890272717,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139890264928,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139890264928",
+        "head_sha": "6e3b376ff124e391aea0341e5150e567a77d6d36",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139890272717,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139890272717",
+        "head_sha": "6e3b376ff124e391aea0341e5150e567a77d6d36",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814391008,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814391008",
+    "artifact_id": 15115450108
+  }
 }

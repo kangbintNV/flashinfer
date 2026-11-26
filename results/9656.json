@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/98c1c1e969cbdaea373af7b45e5c97c3f04340e0/experiments/source.json",
   "comment_snapshot_sha256": "aa0672220c658ca17dedbb17e38c6e4abe4196de312a519f5d7a4decdcdacd9f",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888142889",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813771337",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888142889",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Backend/runner selection for NVFP4 and bf16 GEMMs plus Stream-K partials/flags moved to per-stream scratch with zero-fill recorded under CUDA graph capture; needs device numerics and graph replay checks",
+  "case_gap": "Bodies of PR-added tests/gemm/test_cake_autotune_candidates_gemm.py and modified test_cake_mm_fp4.py were not inspected (budget); routing lanes lack SM100/SM103 GPUs",
+  "selected_tests": [
+    "tests/gemm"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): offer Cake as the last autotuning candidate for bmm_bf16, svdquant and per-token mm_fp4",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9656,
     "experiment_pr": 240,
@@ -53,5 +60,192 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9656,
+    "experiment_pr": 240,
+    "experiment_head": "98c1c1e969cbdaea373af7b45e5c97c3f04340e0",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "25bc267eb84dd1b28997f62aa4c282a09184c952",
+    "comparison_head_sha": "a1cebab0def38dde8133370c02bfedaf7c1995cd",
+    "comment_snapshot_sha256": "aa0672220c658ca17dedbb17e38c6e4abe4196de312a519f5d7a4decdcdacd9f",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "2a8ca76c5598a930ca10e9402d59ad800c3ed90c996d00a99a2c52b4903a7c61",
+        "http_status": 400,
+        "seconds": 1.519
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "2a8ca76c5598a930ca10e9402d59ad800c3ed90c996d00a99a2c52b4903a7c61",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1989,
+          "prompt_tokens": 118114,
+          "total_tokens": 120103,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1694,
+            "text_tokens": 295
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 117457,
+            "cache_creation_tokens": 117457,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 117457,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 117457,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.579
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b43040cfbcda44112dd06012463137c7d601287d2b666818bc69120c2f835c0b",
+        "http_status": 400,
+        "seconds": 1.443
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b43040cfbcda44112dd06012463137c7d601287d2b666818bc69120c2f835c0b",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 3052,
+          "prompt_tokens": 142871,
+          "total_tokens": 145923,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2566,
+            "text_tokens": 486
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140370,
+            "cache_creation_tokens": 140370,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140370,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140370,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 43.391
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Backend/runner selection for NVFP4 and bf16 GEMMs plus Stream-K partials/flags moved to per-stream scratch with zero-fill recorded under CUDA graph capture; needs device numerics and graph replay checks\n\nEvidence: flashinfer/experimental/cake_nvfp4_per_token/cake_backend.py, flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py, tests/gemm/test_cake_mm_fp4.py\n\nSuggested tests: tests/gemm\n\nPatch content unavailable (informational): flashinfer/autotuner/autotuner.py, flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py, flashinfer/gemm/gemm_base.py, flashinfer/gemm/gemm_svdquant.py, tests/gemm/test_cake_autotune_candidates_gemm.py, tests/gemm/test_cake_autotune_candidates_svdquant.py\n\nTest selection gap: Bodies of PR-added tests/gemm/test_cake_autotune_candidates_gemm.py and modified test_cake_mm_fp4.py were not inspected (budget); routing lanes lack SM100/SM103 GPUs\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Backend/runner selection for NVFP4 and bf16 GEMMs plus Stream-K partials/flags moved to per-stream scratch with zero-fill recorded under CUDA graph capture; needs device numerics and graph replay checks",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_nvfp4_per_token/cake_backend.py",
+            "flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py",
+            "tests/gemm/test_cake_mm_fp4.py"
+          ],
+          "case_gap": "Bodies of PR-added tests/gemm/test_cake_autotune_candidates_gemm.py and modified test_cake_mm_fp4.py were not inspected (budget); routing lanes lack SM100/SM103 GPUs",
+          "missing_patch_paths": [
+            "flashinfer/autotuner/autotuner.py",
+            "flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py",
+            "flashinfer/gemm/gemm_base.py",
+            "flashinfer/gemm/gemm_svdquant.py",
+            "tests/gemm/test_cake_autotune_candidates_gemm.py",
+            "tests/gemm/test_cake_autotune_candidates_svdquant.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/gemm"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888142889,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Backend/runner selection for NVFP4 and bf16 GEMMs plus Stream-K partials/flags moved to per-stream scratch with zero-fill recorded under CUDA graph capture; needs device numerics and graph replay checks\n\nEvidence: flashinfer/experimental/cake_nvfp4_per_token/cake_backend.py, flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py, tests/gemm/test_cake_mm_fp4.py\n\nSuggested tests: tests/gemm\n\nPatch content unavailable (informational): flashinfer/autotuner/autotuner.py, flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py, flashinfer/gemm/gemm_base.py, flashinfer/gemm/gemm_svdquant.py, tests/gemm/test_cake_autotune_candidates_gemm.py, tests/gemm/test_cake_autotune_candidates_svdquant.py\n\nTest selection gap: Bodies of PR-added tests/gemm/test_cake_autotune_candidates_gemm.py and modified test_cake_mm_fp4.py were not inspected (budget); routing lanes lack SM100/SM103 GPUs\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Backend/runner selection for NVFP4 and bf16 GEMMs plus Stream-K partials/flags moved to per-stream scratch with zero-fill recorded under CUDA graph capture; needs device numerics and graph replay checks",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_nvfp4_per_token/cake_backend.py",
+            "flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py",
+            "tests/gemm/test_cake_mm_fp4.py"
+          ],
+          "case_gap": "Bodies of PR-added tests/gemm/test_cake_autotune_candidates_gemm.py and modified test_cake_mm_fp4.py were not inspected (budget); routing lanes lack SM100/SM103 GPUs",
+          "missing_patch_paths": [
+            "flashinfer/autotuner/autotuner.py",
+            "flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py",
+            "flashinfer/gemm/gemm_base.py",
+            "flashinfer/gemm/gemm_svdquant.py",
+            "tests/gemm/test_cake_autotune_candidates_gemm.py",
+            "tests/gemm/test_cake_autotune_candidates_svdquant.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/gemm"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888142889,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888142889,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888142889",
+        "head_sha": "98c1c1e969cbdaea373af7b45e5c97c3f04340e0",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813771337,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813771337",
+    "artifact_id": 15113044895
+  }
 }

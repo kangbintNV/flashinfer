@@ -13,23 +13,31 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/932aa78059c433983cca5d8283578bcd33986737/experiments/source.json",
   "comment_snapshot_sha256": "fb15d1c0479fd38f2f7e6059cb65e203ceb9c1a7665fa434bc4a250e8e6f9f6b",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888174603",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813783170",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888174603",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Repackages NVFP4 attention kernel/binding CUDA sources, library loading (prebuilt aot vs JIT), arch gating and persistent-tile launch grid/arg binding; correctness needs SM103 execution",
+  "case_gap": "Prebuilt aot/ path and build_cuda_version/sidecar mismatch check are not exercised; binding .cu and kernel .cu bodies not inspected",
+  "selected_tests": [
+    "tests/experimental/test_cake_nvfp4_attention.py",
+    "tests/experimental/test_cake_nvfp4_attention_api.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: refactor(cake_nvfp4_attention): ship the experimental NVFP4 attention as a self-contained vendorable package",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 6902,
     "experiment_pr": 242,
@@ -53,5 +61,194 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 6902,
+    "experiment_pr": 242,
+    "experiment_head": "932aa78059c433983cca5d8283578bcd33986737",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "c2476a6ea405cca3829f0054b6a34d4bd1064e09",
+    "comparison_head_sha": "edfb3f7f883950308f74ce6e8d41759eb21afa12",
+    "comment_snapshot_sha256": "fb15d1c0479fd38f2f7e6059cb65e203ceb9c1a7665fa434bc4a250e8e6f9f6b",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "fd376141057e21286874f21bb00a0f171c8667c8de46ba4908caa1233f172ad7",
+        "http_status": 400,
+        "seconds": 2.361
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "fd376141057e21286874f21bb00a0f171c8667c8de46ba4908caa1233f172ad7",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1467,
+          "prompt_tokens": 119153,
+          "total_tokens": 120620,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1207,
+            "text_tokens": 260
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 118496,
+            "cache_creation_tokens": 118496,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118496,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 118496,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.839
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "d090d5cec30db9c9648ab5c76e16679056f62edf466b574b14685f98d1592487",
+        "http_status": 400,
+        "seconds": 5.802
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "d090d5cec30db9c9648ab5c76e16679056f62edf466b574b14685f98d1592487",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1266,
+          "prompt_tokens": 143070,
+          "total_tokens": 144336,
+          "completion_tokens_details": {
+            "reasoning_tokens": 653,
+            "text_tokens": 613
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140569,
+            "cache_creation_tokens": 140569,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140569,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140569,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.746
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Repackages NVFP4 attention kernel/binding CUDA sources, library loading (prebuilt aot vs JIT), arch gating and persistent-tile launch grid/arg binding; correctness needs SM103 execution\n\nEvidence: flashinfer/experimental/nvfp4_attention/cake_jit.py, flashinfer/experimental/nvfp4_attention/cake_build.py, tests/experimental/test_cake_nvfp4_attention.py\n\nSuggested tests: tests/experimental/test_cake_nvfp4_attention.py, tests/experimental/test_cake_nvfp4_attention_api.py\n\nPatch content unavailable (informational): flashinfer/experimental/nvfp4_attention/cake_build.py, flashinfer/experimental/nvfp4_attention/cake_jit.py, flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention/cake_nvfp4_attention_6045de810304deb488d9_binding.cu, flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_binding.cu, flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_kernel.cu, tests/experimental/test_cake_nvfp4_attention.py\n\nTest selection gap: Prebuilt aot/ path and build_cuda_version/sidecar mismatch check are not exercised; binding .cu and kernel .cu bodies not inspected\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Repackages NVFP4 attention kernel/binding CUDA sources, library loading (prebuilt aot vs JIT), arch gating and persistent-tile launch grid/arg binding; correctness needs SM103 execution",
+          "evidence_paths": [
+            "flashinfer/experimental/nvfp4_attention/cake_jit.py",
+            "flashinfer/experimental/nvfp4_attention/cake_build.py",
+            "tests/experimental/test_cake_nvfp4_attention.py"
+          ],
+          "case_gap": "Prebuilt aot/ path and build_cuda_version/sidecar mismatch check are not exercised; binding .cu and kernel .cu bodies not inspected",
+          "missing_patch_paths": [
+            "flashinfer/experimental/nvfp4_attention/cake_build.py",
+            "flashinfer/experimental/nvfp4_attention/cake_jit.py",
+            "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention/cake_nvfp4_attention_6045de810304deb488d9_binding.cu",
+            "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_binding.cu",
+            "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_kernel.cu",
+            "tests/experimental/test_cake_nvfp4_attention.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/experimental/test_cake_nvfp4_attention.py",
+            "tests/experimental/test_cake_nvfp4_attention_api.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888174603,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Repackages NVFP4 attention kernel/binding CUDA sources, library loading (prebuilt aot vs JIT), arch gating and persistent-tile launch grid/arg binding; correctness needs SM103 execution\n\nEvidence: flashinfer/experimental/nvfp4_attention/cake_jit.py, flashinfer/experimental/nvfp4_attention/cake_build.py, tests/experimental/test_cake_nvfp4_attention.py\n\nSuggested tests: tests/experimental/test_cake_nvfp4_attention.py, tests/experimental/test_cake_nvfp4_attention_api.py\n\nPatch content unavailable (informational): flashinfer/experimental/nvfp4_attention/cake_build.py, flashinfer/experimental/nvfp4_attention/cake_jit.py, flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention/cake_nvfp4_attention_6045de810304deb488d9_binding.cu, flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_binding.cu, flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_kernel.cu, tests/experimental/test_cake_nvfp4_attention.py\n\nTest selection gap: Prebuilt aot/ path and build_cuda_version/sidecar mismatch check are not exercised; binding .cu and kernel .cu bodies not inspected\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Repackages NVFP4 attention kernel/binding CUDA sources, library loading (prebuilt aot vs JIT), arch gating and persistent-tile launch grid/arg binding; correctness needs SM103 execution",
+          "evidence_paths": [
+            "flashinfer/experimental/nvfp4_attention/cake_jit.py",
+            "flashinfer/experimental/nvfp4_attention/cake_build.py",
+            "tests/experimental/test_cake_nvfp4_attention.py"
+          ],
+          "case_gap": "Prebuilt aot/ path and build_cuda_version/sidecar mismatch check are not exercised; binding .cu and kernel .cu bodies not inspected",
+          "missing_patch_paths": [
+            "flashinfer/experimental/nvfp4_attention/cake_build.py",
+            "flashinfer/experimental/nvfp4_attention/cake_jit.py",
+            "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention/cake_nvfp4_attention_6045de810304deb488d9_binding.cu",
+            "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_binding.cu",
+            "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_kernel.cu",
+            "tests/experimental/test_cake_nvfp4_attention.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/experimental/test_cake_nvfp4_attention.py",
+            "tests/experimental/test_cake_nvfp4_attention_api.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888174603,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888174603,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888174603",
+        "head_sha": "932aa78059c433983cca5d8283578bcd33986737",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813783170,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813783170",
+    "artifact_id": 15114573519
+  }
 }

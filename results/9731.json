@@ -24,23 +24,30 @@
       "first_line": "GitLab MR [!3049](https://nv/flashinfer/-/merge_requests/3049) has been created, and the CI pipeline [#84872436](https://nv/flashinfer-ci/-/pipelines/84872436) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893305042",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815254741",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893314343",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Split-K changes CTA grid sizing, compiled schedule_whole_tiles flag, lock-counter allocation and cross-CTA finalize in the w4a16 Trellis GEMM; numerics, CUDA-graph replay and stream concurrency need GPU validation.",
+  "case_gap": "Available CI lanes are A10G/T4 (H100 lane not scheduled); SM120 split-K numerical and graph tests would skip there.",
+  "selected_tests": [
+    "tests/experimental/b12x/gemm/test_trellis_linear.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(b12x): Add opt-in split-K for dense Trellis GEMMs",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9731,
     "experiment_pr": 128,
@@ -75,5 +82,162 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139379134574",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9731,
+    "experiment_pr": 128,
+    "experiment_head": "c2bccee8bf958cf1fcaa85f547a18cd6dd57c6c8",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "af45204a5aab7301150fea8c32cac05538f5a7a2",
+    "comparison_head_sha": "6d3efdb1b9d89151a3e3147c3d2155622943fbb8",
+    "comment_snapshot_sha256": "3ff15b4ffe2cd93cff6d241d66a3d6f27c3cb35e42c772099af7d92c371e0e6d",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "17a6b6a0b60312d02f883add6ec32970bcfc3e710f10924767088ac9dd688804",
+        "http_status": 400,
+        "seconds": 1.221
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "17a6b6a0b60312d02f883add6ec32970bcfc3e710f10924767088ac9dd688804",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2068,
+          "prompt_tokens": 116112,
+          "total_tokens": 118180,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1733,
+            "text_tokens": 335
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115455,
+            "cache_creation_tokens": 115455,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115455,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115455,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.659
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "7054fda61bd58374e8089023b55a6b715abd3afc49c4f91f8834a460a1c7997f",
+        "http_status": 400,
+        "seconds": 1.187
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "7054fda61bd58374e8089023b55a6b715abd3afc49c4f91f8834a460a1c7997f",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1964,
+          "prompt_tokens": 142839,
+          "total_tokens": 144803,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1493,
+            "text_tokens": 471
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140338,
+            "cache_creation_tokens": 140338,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140338,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140338,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 29.87
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9731#issuecomment-7117140767)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139893305042,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Split-K changes CTA grid sizing, compiled schedule_whole_tiles flag, lock-counter allocation and cross-CTA finalize in the w4a16 Trellis GEMM; numerics, CUDA-graph replay and stream concurrency need GPU validation.\n\nEvidence: flashinfer/experimental/b12x/gemm/trellis_linear/_preparation.py, flashinfer/experimental/b12x/gemm/trellis_linear/_tuning.py, tests/experimental/b12x/gemm/test_trellis_linear.py\n\nSuggested tests: tests/experimental/b12x/gemm/test_trellis_linear.py\n\nPatch content unavailable (informational): benchmarks/experimental/b12x/benchmark_trellis_dense_split_k.py, flashinfer/experimental/b12x/moe/_shared/kernels/w4a16/kernel.py, tests/experimental/b12x/gemm/test_trellis_linear.py\n\nTest selection gap: Available CI lanes are A10G/T4 (H100 lane not scheduled); SM120 split-K numerical and graph tests would skip there.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Split-K changes CTA grid sizing, compiled schedule_whole_tiles flag, lock-counter allocation and cross-CTA finalize in the w4a16 Trellis GEMM; numerics, CUDA-graph replay and stream concurrency need GPU validation.",
+          "evidence_paths": [
+            "flashinfer/experimental/b12x/gemm/trellis_linear/_preparation.py",
+            "flashinfer/experimental/b12x/gemm/trellis_linear/_tuning.py",
+            "tests/experimental/b12x/gemm/test_trellis_linear.py"
+          ],
+          "case_gap": "Available CI lanes are A10G/T4 (H100 lane not scheduled); SM120 split-K numerical and graph tests would skip there.",
+          "missing_patch_paths": [
+            "benchmarks/experimental/b12x/benchmark_trellis_dense_split_k.py",
+            "flashinfer/experimental/b12x/moe/_shared/kernels/w4a16/kernel.py",
+            "tests/experimental/b12x/gemm/test_trellis_linear.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/experimental/b12x/gemm/test_trellis_linear.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893314343,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893305042,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893305042",
+        "head_sha": "c2bccee8bf958cf1fcaa85f547a18cd6dd57c6c8",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139893314343,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893314343",
+        "head_sha": "c2bccee8bf958cf1fcaa85f547a18cd6dd57c6c8",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815254741,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815254741",
+    "artifact_id": 15115096910
+  }
 }

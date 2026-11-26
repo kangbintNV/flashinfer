@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/8c8b5f4595cfa42cd47013c5a00fa8ffb598dc05/experiments/source.json",
   "comment_snapshot_sha256": "df6d759f9dd56c7ab0265448d61a5ed6ab7b3258579587d707d4903ed3a47c88",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891980309",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814885678",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891980309",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "localize_weights/_domain_homing now gate the locality-domain twin on NVML memory clock, changing kernel route (twin vs whole-GPU) and weight homing on sm_107a; needs GPU validation",
+  "case_gap": "Body of tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py not inspected (budget), so its route/clock cases could not be selected",
+  "selected_tests": [
+    "tests/test_cake_locality.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(cake_batch_deepgemm_fp8): route no twin on a device whose memory runs below its full clock",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9757,
     "experiment_pr": 272,
@@ -53,5 +60,182 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9757,
+    "experiment_pr": 272,
+    "experiment_head": "8c8b5f4595cfa42cd47013c5a00fa8ffb598dc05",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "db2373490172a31dbbdc489ef82fe174e6d88f06",
+    "comparison_head_sha": "c7e4de0b13ad677ec1b67447a0ac329a1109cb60",
+    "comment_snapshot_sha256": "df6d759f9dd56c7ab0265448d61a5ed6ab7b3258579587d707d4903ed3a47c88",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "e19c8b50bf60958bf3deac0696bfaf36603df1b9039804ca67336f78106ea502",
+        "http_status": 400,
+        "seconds": 6.253
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "e19c8b50bf60958bf3deac0696bfaf36603df1b9039804ca67336f78106ea502",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1617,
+          "prompt_tokens": 107988,
+          "total_tokens": 109605,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1294,
+            "text_tokens": 323
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 107331,
+            "cache_creation_tokens": 107331,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 107331,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 107331,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.839
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b12b3580320985673ff6bb9e14f2a9aafab49fb093e1efe80a0ee05a468750cd",
+        "http_status": 400,
+        "seconds": 2.276
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b12b3580320985673ff6bb9e14f2a9aafab49fb093e1efe80a0ee05a468750cd",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2269,
+          "prompt_tokens": 144638,
+          "total_tokens": 146907,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1840,
+            "text_tokens": 429
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142137,
+            "cache_creation_tokens": 142137,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142137,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142137,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 32.552
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "localize_weights/_domain_homing now gate the locality-domain twin on NVML memory clock, changing kernel route (twin vs whole-GPU) and weight homing on sm_107a; needs GPU validation\n\nEvidence: flashinfer/gemm/cake_batch_deepgemm_fp8.py, flashinfer/cake_locality.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py\n\nSuggested tests: tests/test_cake_locality.py\n\nPatch content unavailable (informational): tests/test_cake_locality.py\n\nTest selection gap: Body of tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py not inspected (budget), so its route/clock cases could not be selected\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "localize_weights/_domain_homing now gate the locality-domain twin on NVML memory clock, changing kernel route (twin vs whole-GPU) and weight homing on sm_107a; needs GPU validation",
+          "evidence_paths": [
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "flashinfer/cake_locality.py",
+            "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+          ],
+          "case_gap": "Body of tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py not inspected (budget), so its route/clock cases could not be selected",
+          "missing_patch_paths": [
+            "tests/test_cake_locality.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/test_cake_locality.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891980309,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "localize_weights/_domain_homing now gate the locality-domain twin on NVML memory clock, changing kernel route (twin vs whole-GPU) and weight homing on sm_107a; needs GPU validation\n\nEvidence: flashinfer/gemm/cake_batch_deepgemm_fp8.py, flashinfer/cake_locality.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py\n\nSuggested tests: tests/test_cake_locality.py\n\nPatch content unavailable (informational): tests/test_cake_locality.py\n\nTest selection gap: Body of tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py not inspected (budget), so its route/clock cases could not be selected\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "localize_weights/_domain_homing now gate the locality-domain twin on NVML memory clock, changing kernel route (twin vs whole-GPU) and weight homing on sm_107a; needs GPU validation",
+          "evidence_paths": [
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "flashinfer/cake_locality.py",
+            "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+          ],
+          "case_gap": "Body of tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py not inspected (budget), so its route/clock cases could not be selected",
+          "missing_patch_paths": [
+            "tests/test_cake_locality.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/test_cake_locality.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139891980309,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139891980309,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139891980309",
+        "head_sha": "8c8b5f4595cfa42cd47013c5a00fa8ffb598dc05",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45814885678,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45814885678",
+    "artifact_id": 15115331168
+  }
 }

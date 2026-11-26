@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!2971](https://nv/flashinfer/-/merge_requests/2971) has been created, and the CI pipeline [#83510265](https://nv/flashinfer-ci/-/pipelines/83510265) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888050722",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813748991",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888059103",
+  "classification": "cpu_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Only change is repository-root path resolution in a CI bash installer; added test spawns bash with stubbed pip/torch modules and no CUDA, so GPU-free validation suffices",
+  "case_gap": "Nightly package-test lane (task_test_nightly_build.sh) using setup_test_env.sh is not re-run by this focused scope",
+  "selected_tests": [
+    "tests/cpu/infra/test_install_cutlass_dsl.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "cpu_only",
   "static_reason": "CUTLASS DSL setup resolves checkout-root paths; new subprocess/source-path regression is CPU-only.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9688,
     "experiment_pr": 236,
@@ -59,5 +66,155 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9688,
+    "experiment_pr": 236,
+    "experiment_head": "6f35df3cb6c4786fc6cdda5d65cdea9a9545dfce",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a75cd12eaa8fb138f71d9d44d5151749cf699217",
+    "comparison_head_sha": "31b17a4740af9f0b597c335c576748ce2bfa40a7",
+    "comment_snapshot_sha256": "63140f446124484f3e9daba7c2130b92a016a47f27703082d65a79745700a02f",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "89ce98410ba27d2904b3450c71c91eff4122a8eddee4bf4515a3d003418a1916",
+        "http_status": 400,
+        "seconds": 1.578
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "89ce98410ba27d2904b3450c71c91eff4122a8eddee4bf4515a3d003418a1916",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 987,
+          "prompt_tokens": 103006,
+          "total_tokens": 103993,
+          "completion_tokens_details": {
+            "reasoning_tokens": 878,
+            "text_tokens": 109
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102349,
+            "cache_creation_tokens": 102349,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102349,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102349,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 14.534
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "9016e9cd8968f3414cb5a16d61ce217639c86a8ec6fcac5222d463d83765abd1",
+        "http_status": 400,
+        "seconds": 1.819
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "9016e9cd8968f3414cb5a16d61ce217639c86a8ec6fcac5222d463d83765abd1",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 798,
+          "prompt_tokens": 124622,
+          "total_tokens": 125420,
+          "completion_tokens_details": {
+            "reasoning_tokens": 405,
+            "text_tokens": 393
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 122121,
+            "cache_creation_tokens": 122121,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 122121,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 122121,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 13.247
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9688#issuecomment-7001181982)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139888050722,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only change is repository-root path resolution in a CI bash installer; added test spawns bash with stubbed pip/torch modules and no CUDA, so GPU-free validation suffices\n\nEvidence: scripts/infra/install_cutlass_dsl.sh, tests/cpu/infra/test_install_cutlass_dsl.py\n\nSuggested tests: tests/cpu/infra/test_install_cutlass_dsl.py\n\nTest selection gap: Nightly package-test lane (task_test_nightly_build.sh) using setup_test_env.sh is not re-run by this focused scope",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only change is repository-root path resolution in a CI bash installer; added test spawns bash with stubbed pip/torch modules and no CUDA, so GPU-free validation suffices",
+          "evidence_paths": [
+            "scripts/infra/install_cutlass_dsl.sh",
+            "tests/cpu/infra/test_install_cutlass_dsl.py"
+          ],
+          "case_gap": "Nightly package-test lane (task_test_nightly_build.sh) using setup_test_env.sh is not re-run by this focused scope",
+          "targets": [
+            "tests/cpu/infra/test_install_cutlass_dsl.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139888059103,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888050722,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888050722",
+        "head_sha": "6f35df3cb6c4786fc6cdda5d65cdea9a9545dfce",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139888059103,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888059103",
+        "head_sha": "6f35df3cb6c4786fc6cdda5d65cdea9a9545dfce",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813748991,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813748991",
+    "artifact_id": 15113338528
+  }
 }
