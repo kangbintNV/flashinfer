@@ -73,19 +73,28 @@ class HistoricalClient(gate.Client):
   assert sha==self.m['comparison_head_tree']
   cache=Path(os.getenv('EXPERIMENT_CACHE',str(ROOT/'cache')));cache.mkdir(parents=True,exist_ok=True)
   p=cache/('tree-'+sha+'.json')
-  if p.exists():return json.loads(p.read_text())
-  result=self.out.request(f"repos/{DEST}/git/trees/{sha}?recursive=1")
-  if result.get('truncated'):raise gate.TargetSelectionError('Pinned source tree truncated')
-  temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_text(json.dumps(result));temp.replace(p)
+  if p.exists():result=json.loads(p.read_text())
+  else:
+   result=self.out.request(f"repos/{DEST}/git/trees/{sha}?recursive=1")
+   if result.get('truncated'):raise gate.TargetSelectionError('Pinned source tree truncated')
+   temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_text(json.dumps(result));temp.replace(p)
+  self.blob_paths={item['sha']:item['path'] for item in result['tree'] if item['type']=='blob'}
   return result
  def get_repository_blob(self,repository,sha,max_bytes):
+  from urllib.parse import quote
   if not __import__('re').fullmatch('[0-9a-f]{40}',sha):raise gate.TargetSelectionError('Invalid evidence blob')
   cache=Path(os.getenv('EXPERIMENT_CACHE',str(ROOT/'cache')));cache.mkdir(parents=True,exist_ok=True)
   p=cache/('blob-'+sha)
   if p.exists():raw=p.read_bytes()
   else:
-   data=self.out.request(f"repos/{DEST}/git/blobs/{sha}")
-   raw=base64.b64decode(data['content'])
+   source_commit=self.m.get('source_merge_sha',self.m['comparison_head_sha'])
+   assert __import__('re').fullmatch('[0-9a-f]{40}',source_commit)
+   path=self.blob_paths[sha]
+   url='https://raw.githubusercontent.com/flashinfer-ai/flashinfer/'+source_commit+'/'+quote(path,safe='/')
+   with urllib.request.urlopen(url,timeout=45) as response:raw=response.read(max_bytes+1)
+   if len(raw)>max_bytes:raise gate.TargetSelectionError('Evidence blob exceeds limit')
+   actual=hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()
+   if actual!=sha:raise gate.TargetSelectionError('Pinned source blob identity mismatch')
    temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_bytes(raw);temp.replace(p)
   if len(raw)>max_bytes:raise gate.TargetSelectionError('Evidence blob exceeds limit')
   return raw.decode('utf-8')
