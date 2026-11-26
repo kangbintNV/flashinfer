@@ -71,18 +71,22 @@ class HistoricalClient(gate.Client):
   return commit
  def get_repository_tree(self,repository,sha):
   assert sha==self.m['comparison_head_tree']
-  raw=subprocess.check_output(['git','-C',str(ROOT),'ls-tree','-rlz',sha])
-  items=[]
-  for item in raw.split(b'\0'):
-   if not item:continue
-   info,path=item.split(b'\t',1);mode,kind,oid,size=info.decode().split()
-   x={'path':path.decode(),'mode':mode,'type':kind,'sha':oid}
-   if size!='-':x['size']=int(size)
-   items.append(x)
-  return {'truncated':False,'tree':items}
+  cache=Path(os.getenv('EXPERIMENT_CACHE',str(ROOT/'cache')));cache.mkdir(parents=True,exist_ok=True)
+  p=cache/('tree-'+sha+'.json')
+  if p.exists():return json.loads(p.read_text())
+  result=self.out.request(f"repos/{DEST}/git/trees/{sha}?recursive=1")
+  if result.get('truncated'):raise gate.TargetSelectionError('Pinned source tree truncated')
+  temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_text(json.dumps(result));temp.replace(p)
+  return result
  def get_repository_blob(self,repository,sha,max_bytes):
   if not __import__('re').fullmatch('[0-9a-f]{40}',sha):raise gate.TargetSelectionError('Invalid evidence blob')
-  raw=subprocess.check_output(['git','-C',str(ROOT),'cat-file','blob',sha],stderr=subprocess.DEVNULL)
+  cache=Path(os.getenv('EXPERIMENT_CACHE',str(ROOT/'cache')));cache.mkdir(parents=True,exist_ok=True)
+  p=cache/('blob-'+sha)
+  if p.exists():raw=p.read_bytes()
+  else:
+   data=self.out.request(f"repos/{DEST}/git/blobs/{sha}")
+   raw=base64.b64decode(data['content'])
+   temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_bytes(raw);temp.replace(p)
   if len(raw)>max_bytes:raise gate.TargetSelectionError('Evidence blob exceeds limit')
   return raw.decode('utf-8')
  def close_merge_snapshot(self):pass
