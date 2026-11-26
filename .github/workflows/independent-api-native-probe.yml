@@ -1,18 +1,42 @@
 name: Independent PR gate native probe
 on:
-  pull_request:
-    branches: [codex/independent-api-native-20261126-base]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        required: true
+        type: string
+      conclusion:
+        required: true
+        type: choice
+        options: [success, failure]
 permissions:
   contents: read
+  pull-requests: read
+  checks: write
 jobs:
-  api:
-    name: API compatibility native probe
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Exercise native required-check binding only
+      - name: Publish an isolated test-merge check (storage probe only)
         env:
-          PROBE_HEAD: ${{ github.head_ref }}
+          GH_TOKEN: ${{ github.token }}
+          PROBE_PR: ${{ inputs.pr_number }}
+          PROBE_CONCLUSION: ${{ inputs.conclusion }}
         run: |
-          echo "Storage experiment only; not production exception authorization."
-          if [[ "$PROBE_HEAD" == *-a ]]; then exit 0; fi
-          exit 1
+          python3 - <<'PYTHON'
+          import json,os
+          from urllib.request import Request,urlopen
+          number=int(os.environ['PROBE_PR'])
+          assert number in (244,246)
+          conclusion=os.environ['PROBE_CONCLUSION']
+          assert conclusion in ('success','failure')
+          root=os.environ['GITHUB_API_URL']+'/repos/'+os.environ['GITHUB_REPOSITORY']
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'}
+          with urlopen(Request(root+'/pulls/'+str(number),headers=headers),timeout=60) as r:
+              pr=json.load(r)
+          assert pr['base']['ref']=='codex/independent-api-native-20261126-base'
+          body={'name':'API compatibility native probe','head_sha':pr['merge_commit_sha'],'status':'completed','conclusion':conclusion,'external_id':'pr-'+str(number),'output':{'title':'Isolated storage probe only','summary':'This probes merge-check binding, not production exception authorization.'}}
+          with urlopen(Request(root+'/check-runs',headers=headers,data=json.dumps(body).encode(),method='POST'),timeout=60) as r:
+              result=json.load(r)
+          print(json.dumps({'pr':number,'check_id':result['id'],'head_sha':result['head_sha'],'conclusion':result['conclusion']}))
+          PYTHON
