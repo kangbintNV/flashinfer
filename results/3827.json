@@ -1,0 +1,136 @@
+{
+  "index": 50,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/3827",
+  "original_number": 3827,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/225",
+  "experiment_number": 225,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/225/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json",
+  "group": "mixed",
+  "title": "docs: add missing Parameters sections to workspace_size and docstring to is_gated_activation",
+  "comparison_base_sha": "a0efa0adfe49bb836ab1a147d6572980b870f3d4",
+  "comparison_head_sha": "5b8da12050f80a5b5cb2bab9e87d9635a8872e5b",
+  "original_contributor_head_sha": "995abd53281be8d30b317e8e7b9398c6f1fc7941",
+  "experiment_base_sha": "cb532450f3e5bf0cd20db99fdc389382b52cf983",
+  "experiment_head_sha": "12c75edf4b667ea5bf75c91cf10b00320b6459a5",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "47acdbed0cce49a339b78e1cdc0828293ca6300b646a17dd385f011721dde653",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Beyond docstrings, the stable is_gated_activation predicate now classifies GegluTanh as gated, changing MoE gated-activation handling (weight/intermediate shaping, backend dispatch) in fused_moe consumers not inspected (core.py unavailable), so CPU-only validation is insufficient.",
+  "selected_tests": [
+    "tests/utils/test_tllm_enums.py"
+  ],
+  "case_gap": "No inspected GPU test exercises a MoE path with ActivationType.GegluTanh under the new gated classification.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Despite docs title, adds GegluTanh to gated activations; this helper influences GEMM intermediate dimensions (current fused_moe/core.py I_gemm1) and thus stable GPU layout behavior.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 3827,
+    "experiment_pr": 225,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 6,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json",
+        "id": 59953488150,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Beyond docstrings, the stable is_gated_activation predicate now classifies GegluTanh as gated, changing MoE gated-activation handling (weight/intermediate shaping, backend dispatch) in fused_moe consumers not inspected (core.py unavailable), so CPU-only validation is insufficient.\n\nEvidence: flashinfer/tllm_enums.py, tests/utils/test_tllm_enums.py, flashinfer/fused_moe/utils.py\n\nSuggested tests: tests/utils/test_tllm_enums.py\n\nTest selection gap: No inspected GPU test exercises a MoE path with ActivationType.GegluTanh under the new gated classification.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Beyond docstrings, the stable is_gated_activation predicate now classifies GegluTanh as gated, changing MoE gated-activation handling (weight/intermediate shaping, backend dispatch) in fused_moe consumers not inspected (core.py unavailable), so CPU-only validation is insufficient.",
+      "evidence_paths": [
+        "flashinfer/tllm_enums.py",
+        "tests/utils/test_tllm_enums.py",
+        "flashinfer/fused_moe/utils.py"
+      ],
+      "case_gap": "No inspected GPU test exercises a MoE path with ActivationType.GegluTanh under the new gated classification.",
+      "targets": [
+        "tests/utils/test_tllm_enums.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953488150,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Beyond docstrings, the stable is_gated_activation predicate now classifies GegluTanh as gated, changing MoE gated-activation handling (weight/intermediate shaping, backend dispatch) in fused_moe consumers not inspected (core.py unavailable), so CPU-only validation is insufficient.\n\nEvidence: flashinfer/tllm_enums.py, tests/utils/test_tllm_enums.py, flashinfer/fused_moe/utils.py\n\nSuggested tests: tests/utils/test_tllm_enums.py\n\nTest selection gap: No inspected GPU test exercises a MoE path with ActivationType.GegluTanh under the new gated classification.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Beyond docstrings, the stable is_gated_activation predicate now classifies GegluTanh as gated, changing MoE gated-activation handling (weight/intermediate shaping, backend dispatch) in fused_moe consumers not inspected (core.py unavailable), so CPU-only validation is insufficient.",
+      "evidence_paths": [
+        "flashinfer/tllm_enums.py",
+        "tests/utils/test_tllm_enums.py",
+        "flashinfer/fused_moe/utils.py"
+      ],
+      "case_gap": "No inspected GPU test exercises a MoE path with ActivationType.GegluTanh under the new gated classification.",
+      "targets": [
+        "tests/utils/test_tllm_enums.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953488150,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

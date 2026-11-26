@@ -1,0 +1,144 @@
+{
+  "index": 29,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/5658",
+  "original_number": 5658,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/204",
+  "experiment_number": 204,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/204/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
+  "group": "cuda",
+  "title": "perf(cake_xqa): add the tcgen05/TMEM cluster-multicast D512 tree routes to experimental SM110 XQA",
+  "comparison_base_sha": "882c177c2f481886e6a6a308ba4bffa1b90709fe",
+  "comparison_head_sha": "98221238ff71510a48d6a208af6f9cbd1f3b9a25",
+  "original_contributor_head_sha": "654df3126469517d5315f67ad1a545ba5269241b",
+  "experiment_base_sha": "4fa4663ca8ab34fbba96e20155613149174a7186",
+  "experiment_head_sha": "024327abd89d05be32fc1c859de912fbed5a0b4b",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "d1bd86df134c8243f2751d02e1106346bca0a170622c3050c37324f02b2b77ad",
+  "reply_evidence": [
+    {
+      "id": 5880412590,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5658#issuecomment-5880412590",
+      "first_line": "GitLab MR [!1773](https://nv/flashinfer/-/merge_requests/1773) has been created, and the CI pipeline [#70326666](https://nv/flashinfer-ci/-/pipelines/70326666) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "cpu_only",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "All changed code is experimental-only (flashinfer/experimental/sm110_xqa kernels/jit/backend, tests/experimental, benchmark shape JSON); no stable API, dispatch or binding changed, so the stable GPU gate is not triggered.",
+  "selected_tests": [
+    "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py",
+    "tests/experimental/sm110_xqa/test_sm110_xqa.py"
+  ],
+  "case_gap": "tmem .cu kernels/bindings were budget-omitted; GPU cases execute only on SM110 Thor hardware, otherwise skipped.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "experimental_only",
+  "manual_reason": "Executable CUDA/Python changes and tests are confined to experimental SM110 XQA; the only outside file is benchmark shape metadata. Experimental exemption is reasonable, but CPU-only would be a misleading label for these GPU kernels.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "mismatch",
+  "source_audit": {
+    "upstream_number": 5658,
+    "experiment_pr": 204,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 21,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      5880412590
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
+        "id": 59953089097,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
+        "id": 59953175513,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/5658#issuecomment-5880412590)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953089097,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "All changed code is experimental-only (flashinfer/experimental/sm110_xqa kernels/jit/backend, tests/experimental, benchmark shape JSON); no stable API, dispatch or binding changed, so the stable GPU gate is not triggered.\n\nEvidence: flashinfer/experimental/sm110_xqa/jit.py, tests/experimental/sm110_xqa/test_sm110_xqa.py, benchmarks/sm110_xqa_shapes.json\n\nSuggested tests: tests/experimental/sm110_xqa/test_sm110_xqa_jit.py, tests/experimental/sm110_xqa/test_sm110_xqa.py\n\nPatch content unavailable (informational): flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/validation.json\n\nTest selection gap: tmem .cu kernels/bindings were budget-omitted; GPU cases execute only on SM110 Thor hardware, otherwise skipped.",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "All changed code is experimental-only (flashinfer/experimental/sm110_xqa kernels/jit/backend, tests/experimental, benchmark shape JSON); no stable API, dispatch or binding changed, so the stable GPU gate is not triggered.",
+      "evidence_paths": [
+        "flashinfer/experimental/sm110_xqa/jit.py",
+        "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+        "benchmarks/sm110_xqa_shapes.json"
+      ],
+      "case_gap": "tmem .cu kernels/bindings were budget-omitted; GPU cases execute only on SM110 Thor hardware, otherwise skipped.",
+      "missing_patch_paths": [
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/validation.json"
+      ],
+      "missing_patch_count": 14,
+      "targets": [
+        "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py",
+        "tests/experimental/sm110_xqa/test_sm110_xqa.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953175513,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

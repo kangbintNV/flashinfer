@@ -1,0 +1,136 @@
+{
+  "index": 8,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9655",
+  "original_number": 9655,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/183",
+  "experiment_number": 183,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/183/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9655.json",
+  "group": "cpu_tool",
+  "title": "test: isolate MegaMoE CPU tests from visible GPU architecture",
+  "comparison_base_sha": "5e578a6c6e1c6fa8f67fdd892e96a3d75bbb7be4",
+  "comparison_head_sha": "25bc267eb84dd1b28997f62aa4c282a09184c952",
+  "original_contributor_head_sha": "9db9595e06610b3866853b7d56ac76abe0deeff9",
+  "experiment_base_sha": "566c0f5faf31afc9533471acca4a365223b5b009",
+  "experiment_head_sha": "232d29866b417b5f449b9b06b40a33e5d75621e2",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "80dfb211050e51eb8ee2bebf8eecc074bd638ce8a338c3f04e9289ae54d932b3",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_classification": "cpu_only",
+  "diagnostic_classification": "cpu_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Test-only change: fixture monkeypatches torch.cuda.is_available to False and a regex match tightens to the offending field; no kernel, binding, dispatch or workspace code touched",
+  "selected_tests": [
+    "tests/cpu/moe_ep"
+  ],
+  "case_gap": "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); its patch is the same pytestmark edit",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "cpu_only",
+  "manual_reason": "CPU test fixture mocks CUDA discovery and tightens an exception-message assertion; no product kernel change.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9655,
+    "experiment_pr": 183,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 5,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9655.json",
+        "id": 59952919436,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Test-only change: fixture monkeypatches torch.cuda.is_available to False and a regex match tightens to the offending field; no kernel, binding, dispatch or workspace code touched\n\nEvidence: tests/cpu/moe_ep/conftest.py, tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py, tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py\n\nSuggested tests: tests/cpu/moe_ep\n\nTest selection gap: tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); its patch is the same pytestmark edit",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Test-only change: fixture monkeypatches torch.cuda.is_available to False and a regex match tightens to the offending field; no kernel, binding, dispatch or workspace code touched",
+      "evidence_paths": [
+        "tests/cpu/moe_ep/conftest.py",
+        "tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py",
+        "tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py"
+      ],
+      "case_gap": "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); its patch is the same pytestmark edit",
+      "targets": [
+        "tests/cpu/moe_ep"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952919436,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Test-only change: fixture monkeypatches torch.cuda.is_available to False and a regex match tightens to the offending field; no kernel, binding, dispatch or workspace code touched\n\nEvidence: tests/cpu/moe_ep/conftest.py, tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py, tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py\n\nSuggested tests: tests/cpu/moe_ep\n\nTest selection gap: tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); its patch is the same pytestmark edit",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Test-only change: fixture monkeypatches torch.cuda.is_available to False and a regex match tightens to the offending field; no kernel, binding, dispatch or workspace code touched",
+      "evidence_paths": [
+        "tests/cpu/moe_ep/conftest.py",
+        "tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py",
+        "tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py"
+      ],
+      "case_gap": "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); its patch is the same pytestmark edit",
+      "targets": [
+        "tests/cpu/moe_ep"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952919436,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

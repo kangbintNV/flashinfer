@@ -1,0 +1,1004 @@
+[
+  {
+    "upstream_number": 9369,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Unified MoE activation matrix RST/Markdown text only.",
+    "reviewed_paths": [
+      "docs/design_docs/flashinfer_moe_api.md"
+    ],
+    "reply_evidence_ids": [
+      6806129216
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9045,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "API training-backend migration documentation only.",
+    "reviewed_paths": [
+      "docs/training_backend_migration.md"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 7135,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "NVFP4 precision-choice documentation only.",
+    "reviewed_paths": [
+      "docs/api/fused_moe.rst",
+      "docs/design_docs/moe_ep_architecture.md"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 6412,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "MegaMoE compile-diagnostics documentation only.",
+    "reviewed_paths": [
+      "CLAUDE.md"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 4162,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CuTe prefill scheduling override documentation only.",
+    "reviewed_paths": [
+      "CLAUDE.md"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 3941,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "LoRA delta RST API entries only.",
+    "reviewed_paths": [
+      "docs/api/fused_moe.rst"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9639,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Documentation-checker subprocess import root changes scripts to scripts/infra; no device execution.",
+    "reviewed_paths": [
+      "scripts/infra/check_pr_document.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9655,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CPU test fixture mocks CUDA discovery and tightens an exception-message assertion; no product kernel change.",
+    "reviewed_paths": [
+      "tests/cpu/moe_ep/conftest.py",
+      "tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py",
+      "tests/cpu/moe_ep/test_mxfp4_megamoe_batch_invariant.py",
+      "tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py",
+      "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9739,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "One CPU shared-memory-accounting test disables the host BFS search using monkeypatch; no GPU execution changes.",
+    "reviewed_paths": [
+      "tests/cpu/prims_ts/test_batched_gemm_schedule_validation.py"
+    ],
+    "reply_evidence_ids": [
+      7026412299
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 4945,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Docs workflow release-tag validation and Pages deployment split; no runtime/kernel changes.",
+    "reviewed_paths": [
+      ".github/workflows/build-doc.yml",
+      ".github/workflows/release.yml"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 5383,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Docs deployment condition excludes rc tags; purely workflow control.",
+    "reviewed_paths": [
+      ".github/workflows/build-doc.yml"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9465,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CI-only AOT cache-seed scheduling and lint-skip/header-prefetch branch; compilation source and GPU runtime are unchanged; pipeline uses CPU/no-gpu builds.",
+    "reviewed_paths": [
+      ".github/workflows/aot-cache-seed.yml",
+      "docs/development/jit_and_build.md",
+      "scripts/task_test_jit_cache_package_build_import.sh",
+      "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 7077,
+    "expected_classification": "experimental_only",
+    "allowed_classifications": [
+      "experimental_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "All edits are under experimental product/test roots; import guard and standalone-import coverage.",
+    "reviewed_paths": [
+      "flashinfer/experimental/cake_moe_grouped_gemm/README.md",
+      "flashinfer/experimental/cake_moe_grouped_gemm/__init__.py",
+      "flashinfer/experimental/cake_moe_grouped_gemm/_experimental.py",
+      "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+      "flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py",
+      "tests/experimental/test_cake_moe_grouped_gemm_standalone.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8561,
+    "expected_classification": "experimental_only",
+    "allowed_classifications": [
+      "experimental_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "GPU radix-top-k barrier/histogram code and GPU tests change, but every changed path is experimental-contained; this is a policy exemption, not CPU-only.",
+    "reviewed_paths": [
+      "flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py",
+      "tests/experimental/b12x/attention/test_persistent_topk_gpu.py"
+    ],
+    "reply_evidence_ids": [
+      6615835702,
+      6620263380,
+      6661899364
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9200,
+    "expected_classification": "experimental_only",
+    "allowed_classifications": [
+      "experimental_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Experimental registry docstrings/comments only; contained-path exemption.",
+    "reviewed_paths": [
+      "flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 7653,
+    "expected_classification": "experimental_only",
+    "allowed_classifications": [
+      "experimental_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Experimental KDA README/backend docstrings corrected; contained-path exemption.",
+    "reviewed_paths": [
+      "flashinfer/experimental/cake_kda_train/README.md",
+      "flashinfer/experimental/cake_kda_train/cake_backend.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9681,
+    "expected_classification": "pending",
+    "allowed_classifications": [
+      "pending"
+    ],
+    "confidence": "needs_owner_confirmation",
+    "reason": "One JIT object filename expression changes plus CPU Ninja-output tests. GPU-related build/load integration versus sufficient CPU path contract needs owner confirmation.",
+    "reviewed_paths": [
+      "flashinfer/jit/core.py",
+      "tests/cpu/infra/test_jit_object_paths.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "pending_manual",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9481,
+    "expected_classification": "pending",
+    "allowed_classifications": [
+      "pending"
+    ],
+    "confidence": "needs_owner_confirmation",
+    "reason": "nvcc versus nvcc.exe compiler discovery changes in JIT; CPU path-selection coverage exists. Whether GPU build/run validation is needed needs owner confirmation.",
+    "reviewed_paths": [
+      "flashinfer/jit/cake_gdn.py",
+      "tests/cpu/gdn/test_cake_gdn_decode.py"
+    ],
+    "reply_evidence_ids": [
+      6905229082,
+      6905895364
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9738,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "AST dependency closure changes JIT artifact reuse; missing dependency can reuse a stale GPU kernel, not merely formatting.",
+    "reviewed_paths": [
+      "flashinfer/jit/_cute_dsl_source.py",
+      "tests/cpu/infra/test_cute_dsl_strict_key_closure.py"
+    ],
+    "reply_evidence_ids": [
+      7024609809,
+      7024857149,
+      7025271294
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9395,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Compile serialization/deferred sparse-MLA plans and cache ownership cross the GPU planning/lifetime boundary.",
+    "reviewed_paths": [
+      "docs/design_docs/cute_dsl_kernel_cache.md",
+      "flashinfer/attention/prims_ts/_compile_cache.py",
+      "flashinfer/attention/prims_ts/mla_decode.py",
+      "flashinfer/gemm/gemm_mm_fp4_cute_dsl.py",
+      "flashinfer/gemm/gemm_mm_mxfp8_precompile.py",
+      "flashinfer/jit/core.py",
+      "flashinfer/jit/cute_dsl_core.py",
+      "flashinfer/prims_ts/moe/compile_cache.py",
+      "flashinfer/prims_ts/moe/runner.py",
+      "tests/attention/test_attention_ts_features.py",
+      "tests/attention/test_attention_ts_sparse_mla.py",
+      "tests/cpu/gemm/test_mxfp8_precompile.py",
+      "tests/cpu/jit/test_cute_dsl_cache.py",
+      "tests/cpu/jit/test_cute_dsl_export_only_compile.py",
+      "tests/cpu/prims_ts/test_moe_compile_cache.py"
+    ],
+    "reply_evidence_ids": [
+      7034539081,
+      7052818987,
+      7102128803,
+      7132488096
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9706,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Adds SM107a CUDA/TMA state-locality kernel, allocation/counters and graph launch routing.",
+    "reviewed_paths": [
+      "csrc/gdn/cake/README.md",
+      "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu",
+      "csrc/gdn/cake/host/templates/cake_decode_fp32_t1_tma_state_domain.cc.in",
+      "csrc/gdn/cake/manifest.json",
+      "docs/api/gdn_decode.rst",
+      "flashinfer/cake_gdn_decode_locality.py",
+      "flashinfer/gdn_decode.py",
+      "flashinfer/jit/cake_gdn.py",
+      "tests/cpu/gdn/cake_gdn_host_shim_sha256.json",
+      "tests/cpu/gdn/test_cake_gdn_decode.py",
+      "tests/cpu/gdn/test_cake_gdn_decode_domain.py",
+      "tests/gdn/test_cake_gdn_decode_domain_gpu.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9669,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Changes generated CUDA sequence-split kernels and dispatch support for SM100/107.",
+    "reviewed_paths": [
+      "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+      "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+      "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+      "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+      "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+      "flashinfer/gdn_prefill.py",
+      "flashinfer/jit/cake_gdn_affine_split.py",
+      "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+      "tests/gdn/test_cake_gdn_affine_split.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9375,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "NVFP4 KV layout/dequantization, GPU shared/tensor-memory resources and metadata CUDA kernel changes.",
+    "reviewed_paths": [
+      "flashinfer/attention/prims_ts/README.md",
+      "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+      "flashinfer/attention/prims_ts/decode.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_output.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_transformed_kv.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+      "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+      "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+      "tests/attention/test_attention_ts_decode.py",
+      "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 10036,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CUDA MLA split-KV reducer now skips empty KV splits; GPU numerical and launch behavior changes.",
+    "reviewed_paths": [
+      "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+      "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+      "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+      "tests/attention/test_trtllm_gen_mla.py",
+      "tests/mla/test_cake_mla_splitkv.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9659,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Stable CUDA/kernel code changes; changed kernel bodies require device validation.",
+    "reviewed_paths": [
+      "csrc/prims_ts_q_token_kv_block_sparse_metadata.cu",
+      "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+      "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+      "flashinfer/attention/prims_ts/decode.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+      "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+      "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+      "tests/attention/test_attention_ts_decode.py",
+      "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9649,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Stable CUDA implementation edits affect GPU execution; not a documentation-only change.",
+    "reviewed_paths": [
+      "csrc/nv_internal/tensorrt_llm/kernels/moe/communication/moeAlltoAllKernels.cu"
+    ],
+    "reply_evidence_ids": [
+      6971883491,
+      7029324566
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9949,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Lamport communication clear-buffer offset changes to 64-bit arithmetic; device addressing correctness.",
+    "reviewed_paths": [
+      "include/flashinfer/comm/trtllm_allreduce_fusion.cuh",
+      "include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh",
+      "scripts/infra/task_test_multi_gpu_comm_kernels.sh",
+      "tests/comm/test_trtllm_allreduce_fusion_large_workspace.py"
+    ],
+    "reply_evidence_ids": [
+      7121771998,
+      7125701140,
+      7150055520,
+      7158536227,
+      7174376982,
+      7181797949
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9550,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Stable CUDA/kernel execution path changes; CUDA diff is substantive.",
+    "reviewed_paths": [
+      "flashinfer/mamba/cake_ssd_combined.py",
+      "flashinfer/mamba/ssd_combined.py",
+      "flashinfer/trace/templates/mamba.py",
+      "tests/mamba/test_cake_ssd_combined.py",
+      "tests/mamba/test_cake_ssd_combined_capture.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 5658,
+    "expected_classification": "experimental_only",
+    "allowed_classifications": [
+      "experimental_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Executable CUDA/Python changes and tests are confined to experimental SM110 XQA; the only outside file is benchmark shape metadata. Experimental exemption is reasonable, but CPU-only would be a misleading label for these GPU kernels.",
+    "reviewed_paths": [
+      "benchmarks/sm110_xqa_shapes.json",
+      "flashinfer/experimental/sm110_xqa/README.md",
+      "flashinfer/experimental/sm110_xqa/RESULTS.md",
+      "flashinfer/experimental/sm110_xqa/backend.py",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu",
+      "flashinfer/experimental/sm110_xqa/jit.py",
+      "flashinfer/experimental/sm110_xqa/validation.json",
+      "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+      "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py"
+    ],
+    "reply_evidence_ids": [
+      5880412590
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8081,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CuTe kernel stage-release/store/loader-exit ordering changes. New PTX-inspection test is CPU-only, but changed synchronization is GPU-related.",
+    "reviewed_paths": [
+      "flashinfer/gemm/kernels/dense_bf16_gemm_warp_splitk.py",
+      "tests/gemm/test_mm_bf16_warp_splitk_sync.py"
+    ],
+    "reply_evidence_ids": [
+      6863992253,
+      6880608414
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 6711,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "fast_decode_plan validates device placement of metadata pointers adopted by GPU kernels, with CUDA-device tests.",
+    "reviewed_paths": [
+      "flashinfer/decode.py",
+      "tests/attention/test_fast_decode_plan_device.py"
+    ],
+    "reply_evidence_ids": [
+      6974039523
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9554,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CUDA graph captures share a profiling memory pool; GPU resource lifetime/replay behavior changes.",
+    "reviewed_paths": [
+      "flashinfer/autotuner/_graph_timing.py",
+      "flashinfer/autotuner/autotuner.py",
+      "tests/autotuner/test_profile_graph_pool.py"
+    ],
+    "reply_evidence_ids": [
+      7076077410
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8766,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Autotune cache merge changes retained workload/runner/tactic selection, affecting subsequent GPU execution.",
+    "reviewed_paths": [
+      "docs/autotuning.rst",
+      "flashinfer/autotuner/autotuner.py",
+      "tests/autotuner/test_autotune_cache_merge.py"
+    ],
+    "reply_evidence_ids": [
+      6806546114,
+      6810258522,
+      6967530392,
+      6983034862
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 6160,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Hopper epilogue barrier arrival ordering changes, with CUDA numerical regression probe.",
+    "reviewed_paths": [
+      "include/flashinfer/attention/hopper/epilogue.cuh",
+      "tests/attention/test_hopper_epilogue.py",
+      "tests/cuda/hopper_epilogue.cu"
+    ],
+    "reply_evidence_ids": [
+      6512300092,
+      6518500862,
+      7031181649
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9327,
+    "expected_classification": "pending",
+    "allowed_classifications": [
+      "pending"
+    ],
+    "confidence": "needs_owner_confirmation",
+    "reason": "Reuse of host compile-worker pools extends resource lifetimes; CPU lifetime tests exist, but retained CUDA-context/device-resource implications need owner confirmation.",
+    "reviewed_paths": [
+      "flashinfer/autotuner/_resources.py",
+      "flashinfer/autotuner/autotuner.py",
+      "flashinfer/gemm/gemm_mm_fp4_cute_dsl.py",
+      "tests/cpu/autotuner/test_compile_resources.py"
+    ],
+    "reply_evidence_ids": [
+      6782877152,
+      6783825712
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9289,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Tactic-pool signatures change cache hit/reprofile decisions and therefore GPU tactic selection.",
+    "reviewed_paths": [
+      "docs/autotuning.rst",
+      "flashinfer/autotuner/autotuner.py",
+      "tests/cpu/autotuner/test_autotuner_distributed.py",
+      "tests/cpu/autotuner/test_autotuner_tactic_coverage.py"
+    ],
+    "reply_evidence_ids": [
+      6983472392,
+      6987262141,
+      6990464906,
+      7014293371
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 1163,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "New public green_ctx.py creates CUDA green contexts/SM partitions and adds CUDA device tests; experimental in title is not path containment.",
+    "reviewed_paths": [
+      "docs/api/green_ctx.rst",
+      "docs/index.rst",
+      "flashinfer/green_ctx.py",
+      "setup.py",
+      "tests/test_green_ctx.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9478,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Only host CRT lookup switches CDLL(None) to ucrtbase on Windows plus os import; CPU symbol-resolution validation can cover this bounded change.",
+    "reviewed_paths": [
+      "flashinfer/cake_ulysses_backend/cake_backend.py"
+    ],
+    "reply_evidence_ids": [
+      6905221665,
+      6905749407,
+      6957400936,
+      6981486445
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8889,
+    "expected_classification": "docs_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "DeepGEMM scale requirements and doctest import/continuation text inside Python docstrings; no runtime statement changes.",
+    "reviewed_paths": [
+      "flashinfer/gemm/gemm_base.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9765,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "cuDNN FE linear-attention output binding accepts appended tensors; GPU graph/backend contract changes despite CPU mock tests.",
+    "reviewed_paths": [
+      "flashinfer/cudnn/linear_attention.py",
+      "tests/cpu/kda/test_cudnn_linear_attention_contract.py"
+    ],
+    "reply_evidence_ids": [
+      7034104120
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9693,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Persistent decode sink barriers and empty-KV queue predicates change; new CUDA tests exercise synchronization.",
+    "reviewed_paths": [
+      "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+      "tests/attention/test_attention_ts_decode.py"
+    ],
+    "reply_evidence_ids": [
+      7001872107
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9687,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Serving-grid policy changes SM107 FP8 GEMM GPU launch geometry.",
+    "reviewed_paths": [
+      "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+      "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+    ],
+    "reply_evidence_ids": [
+      7010123047
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8815,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "NVFP4 per-token quantization scale initialization changes GPU numerical/kernel behavior.",
+    "reviewed_paths": [
+      "flashinfer/quantization/fp4_quantization.py",
+      "tests/utils/test_fp4_quantize.py"
+    ],
+    "reply_evidence_ids": [
+      6667722519,
+      6689462940,
+      7020741789
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 6458,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Stable decode backend/split-KV admission and preserved plan route change; CPU-only tests do not prove GPU dispatch/graph correctness.",
+    "reviewed_paths": [
+      "docs/api/attention.rst",
+      "flashinfer/decode.py",
+      "tests/utils/test_decode_split_contract.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 9640,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "CUTLASS MoE operand layout validation changes C++ bindings and public GPU tensor admission; GPU regression tests added.",
+    "reviewed_paths": [
+      "csrc/fused_moe/cutlass_backend/flashinfer_cutlass_fused_moe_binding.cu",
+      "flashinfer/fused_moe/core.py",
+      "tests/moe/test_trtllm_cutlass_fused_moe.py"
+    ],
+    "reply_evidence_ids": [
+      6969555053
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8433,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Beyond docs, adds gated-row tensor layout transform and MXFP8 numerical clamp/offset tests.",
+    "reviewed_paths": [
+      "flashinfer/__init__.py",
+      "flashinfer/fused_moe/__init__.py",
+      "flashinfer/fused_moe/core.py",
+      "tests/moe/test_gated_act_row_layout.py",
+      "tests/moe/test_trtllm_gen_fused_moe.py"
+    ],
+    "reply_evidence_ids": [
+      6619666965,
+      6624366719
+    ],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 7067,
+    "expected_classification": "pending",
+    "allowed_classifications": [
+      "pending"
+    ],
+    "confidence": "needs_owner_confirmation",
+    "reason": "Stable wrapper defers experimental backend import and binding-cache configuration to first use. CPU import coverage exists; compiled binding lifetime implications need confirmation.",
+    "reviewed_paths": [
+      "CLAUDE.md",
+      "flashinfer/chunked_lm_head.py",
+      "flashinfer/experimental/cake_lm_head_loss/README.md",
+      "flashinfer/experimental/cake_lm_head_loss/cake_backend.py",
+      "tests/experimental/test_cake_lm_head_loss.py",
+      "tests/experimental/test_cake_lm_head_loss_api.py",
+      "tests/experimental/test_containment.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "pending_manual",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 8932,
+    "expected_classification": "cpu_only",
+    "allowed_classifications": [
+      "docs_only",
+      "cpu_only"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Top-level Python lazy-export table and source-file packaging filters; CPU import/zip-membership tests cover changed behavior without running kernels.",
+    "reviewed_paths": [
+      "build_backend.py",
+      "flashinfer/__init__.py",
+      "flashinfer/experimental/README.md",
+      "tests/cpu/test_build_backend_slim_wheel.py",
+      "tests/cpu/test_flashinfer_lazy_exports.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "success",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 7819,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Adds stream-K tactic filtering/validation for SM120 FP4 GEMM, changing kernel choice and numerical variation.",
+    "reviewed_paths": [
+      "csrc/fp4_gemm_cutlass_sm120.cu",
+      "docs/development/environment_variables.md",
+      "flashinfer/gemm/gemm_base.py",
+      "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+      "tests/gemm/test_mm_fp4.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  },
+  {
+    "upstream_number": 3827,
+    "expected_classification": "gpu_required",
+    "allowed_classifications": [
+      "gpu_required"
+    ],
+    "confidence": "classification_supported_by_diff",
+    "reason": "Despite docs title, adds GegluTanh to gated activations; this helper influences GEMM intermediate dimensions (current fused_moe/core.py I_gemm1) and thus stable GPU layout behavior.",
+    "reviewed_paths": [
+      "docs/api/page.rst",
+      "docs/api/quantization.rst",
+      "flashinfer/decode.py",
+      "flashinfer/prefill.py",
+      "flashinfer/tllm_enums.py",
+      "tests/utils/test_tllm_enums.py"
+    ],
+    "reply_evidence_ids": [],
+    "expected_formal": "failure",
+    "review_limit": "Behavioral classification review, not numerical correctness or exhaustive kernel review."
+  }
+]

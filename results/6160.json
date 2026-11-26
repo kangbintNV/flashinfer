@@ -1,0 +1,139 @@
+{
+  "index": 34,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/6160",
+  "original_number": 6160,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/209",
+  "experiment_number": 209,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/209/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
+  "group": "new_test",
+  "title": "fix(fa3): prevent silent numerical errors in Hopper FP16/BF16 prefill",
+  "comparison_base_sha": "1cbcb24d577513ed9f337d6df4fff449aa2fe23d",
+  "comparison_head_sha": "ffa8487dbdc25431ea23e73b32ec43c50f9360ec",
+  "original_contributor_head_sha": "62a1c2d365fe73dc7c5ec99660bd0a5c7b7f8517",
+  "experiment_base_sha": "28852e450515c330dfcc0273c8174ec3370549b4",
+  "experiment_head_sha": "25c23dc7f02377298533755b4aecfa889a3129f0",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "c7cf4ce407c5cee0c0ca3108247c48ff65b97678fa014f3828f44b4e44a33948",
+  "reply_evidence": [
+    {
+      "id": 6512300092,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-6512300092",
+      "first_line": "GitLab MR [!2554](https://nv/flashinfer/-/merge_requests/2554) has been created, and the CI pipeline [#77754710](https://nv/flashinfer-ci/-/pipelines/77754710) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6518500862,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-6518500862",
+      "first_line": "[SUCCESS] Pipeline [#77754710](https://nv/flashinfer-ci/-/pipelines/77754710): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 7031181649,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-7031181649",
+      "first_line": "GitLab MR [!2554](https://nv/flashinfer/-/merge_requests/2554) has been updated with latest changes, and the CI pipeline [#83872286](https://nv/flashinfer-ci/-/pipelines/83872286) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Removes a NamedBarrier arrive in the Hopper FA3 CUDA epilogue, changing smem-&gt;gmem write ordering; correctness only observable by running the SM90 kernel.",
+  "selected_tests": [
+    "tests/attention/test_hopper_epilogue.py",
+    "tests/attention/test_hopper.py"
+  ],
+  "case_gap": "Probe test is Hopper-only; non-SM90 lanes skip it, so FP8 epilogue path remains untested here.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Hopper epilogue barrier arrival ordering changes, with CUDA numerical regression probe.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 6160,
+    "experiment_pr": 209,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 3,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6512300092,
+      6518500862,
+      7031181649
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
+        "id": 59953154497,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
+        "id": 59953223592,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-7031181649)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953154497,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Removes a NamedBarrier arrive in the Hopper FA3 CUDA epilogue, changing smem-&amp;gt;gmem write ordering; correctness only observable by running the SM90 kernel.\n\nEvidence: include/flashinfer/attention/hopper/epilogue.cuh, tests/cuda/hopper_epilogue.cu, tests/attention/test_hopper_epilogue.py\n\nSuggested tests: tests/attention/test_hopper_epilogue.py, tests/attention/test_hopper.py\n\nTest selection gap: Probe test is Hopper-only; non-SM90 lanes skip it, so FP8 epilogue path remains untested here.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Removes a NamedBarrier arrive in the Hopper FA3 CUDA epilogue, changing smem-&gt;gmem write ordering; correctness only observable by running the SM90 kernel.",
+      "evidence_paths": [
+        "include/flashinfer/attention/hopper/epilogue.cuh",
+        "tests/cuda/hopper_epilogue.cu",
+        "tests/attention/test_hopper_epilogue.py"
+      ],
+      "case_gap": "Probe test is Hopper-only; non-SM90 lanes skip it, so FP8 epilogue path remains untested here.",
+      "targets": [
+        "tests/attention/test_hopper_epilogue.py",
+        "tests/attention/test_hopper.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953223592,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "index": 22,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9669",
+  "original_number": 9669,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/197",
+  "experiment_number": 197,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/197/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9669.json",
+  "group": "jit_aot",
+  "title": "feat(cake_gdn): opt-in Cake GDN sequence split on SM100 and SM107",
+  "comparison_base_sha": "100465cbef8c257cd376348f00f3e07ab18aa5e2",
+  "comparison_head_sha": "a1e0200c1e5ab0a3e78031a09322f80762bcee01",
+  "original_contributor_head_sha": "b71dad8ec7df2313a996b8505cb07c466dac4b88",
+  "experiment_base_sha": "9273bea0b653851ace7b1331ad3e1978f87078b3",
+  "experiment_head_sha": "52e3557798b275da6efd91ef4ab7c19de75b03d1",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "628f76d1038a0b699a5b5c26eee58ad9971725744325b04f323a6169d710f602",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Enables generated split kernels for sm_100a/sm_107a with new nvcc options, changed segment plans and dispatch, plus modified .cu kernels; correctness/perf require GPU validation.",
+  "selected_tests": [
+    "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+    "tests/gdn/test_cake_gdn_affine_split.py"
+  ],
+  "case_gap": "SM100/SM107 hardware may be absent in CI lanes (H100 only), so GPU split-route coverage on new targets may not execute.",
+  "filename_only_evidence": [
+    "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Changes generated CUDA sequence-split kernels and dispatch support for SM100/107.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9669,
+    "experiment_pr": 197,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 9,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9669.json",
+        "id": 59953045362,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Enables generated split kernels for sm_100a/sm_107a with new nvcc options, changed segment plans and dispatch, plus modified .cu kernels; correctness/perf require GPU validation.\n\nEvidence: flashinfer/jit/cake_gdn_affine_split.py, flashinfer/gdn_prefill.py, csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu\n\nSuggested tests: tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nPatch content unavailable (informational): csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu, tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nTest selection gap: SM100/SM107 hardware may be absent in CI lanes (H100 only), so GPU split-route coverage on new targets may not execute.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Enables generated split kernels for sm_100a/sm_107a with new nvcc options, changed segment plans and dispatch, plus modified .cu kernels; correctness/perf require GPU validation.",
+      "evidence_paths": [
+        "flashinfer/jit/cake_gdn_affine_split.py",
+        "flashinfer/gdn_prefill.py",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu"
+      ],
+      "case_gap": "SM100/SM107 hardware may be absent in CI lanes (H100 only), so GPU split-route coverage on new targets may not execute.",
+      "filename_only_evidence": [
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu"
+      ],
+      "missing_patch_paths": [
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "missing_patch_count": 6,
+      "targets": [
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953045362,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Enables generated split kernels for sm_100a/sm_107a with new nvcc options, changed segment plans and dispatch, plus modified .cu kernels; correctness/perf require GPU validation.\n\nEvidence: flashinfer/jit/cake_gdn_affine_split.py, flashinfer/gdn_prefill.py, csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu\n\nSuggested tests: tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nPatch content unavailable (informational): csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu, csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu, tests/cpu/gdn/test_cake_gdn_affine_split.py, tests/gdn/test_cake_gdn_affine_split.py\n\nTest selection gap: SM100/SM107 hardware may be absent in CI lanes (H100 only), so GPU split-route coverage on new targets may not execute.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Enables generated split kernels for sm_100a/sm_107a with new nvcc options, changed segment plans and dispatch, plus modified .cu kernels; correctness/perf require GPU validation.",
+      "evidence_paths": [
+        "flashinfer/jit/cake_gdn_affine_split.py",
+        "flashinfer/gdn_prefill.py",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu"
+      ],
+      "case_gap": "SM100/SM107 hardware may be absent in CI lanes (H100 only), so GPU split-route coverage on new targets may not execute.",
+      "filename_only_evidence": [
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu"
+      ],
+      "missing_patch_paths": [
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "missing_patch_count": 6,
+      "targets": [
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953045362,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

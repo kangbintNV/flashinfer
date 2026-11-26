@@ -1,0 +1,142 @@
+{
+  "index": 33,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8766",
+  "original_number": 8766,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/208",
+  "experiment_number": 208,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/208/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8766.json",
+  "group": "new_test",
+  "title": "fix(autotuner): keep previously loaded cache files when entering autotune(cache=...)",
+  "comparison_base_sha": "4fec89015f3d456b20b42a1c067543b564efd4e0",
+  "comparison_head_sha": "f963060eb0f87c14eabab6bcff7d810eb9e87e34",
+  "original_contributor_head_sha": "b70407150b27a2b631e11306056b21e58be2715c",
+  "experiment_base_sha": "73b15d15a4f56a705c657b1f83afe61141a985f0",
+  "experiment_head_sha": "a8d36081b75469d85a5a217a385c834c4d96c0bb",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "331651f92aed9a7ece448b63080994eb68f4dfe3152d60f6a957b41a733691e4",
+  "reply_evidence": [
+    {
+      "id": 6806546114,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6806546114",
+      "first_line": "GitLab MR [!2789](https://nv/flashinfer/-/merge_requests/2789) has been created, and the CI pipeline [#81382355](https://nv/flashinfer-ci/-/pipelines/81382355) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6810258522,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6810258522",
+      "first_line": "[SUCCESS] Pipeline [#81382355](https://nv/flashinfer-ci/-/pipelines/81382355): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 6967530392,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6967530392",
+      "first_line": "GitLab MR [!2789](https://nv/flashinfer/-/merge_requests/2789) has been updated with latest changes, and the CI pipeline [#83115803](https://nv/flashinfer-ci/-/pipelines/83115803) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6983034862,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6983034862",
+      "first_line": "GitLab MR [!2789](https://nv/flashinfer/-/merge_requests/2789) has been updated with latest changes, and the CI pipeline [#83290236](https://nv/flashinfer-ci/-/pipelines/83290236) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "autotune(cache=...) no longer clears loaded file configs, changing which cached runner/tactic is dispatched for GEMM/MoE kernels; selection effects surface only in GPU execution",
+  "selected_tests": [
+    "tests/autotuner/test_autotune_cache_merge.py"
+  ],
+  "case_gap": "No GPU test exercises multi-file cache merge with real kernel tactic execution; new test fakes profiling",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Autotune cache merge changes retained workload/runner/tactic selection, affecting subsequent GPU execution.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 8766,
+    "experiment_pr": 208,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 3,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6806546114,
+      6810258522,
+      6967530392,
+      6983034862
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8766.json",
+        "id": 59953140404,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8766.json",
+        "id": 59953221869,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6983034862)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953140404,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "autotune(cache=...) no longer clears loaded file configs, changing which cached runner/tactic is dispatched for GEMM/MoE kernels; selection effects surface only in GPU execution\n\nEvidence: flashinfer/autotuner/autotuner.py, tests/autotuner/test_autotune_cache_merge.py\n\nSuggested tests: tests/autotuner/test_autotune_cache_merge.py\n\nTest selection gap: No GPU test exercises multi-file cache merge with real kernel tactic execution; new test fakes profiling\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "autotune(cache=...) no longer clears loaded file configs, changing which cached runner/tactic is dispatched for GEMM/MoE kernels; selection effects surface only in GPU execution",
+      "evidence_paths": [
+        "flashinfer/autotuner/autotuner.py",
+        "tests/autotuner/test_autotune_cache_merge.py"
+      ],
+      "case_gap": "No GPU test exercises multi-file cache merge with real kernel tactic execution; new test fakes profiling",
+      "targets": [
+        "tests/autotuner/test_autotune_cache_merge.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953221869,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

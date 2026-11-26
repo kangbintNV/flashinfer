@@ -1,0 +1,126 @@
+{
+  "index": 39,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8889",
+  "original_number": 8889,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/214",
+  "experiment_number": 214,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/214/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8889.json",
+  "group": "gpu_python",
+  "title": "docs(gemm): state that DeepGEMM grouped FP8 GEMMs need power-of-two scales on SM100",
+  "comparison_base_sha": "6761139f6115954dbb96cdb110977910f4e64c60",
+  "comparison_head_sha": "9f29ff4883e481c119e1d1ba61e8112db5433034",
+  "original_contributor_head_sha": "1386f4eceb903cf0e4171ffae099b5e63f9f2ebb",
+  "experiment_base_sha": "ac8904959f15f0e6d27a97c3717c58af9dc6b1d7",
+  "experiment_head_sha": "665bd60cfb4a3927401a0514586f9545409ab300",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "2ef256cfe7a838f1cf9b76f045aafa268cb05429add8c86d764d292a17a5eb60",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_classification": "docs_only",
+  "diagnostic_classification": "docs_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Inspected patch edits only docstring prose and doctest example lines in gemm_base.py; no kernel, dispatch, scale conversion or signature change, so no GPU validation needed.",
+  "selected_tests": [],
+  "case_gap": "Non-power-of-two FP8 block scales on SM100/103/107 remain undetected at runtime by design; no test asserts this contract.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "docs_only",
+  "manual_reason": "DeepGEMM scale requirements and doctest import/continuation text inside Python docstrings; no runtime statement changes.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 8889,
+    "experiment_pr": 214,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8889.json",
+        "id": 59953279466,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Inspected patch edits only docstring prose and doctest example lines in gemm_base.py; no kernel, dispatch, scale conversion or signature change, so no GPU validation needed.\n\nEvidence: flashinfer/gemm/gemm_base.py\n\nTest selection gap: Non-power-of-two FP8 block scales on SM100/103/107 remain undetected at runtime by design; no test asserts this contract.",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Inspected patch edits only docstring prose and doctest example lines in gemm_base.py; no kernel, dispatch, scale conversion or signature change, so no GPU validation needed.",
+      "evidence_paths": [
+        "flashinfer/gemm/gemm_base.py"
+      ],
+      "case_gap": "Non-power-of-two FP8 block scales on SM100/103/107 remain undetected at runtime by design; no test asserts this contract.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953279466,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Inspected patch edits only docstring prose and doctest example lines in gemm_base.py; no kernel, dispatch, scale conversion or signature change, so no GPU validation needed.\n\nEvidence: flashinfer/gemm/gemm_base.py\n\nTest selection gap: Non-power-of-two FP8 block scales on SM100/103/107 remain undetected at runtime by design; no test asserts this contract.",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Inspected patch edits only docstring prose and doctest example lines in gemm_base.py; no kernel, dispatch, scale conversion or signature change, so no GPU validation needed.",
+      "evidence_paths": [
+        "flashinfer/gemm/gemm_base.py"
+      ],
+      "case_gap": "Non-power-of-two FP8 block scales on SM100/103/107 remain undetected at runtime by design; no test asserts this contract.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953279466,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

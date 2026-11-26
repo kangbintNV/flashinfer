@@ -1,0 +1,130 @@
+{
+  "index": 35,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9327",
+  "original_number": 9327,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/210",
+  "experiment_number": 210,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/210/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9327.json",
+  "group": "new_test",
+  "title": "perf: reuse FP4 compile workers during autotuning",
+  "comparison_base_sha": "4b01bc0799671564240d4e5bb997d952fa0bd2aa",
+  "comparison_head_sha": "6018abff613be3fc217d576fdddc8c9857555f19",
+  "original_contributor_head_sha": "694181053a11d578c7a0a113f3b8e6b1e8d62e67",
+  "experiment_base_sha": "8230c08001f77ef7e49ff626fb743328677b98a1",
+  "experiment_head_sha": "d79058d27de134c2930c554c49ad8805bc391a82",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "838c2d0df2dbfe8e530b2c3a8ffe7e21c7fc0bccf6dc34e3d2fe5d00dea9b723",
+  "reply_evidence": [
+    {
+      "id": 6782877152,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9327#issuecomment-6782877152",
+      "first_line": "GitLab MR [!2776](https://nv/flashinfer/-/merge_requests/2776) has been created, and the CI pipeline [#81106267](https://nv/flashinfer-ci/-/pipelines/81106267) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6783825712,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9327#issuecomment-6783825712",
+      "first_line": "[SUCCESS] Pipeline [#81106267](https://nv/flashinfer-ci/-/pipelines/81106267): 29/29 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Changes lifetime of spawned CuTe-DSL compile worker pools used during mm_fp4 autotuning/JIT kernel precompilation; real pool reuse, device-keyed sizing and tactic compilation need GPU validation.",
+  "selected_tests": [
+    "tests/cpu/autotuner/test_compile_resources.py"
+  ],
+  "case_gap": "No selected GPU test covers real cute-dsl mm_fp4 autotune warmup with shared pools (tests/gemm/test_mm_fp4.py not inspected).",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "pending",
+  "manual_reason": "Reuse of host compile-worker pools extends resource lifetimes; CPU lifetime tests exist, but retained CUDA-context/device-resource implications need owner confirmation.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "pending_manual",
+  "source_audit": {
+    "upstream_number": 9327,
+    "experiment_pr": 210,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 4,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6782877152,
+      6783825712
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9327.json",
+        "id": 59953188927,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9327.json",
+        "id": 59953253374,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9327#issuecomment-6783825712)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953188927,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Changes lifetime of spawned CuTe-DSL compile worker pools used during mm_fp4 autotuning/JIT kernel precompilation; real pool reuse, device-keyed sizing and tactic compilation need GPU validation.\n\nEvidence: flashinfer/gemm/gemm_mm_fp4_cute_dsl.py, flashinfer/autotuner/_resources.py\n\nSuggested tests: tests/cpu/autotuner/test_compile_resources.py\n\nTest selection gap: No selected GPU test covers real cute-dsl mm_fp4 autotune warmup with shared pools (tests/gemm/test_mm_fp4.py not inspected).\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Changes lifetime of spawned CuTe-DSL compile worker pools used during mm_fp4 autotuning/JIT kernel precompilation; real pool reuse, device-keyed sizing and tactic compilation need GPU validation.",
+      "evidence_paths": [
+        "flashinfer/gemm/gemm_mm_fp4_cute_dsl.py",
+        "flashinfer/autotuner/_resources.py"
+      ],
+      "case_gap": "No selected GPU test covers real cute-dsl mm_fp4 autotune warmup with shared pools (tests/gemm/test_mm_fp4.py not inspected).",
+      "targets": [
+        "tests/cpu/autotuner/test_compile_resources.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953253374,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

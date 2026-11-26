@@ -1,0 +1,132 @@
+{
+  "index": 41,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9693",
+  "original_number": 9693,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/216",
+  "experiment_number": 216,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/216/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9693.json",
+  "group": "gpu_python",
+  "title": "fix(prims-ts): keep persistent decode sink barriers in step on empty-KV requests",
+  "comparison_base_sha": "4433ef48d1eabaab82c7cdd33244aabedd810aa8",
+  "comparison_head_sha": "b966a5b24c6c942247000abd335c9a3cff83db6a",
+  "original_contributor_head_sha": "5a9ea51f477c42c687b51c082a3a3d3b5b8a14cc",
+  "experiment_base_sha": "4630a4e043437223c509b9060fe5e653717fd298",
+  "experiment_head_sha": "aac2ae3e2ac690c586398de12e40bb910525c570",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "8101bd32028f959602e805fae2992b0d706509c797f5a14ec15eb9c93c7ef632",
+  "reply_evidence": [
+    {
+      "id": 7001872107,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9693#issuecomment-7001872107",
+      "first_line": "GitLab MR [!2973](https://nv/flashinfer/-/merge_requests/2973) has been created, and the CI pipeline [#83522322](https://nv/flashinfer-ci/-/pipelines/83522322) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Changes the persistent PrimTS decode CTA barrier-12 arrival predicate to work-queue skip_work_tile_if, altering warp synchronization for empty-KV requests; only on-GPU kernel execution can show the hang is fixed and outputs are correct.",
+  "selected_tests": [],
+  "case_gap": "New persistent-sink inactive-request case (uniform and packed Q) appears unrouted: no inspected CI lane collects tests/attention/test_attention_ts_decode.py.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI target has no inspected executable test candidate in the merged tree"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "minimal_retry_recovered": true,
+  "model_http_calls": 6,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default",
+    "minimal",
+    "minimal"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Persistent decode sink barriers and empty-KV queue predicates change; new CUDA tests exercise synchronization.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9693,
+    "experiment_pr": 216,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7001872107
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9693.json",
+        "id": 59953260888,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9693.json",
+        "id": 59953412108,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9693#issuecomment-7001872107)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953260888,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Changes the persistent PrimTS decode CTA barrier-12 arrival predicate to work-queue skip_work_tile_if, altering warp synchronization for empty-KV requests; only on-GPU kernel execution can show the hang is fixed and outputs are correct.\n\nEvidence: flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py, tests/attention/test_attention_ts_decode.py\n\nTest selection gap: New persistent-sink inactive-request case (uniform and packed Q) appears unrouted: no inspected CI lane collects tests/attention/test_attention_ts_decode.py.\n\nAnalysis attempts:\n- default: AI target has no inspected executable test candidate in the merged tree\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Changes the persistent PrimTS decode CTA barrier-12 arrival predicate to work-queue skip_work_tile_if, altering warp synchronization for empty-KV requests; only on-GPU kernel execution can show the hang is fixed and outputs are correct.",
+      "evidence_paths": [
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "tests/attention/test_attention_ts_decode.py"
+      ],
+      "case_gap": "New persistent-sink inactive-request case (uniform and packed Q) appears unrouted: no inspected CI lane collects tests/attention/test_attention_ts_decode.py.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI target has no inspected executable test candidate in the merged tree"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953412108,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

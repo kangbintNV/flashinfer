@@ -1,0 +1,96 @@
+{
+  "index": 3,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/7135",
+  "original_number": 7135,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/178",
+  "experiment_number": 178,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/178/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7135.json",
+  "group": "docs",
+  "title": "docs: explain NVFP4 MoE precision choices and link design reference",
+  "comparison_base_sha": "93e5508a1504850c7e641d82c852ec4b665770e1",
+  "comparison_head_sha": "f836f4730bbdc3232b339f6f3997c20a5cb73e01",
+  "original_contributor_head_sha": "c50b458d661c83ccf0d1daa3fcb9d8b2bf735ec6",
+  "experiment_base_sha": "c2b8e57649de7dc97a360be33a08198cd38394da",
+  "experiment_head_sha": "cf03d061370c26205f8180051c287a1c0d39e92b",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "63a879e93e1cf20d6135c5fb06d2c8ecb4908bd106df8f594b710b920b0b61f9",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_classification": "docs_only",
+  "diagnostic_classification": "docs_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Only Markdown/RST documentation changed.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "docs_only",
+  "manual_reason": "NVFP4 precision-choice documentation only.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 7135,
+    "experiment_pr": 178,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7135.json",
+        "id": 59952854672,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/fused_moe.rst, docs/design_docs/moe_ep_architecture.md",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Only Markdown/RST documentation changed.",
+      "evidence_paths": [
+        "docs/api/fused_moe.rst",
+        "docs/design_docs/moe_ep_architecture.md"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952854672,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/fused_moe.rst, docs/design_docs/moe_ep_architecture.md",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Only Markdown/RST documentation changed.",
+      "evidence_paths": [
+        "docs/api/fused_moe.rst",
+        "docs/design_docs/moe_ep_architecture.md"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952854672,
+    "model_call_indices": [],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

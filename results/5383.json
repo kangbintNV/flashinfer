@@ -1,0 +1,126 @@
+{
+  "index": 11,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/5383",
+  "original_number": 5383,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/186",
+  "experiment_number": 186,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/186/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5383.json",
+  "group": "cpu_tool",
+  "title": "ci(docs): never deploy a release candidate to the stable docs site",
+  "comparison_base_sha": "eed39c7576d65de7a3f5ce06fa3f32c752dfd198",
+  "comparison_head_sha": "399cc6109630aa76448c0ea18c45310992620a30",
+  "original_contributor_head_sha": "da35824da417284860b5e63e6b78e07bc4293e0d",
+  "experiment_base_sha": "af6c710743d1816f2edb6674659d00c294113d38",
+  "experiment_head_sha": "1ae0b5d56e48071b741f2a87626d94b245c55d25",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "b16ebf161f6f0c06585e2bdfbe1b3de2f665f4416927d63774b85ae4aee87224",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_classification": "docs_only",
+  "diagnostic_classification": "docs_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Single workflow condition gating the docs-site deploy step for release-candidate tags; no runtime, kernel, dispatch, or Python package code changed, so GPU-free review suffices.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "cpu_only",
+  "manual_reason": "Docs deployment condition excludes rc tags; purely workflow control.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 5383,
+    "experiment_pr": 186,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5383.json",
+        "id": 59952900454,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Single workflow condition gating the docs-site deploy step for release-candidate tags; no runtime, kernel, dispatch, or Python package code changed, so GPU-free review suffices.\n\nEvidence: .github/workflows/build-doc.yml",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Single workflow condition gating the docs-site deploy step for release-candidate tags; no runtime, kernel, dispatch, or Python package code changed, so GPU-free review suffices.",
+      "evidence_paths": [
+        ".github/workflows/build-doc.yml"
+      ],
+      "case_gap": "",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952900454,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Single workflow condition gating the docs-site deploy step for release-candidate tags; no runtime, kernel, dispatch, or Python package code changed, so GPU-free review suffices.\n\nEvidence: .github/workflows/build-doc.yml",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Single workflow condition gating the docs-site deploy step for release-candidate tags; no runtime, kernel, dispatch, or Python package code changed, so GPU-free review suffices.",
+      "evidence_paths": [
+        ".github/workflows/build-doc.yml"
+      ],
+      "case_gap": "",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952900454,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

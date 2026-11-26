@@ -1,0 +1,121 @@
+{
+  "index": 45,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9640",
+  "original_number": 9640,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/220",
+  "experiment_number": 220,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/220/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9640.json",
+  "group": "gpu_python",
+  "title": "fix(moe): reject non-contiguous CUTLASS MoE operands",
+  "comparison_base_sha": "a416ab46e591f2e079285d1c70b0886797fa5496",
+  "comparison_head_sha": "9e53cebb811606a3ee8aa704e1994cd245865bc8",
+  "original_contributor_head_sha": "db1ad1b1d24dfe4c22086eae42bfccc81e638b4e",
+  "experiment_base_sha": "70f859a27464ca0309199c45c3095bd94deffa63",
+  "experiment_head_sha": "148e4f8bf14e4a6e7b3bf90dd6780c5f6266d55b",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "bfba84b6c5474aef7f2eb93bf39286e0f4f85488091c1097d7564416a09ccd25",
+  "reply_evidence": [
+    {
+      "id": 6969555053,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9640#issuecomment-6969555053",
+      "first_line": "GitLab MR [!2937](https://nv/flashinfer/-/merge_requests/2937) has been created, and the CI pipeline [#83142336](https://nv/flashinfer-ci/-/pipelines/83142336) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Adds CHECK_CONTIGUOUS to both CUTLASS fused-MoE C++ runner entry points and pre-autotune contiguity validation in cutlass_fused_moe, changing stable MoE operand acceptance and kernel execution/autotune paths; the new case also compares CUDA MoE output to a reference.",
+  "selected_tests": [],
+  "case_gap": "PR-added strided-operand rejection cases exist but no inspected CI lane routes tests/moe; test body unavailable for verification.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "CUTLASS MoE operand layout validation changes C++ bindings and public GPU tensor admission; GPU regression tests added.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9640,
+    "experiment_pr": 220,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 3,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6969555053
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9640.json",
+        "id": 59953284347,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9640.json",
+        "id": 59953374765,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9640#issuecomment-6969555053)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953284347,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds CHECK_CONTIGUOUS to both CUTLASS fused-MoE C++ runner entry points and pre-autotune contiguity validation in cutlass_fused_moe, changing stable MoE operand acceptance and kernel execution/autotune paths; the new case also compares CUDA MoE output to a reference.\n\nEvidence: csrc/fused_moe/cutlass_backend/flashinfer_cutlass_fused_moe_binding.cu, flashinfer/fused_moe/core.py, tests/moe/test_trtllm_cutlass_fused_moe.py\n\nTest selection gap: PR-added strided-operand rejection cases exist but no inspected CI lane routes tests/moe; test body unavailable for verification.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds CHECK_CONTIGUOUS to both CUTLASS fused-MoE C++ runner entry points and pre-autotune contiguity validation in cutlass_fused_moe, changing stable MoE operand acceptance and kernel execution/autotune paths; the new case also compares CUDA MoE output to a reference.",
+      "evidence_paths": [
+        "csrc/fused_moe/cutlass_backend/flashinfer_cutlass_fused_moe_binding.cu",
+        "flashinfer/fused_moe/core.py",
+        "tests/moe/test_trtllm_cutlass_fused_moe.py"
+      ],
+      "case_gap": "PR-added strided-operand rejection cases exist but no inspected CI lane routes tests/moe; test body unavailable for verification.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953374765,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

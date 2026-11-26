@@ -1,0 +1,128 @@
+{
+  "index": 10,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/4945",
+  "original_number": 4945,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/185",
+  "experiment_number": 185,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/185/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/4945.json",
+  "group": "cpu_tool",
+  "title": "fix(docs): deploy stable documentation from release tags",
+  "comparison_base_sha": "af9b148e9133880154e33dc22205403b8b9698e6",
+  "comparison_head_sha": "291ce2ecddeb31eac5d8c373efb20d37c53700f8",
+  "original_contributor_head_sha": "8d871364ac2f00f21ec00afdae98ce9eac9c6aee",
+  "experiment_base_sha": "0a9c523ef3211a42d51e10b85256c3071f1af1e1",
+  "experiment_head_sha": "8b45995c8d27002b2cd448a539926633a5434a86",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "5025e032f8b18b476b2ac906f57571b53dd91b83df04186f0aafd0430113efb8",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_classification": "cpu_only",
+  "diagnostic_classification": "cpu_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Only .github/workflows/build-doc.yml and release.yml changed: doc build triggers, tag validation shell, job split, permissions and concurrency. No kernel, binding, dispatch or runtime path affected; CI/YAML validation suffices.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "cpu_only",
+  "manual_reason": "Docs workflow release-tag validation and Pages deployment split; no runtime/kernel changes.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 4945,
+    "experiment_pr": 185,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/4945.json",
+        "id": 59952900319,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Only .github/workflows/build-doc.yml and release.yml changed: doc build triggers, tag validation shell, job split, permissions and concurrency. No kernel, binding, dispatch or runtime path affected; CI/YAML validation suffices.\n\nEvidence: .github/workflows/build-doc.yml, .github/workflows/release.yml",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Only .github/workflows/build-doc.yml and release.yml changed: doc build triggers, tag validation shell, job split, permissions and concurrency. No kernel, binding, dispatch or runtime path affected; CI/YAML validation suffices.",
+      "evidence_paths": [
+        ".github/workflows/build-doc.yml",
+        ".github/workflows/release.yml"
+      ],
+      "case_gap": "",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952900319,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Only .github/workflows/build-doc.yml and release.yml changed: doc build triggers, tag validation shell, job split, permissions and concurrency. No kernel, binding, dispatch or runtime path affected; CI/YAML validation suffices.\n\nEvidence: .github/workflows/build-doc.yml, .github/workflows/release.yml",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Only .github/workflows/build-doc.yml and release.yml changed: doc build triggers, tag validation shell, job split, permissions and concurrency. No kernel, binding, dispatch or runtime path affected; CI/YAML validation suffices.",
+      "evidence_paths": [
+        ".github/workflows/build-doc.yml",
+        ".github/workflows/release.yml"
+      ],
+      "case_gap": "",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952900319,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

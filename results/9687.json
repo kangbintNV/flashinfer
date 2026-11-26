@@ -1,0 +1,120 @@
+{
+  "index": 42,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9687",
+  "original_number": 9687,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/217",
+  "experiment_number": 217,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/217/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9687.json",
+  "group": "gpu_python",
+  "title": "perf(cake_batch_deepgemm_fp8): full serving grid on 212-SM devices from expected_m 36",
+  "comparison_base_sha": "82fab003f58aed31d745e4ae5440e78f8ebd5574",
+  "comparison_head_sha": "c562253865bd551ba3110bae732a6676cf4e7c4f",
+  "original_contributor_head_sha": "0231aecceee23064cf734ff15e4ceedb885dcc97",
+  "experiment_base_sha": "0cf7e40799bf6b2beb80b99dd32853df953db131",
+  "experiment_head_sha": "a864f52fb55533d3d50352df42a2f4221a6d834b",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "0a45bab46178efbc617059132672e288f86f8bc22c9b40c5818f7e2df9def702",
+  "reply_evidence": [
+    {
+      "id": 7010123047,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9687#issuecomment-7010123047",
+      "first_line": "GitLab MR [!2979](https://nv/flashinfer/-/merge_requests/2979) has been created, and the CI pipeline [#83610678](https://nv/flashinfer-ci/-/pipelines/83610678) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "serving_config now sets cta_reserve=0 on 212-SM sm_107a for expected_m&gt;=36, changing the launched CTA grid of the packed-scale serving kernel; launch geometry needs GPU validation.",
+  "selected_tests": [],
+  "case_gap": "PR-added test is host-only plan assertions; no inspected on-device sm_107a (212 SM) numerical/perf case, and no CI lane routes this file.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Serving-grid policy changes SM107 FP8 GEMM GPU launch geometry.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9687,
+    "experiment_pr": 217,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7010123047
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9687.json",
+        "id": 59953256787,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9687.json",
+        "id": 59953325655,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9687#issuecomment-7010123047)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953256787,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "serving_config now sets cta_reserve=0 on 212-SM sm_107a for expected_m&amp;gt;=36, changing the launched CTA grid of the packed-scale serving kernel; launch geometry needs GPU validation.\n\nEvidence: flashinfer/gemm/cake_batch_deepgemm_fp8.py, tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py\n\nTest selection gap: PR-added test is host-only plan assertions; no inspected on-device sm_107a (212 SM) numerical/perf case, and no CI lane routes this file.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "serving_config now sets cta_reserve=0 on 212-SM sm_107a for expected_m&gt;=36, changing the launched CTA grid of the packed-scale serving kernel; launch geometry needs GPU validation.",
+      "evidence_paths": [
+        "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+        "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+      ],
+      "case_gap": "PR-added test is host-only plan assertions; no inspected on-device sm_107a (212 SM) numerical/perf case, and no CI lane routes this file.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953325655,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "index": 49,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/7819",
+  "original_number": 7819,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/224",
+  "experiment_number": 224,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/224/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7819.json",
+  "group": "mixed",
+  "title": "feat(gemm): opt-in flag to keep the SM120 FP4 GEMM autotuner off stream-K tactics",
+  "comparison_base_sha": "6018abff613be3fc217d576fdddc8c9857555f19",
+  "comparison_head_sha": "267030a9adb5d6303f2582bc3cd76bec7ee740a0",
+  "original_contributor_head_sha": "8254b08e4e47ddd2d3ef58ec45ac28267aa242ac",
+  "experiment_base_sha": "b9131c156cd7a50ae30c7f8a52be0b7870cd3d9d",
+  "experiment_head_sha": "98528c2f916435ffd1989f6eacac7e84dc768b68",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "3de7ee5193abb65660aade24b492f59142dfe73bf37999b40c2d52273fb70914",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "waiting_for_bot",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "New csrc FFI export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS runner tactic filtering/validation change autotuner kernel selection and GEMM numerics, needing GPU execution to verify",
+  "selected_tests": [
+    "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+    "tests/gemm/test_mm_fp4.py"
+  ],
+  "case_gap": "No supplied CI lane provides SM12x hardware, so the new stream-K GPU case likely skips in CI; validated only on developer RTX 5090",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Adds stream-K tactic filtering/validation for SM120 FP4 GEMM, changing kernel choice and numerical variation.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 7819,
+    "experiment_pr": 224,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 5,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7819.json",
+        "id": 59953461899,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "waiting_for_bot",
+    "title": "Waiting for flashinfer-bot",
+    "summary": "New csrc FFI export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS runner tactic filtering/validation change autotuner kernel selection and GEMM numerics, needing GPU execution to verify\n\nEvidence: csrc/fp4_gemm_cutlass_sm120.cu, tests/gemm/test_mm_fp4.py\n\nSuggested tests: tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py, tests/gemm/test_mm_fp4.py\n\nTest selection gap: No supplied CI lane provides SM12x hardware, so the new stream-K GPU case likely skips in CI; validated only on developer RTX 5090\n\nDetected [/bot run command](https://github.com/flashinfer-ai/flashinfer/pull/7819#issuecomment-6979431171); waiting for the bot response.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "New csrc FFI export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS runner tactic filtering/validation change autotuner kernel selection and GEMM numerics, needing GPU execution to verify",
+      "evidence_paths": [
+        "csrc/fp4_gemm_cutlass_sm120.cu",
+        "tests/gemm/test_mm_fp4.py"
+      ],
+      "case_gap": "No supplied CI lane provides SM12x hardware, so the new stream-K GPU case likely skips in CI; validated only on developer RTX 5090",
+      "targets": [
+        "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+        "tests/gemm/test_mm_fp4.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953461899,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "waiting_for_bot",
+    "title": "Waiting for flashinfer-bot",
+    "summary": "New csrc FFI export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS runner tactic filtering/validation change autotuner kernel selection and GEMM numerics, needing GPU execution to verify\n\nEvidence: csrc/fp4_gemm_cutlass_sm120.cu, tests/gemm/test_mm_fp4.py\n\nSuggested tests: tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py, tests/gemm/test_mm_fp4.py\n\nTest selection gap: No supplied CI lane provides SM12x hardware, so the new stream-K GPU case likely skips in CI; validated only on developer RTX 5090\n\nDetected [/bot run command](https://github.com/flashinfer-ai/flashinfer/pull/7819#issuecomment-6979431171); waiting for the bot response.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "New csrc FFI export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS runner tactic filtering/validation change autotuner kernel selection and GEMM numerics, needing GPU execution to verify",
+      "evidence_paths": [
+        "csrc/fp4_gemm_cutlass_sm120.cu",
+        "tests/gemm/test_mm_fp4.py"
+      ],
+      "case_gap": "No supplied CI lane provides SM12x hardware, so the new stream-K GPU case likely skips in CI; validated only on developer RTX 5090",
+      "targets": [
+        "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+        "tests/gemm/test_mm_fp4.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953461899,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

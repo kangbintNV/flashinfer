@@ -1,0 +1,94 @@
+{
+  "index": 4,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/6412",
+  "original_number": 6412,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/180",
+  "experiment_number": 180,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/180/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6412.json",
+  "group": "docs",
+  "title": "docs: document MegaMoE compile diagnostics flag",
+  "comparison_base_sha": "fa6994348d63b9a13661f104f54ac5b49081d062",
+  "comparison_head_sha": "95b315312486d9b1830d89bf76e963c9ad7d9031",
+  "original_contributor_head_sha": "171947f547d38270bcff1eff55aff1d8f4a8a375",
+  "experiment_base_sha": "6a44cd9164b86149bea84336e342c7045bb4d32b",
+  "experiment_head_sha": "adead24d7b0a24500858c61232255cc99e41f598",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "2ff42ba2d134ebb856f034539f037775925374131df3a3aa3071eb7eb33e15cc",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_classification": "docs_only",
+  "diagnostic_classification": "docs_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Only Markdown/RST documentation changed.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "docs_only",
+  "manual_reason": "MegaMoE compile-diagnostics documentation only.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 6412,
+    "experiment_pr": 180,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6412.json",
+        "id": 59952854253,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Only Markdown/RST documentation changed.",
+      "evidence_paths": [
+        "CLAUDE.md"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952854253,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Only Markdown/RST documentation changed.",
+      "evidence_paths": [
+        "CLAUDE.md"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952854253,
+    "model_call_indices": [],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "index": 26,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9649",
+  "original_number": 9649,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/201",
+  "experiment_number": 201,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/201/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9649.json",
+  "group": "cuda",
+  "title": "fix(comm): memory clobbers on the NVLink one-sided all-to-all fences",
+  "comparison_base_sha": "f92266907449b03c6ad8f6a0bc088f7ad00d63c5",
+  "comparison_head_sha": "bc69e528ef216bb7b827e27704595d5decbc9b5b",
+  "original_contributor_head_sha": "377a1dee516755bf8278974ea2e3c889cc94b9fc",
+  "experiment_base_sha": "1ee69480c7327af66a4fa6144d83446b9e569641",
+  "experiment_head_sha": "b9d181e001c5118cf34f634a58b10e6b91967597",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "bee8326c56cce4dad3bdf3dfb32f45cd4be19bc540c27ca5c68a6fee4deb7999",
+  "reply_evidence": [
+    {
+      "id": 6971883491,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9649#issuecomment-6971883491",
+      "first_line": "GitLab MR [!2942](https://nv/flashinfer/-/merge_requests/2942) has been created, and the CI pipeline [#83177000](https://nv/flashinfer-ci/-/pipelines/83177000) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7029324566,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9649#issuecomment-7029324566",
+      "first_line": "GitLab MR [!2942](https://nv/flashinfer/-/merge_requests/2942) has been created, and the CI pipeline [#83841170](https://nv/flashinfer-ci/-/pipelines/83841170) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Inline PTX fence semantics in MoE all-to-all dispatch/combine kernels govern cross-rank flag/payload visibility; only device execution validates ordering.",
+  "selected_tests": [
+    "tests/comm/test_cake_moe_alltoall.py"
+  ],
+  "case_gap": "Multi-GPU regression file test_cake_moe_alltoall_multi_gpu.py was not inspected; single-GPU test skips unless SM100/103 hardware is available.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Stable CUDA implementation edits affect GPU execution; not a documentation-only change.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9649,
+    "experiment_pr": 201,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6971883491,
+      7029324566
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9649.json",
+        "id": 59953053613,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9649.json",
+        "id": 59953145250,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9649#issuecomment-7029324566)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953053613,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Inline PTX fence semantics in MoE all-to-all dispatch/combine kernels govern cross-rank flag/payload visibility; only device execution validates ordering.\n\nEvidence: csrc/nv_internal/tensorrt_llm/kernels/moe/communication/moeAlltoAllKernels.cu, tests/comm/test_cake_moe_alltoall.py\n\nSuggested tests: tests/comm/test_cake_moe_alltoall.py\n\nTest selection gap: Multi-GPU regression file test_cake_moe_alltoall_multi_gpu.py was not inspected; single-GPU test skips unless SM100/103 hardware is available.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Inline PTX fence semantics in MoE all-to-all dispatch/combine kernels govern cross-rank flag/payload visibility; only device execution validates ordering.",
+      "evidence_paths": [
+        "csrc/nv_internal/tensorrt_llm/kernels/moe/communication/moeAlltoAllKernels.cu",
+        "tests/comm/test_cake_moe_alltoall.py"
+      ],
+      "case_gap": "Multi-GPU regression file test_cake_moe_alltoall_multi_gpu.py was not inspected; single-GPU test skips unless SM100/103 hardware is available.",
+      "targets": [
+        "tests/comm/test_cake_moe_alltoall.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953145250,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

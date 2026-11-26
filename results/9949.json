@@ -1,0 +1,161 @@
+{
+  "index": 27,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9949",
+  "original_number": 9949,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/202",
+  "experiment_number": 202,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/202/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9949.json",
+  "group": "cuda",
+  "title": "fix(comm): compute the Lamport clear sub-buffer offset in 64 bits",
+  "comparison_base_sha": "26075a1331ff91530706567b59389c23cc143648",
+  "comparison_head_sha": "e4e029debf92b3e04a1d8e6316319e8d63784595",
+  "original_contributor_head_sha": "af0f0012cee624e9e63bebc3a56996a5a61bde3a",
+  "experiment_base_sha": "a989af8092445e5a53d0aac5b12f560278fac910",
+  "experiment_head_sha": "0b2816186af6dad5166541486ea779bd9cdc9230",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "8a8458373bad392384f8a9eae19842bc8f99bdb79b9661fa6011368739715d6c",
+  "reply_evidence": [
+    {
+      "id": 7121771998,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7121771998",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been created, and the CI pipeline [#84924803](https://nv/flashinfer-ci/-/pipelines/84924803) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7125701140,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7125701140",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#84973197](https://nv/flashinfer-ci/-/pipelines/84973197) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7150055520,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7150055520",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85207090](https://nv/flashinfer-ci/-/pipelines/85207090) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7158536227,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7158536227",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85300232](https://nv/flashinfer-ci/-/pipelines/85300232) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7174376982,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7174376982",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85451410](https://nv/flashinfer-ci/-/pipelines/85451410) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7181797949,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7181797949",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85523567](https://nv/flashinfer-ci/-/pipelines/85523567) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Device-side Lamport clear_buf pointer arithmetic widened to int64 in two CUDA headers; correctness of all-reduce/MoE finalize writes requires multi-GPU execution to validate",
+  "selected_tests": [
+    "tests/comm/test_trtllm_allreduce_fusion_large_workspace.py",
+    "tests/comm/test_trtllm_allreduce_fusion_pdl.py"
+  ],
+  "case_gap": "New test skips unless 2 GPUs with ~4.2 GiB free each; large-workspace path may remain unexercised on small runners",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Lamport communication clear-buffer offset changes to 64-bit arithmetic; device addressing correctness.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9949,
+    "experiment_pr": 202,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 4,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7121771998,
+      7125701140,
+      7150055520,
+      7158536227,
+      7174376982,
+      7181797949
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9949.json",
+        "id": 59953053614,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9949.json",
+        "id": 59953137236,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7181797949)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953053614,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Device-side Lamport clear_buf pointer arithmetic widened to int64 in two CUDA headers; correctness of all-reduce/MoE finalize writes requires multi-GPU execution to validate\n\nEvidence: include/flashinfer/comm/trtllm_allreduce_fusion.cuh, include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh, tests/comm/test_trtllm_allreduce_fusion_large_workspace.py\n\nSuggested tests: tests/comm/test_trtllm_allreduce_fusion_large_workspace.py, tests/comm/test_trtllm_allreduce_fusion_pdl.py\n\nPatch content unavailable (informational): tests/comm/test_trtllm_allreduce_fusion_large_workspace.py\n\nTest selection gap: New test skips unless 2 GPUs with ~4.2 GiB free each; large-workspace path may remain unexercised on small runners\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Device-side Lamport clear_buf pointer arithmetic widened to int64 in two CUDA headers; correctness of all-reduce/MoE finalize writes requires multi-GPU execution to validate",
+      "evidence_paths": [
+        "include/flashinfer/comm/trtllm_allreduce_fusion.cuh",
+        "include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh",
+        "tests/comm/test_trtllm_allreduce_fusion_large_workspace.py"
+      ],
+      "case_gap": "New test skips unless 2 GPUs with ~4.2 GiB free each; large-workspace path may remain unexercised on small runners",
+      "missing_patch_paths": [
+        "tests/comm/test_trtllm_allreduce_fusion_large_workspace.py"
+      ],
+      "missing_patch_count": 1,
+      "targets": [
+        "tests/comm/test_trtllm_allreduce_fusion_large_workspace.py",
+        "tests/comm/test_trtllm_allreduce_fusion_pdl.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953137236,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

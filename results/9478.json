@@ -1,0 +1,141 @@
+{
+  "index": 38,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9478",
+  "original_number": 9478,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/213",
+  "experiment_number": 213,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/213/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9478.json",
+  "group": "gpu_python",
+  "title": "fix(comm): load malloc and free from ucrtbase on Windows",
+  "comparison_base_sha": "dc00b0e516609ef71899be389628c23194271388",
+  "comparison_head_sha": "b2d4fb1a0ea3fd8167b30f3d0f54a4b7099ebe6f",
+  "original_contributor_head_sha": "83b9951078bf050af246c08fd3271bcdae0553f8",
+  "experiment_base_sha": "f77a8a89d85534fad6e267cf64db489263f5b471",
+  "experiment_head_sha": "6617b1881af1955792431c988c11e44f836089ec",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "2562371bf326ec32bec049378c559123412efc90f5a4603370f4b49d0d2539db",
+  "reply_evidence": [
+    {
+      "id": 6905221665,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9478#issuecomment-6905221665",
+      "first_line": "GitLab MR [!2834](https://nv/flashinfer/-/merge_requests/2834) has been created, and the CI pipeline [#82485431](https://nv/flashinfer-ci/-/pipelines/82485431) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6905749407,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9478#issuecomment-6905749407",
+      "first_line": "[FAILED] Pipeline [#82485431](https://nv/flashinfer-ci/-/pipelines/82485431) — 41/42 executed test jobs passed"
+    },
+    {
+      "id": 6957400936,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9478#issuecomment-6957400936",
+      "first_line": "GitLab MR [!2834](https://nv/flashinfer/-/merge_requests/2834) has been created, and the CI pipeline [#82993131](https://nv/flashinfer-ci/-/pipelines/82993131) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6981486445,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9478#issuecomment-6981486445",
+      "first_line": "[FAILED] Pipeline [#82993131](https://nv/flashinfer-ci/-/pipelines/82993131) — 39/41 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "cpu_only",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Only change is import-time host ctypes loading of malloc/free (ucrtbase on Windows, CDLL(None) elsewhere); POSIX behavior identical, no kernel, launcher, dtype or workspace change.",
+  "selected_tests": [
+    "tests/cpu/cake/test_cake_packages_standalone.py"
+  ],
+  "case_gap": "No Windows CI lane; the ucrtbase branch is validated only by the author's manual Windows arm64 run.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "cpu_only",
+  "manual_reason": "Only host CRT lookup switches CDLL(None) to ucrtbase on Windows plus os import; CPU symbol-resolution validation can cover this bounded change.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9478,
+    "experiment_pr": 213,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6905221665,
+      6905749407,
+      6957400936,
+      6981486445
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9478.json",
+        "id": 59953218718,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9478.json",
+        "id": 59953297406,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9478#issuecomment-6981486445)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953218718,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Only change is import-time host ctypes loading of malloc/free (ucrtbase on Windows, CDLL(None) elsewhere); POSIX behavior identical, no kernel, launcher, dtype or workspace change.\n\nEvidence: flashinfer/cake_ulysses_backend/cake_backend.py\n\nSuggested tests: tests/cpu/cake/test_cake_packages_standalone.py\n\nTest selection gap: No Windows CI lane; the ucrtbase branch is validated only by the author's manual Windows arm64 run.",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Only change is import-time host ctypes loading of malloc/free (ucrtbase on Windows, CDLL(None) elsewhere); POSIX behavior identical, no kernel, launcher, dtype or workspace change.",
+      "evidence_paths": [
+        "flashinfer/cake_ulysses_backend/cake_backend.py"
+      ],
+      "case_gap": "No Windows CI lane; the ucrtbase branch is validated only by the author's manual Windows arm64 run.",
+      "targets": [
+        "tests/cpu/cake/test_cake_packages_standalone.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953297406,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

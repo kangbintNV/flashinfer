@@ -1,0 +1,164 @@
+{
+  "index": 21,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9706",
+  "original_number": 9706,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/196",
+  "experiment_number": 196,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/196/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9706.json",
+  "group": "jit_aot",
+  "title": "perf(cake_gdn): sm_107a locality-domain GDN decode for homed states (B>=48)",
+  "comparison_base_sha": "855eece4e9b5b796a46148664a3e27da571cd98b",
+  "comparison_head_sha": "dc00b0e516609ef71899be389628c23194271388",
+  "original_contributor_head_sha": "ff1d011e076dec052b3458fd0a271f521caee3a2",
+  "experiment_base_sha": "aa0cbf8b72d5076530aac9f4f5b13131f1cfccfd",
+  "experiment_head_sha": "b7037e51a4d6bf907c2d7934694639e7d885471c",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "630690e3a31160405f3bb62d713fed3fd7ce379f12f753d485e79dcc3b5b04b6",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Adds sm_107a CUDA kernel, TMA-state host template with occupancy-capped grid, die-homed state allocation, claim counters, JIT routing and CUDA-graph launch paths; CPU host tests cannot validate numerics or launches.",
+  "selected_tests": [
+    "tests/cpu/gdn"
+  ],
+  "case_gap": "PR-added tests/gdn/test_cake_gdn_decode_domain_gpu.py body not inspected; dual-die 212-SM sm_107a GPU execution unverified by selected scope",
+  "filename_only_evidence": [
+    "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Adds SM107a CUDA/TMA state-locality kernel, allocation/counters and graph launch routing.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9706,
+    "experiment_pr": 196,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 12,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9706.json",
+        "id": 59953044580,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds sm_107a CUDA kernel, TMA-state host template with occupancy-capped grid, die-homed state allocation, claim counters, JIT routing and CUDA-graph launch paths; CPU host tests cannot validate numerics or launches.\n\nEvidence: csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu, csrc/gdn/cake/manifest.json, tests/cpu/gdn/test_cake_gdn_decode_domain.py\n\nSuggested tests: tests/cpu/gdn\n\nPatch content unavailable (informational): csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu, csrc/gdn/cake/host/templates/cake_decode_fp32_t1_tma_state_domain.cc.in, flashinfer/cake_gdn_decode_locality.py, flashinfer/gdn_decode.py, flashinfer/jit/cake_gdn.py, tests/cpu/gdn/test_cake_gdn_decode_domain.py, tests/gdn/test_cake_gdn_decode_domain_gpu.py\n\nTest selection gap: PR-added tests/gdn/test_cake_gdn_decode_domain_gpu.py body not inspected; dual-die 212-SM sm_107a GPU execution unverified by selected scope\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds sm_107a CUDA kernel, TMA-state host template with occupancy-capped grid, die-homed state allocation, claim counters, JIT routing and CUDA-graph launch paths; CPU host tests cannot validate numerics or launches.",
+      "evidence_paths": [
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu",
+        "csrc/gdn/cake/manifest.json",
+        "tests/cpu/gdn/test_cake_gdn_decode_domain.py"
+      ],
+      "case_gap": "PR-added tests/gdn/test_cake_gdn_decode_domain_gpu.py body not inspected; dual-die 212-SM sm_107a GPU execution unverified by selected scope",
+      "filename_only_evidence": [
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu"
+      ],
+      "missing_patch_paths": [
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu",
+        "csrc/gdn/cake/host/templates/cake_decode_fp32_t1_tma_state_domain.cc.in",
+        "flashinfer/cake_gdn_decode_locality.py",
+        "flashinfer/gdn_decode.py",
+        "flashinfer/jit/cake_gdn.py",
+        "tests/cpu/gdn/test_cake_gdn_decode_domain.py",
+        "tests/gdn/test_cake_gdn_decode_domain_gpu.py"
+      ],
+      "missing_patch_count": 7,
+      "targets": [
+        "tests/cpu/gdn"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953044580,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds sm_107a CUDA kernel, TMA-state host template with occupancy-capped grid, die-homed state allocation, claim counters, JIT routing and CUDA-graph launch paths; CPU host tests cannot validate numerics or launches.\n\nEvidence: csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu, csrc/gdn/cake/manifest.json, tests/cpu/gdn/test_cake_gdn_decode_domain.py\n\nSuggested tests: tests/cpu/gdn\n\nPatch content unavailable (informational): csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu, csrc/gdn/cake/host/templates/cake_decode_fp32_t1_tma_state_domain.cc.in, flashinfer/cake_gdn_decode_locality.py, flashinfer/gdn_decode.py, flashinfer/jit/cake_gdn.py, tests/cpu/gdn/test_cake_gdn_decode_domain.py, tests/gdn/test_cake_gdn_decode_domain_gpu.py\n\nTest selection gap: PR-added tests/gdn/test_cake_gdn_decode_domain_gpu.py body not inspected; dual-die 212-SM sm_107a GPU execution unverified by selected scope\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds sm_107a CUDA kernel, TMA-state host template with occupancy-capped grid, die-homed state allocation, claim counters, JIT routing and CUDA-graph launch paths; CPU host tests cannot validate numerics or launches.",
+      "evidence_paths": [
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu",
+        "csrc/gdn/cake/manifest.json",
+        "tests/cpu/gdn/test_cake_gdn_decode_domain.py"
+      ],
+      "case_gap": "PR-added tests/gdn/test_cake_gdn_decode_domain_gpu.py body not inspected; dual-die 212-SM sm_107a GPU execution unverified by selected scope",
+      "filename_only_evidence": [
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu"
+      ],
+      "missing_patch_paths": [
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu",
+        "csrc/gdn/cake/host/templates/cake_decode_fp32_t1_tma_state_domain.cc.in",
+        "flashinfer/cake_gdn_decode_locality.py",
+        "flashinfer/gdn_decode.py",
+        "flashinfer/jit/cake_gdn.py",
+        "tests/cpu/gdn/test_cake_gdn_decode_domain.py",
+        "tests/gdn/test_cake_gdn_decode_domain_gpu.py"
+      ],
+      "missing_patch_count": 7,
+      "targets": [
+        "tests/cpu/gdn"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953044580,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

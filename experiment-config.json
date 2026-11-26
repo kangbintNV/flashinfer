@@ -1,0 +1,15 @@
+{
+  "checker_version": "2f9840349e97effbb89737a6332673f490629094",
+  "model": "azure/anthropic/claude-opus-5",
+  "analysis_efforts": [
+    "default",
+    "minimal"
+  ],
+  "max_analysis_attempts": 2,
+  "actual_entry": "check_bot_run_request.run_pr",
+  "adapter": "Only frozen I/O and GitHub commit-status publication; checker sources unchanged",
+  "native_check_run_unavailable": true,
+  "no_gpu_tests": true,
+  "no_bot_commands_sent": true,
+  "main_unchanged": true
+}

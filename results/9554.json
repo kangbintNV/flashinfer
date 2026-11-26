@@ -1,0 +1,126 @@
+{
+  "index": 32,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9554",
+  "original_number": 9554,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/207",
+  "experiment_number": 207,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/207/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9554.json",
+  "group": "new_test",
+  "title": "fix(autotuner): share one CUDA graph pool across profiling captures",
+  "comparison_base_sha": "1b4d210d62d00f4cac7b57c99e41ca2a98ec2217",
+  "comparison_head_sha": "3adb5ac7ca7423a3883eff4609933fb9cf3f6cd3",
+  "original_contributor_head_sha": "6548f216697d281d32291fc415f2e22a37ec7be0",
+  "experiment_base_sha": "872bbb6eb1f17838a59f739a90c65a036ea3a0cd",
+  "experiment_head_sha": "070cc45fa579699522eb4fb4c9875cd2ec352038",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "c7e499b9353dca45234619b29441e0be233bd0cea8c593f415f265f1356c0a94",
+  "reply_evidence": [
+    {
+      "id": 7076077410,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9554#issuecomment-7076077410",
+      "first_line": "GitLab MR [!3028](https://nv/flashinfer/-/merge_requests/3028) has been created, and the CI pipeline [#84443438](https://nv/flashinfer-ci/-/pipelines/84443438) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Changes CUDA graph capture to pass a shared per-device graph pool handle at four profiling capture sites; capture/replay, allocator pool behavior and memory stats need GPU validation",
+  "selected_tests": [
+    "tests/autotuner/test_profile_graph_pool.py",
+    "tests/autotuner/test_individual_graph_timing.py"
+  ],
+  "case_gap": "Autotuner capture sites in autotuner.py were not inspected (file size limit); concurrency invariant for shared pool untested",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "CUDA graph captures share a profiling memory pool; GPU resource lifetime/replay behavior changes.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9554,
+    "experiment_pr": 207,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 3,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7076077410
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9554.json",
+        "id": 59953128741,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9554.json",
+        "id": 59953196525,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9554#issuecomment-7076077410)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953128741,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Changes CUDA graph capture to pass a shared per-device graph pool handle at four profiling capture sites; capture/replay, allocator pool behavior and memory stats need GPU validation\n\nEvidence: flashinfer/autotuner/_graph_timing.py, tests/autotuner/test_profile_graph_pool.py\n\nSuggested tests: tests/autotuner/test_profile_graph_pool.py, tests/autotuner/test_individual_graph_timing.py\n\nTest selection gap: Autotuner capture sites in autotuner.py were not inspected (file size limit); concurrency invariant for shared pool untested\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Changes CUDA graph capture to pass a shared per-device graph pool handle at four profiling capture sites; capture/replay, allocator pool behavior and memory stats need GPU validation",
+      "evidence_paths": [
+        "flashinfer/autotuner/_graph_timing.py",
+        "tests/autotuner/test_profile_graph_pool.py"
+      ],
+      "case_gap": "Autotuner capture sites in autotuner.py were not inspected (file size limit); concurrency invariant for shared pool untested",
+      "targets": [
+        "tests/autotuner/test_profile_graph_pool.py",
+        "tests/autotuner/test_individual_graph_timing.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953196525,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

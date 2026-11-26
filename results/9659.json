@@ -1,0 +1,148 @@
+{
+  "index": 25,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9659",
+  "original_number": 9659,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/200",
+  "experiment_number": 200,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/200/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9659.json",
+  "group": "cuda",
+  "title": "perf(prims-ts): QToken sparse group sizes 16 and 32 and a latency-model group policy for NVFP4 prefill",
+  "comparison_base_sha": "5ae5c8086d613dabfdb88d385041346cbb04d14c",
+  "comparison_head_sha": "8cf6cb1b1d95abc5dbf3065f0cd91a57aafbfca0",
+  "original_contributor_head_sha": "ce6d4f60d0417a3621a473b3e147bf0b29472b57",
+  "experiment_base_sha": "f75c74dc2e39027fcf0f9743f43f87c51a1737ab",
+  "experiment_head_sha": "c922fb92ad5716329906848f80e5925f1af1ce46",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "a1124a248d94415985d364e50efb35155041c462f335e0e0b187491b593133cd",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Adds G16/G32 page-major membership planes, new wide_metadata_smem_bytes FFI and SMEM-fit validation, NVFP4 KeepsMmaAb loader/register-capture and membership preload changes in CUDA/CuTe kernel and config paths; needs GPU validation.",
+  "selected_tests": [],
+  "case_gap": "Bodies of the PR-modified attention tests were not inspected; G16/G32 metadata and NVFP4 prefill group-policy coverage is unverified.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Stable CUDA/kernel code changes; changed kernel bodies require device validation.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9659,
+    "experiment_pr": 200,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 13,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9659.json",
+        "id": 59953091262,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds G16/G32 page-major membership planes, new wide_metadata_smem_bytes FFI and SMEM-fit validation, NVFP4 KeepsMmaAb loader/register-capture and membership preload changes in CUDA/CuTe kernel and config paths; needs GPU validation.\n\nEvidence: csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: Bodies of the PR-modified attention tests were not inspected; G16/G32 metadata and NVFP4 prefill group-policy coverage is unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds G16/G32 page-major membership planes, new wide_metadata_smem_bytes FFI and SMEM-fit validation, NVFP4 KeepsMmaAb loader/register-capture and membership preload changes in CUDA/CuTe kernel and config paths; needs GPU validation.",
+      "evidence_paths": [
+        "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py"
+      ],
+      "case_gap": "Bodies of the PR-modified attention tests were not inspected; G16/G32 metadata and NVFP4 prefill group-policy coverage is unverified.",
+      "missing_patch_paths": [
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "missing_patch_count": 6,
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953091262,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds G16/G32 page-major membership planes, new wide_metadata_smem_bytes FFI and SMEM-fit validation, NVFP4 KeepsMmaAb loader/register-capture and membership preload changes in CUDA/CuTe kernel and config paths; needs GPU validation.\n\nEvidence: csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: Bodies of the PR-modified attention tests were not inspected; G16/G32 metadata and NVFP4 prefill group-policy coverage is unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds G16/G32 page-major membership planes, new wide_metadata_smem_bytes FFI and SMEM-fit validation, NVFP4 KeepsMmaAb loader/register-capture and membership preload changes in CUDA/CuTe kernel and config paths; needs GPU validation.",
+      "evidence_paths": [
+        "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py"
+      ],
+      "case_gap": "Bodies of the PR-modified attention tests were not inspected; G16/G32 metadata and NVFP4 prefill group-policy coverage is unverified.",
+      "missing_patch_paths": [
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "missing_patch_count": 6,
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953091262,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

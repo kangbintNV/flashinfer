@@ -1,0 +1,98 @@
+{
+  "index": 1,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9369",
+  "original_number": 9369,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/176",
+  "experiment_number": 176,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/176/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9369.json",
+  "group": "docs",
+  "title": "docs(moe): regenerate the unified MoE activation matrix for the batch-invariant bf16 backend",
+  "comparison_base_sha": "3db2f474e4053a6400d3128ba0683cbd4a05f5a4",
+  "comparison_head_sha": "990f90f9ba5b9cb6109ee06556d77bf77ab2b5c5",
+  "original_contributor_head_sha": "b6919017476e0258bb89455f32185222203b8122",
+  "experiment_base_sha": "a1ddbb93fc3df142502b3cd95f78fcc65f2ae45b",
+  "experiment_head_sha": "a40a890aa031a97a2dcca823eb5cf10192be15e9",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "a25e3d582ca23fd031da96fd1a1d8c189c4a6d0a9cd5e3770dc033004389d481",
+  "reply_evidence": [
+    {
+      "id": 6806129216,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9369#issuecomment-6806129216",
+      "first_line": "GitLab MR [!2787](https://nv/flashinfer/-/merge_requests/2787) has been created, and the CI pipeline [#81377130](https://nv/flashinfer-ci/-/pipelines/81377130) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "docs_only",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Only Markdown/RST documentation changed.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "docs_only",
+  "manual_reason": "Unified MoE activation matrix RST/Markdown text only.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9369,
+    "experiment_pr": 176,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6806129216
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9369.json",
+        "id": 59952858027,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9369.json",
+        "id": 59952860641,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9369#issuecomment-6806129216)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59952858027,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "docs_only",
+    "title": "Bot run not required",
+    "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/design_docs/flashinfer_moe_api.md",
+    "analysis": {
+      "classification": "docs_only",
+      "reason": "Only Markdown/RST documentation changed.",
+      "evidence_paths": [
+        "docs/design_docs/flashinfer_moe_api.md"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952860641,
+    "model_call_indices": []
+  }
+}

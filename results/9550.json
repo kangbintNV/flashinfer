@@ -1,0 +1,148 @@
+{
+  "index": 28,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9550",
+  "original_number": 9550,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/203",
+  "experiment_number": 203,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/203/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9550.json",
+  "group": "cuda",
+  "title": "feat(cake_ssd_combined): explicit state_dtype, caller-owned final_states, no final-state storage without final states",
+  "comparison_base_sha": "a7d9e18658d3954527675a3d3a9e7b2ec75b2eae",
+  "comparison_head_sha": "6919f3d9d4db8c5cb8ffb4d83aac360179acd15b",
+  "original_contributor_head_sha": "d8c5597b1cfa127f78875b9246137b0d794b044f",
+  "experiment_base_sha": "dfb38a9f555daf48aa8eb7e763970731738c8587",
+  "experiment_head_sha": "8e5dece7ebc697d31c4db17a4549f52eedd409bd",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "8e9e89c914700b8d8c0f1312ff66c5b50456559ebe9d07b9fbf839679d090fe2",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "ssd_combined_fwd/SSDCombined gain state_dtype and caller-owned final_states forwarded into Cake kernel binding, workspace/final-state storage and prepare/CUDA-graph path; needs GPU validation.",
+  "selected_tests": [],
+  "case_gap": "Bodies of changed mamba SSD tests not inspected (size/budget), so in-place final_states, no-allocation and 32-bit guard coverage is unconfirmed.",
+  "filename_only_evidence": [
+    "flashinfer/mamba/cake_ssd_combined.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Stable CUDA/kernel execution path changes; CUDA diff is substantive.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9550,
+    "experiment_pr": 203,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 5,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9550.json",
+        "id": 59953125415,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "ssd_combined_fwd/SSDCombined gain state_dtype and caller-owned final_states forwarded into Cake kernel binding, workspace/final-state storage and prepare/CUDA-graph path; needs GPU validation.\n\nEvidence: flashinfer/mamba/ssd_combined.py, flashinfer/mamba/cake_ssd_combined.py, flashinfer/trace/templates/mamba.py\n\nPatch content unavailable (informational): flashinfer/mamba/cake_ssd_combined.py, tests/mamba/test_cake_ssd_combined.py\n\nTest selection gap: Bodies of changed mamba SSD tests not inspected (size/budget), so in-place final_states, no-allocation and 32-bit guard coverage is unconfirmed.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "ssd_combined_fwd/SSDCombined gain state_dtype and caller-owned final_states forwarded into Cake kernel binding, workspace/final-state storage and prepare/CUDA-graph path; needs GPU validation.",
+      "evidence_paths": [
+        "flashinfer/mamba/ssd_combined.py",
+        "flashinfer/mamba/cake_ssd_combined.py",
+        "flashinfer/trace/templates/mamba.py"
+      ],
+      "case_gap": "Bodies of changed mamba SSD tests not inspected (size/budget), so in-place final_states, no-allocation and 32-bit guard coverage is unconfirmed.",
+      "filename_only_evidence": [
+        "flashinfer/mamba/cake_ssd_combined.py"
+      ],
+      "missing_patch_paths": [
+        "flashinfer/mamba/cake_ssd_combined.py",
+        "tests/mamba/test_cake_ssd_combined.py"
+      ],
+      "missing_patch_count": 2,
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953125415,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "ssd_combined_fwd/SSDCombined gain state_dtype and caller-owned final_states forwarded into Cake kernel binding, workspace/final-state storage and prepare/CUDA-graph path; needs GPU validation.\n\nEvidence: flashinfer/mamba/ssd_combined.py, flashinfer/mamba/cake_ssd_combined.py, flashinfer/trace/templates/mamba.py\n\nPatch content unavailable (informational): flashinfer/mamba/cake_ssd_combined.py, tests/mamba/test_cake_ssd_combined.py\n\nTest selection gap: Bodies of changed mamba SSD tests not inspected (size/budget), so in-place final_states, no-allocation and 32-bit guard coverage is unconfirmed.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "ssd_combined_fwd/SSDCombined gain state_dtype and caller-owned final_states forwarded into Cake kernel binding, workspace/final-state storage and prepare/CUDA-graph path; needs GPU validation.",
+      "evidence_paths": [
+        "flashinfer/mamba/ssd_combined.py",
+        "flashinfer/mamba/cake_ssd_combined.py",
+        "flashinfer/trace/templates/mamba.py"
+      ],
+      "case_gap": "Bodies of changed mamba SSD tests not inspected (size/budget), so in-place final_states, no-allocation and 32-bit guard coverage is unconfirmed.",
+      "filename_only_evidence": [
+        "flashinfer/mamba/cake_ssd_combined.py"
+      ],
+      "missing_patch_paths": [
+        "flashinfer/mamba/cake_ssd_combined.py",
+        "tests/mamba/test_cake_ssd_combined.py"
+      ],
+      "missing_patch_count": 2,
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953125415,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

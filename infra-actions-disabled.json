@@ -1,0 +1,6 @@
+{
+  "actions_dispatch_error": "Actions has been disabled for this repository. HTTP 422",
+  "native_check_error": "You must authenticate via a GitHub App. HTTP 403",
+  "settings_changed": false,
+  "result_transport": "GitHub commit statuses; not native Check Runs"
+}

@@ -1,0 +1,111 @@
+{
+  "index": 14,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8561",
+  "original_number": 8561,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/189",
+  "experiment_number": 189,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/189/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
+  "group": "experimental_only",
+  "title": "fix(experimental/b12x): deterministic pivot-tie fill in persistent top-k2048",
+  "comparison_base_sha": "64b2fa17e7c33156af68cdf4dd4969cb211b024c",
+  "comparison_head_sha": "1c380998cd9a59042a9df5565f7ff03f03931b38",
+  "original_contributor_head_sha": "f87fc2c079a02006a757a553d615469f7aad40bf",
+  "experiment_base_sha": "8cbf5ae89e25519a05ac78e4a62b48c1a90eed7c",
+  "experiment_head_sha": "49bd4c9af4c76b6013722c4241cc9797b85a1fc1",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "3ed6ace9760ced3a87285ace0a9973167de3c66dbe94812a1f38f10f7877f04d",
+  "reply_evidence": [
+    {
+      "id": 6615835702,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6615835702",
+      "first_line": "GitLab MR [!2634](https://nv/flashinfer/-/merge_requests/2634) has been created, and the CI pipeline [#78997870](https://nv/flashinfer-ci/-/pipelines/78997870) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6620263380,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6620263380",
+      "first_line": "[SUCCESS] Pipeline [#78997870](https://nv/flashinfer-ci/-/pipelines/78997870): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 6661899364,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6661899364",
+      "first_line": "GitLab MR [!2634](https://nv/flashinfer/-/merge_requests/2634) has been updated with latest changes, and the CI pipeline [#79539000](https://nv/flashinfer-ci/-/pipelines/79539000) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "experimental_only",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "experimental_only",
+  "manual_reason": "GPU radix-top-k barrier/histogram code and GPU tests change, but every changed path is experimental-contained; this is a policy exemption, not CPU-only.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 8561,
+    "experiment_pr": 189,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6615835702,
+      6620263380,
+      6661899364
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
+        "id": 59952903734,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
+        "id": 59952906215,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6661899364)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59952903734,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py, tests/experimental/b12x/attention/test_persistent_topk_gpu.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py",
+        "tests/experimental/b12x/attention/test_persistent_topk_gpu.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952906215,
+    "model_call_indices": []
+  }
+}

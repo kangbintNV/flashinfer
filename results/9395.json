@@ -1,0 +1,150 @@
+{
+  "index": 20,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9395",
+  "original_number": 9395,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/195",
+  "experiment_number": 195,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/195/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9395.json",
+  "group": "jit_aot",
+  "title": "feat: parallelize CuTe DSL builds and defer sparse MLA compilation",
+  "comparison_base_sha": "556438772364c8506e4b76c72b1227a0f7af69b9",
+  "comparison_head_sha": "b37daecc1adafd9cf210314bed570fa67f6b55da",
+  "original_contributor_head_sha": "a2ba1d5c16954460f05857db63a10c3f5c028d5a",
+  "experiment_base_sha": "e4572e4f024fe61e4e2e818c15562653e7792997",
+  "experiment_head_sha": "a641e77491c850db4b6ea0efb4a028d88ccf369a",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "3b9e4762df18dcd8900654e6dd875a5213c5ab832c5b6a96cae2b8bfd6aef409",
+  "reply_evidence": [
+    {
+      "id": 7034539081,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9395#issuecomment-7034539081",
+      "first_line": "@yuxianq is not authorized to trigger this CI job. cc: @yzh119, @yongwww, @dierksen, @aleozlx, @bkryu"
+    },
+    {
+      "id": 7052818987,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9395#issuecomment-7052818987",
+      "first_line": "GitLab MR [!3022](https://nv/flashinfer/-/merge_requests/3022) has been created, and the CI pipeline [#84121175](https://nv/flashinfer-ci/-/pipelines/84121175) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7102128803,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9395#issuecomment-7102128803",
+      "first_line": "GitLab MR [!3022](https://nv/flashinfer/-/merge_requests/3022) has been updated with latest changes, and the CI pipeline [#84733112](https://nv/flashinfer-ci/-/pipelines/84733112) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7132488096,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9395#issuecomment-7132488096",
+      "first_line": "GitLab MR [!3022](https://nv/flashinfer/-/merge_requests/3022) has been updated with latest changes, and the CI pipeline [#85038636](https://nv/flashinfer-ci/-/pipelines/85038636) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Changes kernel build/load dispatch (JitSpecCuteDsl locking, build_and_load), PrimTS MLA plan(compile=False) workspace/launch-tensor allocation and run() guard, and MoE GEMM compile path.",
+  "selected_tests": [
+    "tests/cpu/jit/test_cute_dsl_cache.py",
+    "tests/cpu/jit/test_cute_dsl_export_only_compile.py"
+  ],
+  "case_gap": "GPU sparse-MLA deferred-plan/is_kernel_cached tests were modified but their bodies were not inspected, so no GPU target could be validated.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Compile serialization/deferred sparse-MLA plans and cache ownership cross the GPU planning/lifetime boundary.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9395,
+    "experiment_pr": 195,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 15,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7034539081,
+      7052818987,
+      7102128803,
+      7132488096
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9395.json",
+        "id": 59952976307,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9395.json",
+        "id": 59953069339,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9395#issuecomment-7132488096)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59952976307,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Changes kernel build/load dispatch (JitSpecCuteDsl locking, build_and_load), PrimTS MLA plan(compile=False) workspace/launch-tensor allocation and run() guard, and MoE GEMM compile path.\n\nEvidence: flashinfer/attention/prims_ts/mla_decode.py, flashinfer/jit/core.py, tests/attention/test_attention_ts_sparse_mla.py\n\nSuggested tests: tests/cpu/jit/test_cute_dsl_cache.py, tests/cpu/jit/test_cute_dsl_export_only_compile.py\n\nPatch content unavailable (informational): flashinfer/jit/cute_dsl_core.py, tests/cpu/jit/test_cute_dsl_cache.py\n\nTest selection gap: GPU sparse-MLA deferred-plan/is_kernel_cached tests were modified but their bodies were not inspected, so no GPU target could be validated.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Changes kernel build/load dispatch (JitSpecCuteDsl locking, build_and_load), PrimTS MLA plan(compile=False) workspace/launch-tensor allocation and run() guard, and MoE GEMM compile path.",
+      "evidence_paths": [
+        "flashinfer/attention/prims_ts/mla_decode.py",
+        "flashinfer/jit/core.py",
+        "tests/attention/test_attention_ts_sparse_mla.py"
+      ],
+      "case_gap": "GPU sparse-MLA deferred-plan/is_kernel_cached tests were modified but their bodies were not inspected, so no GPU target could be validated.",
+      "missing_patch_paths": [
+        "flashinfer/jit/cute_dsl_core.py",
+        "tests/cpu/jit/test_cute_dsl_cache.py"
+      ],
+      "missing_patch_count": 2,
+      "targets": [
+        "tests/cpu/jit/test_cute_dsl_cache.py",
+        "tests/cpu/jit/test_cute_dsl_export_only_compile.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953069339,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

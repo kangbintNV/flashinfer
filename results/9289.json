@@ -1,0 +1,148 @@
+{
+  "index": 36,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9289",
+  "original_number": 9289,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/211",
+  "experiment_number": 211,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/211/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
+  "group": "new_test",
+  "title": "Track opt-in tactic pools in autotuning cache coverage",
+  "comparison_base_sha": "f4939b643263a7b5616006a8260a21b401d7e79e",
+  "comparison_head_sha": "d91cc6c70d2dd9b9dd34059b5a49be2916396a72",
+  "original_contributor_head_sha": "84f659692e6170ecddf68bb1bae22615bf6607c1",
+  "experiment_base_sha": "081bbaa34ed536f088f4010bba520a1c52c0338a",
+  "experiment_head_sha": "e6f1890e57a54fb6bf9856c1616e6b956fe3c07d",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "e98d920138213cc10c4dbe61678b4fe4fc7c85e51a7c8f355b816a565474cfd6",
+  "reply_evidence": [
+    {
+      "id": 6983472392,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-6983472392",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been created, and the CI pipeline [#83293936](https://nv/flashinfer-ci/-/pipelines/83293936) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6987262141,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-6987262141",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been updated with latest changes, and the CI pipeline [#83331283](https://nv/flashinfer-ci/-/pipelines/83331283) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6990464906,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-6990464906",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been updated with latest changes, and the CI pipeline [#83366453](https://nv/flashinfer-ci/-/pipelines/83366453) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7014293371,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-7014293371",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been created, and the CI pipeline [#83648780](https://nv/flashinfer-ci/-/pipelines/83648780) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "flashinfer/autotuner/autotuner.py changes choose_one coverage keys and tactic-signature checks, affecting tactic enumeration, profiling and CUDA-graph-capture tuning paths on real runners.",
+  "selected_tests": [
+    "tests/cpu/autotuner/test_autotuner_tactic_coverage.py",
+    "tests/cpu/autotuner/test_autotuner_distributed.py"
+  ],
+  "case_gap": "No selected GPU test exercises signature-driven retune with real kernel profiling or CUDA graph capture.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Tactic-pool signatures change cache hit/reprofile decisions and therefore GPU tactic selection.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9289,
+    "experiment_pr": 211,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 4,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6983472392,
+      6987262141,
+      6990464906,
+      7014293371
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
+        "id": 59953178660,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
+        "id": 59953260485,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-7014293371)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953178660,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "flashinfer/autotuner/autotuner.py changes choose_one coverage keys and tactic-signature checks, affecting tactic enumeration, profiling and CUDA-graph-capture tuning paths on real runners.\n\nEvidence: flashinfer/autotuner/autotuner.py, tests/cpu/autotuner/test_autotuner_tactic_coverage.py\n\nSuggested tests: tests/cpu/autotuner/test_autotuner_tactic_coverage.py, tests/cpu/autotuner/test_autotuner_distributed.py\n\nPatch content unavailable (informational): tests/cpu/autotuner/test_autotuner_tactic_coverage.py\n\nTest selection gap: No selected GPU test exercises signature-driven retune with real kernel profiling or CUDA graph capture.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "flashinfer/autotuner/autotuner.py changes choose_one coverage keys and tactic-signature checks, affecting tactic enumeration, profiling and CUDA-graph-capture tuning paths on real runners.",
+      "evidence_paths": [
+        "flashinfer/autotuner/autotuner.py",
+        "tests/cpu/autotuner/test_autotuner_tactic_coverage.py"
+      ],
+      "case_gap": "No selected GPU test exercises signature-driven retune with real kernel profiling or CUDA graph capture.",
+      "missing_patch_paths": [
+        "tests/cpu/autotuner/test_autotuner_tactic_coverage.py"
+      ],
+      "missing_patch_count": 1,
+      "targets": [
+        "tests/cpu/autotuner/test_autotuner_tactic_coverage.py",
+        "tests/cpu/autotuner/test_autotuner_distributed.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953260485,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

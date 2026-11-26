@@ -1,0 +1,120 @@
+{
+  "index": 9,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9739",
+  "original_number": 9739,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/184",
+  "experiment_number": 184,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/184/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9739.json",
+  "group": "cpu_tool",
+  "title": "test: skip exhaustive search in SM107 memory accounting test",
+  "comparison_base_sha": "9133d44d5bba7ddd2e7de3de9ba189457d52555f",
+  "comparison_head_sha": "67b5329067a258a7e0da3e211da7c31ff6c3b672",
+  "original_contributor_head_sha": "15d94604c30c8cd3848debb8306b3333d635cd0f",
+  "experiment_base_sha": "f278183cef9acdf39cb4788e70acbc5627929228",
+  "experiment_head_sha": "c99bfd53ef66bf6e147b8e559eb9b3893b25e48c",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "84fb75de2f42655955a93d01457b62cbd2a8a3cd2694bcbde29a1318c6c48910",
+  "reply_evidence": [
+    {
+      "id": 7026412299,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9739#issuecomment-7026412299",
+      "first_line": "GitLab MR [!2993](https://nv/flashinfer/-/merge_requests/2993) has been created, and the CI pipeline [#83790057](https://nv/flashinfer-ci/-/pipelines/83790057) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "cpu_only",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Test-only monkeypatch sets FLASHINFER_PRIMS_TS_DEBUG_CHECKS=0 for one cpu_only SMEM-accounting test, disabling the host-side BFS interleaving search; no kernel, launcher, JIT or dispatch code changed.",
+  "selected_tests": [],
+  "case_gap": "Exhaustive schedule-interleaving search no longer runs for this SM107 case; coverage elsewhere not inspected.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "cpu_only",
+  "manual_reason": "One CPU shared-memory-accounting test disables the host BFS search using monkeypatch; no GPU execution changes.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9739,
+    "experiment_pr": 184,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7026412299
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9739.json",
+        "id": 59952865164,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9739.json",
+        "id": 59952926490,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9739#issuecomment-7026412299)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59952865164,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Test-only monkeypatch sets FLASHINFER_PRIMS_TS_DEBUG_CHECKS=0 for one cpu_only SMEM-accounting test, disabling the host-side BFS interleaving search; no kernel, launcher, JIT or dispatch code changed.\n\nEvidence: tests/cpu/prims_ts/conftest.py, .github/workflows/pr-test.yml\n\nTest selection gap: Exhaustive schedule-interleaving search no longer runs for this SM107 case; coverage elsewhere not inspected.",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Test-only monkeypatch sets FLASHINFER_PRIMS_TS_DEBUG_CHECKS=0 for one cpu_only SMEM-accounting test, disabling the host-side BFS interleaving search; no kernel, launcher, JIT or dispatch code changed.",
+      "evidence_paths": [
+        "tests/cpu/prims_ts/conftest.py",
+        ".github/workflows/pr-test.yml"
+      ],
+      "case_gap": "Exhaustive schedule-interleaving search no longer runs for this SM107 case; coverage elsewhere not inspected.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952926490,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

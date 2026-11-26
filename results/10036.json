@@ -1,0 +1,148 @@
+{
+  "index": 24,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/10036",
+  "original_number": 10036,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/199",
+  "experiment_number": 199,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/199/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/10036.json",
+  "group": "cuda",
+  "title": "perf(mla): Cake BF16 split-KV reducer skips empty KV splits in long-KV decode",
+  "comparison_base_sha": "c743270f9d683faa524e115398c974f910a516ad",
+  "comparison_head_sha": "d0cbb476cf4041a619523c325109b4d51f2a45f1",
+  "original_contributor_head_sha": "998e666fa61b5b561726952e3d282b2321bff03b",
+  "experiment_base_sha": "c3a0ed1f8a0d29f3099c1085885b2382d773ff2a",
+  "experiment_head_sha": "856abde071419c0cfb363d0e837cd7b37a4f15ee",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "159aa84f7d3ee86cd3308207da0fc3b68c2dffdc19a92aa5c36e5d84d60c71c6",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Replaced Cake device program (BF16 wide split-KV reducer now reads seq_lens and skips empty splits) plus binding and family dispatch-hash updates; only Blackwell execution validates bits.",
+  "selected_tests": [
+    "tests/mla/test_cake_mla_splitkv.py"
+  ],
+  "case_gap": "No Blackwell CI lane; tests/attention/test_trtllm_gen_mla.py binding-hash assertion body not inspected (size limit).",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "CUDA MLA split-KV reducer now skips empty KV splits; GPU numerical and launch behavior changes.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 10036,
+    "experiment_pr": 199,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 5,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/10036.json",
+        "id": 59953116089,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Replaced Cake device program (BF16 wide split-KV reducer now reads seq_lens and skips empty splits) plus binding and family dispatch-hash updates; only Blackwell execution validates bits.\n\nEvidence: csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, flashinfer/mla/cake_trtllm_mla_blackwell.py, tests/mla/test_cake_mla_splitkv.py\n\nSuggested tests: tests/mla/test_cake_mla_splitkv.py\n\nPatch content unavailable (informational): csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu, tests/mla/test_cake_mla_splitkv.py\n\nTest selection gap: No Blackwell CI lane; tests/attention/test_trtllm_gen_mla.py binding-hash assertion body not inspected (size limit).\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Replaced Cake device program (BF16 wide split-KV reducer now reads seq_lens and skips empty splits) plus binding and family dispatch-hash updates; only Blackwell execution validates bits.",
+      "evidence_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "case_gap": "No Blackwell CI lane; tests/attention/test_trtllm_gen_mla.py binding-hash assertion body not inspected (size limit).",
+      "missing_patch_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "missing_patch_count": 3,
+      "targets": [
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953116089,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Replaced Cake device program (BF16 wide split-KV reducer now reads seq_lens and skips empty splits) plus binding and family dispatch-hash updates; only Blackwell execution validates bits.\n\nEvidence: csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, flashinfer/mla/cake_trtllm_mla_blackwell.py, tests/mla/test_cake_mla_splitkv.py\n\nSuggested tests: tests/mla/test_cake_mla_splitkv.py\n\nPatch content unavailable (informational): csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu, tests/mla/test_cake_mla_splitkv.py\n\nTest selection gap: No Blackwell CI lane; tests/attention/test_trtllm_gen_mla.py binding-hash assertion body not inspected (size limit).\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Replaced Cake device program (BF16 wide split-KV reducer now reads seq_lens and skips empty splits) plus binding and family dispatch-hash updates; only Blackwell execution validates bits.",
+      "evidence_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "case_gap": "No Blackwell CI lane; tests/attention/test_trtllm_gen_mla.py binding-hash assertion body not inspected (size limit).",
+      "missing_patch_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "missing_patch_count": 3,
+      "targets": [
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953116089,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

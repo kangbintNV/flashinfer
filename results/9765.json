@@ -1,0 +1,125 @@
+{
+  "index": 40,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9765",
+  "original_number": 9765,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/215",
+  "experiment_number": 215,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/215/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9765.json",
+  "group": "gpu_python",
+  "title": "fix(cudnn): accept the fourth linear-attention output from cuDNN Frontend 1.33",
+  "comparison_base_sha": "3042c3d070da47d655cd7d486a6c3823d086e5b8",
+  "comparison_head_sha": "377335b87916a1d4a5d848cff376fd483648e6f9",
+  "original_contributor_head_sha": "2de84c73538584cb82959896c8ff95cb03525525",
+  "experiment_base_sha": "f2c0f31d2db0094dbcbfe46da4f2cfc9c285449b",
+  "experiment_head_sha": "9f120fb992d497a337e9e6ae0921225f2a8b9298",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "a1d98d86575f13909d406519619a8a873758e3de2e630346126d5f5c9c0a0f3d",
+  "reply_evidence": [
+    {
+      "id": 7034104120,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9765#issuecomment-7034104120",
+      "first_line": "GitLab MR [!3003](https://nv/flashinfer/-/merge_requests/3003) has been created, and the CI pipeline [#83916693](https://nv/flashinfer-ci/-/pipelines/83916693) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Changed unpack in cuDNN linear-attention graph builder gates O/final_state binding for GDN/KDA prefill execution; real FE 1.33 graph build/execute needs GPU validation.",
+  "selected_tests": [
+    "tests/cpu/kda/test_cudnn_linear_attention_contract.py"
+  ],
+  "case_gap": "Source body budget-omitted; GPU numerics for cuDNN GDN/KDA prefill under FE 1.33 not exercised by the selected CPU contract test.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "cuDNN FE linear-attention output binding accepts appended tensors; GPU graph/backend contract changes despite CPU mock tests.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9765,
+    "experiment_pr": 215,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7034104120
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9765.json",
+        "id": 59953229763,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9765.json",
+        "id": 59953275275,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9765#issuecomment-7034104120)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953229763,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Changed unpack in cuDNN linear-attention graph builder gates O/final_state binding for GDN/KDA prefill execution; real FE 1.33 graph build/execute needs GPU validation.\n\nEvidence: flashinfer/cudnn/linear_attention.py, tests/cpu/kda/test_cudnn_linear_attention_contract.py, tests/gdn/test_cudnn_auto_dispatch.py\n\nSuggested tests: tests/cpu/kda/test_cudnn_linear_attention_contract.py\n\nTest selection gap: Source body budget-omitted; GPU numerics for cuDNN GDN/KDA prefill under FE 1.33 not exercised by the selected CPU contract test.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Changed unpack in cuDNN linear-attention graph builder gates O/final_state binding for GDN/KDA prefill execution; real FE 1.33 graph build/execute needs GPU validation.",
+      "evidence_paths": [
+        "flashinfer/cudnn/linear_attention.py",
+        "tests/cpu/kda/test_cudnn_linear_attention_contract.py",
+        "tests/gdn/test_cudnn_auto_dispatch.py"
+      ],
+      "case_gap": "Source body budget-omitted; GPU numerics for cuDNN GDN/KDA prefill under FE 1.33 not exercised by the selected CPU contract test.",
+      "targets": [
+        "tests/cpu/kda/test_cudnn_linear_attention_contract.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953275275,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

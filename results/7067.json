@@ -1,0 +1,145 @@
+{
+  "index": 47,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/7067",
+  "original_number": 7067,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/222",
+  "experiment_number": 222,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/222/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7067.json",
+  "group": "mixed",
+  "title": "deslop(cake_lm_head_loss, experimental): import the backend on first use, add the containment test",
+  "comparison_base_sha": "13d7fcf4041635f5b7f573bb0dbab23570ae1034",
+  "comparison_head_sha": "fd7b6cc931096e458a958843abc6c993a0a49f10",
+  "original_contributor_head_sha": "9158bee5f44c1580d0f14dc1e3287fe1bb6c8bd5",
+  "experiment_base_sha": "fd3936030235d3522bec4de926f585f4de827a97",
+  "experiment_head_sha": "b571d1777df7bdc28e5a30e4ab26911c20453968",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "79c39a28ae7a40841db660babfa6efef3bd10e3ce2c950738ddcfe1893ff7a88",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Stable flashinfer/chunked_lm_head.py now imports the Cake kernel backend lazily and applies BINDING_CACHE.configure on first call, changing compiled-binding caching/launch setup for SM100/SM103 kernels.",
+  "selected_tests": [
+    "tests/experimental/test_cake_lm_head_loss_api.py",
+    "tests/experimental/test_containment.py"
+  ],
+  "case_gap": "Device-level first-use cache configuration only covered by the SM100/SM103-gated test; no stable-lane GPU routing evidence.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "pending",
+  "manual_reason": "Stable wrapper defers experimental backend import and binding-cache configuration to first use. CPU import coverage exists; compiled binding lifetime implications need confirmation.",
+  "formal_assessment": "pending_manual",
+  "classification_assessment": "pending_manual",
+  "source_audit": {
+    "upstream_number": 7067,
+    "experiment_pr": 222,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 7,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7067.json",
+        "id": 59953396168,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Stable flashinfer/chunked_lm_head.py now imports the Cake kernel backend lazily and applies BINDING_CACHE.configure on first call, changing compiled-binding caching/launch setup for SM100/SM103 kernels.\n\nEvidence: flashinfer/chunked_lm_head.py, tests/experimental/test_cake_lm_head_loss_api.py\n\nSuggested tests: tests/experimental/test_cake_lm_head_loss_api.py, tests/experimental/test_containment.py\n\nPatch content unavailable (informational): tests/experimental/test_containment.py\n\nTest selection gap: Device-level first-use cache configuration only covered by the SM100/SM103-gated test; no stable-lane GPU routing evidence.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Stable flashinfer/chunked_lm_head.py now imports the Cake kernel backend lazily and applies BINDING_CACHE.configure on first call, changing compiled-binding caching/launch setup for SM100/SM103 kernels.",
+      "evidence_paths": [
+        "flashinfer/chunked_lm_head.py",
+        "tests/experimental/test_cake_lm_head_loss_api.py"
+      ],
+      "case_gap": "Device-level first-use cache configuration only covered by the SM100/SM103-gated test; no stable-lane GPU routing evidence.",
+      "missing_patch_paths": [
+        "tests/experimental/test_containment.py"
+      ],
+      "missing_patch_count": 1,
+      "targets": [
+        "tests/experimental/test_cake_lm_head_loss_api.py",
+        "tests/experimental/test_containment.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953396168,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Stable flashinfer/chunked_lm_head.py now imports the Cake kernel backend lazily and applies BINDING_CACHE.configure on first call, changing compiled-binding caching/launch setup for SM100/SM103 kernels.\n\nEvidence: flashinfer/chunked_lm_head.py, tests/experimental/test_cake_lm_head_loss_api.py\n\nSuggested tests: tests/experimental/test_cake_lm_head_loss_api.py, tests/experimental/test_containment.py\n\nPatch content unavailable (informational): tests/experimental/test_containment.py\n\nTest selection gap: Device-level first-use cache configuration only covered by the SM100/SM103-gated test; no stable-lane GPU routing evidence.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Stable flashinfer/chunked_lm_head.py now imports the Cake kernel backend lazily and applies BINDING_CACHE.configure on first call, changing compiled-binding caching/launch setup for SM100/SM103 kernels.",
+      "evidence_paths": [
+        "flashinfer/chunked_lm_head.py",
+        "tests/experimental/test_cake_lm_head_loss_api.py"
+      ],
+      "case_gap": "Device-level first-use cache configuration only covered by the SM100/SM103-gated test; no stable-lane GPU routing evidence.",
+      "missing_patch_paths": [
+        "tests/experimental/test_containment.py"
+      ],
+      "missing_patch_count": 1,
+      "targets": [
+        "tests/experimental/test_cake_lm_head_loss_api.py",
+        "tests/experimental/test_containment.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953396168,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

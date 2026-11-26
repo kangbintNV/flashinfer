@@ -1,0 +1,156 @@
+{
+  "index": 23,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9375",
+  "original_number": 9375,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/198",
+  "experiment_number": 198,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/198/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9375.json",
+  "group": "cuda",
+  "title": "feat(prims-ts): NVFP4 KV cache for QToken-KvBlock-Sparse-Attention",
+  "comparison_base_sha": "bf2d4af5b6326eace002f4549a2bb74fca4bf643",
+  "comparison_head_sha": "8295ab85af523ff2b1cf9f757c2ab614db4f5709",
+  "original_contributor_head_sha": "201c7c74f72edd25d8bdcf157603521de89c1098",
+  "experiment_base_sha": "3619c7fa2d3d0c9e666e7405813edfc81001b029",
+  "experiment_head_sha": "74d5fc9dd4c1eab39cd2210eb1abf350c88bcf4c",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "b97a03f094364c1e3e6ceee88e421a64b1792aee31707239ec9b560cc3cc46b3",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: TMEM/SMEM transform recipes, MMA operand dtype, scale-row SMEM offsets, PV descriptor strides, PDL release timing; only GPU execution validates numerics.",
+  "selected_tests": [],
+  "case_gap": "PR-added NVFP4 small-page scale-fragment decode case and QToken sparse NVFP4 metadata coverage could not be inspected; routing to a GPU lane unverified.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "NVFP4 KV layout/dequantization, GPU shared/tensor-memory resources and metadata CUDA kernel changes.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9375,
+    "experiment_pr": 198,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 18,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9375.json",
+        "id": 59953080005,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: TMEM/SMEM transform recipes, MMA operand dtype, scale-row SMEM offsets, PV descriptor strides, PDL release timing; only GPU execution validates numerics.\n\nEvidence: flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py, flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: PR-added NVFP4 small-page scale-fragment decode case and QToken sparse NVFP4 metadata coverage could not be inspected; routing to a GPU lane unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: TMEM/SMEM transform recipes, MMA operand dtype, scale-row SMEM offsets, PV descriptor strides, PDL release timing; only GPU execution validates numerics.",
+      "evidence_paths": [
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py"
+      ],
+      "case_gap": "PR-added NVFP4 small-page scale-fragment decode case and QToken sparse NVFP4 metadata coverage could not be inspected; routing to a GPU lane unverified.",
+      "missing_patch_paths": [
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "missing_patch_count": 10,
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953080005,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: TMEM/SMEM transform recipes, MMA operand dtype, scale-row SMEM offsets, PV descriptor strides, PDL release timing; only GPU execution validates numerics.\n\nEvidence: flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py, flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: PR-added NVFP4 small-page scale-fragment decode case and QToken sparse NVFP4 metadata coverage could not be inspected; routing to a GPU lane unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: TMEM/SMEM transform recipes, MMA operand dtype, scale-row SMEM offsets, PV descriptor strides, PDL release timing; only GPU execution validates numerics.",
+      "evidence_paths": [
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py"
+      ],
+      "case_gap": "PR-added NVFP4 small-page scale-fragment decode case and QToken sparse NVFP4 metadata coverage could not be inspected; routing to a GPU lane unverified.",
+      "missing_patch_paths": [
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "missing_patch_count": 10,
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953080005,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

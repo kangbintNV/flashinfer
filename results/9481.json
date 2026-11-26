@@ -1,0 +1,126 @@
+{
+  "index": 18,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9481",
+  "original_number": 9481,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/193",
+  "experiment_number": 193,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/193/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9481.json",
+  "group": "jit_aot",
+  "title": "fix(jit): find nvcc.exe for the cake_gdn cubin compile on Windows",
+  "comparison_base_sha": "5b6f9f692b65c866090688f15d7343840b302948",
+  "comparison_head_sha": "f7cdba7e5814311bc814996e592e4a24a97310fb",
+  "original_contributor_head_sha": "af36b34589dd0aebfd0f3b6cb1e254db561fe315",
+  "experiment_base_sha": "ab8e465dc536795f0e936507b13a30cf90cadf0f",
+  "experiment_head_sha": "74b35a379c3fac9f2e93f6626e180f9cea494ed1",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "8f8b9b7598327b10ffa67b5d04ac62da9b385c2e2b5e78f5a82e97bf654a2672",
+  "reply_evidence": [
+    {
+      "id": 6905229082,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9481#issuecomment-6905229082",
+      "first_line": "GitLab MR [!2837](https://nv/flashinfer/-/merge_requests/2837) has been created, and the CI pipeline [#82485470](https://nv/flashinfer-ci/-/pipelines/82485470) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6905895364,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9481#issuecomment-6905895364",
+      "first_line": "[FAILED] Pipeline [#82485470](https://nv/flashinfer-ci/-/pipelines/82485470) — 29/30 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Patch changes JIT nvcc discovery in _nvcc_identity (nvcc.exe on Windows), gating cake_gdn cubin compilation and subsequent GDN kernel loading/execution; host-side path check alone does not validate the compile/run path.",
+  "selected_tests": [],
+  "case_gap": "Changed CPU test body not inspected; no inspected test validates the resulting cake_gdn cubin compile/launch on GPU.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "pending",
+  "manual_reason": "nvcc versus nvcc.exe compiler discovery changes in JIT; CPU path-selection coverage exists. Whether GPU build/run validation is needed needs owner confirmation.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "pending_manual",
+  "source_audit": {
+    "upstream_number": 9481,
+    "experiment_pr": 193,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6905229082,
+      6905895364
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9481.json",
+        "id": 59952931161,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9481.json",
+        "id": 59953010173,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9481#issuecomment-6905895364)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59952931161,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Patch changes JIT nvcc discovery in _nvcc_identity (nvcc.exe on Windows), gating cake_gdn cubin compilation and subsequent GDN kernel loading/execution; host-side path check alone does not validate the compile/run path.\n\nEvidence: flashinfer/jit/cake_gdn.py, tests/cpu/gdn/test_cake_gdn_decode.py\n\nTest selection gap: Changed CPU test body not inspected; no inspected test validates the resulting cake_gdn cubin compile/launch on GPU.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Patch changes JIT nvcc discovery in _nvcc_identity (nvcc.exe on Windows), gating cake_gdn cubin compilation and subsequent GDN kernel loading/execution; host-side path check alone does not validate the compile/run path.",
+      "evidence_paths": [
+        "flashinfer/jit/cake_gdn.py",
+        "tests/cpu/gdn/test_cake_gdn_decode.py"
+      ],
+      "case_gap": "Changed CPU test body not inspected; no inspected test validates the resulting cake_gdn cubin compile/launch on GPU.",
+      "targets": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953010173,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

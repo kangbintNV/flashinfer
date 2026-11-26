@@ -1,0 +1,94 @@
+{
+  "index": 15,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9200",
+  "original_number": 9200,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/190",
+  "experiment_number": 190,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/190/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9200.json",
+  "group": "experimental_only",
+  "title": "docs(cake_mhc_nondet): state the SM107 hidden-size exception in the registry text",
+  "comparison_base_sha": "2c008ec77ac3a1162ca6762257260a64136ea310",
+  "comparison_head_sha": "f36a78ea70f6563fd51f672e9c5511b68d744acf",
+  "original_contributor_head_sha": "946d66f1b0ab7dc9438acb17a6dc83043e626936",
+  "experiment_base_sha": "75307adc5de7e60a8e3d21d97f0e84ba3541d9d2",
+  "experiment_head_sha": "00122b725206c5af69fa390c6df608890ae654fa",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "e4bc760d8f128fc188883f76948c03ca3b852a057bfa65a7d5102542cf06eac3",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "experimental_only",
+  "formal_classification": "experimental_only",
+  "diagnostic_classification": "experimental_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "experimental_only",
+  "manual_reason": "Experimental registry docstrings/comments only; contained-path exemption.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9200,
+    "experiment_pr": 190,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 1,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9200.json",
+        "id": 59952907198,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952907198,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952907198,
+    "model_call_indices": [],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "index": 37,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/1163",
+  "original_number": 1163,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/212",
+  "experiment_number": 212,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/212/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/1163.json",
+  "group": "new_test",
+  "title": "feat: experimental support of green ctx",
+  "comparison_base_sha": "ba2470c51ffb5ef531ad5fa277621222c54cd1c4",
+  "comparison_head_sha": "27060628c32e1217e27564adf24e33273f4c8287",
+  "original_contributor_head_sha": "1c064c958c41f789ee83e2da9b52c3087d43a605",
+  "experiment_base_sha": "82549bfe027ff90e0be2575cffd614d3673f68be",
+  "experiment_head_sha": "cf14b9de486ad5bfdd6f90f30d3b94f9d8a4ccd7",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "reply_evidence": [],
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_classification": "gpu_required",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "New stable flashinfer.green_ctx splits device SMs via CUDA driver green contexts and creates torch streams; added test runs bf16 matmuls per stream, needing real GPU/driver.",
+  "selected_tests": [
+    "tests/test_green_ctx.py"
+  ],
+  "case_gap": "Routing uncertain: file absent from supplied A10G/T4 shard scripts and the H100 lane is disabled for PRs in the supplied workflow.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "New public green_ctx.py creates CUDA green contexts/SM partitions and adds CUDA device tests; experimental in title is not path containment.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 1163,
+    "experiment_pr": 212,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 5,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/1163.json",
+        "id": 59953257417,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "New stable flashinfer.green_ctx splits device SMs via CUDA driver green contexts and creates torch streams; added test runs bf16 matmuls per stream, needing real GPU/driver.\n\nEvidence: flashinfer/green_ctx.py, tests/test_green_ctx.py\n\nSuggested tests: tests/test_green_ctx.py\n\nTest selection gap: Routing uncertain: file absent from supplied A10G/T4 shard scripts and the H100 lane is disabled for PRs in the supplied workflow.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "New stable flashinfer.green_ctx splits device SMs via CUDA driver green contexts and creates torch streams; added test runs bf16 matmuls per stream, needing real GPU/driver.",
+      "evidence_paths": [
+        "flashinfer/green_ctx.py",
+        "tests/test_green_ctx.py"
+      ],
+      "case_gap": "Routing uncertain: file absent from supplied A10G/T4 shard scripts and the H100 lane is disabled for PRs in the supplied workflow.",
+      "targets": [
+        "tests/test_green_ctx.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953257417,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "New stable flashinfer.green_ctx splits device SMs via CUDA driver green contexts and creates torch streams; added test runs bf16 matmuls per stream, needing real GPU/driver.\n\nEvidence: flashinfer/green_ctx.py, tests/test_green_ctx.py\n\nSuggested tests: tests/test_green_ctx.py\n\nTest selection gap: Routing uncertain: file absent from supplied A10G/T4 shard scripts and the H100 lane is disabled for PRs in the supplied workflow.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "New stable flashinfer.green_ctx splits device SMs via CUDA driver green contexts and creates torch streams; added test runs bf16 matmuls per stream, needing real GPU/driver.",
+      "evidence_paths": [
+        "flashinfer/green_ctx.py",
+        "tests/test_green_ctx.py"
+      ],
+      "case_gap": "Routing uncertain: file absent from supplied A10G/T4 shard scripts and the H100 lane is disabled for PRs in the supplied workflow.",
+      "targets": [
+        "tests/test_green_ctx.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953257417,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

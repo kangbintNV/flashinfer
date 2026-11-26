@@ -1,0 +1,141 @@
+{
+  "index": 43,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8815",
+  "original_number": 8815,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/218",
+  "experiment_number": 218,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/218/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8815.json",
+  "group": "gpu_python",
+  "title": "perf(quantization): skip the scale zero fill in the per-token NVFP4 quant (linear layout)",
+  "comparison_base_sha": "560d7e296484ce898d1ff508a02916f51ad2287d",
+  "comparison_head_sha": "d6ab9eb1a43dd913fcdeb1caf69441aa6e3cefdd",
+  "original_contributor_head_sha": "b009a77638c4a51f1985921112338d0aad341e22",
+  "experiment_base_sha": "8c8b6882c481e54f01dbc81ba4f4bde5d3095711",
+  "experiment_head_sha": "04f8b12ccdc2290a7221a397930c4cbdec629ff5",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "4a80a9e4eb0770f43fff5d69543dfb88a4ccba74f77c3144257554adec279ffa",
+  "reply_evidence": [
+    {
+      "id": 6667722519,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8815#issuecomment-6667722519",
+      "first_line": "GitLab MR [!2684](https://nv/flashinfer/-/merge_requests/2684) has been created, and the CI pipeline [#79609763](https://nv/flashinfer-ci/-/pipelines/79609763) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6689462940,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8815#issuecomment-6689462940",
+      "first_line": "[FAILED] Pipeline [#79609763](https://nv/flashinfer-ci/-/pipelines/79609763) — 19/29 executed test jobs passed"
+    },
+    {
+      "id": 7020741789,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8815#issuecomment-7020741789",
+      "first_line": "GitLab MR [!2684](https://nv/flashinfer/-/merge_requests/2684) has been created, and the CI pipeline [#83716001](https://nv/flashinfer-ci/-/pipelines/83716001) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "unknown",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "AI target has no inspected executable test candidate in the merged tree",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI target has no inspected executable test candidate in the merged tree"
+    },
+    {
+      "effort": "minimal",
+      "error": "AI target has no inspected executable test candidate in the merged tree"
+    }
+  ],
+  "minimal_retry": true,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 6,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default",
+    "minimal",
+    "minimal"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "NVFP4 per-token quantization scale initialization changes GPU numerical/kernel behavior.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "model_failure",
+  "source_audit": {
+    "upstream_number": 8815,
+    "experiment_pr": 218,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6667722519,
+      6689462940,
+      7020741789
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8815.json",
+        "id": 59953268478,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8815.json",
+        "id": 59953432320,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8815#issuecomment-7020741789)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953268478,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "unknown",
+    "title": "Unable to determine GPU impact",
+    "summary": "AI target has no inspected executable test candidate in the merged tree\n\nAnalysis attempts:\n- default: AI target has no inspected executable test candidate in the merged tree\n- minimal: AI target has no inspected executable test candidate in the merged tree\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response.",
+    "analysis": {
+      "classification": "unknown",
+      "reason": "AI target has no inspected executable test candidate in the merged tree",
+      "evidence_paths": [],
+      "targets": [],
+      "case_gap": "",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI target has no inspected executable test candidate in the merged tree"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI target has no inspected executable test candidate in the merged tree"
+        }
+      ]
+    },
+    "check_id": 59953432320,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

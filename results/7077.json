@@ -1,0 +1,104 @@
+{
+  "index": 13,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/7077",
+  "original_number": 7077,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/188",
+  "experiment_number": 188,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/188/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7077.json",
+  "group": "experimental_only",
+  "title": "deslop(cake_moe_grouped_gemm, experimental): import the core helpers behind an ImportError guard, add the standalone-import test",
+  "comparison_base_sha": "420c0e7b17cb75b3632088bbd9444de40d782f29",
+  "comparison_head_sha": "24c21c0ba1f1c7079a2dbcab482b128f8befe24c",
+  "original_contributor_head_sha": "d217375db633063c0985fa89801ba52688332845",
+  "experiment_base_sha": "e1275486aeef905dd3c27c965b7208e06c6c49d9",
+  "experiment_head_sha": "b8ebd81ddf0361f03d4e2f4a7ac007e9bc47ba29",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "345bc88afa5a1dd3c3e00e599ab756f34d1bfdf87579b69bc7b4298bcb32e477",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "experimental_only",
+  "formal_classification": "experimental_only",
+  "diagnostic_classification": "experimental_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "experimental_only",
+  "manual_reason": "All edits are under experimental product/test roots; import guard and standalone-import coverage.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 7077,
+    "experiment_pr": 188,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 6,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7077.json",
+        "id": 59952903781,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/cake_moe_grouped_gemm/README.md, flashinfer/experimental/cake_moe_grouped_gemm/__init__.py, flashinfer/experimental/cake_moe_grouped_gemm/_experimental.py, flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py, flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py, tests/experimental/test_cake_moe_grouped_gemm_standalone.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/cake_moe_grouped_gemm/README.md",
+        "flashinfer/experimental/cake_moe_grouped_gemm/__init__.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/_experimental.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py",
+        "tests/experimental/test_cake_moe_grouped_gemm_standalone.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952903781,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/cake_moe_grouped_gemm/README.md, flashinfer/experimental/cake_moe_grouped_gemm/__init__.py, flashinfer/experimental/cake_moe_grouped_gemm/_experimental.py, flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py, flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py, tests/experimental/test_cake_moe_grouped_gemm_standalone.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/cake_moe_grouped_gemm/README.md",
+        "flashinfer/experimental/cake_moe_grouped_gemm/__init__.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/_experimental.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py",
+        "tests/experimental/test_cake_moe_grouped_gemm_standalone.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952903781,
+    "model_call_indices": [],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

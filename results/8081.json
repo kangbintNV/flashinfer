@@ -1,0 +1,131 @@
+{
+  "index": 30,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8081",
+  "original_number": 8081,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/205",
+  "experiment_number": 205,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/205/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
+  "group": "new_test",
+  "title": "fix(gemm): order the stage release, output stores and loader exit of the warp split-K BF16 GEMM",
+  "comparison_base_sha": "85c65fb3969bd3195d4d571e377ebf0615ea3276",
+  "comparison_head_sha": "8c21ca5e42d2b19e14bb03658c6b2c15adc7a1b9",
+  "original_contributor_head_sha": "68440da2bd3dedb6b68455d444473a59b6957603",
+  "experiment_base_sha": "7dca82d9205e20ff0ab999c20db4c8905021e878",
+  "experiment_head_sha": "defffe741df871472912308fc93af8b3dd899352",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "6e0ae1797e00841b1ba11d8c702ee2d8bb4373d8ec63819d1b957d45c95fd343",
+  "reply_evidence": [
+    {
+      "id": 6863992253,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6863992253",
+      "first_line": "GitLab MR [!2823](https://nv/flashinfer/-/merge_requests/2823) has been created, and the CI pipeline [#81994720](https://nv/flashinfer-ci/-/pipelines/81994720) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6880608414,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6880608414",
+      "first_line": "[FAILED] Pipeline [#81994720](https://nv/flashinfer-ci/-/pipelines/81994720) — 29/30 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "unknown",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "AI requested a file outside the supplied repository inventory",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI requested a file outside the supplied repository inventory"
+    },
+    {
+      "effort": "minimal",
+      "error": "AI requested a file outside the supplied repository inventory"
+    }
+  ],
+  "minimal_retry": true,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "minimal",
+    "minimal"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "CuTe kernel stage-release/store/loader-exit ordering changes. New PTX-inspection test is CPU-only, but changed synchronization is GPU-related.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "model_failure",
+  "source_audit": {
+    "upstream_number": 8081,
+    "experiment_pr": 205,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6863992253,
+      6880608414
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
+        "id": 59953094985,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
+        "id": 59953184281,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6880608414)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953094985,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "unknown",
+    "title": "Unable to determine GPU impact",
+    "summary": "AI requested a file outside the supplied repository inventory\n\nAnalysis attempts:\n- default: AI requested a file outside the supplied repository inventory\n- minimal: AI requested a file outside the supplied repository inventory\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response.",
+    "analysis": {
+      "classification": "unknown",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "evidence_paths": [],
+      "targets": [],
+      "case_gap": "",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ]
+    },
+    "check_id": 59953184281,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

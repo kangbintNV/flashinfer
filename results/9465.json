@@ -1,0 +1,139 @@
+{
+  "index": 12,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9465",
+  "original_number": 9465,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/187",
+  "experiment_number": 187,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/187/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9465.json",
+  "group": "cpu_tool",
+  "title": "ci: seed the PR AOT sccache after merges to main",
+  "comparison_base_sha": "127fb6dfd8bb7f70a01dcc34fcda1566a3a98a64",
+  "comparison_head_sha": "dc99c09c60f33291e6753cbc3ee97026217b7be8",
+  "original_contributor_head_sha": "9e6c31c5f818164ef1889570aac8a4ec6793d4b9",
+  "experiment_base_sha": "00d8c933b87a4ecae5a235fca2f11de1ec08ad42",
+  "experiment_head_sha": "2c3a797dff6a7ff9e9b373c3783a4e912091a815",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "849c9422de3445726cf38f762f0367f98aee7eb7d54428bfa8952bc8815d05b3",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_classification": "cpu_only",
+  "diagnostic_classification": "cpu_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Changes are a CI workflow, docs, and a build-script switch that skips the provider spec lint (still prefetching headers); no kernel, dispatch, flag or runtime behavior changes, and AOT lanes run --no-gpu",
+  "selected_tests": [
+    "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+    "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+  ],
+  "case_gap": "The seed workflow only triggers on push to main, so its end-to-end cache-writing behavior cannot be exercised by PR CI.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "cpu_only",
+  "manual_reason": "CI-only AOT cache-seed scheduling and lint-skip/header-prefetch branch; compilation source and GPU runtime are unchanged; pipeline uses CPU/no-gpu builds.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9465,
+    "experiment_pr": 187,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 4,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9465.json",
+        "id": 59952925864,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Changes are a CI workflow, docs, and a build-script switch that skips the provider spec lint (still prefetching headers); no kernel, dispatch, flag or runtime behavior changes, and AOT lanes run --no-gpu\n\nEvidence: scripts/task_test_jit_cache_package_build_import.sh, .github/workflows/aot-cache-seed.yml, tests/cpu/infra/test_aot_cache_seed_workflow.py\n\nSuggested tests: tests/cpu/infra/test_aot_cache_seed_workflow.py, tests/cpu/jit/test_jit_spec_gencode_lint.py\n\nTest selection gap: The seed workflow only triggers on push to main, so its end-to-end cache-writing behavior cannot be exercised by PR CI.",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Changes are a CI workflow, docs, and a build-script switch that skips the provider spec lint (still prefetching headers); no kernel, dispatch, flag or runtime behavior changes, and AOT lanes run --no-gpu",
+      "evidence_paths": [
+        "scripts/task_test_jit_cache_package_build_import.sh",
+        ".github/workflows/aot-cache-seed.yml",
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+      ],
+      "case_gap": "The seed workflow only triggers on push to main, so its end-to-end cache-writing behavior cannot be exercised by PR CI.",
+      "targets": [
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+        "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952925864,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "cpu_only",
+    "title": "Bot run not required",
+    "summary": "Changes are a CI workflow, docs, and a build-script switch that skips the provider spec lint (still prefetching headers); no kernel, dispatch, flag or runtime behavior changes, and AOT lanes run --no-gpu\n\nEvidence: scripts/task_test_jit_cache_package_build_import.sh, .github/workflows/aot-cache-seed.yml, tests/cpu/infra/test_aot_cache_seed_workflow.py\n\nSuggested tests: tests/cpu/infra/test_aot_cache_seed_workflow.py, tests/cpu/jit/test_jit_spec_gencode_lint.py\n\nTest selection gap: The seed workflow only triggers on push to main, so its end-to-end cache-writing behavior cannot be exercised by PR CI.",
+    "analysis": {
+      "classification": "cpu_only",
+      "reason": "Changes are a CI workflow, docs, and a build-script switch that skips the provider spec lint (still prefetching headers); no kernel, dispatch, flag or runtime behavior changes, and AOT lanes run --no-gpu",
+      "evidence_paths": [
+        "scripts/task_test_jit_cache_package_build_import.sh",
+        ".github/workflows/aot-cache-seed.yml",
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+      ],
+      "case_gap": "The seed workflow only triggers on push to main, so its end-to-end cache-writing behavior cannot be exercised by PR CI.",
+      "targets": [
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+        "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59952925864,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}

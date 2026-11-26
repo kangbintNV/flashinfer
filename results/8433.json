@@ -1,0 +1,131 @@
+{
+  "index": 46,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8433",
+  "original_number": 8433,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/221",
+  "experiment_number": 221,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/221/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
+  "group": "mixed",
+  "title": "docs(moe): document the gated FC1 [X1; X2] layout and clamp/offset mapping, add deinterleave_gated_rows, pin the MXFP8 clamp/offset numerics",
+  "comparison_base_sha": "be0985b1ae7a7f480714cc20486004e73029691d",
+  "comparison_head_sha": "cb41a8d3d7f74eb68c5d99ac5917af92661c1451",
+  "original_contributor_head_sha": "08d6d44c02ca0c70834016ead3ac80c34575543f",
+  "experiment_base_sha": "7b755a63f6e686b2ad32618330664e1f9aea8c5c",
+  "experiment_head_sha": "e965457d2172e1701571260160c9f2865484a7ed",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "098c259009eb7f31afdcd87175cdab473472545bead61e08cfae3b1698d93be1",
+  "reply_evidence": [
+    {
+      "id": 6619666965,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8433#issuecomment-6619666965",
+      "first_line": "GitLab MR [!2607](https://nv/flashinfer/-/merge_requests/2607) has been updated with latest changes, and the CI pipeline [#79045729](https://nv/flashinfer-ci/-/pipelines/79045729) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6624366719,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8433#issuecomment-6624366719",
+      "first_line": "[SUCCESS] Pipeline [#79045729](https://nv/flashinfer-ci/-/pipelines/79045729): 29/29 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "unknown",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "AI requested a file outside the supplied repository inventory",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI requested a file outside the supplied repository inventory"
+    },
+    {
+      "effort": "minimal",
+      "error": "AI requested a file outside the supplied repository inventory"
+    }
+  ],
+  "minimal_retry": true,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "minimal",
+    "minimal"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "Beyond docs, adds gated-row tensor layout transform and MXFP8 numerical clamp/offset tests.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "model_failure",
+  "source_audit": {
+    "upstream_number": 8433,
+    "experiment_pr": 221,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 5,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      6619666965,
+      6624366719
+    ],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
+        "id": 59953328922,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8433.json",
+        "id": 59953405828,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8433#issuecomment-6624366719)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59953328922,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "unknown",
+    "title": "Unable to determine GPU impact",
+    "summary": "AI requested a file outside the supplied repository inventory\n\nAnalysis attempts:\n- default: AI requested a file outside the supplied repository inventory\n- minimal: AI requested a file outside the supplied repository inventory\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response.",
+    "analysis": {
+      "classification": "unknown",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "evidence_paths": [],
+      "targets": [],
+      "case_gap": "",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ]
+    },
+    "check_id": 59953405828,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "index": 19,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9738",
+  "original_number": 9738,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/194",
+  "experiment_number": 194,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/194/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
+  "group": "jit_aot",
+  "title": "fix: narrow CuTe-DSL cache dependencies for named imports",
+  "comparison_base_sha": "f6290475e8367d2a7e7a0a396f2935f3b3f7a8f7",
+  "comparison_head_sha": "d808a844baec13d35d51fccdf95985fe8b0d06d4",
+  "original_contributor_head_sha": "75402a8070355b143c47d7043b24b6b39e8c2a47",
+  "experiment_base_sha": "862335509263a37614ce7d5a13011ac933dd8aab",
+  "experiment_head_sha": "43a02e7da075f24b6f14df2f03039d21aa09ff8a",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "ec2b5de3043e613759cc2cb15a9c8cd637e12a29d886ab569d2e481a70755c15",
+  "reply_evidence": [
+    {
+      "id": 7024609809,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7024609809",
+      "first_line": "Invalid `/bot run` path(s): `flashinfer/jit/_cute_dsl_source.py`. Expected `tests/<dir>`, `tests/<dir>/<file>.py`, or `all` alone."
+    },
+    {
+      "id": 7024857149,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7024857149",
+      "first_line": "**AI-suggested pytest targets** (PR head `75402a807035`):"
+    },
+    {
+      "id": 7025271294,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7025271294",
+      "first_line": "GitLab MR [!2992](https://nv/flashinfer/-/merge_requests/2992) has been created, and the CI pipeline [#83769341](https://nv/flashinfer-ci/-/pipelines/83769341) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_classification": "skipped_due_to_reply",
+  "diagnostic_classification": "gpu_required",
+  "diagnostic_separate_from_formal": true,
+  "diagnostic_reason": "Narrowed CuTe-DSL cache-key closure changes which persistent JIT artifact is reused; an over-narrow key can serve stale compiled kernels at runtime, beyond CPU hash checks.",
+  "selected_tests": [
+    "tests/cpu/infra/test_cute_dsl_strict_key_closure.py",
+    "tests/cpu/infra/test_jit_cache_key_and_build_log.py"
+  ],
+  "case_gap": "No test validates on-GPU reuse/recompile of real CuTe-DSL kernels after helper edits; coverage is CPU hash semantics only.",
+  "filename_only_evidence": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 4,
+  "model_efforts": [
+    "default",
+    "default",
+    "default",
+    "default"
+  ],
+  "manual_expected_classification": "gpu_required",
+  "manual_reason": "AST dependency closure changes JIT artifact reuse; missing dependency can reuse a stale GPU kernel, not merely formatting.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 9738,
+    "experiment_pr": 194,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [
+      7024609809,
+      7024857149,
+      7025271294
+    ],
+    "public_reply_ids": [
+      7024607600
+    ],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
+        "id": 59952958291,
+        "creator": "not included by combined-status endpoint"
+      },
+      "GPU Impact Diagnostic (no original replies)": {
+        "state": "failure",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
+        "id": 59953029158,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "bot_response_found",
+    "title": "Bot response found",
+    "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7025271294)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+    "analysis": null,
+    "check_id": 59952958291,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "failure",
+    "reason": "command_missing",
+    "title": "Bot run required",
+    "summary": "Narrowed CuTe-DSL cache-key closure changes which persistent JIT artifact is reused; an over-narrow key can serve stale compiled kernels at runtime, beyond CPU hash checks.\n\nEvidence: flashinfer/jit/_cute_dsl_source.py, tests/cpu/infra/test_cute_dsl_strict_key_closure.py\n\nSuggested tests: tests/cpu/infra/test_cute_dsl_strict_key_closure.py, tests/cpu/infra/test_jit_cache_key_and_build_log.py\n\nTest selection gap: No test validates on-GPU reuse/recompile of real CuTe-DSL kernels after helper edits; coverage is CPU hash semantics only.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+    "analysis": {
+      "classification": "gpu_required",
+      "reason": "Narrowed CuTe-DSL cache-key closure changes which persistent JIT artifact is reused; an over-narrow key can serve stale compiled kernels at runtime, beyond CPU hash checks.",
+      "evidence_paths": [
+        "flashinfer/jit/_cute_dsl_source.py",
+        "tests/cpu/infra/test_cute_dsl_strict_key_closure.py"
+      ],
+      "case_gap": "No test validates on-GPU reuse/recompile of real CuTe-DSL kernels after helper edits; coverage is CPU hash semantics only.",
+      "targets": [
+        "tests/cpu/infra/test_cute_dsl_strict_key_closure.py",
+        "tests/cpu/infra/test_jit_cache_key_and_build_log.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ]
+    },
+    "check_id": 59953029158,
+    "model_call_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

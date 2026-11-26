@@ -1,0 +1,96 @@
+{
+  "index": 16,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/7653",
+  "original_number": 7653,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/191",
+  "experiment_number": 191,
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/pull/191/checks",
+  "details_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7653.json",
+  "group": "experimental_only",
+  "title": "docs(cake_kda): the SM107 lean arena follows the gate-fused layout",
+  "comparison_base_sha": "b05769e489ad28593bfb71969e2473243d65f953",
+  "comparison_head_sha": "a0a590b8513b2499849253e5e702c13b414f25e5",
+  "original_contributor_head_sha": "3c453010d9eb84d6c609309e30281f97bd03b613",
+  "experiment_base_sha": "c388dd21b30778ea9ce1471a3598f124e990e986",
+  "experiment_head_sha": "31951ba2687d393c81588e37156fad26eeb2a255",
+  "checker_sha": "2f9840349e97effbb89737a6332673f490629094",
+  "comment_snapshot_sha256": "e6150cd23e2fc0d313d513be4317c9f8cb8d98c494ec7661ff3d9cc9fe2a1bff",
+  "reply_evidence": [],
+  "formal_conclusion": "success",
+  "formal_reason": "experimental_only",
+  "formal_classification": "experimental_only",
+  "diagnostic_classification": "experimental_only",
+  "diagnostic_separate_from_formal": false,
+  "diagnostic_reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+  "selected_tests": [],
+  "case_gap": "",
+  "filename_only_evidence": [],
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "minimal_retry_recovered": false,
+  "model_http_calls": 0,
+  "model_efforts": [],
+  "manual_expected_classification": "experimental_only",
+  "manual_reason": "Experimental KDA README/backend docstrings corrected; contained-path exemption.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
+  "source_audit": {
+    "upstream_number": 7653,
+    "experiment_pr": 191,
+    "paths_match": true,
+    "file_blob_status_match": true,
+    "file_count": 2,
+    "head_match": true,
+    "base_match": true,
+    "comments_hash_match": true,
+    "valid_reply_ids": [],
+    "public_reply_ids": [],
+    "status_contexts": {
+      "Bot Run Request Check": {
+        "state": "success",
+        "target_url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7653.json",
+        "id": 59952915598,
+        "creator": "not included by combined-status endpoint"
+      }
+    }
+  },
+  "publication_type": "GitHub commit status (Actions unavailable; not native Check Run)",
+  "formal_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/cake_kda_train/README.md, flashinfer/experimental/cake_kda_train/cake_backend.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/cake_kda_train/README.md",
+        "flashinfer/experimental/cake_kda_train/cake_backend.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952915598,
+    "model_call_indices": []
+  },
+  "classification_result": {
+    "conclusion": "success",
+    "reason": "experimental_only",
+    "title": "Bot run not required",
+    "summary": "Experimental-only changes are excluded from stable checks by the containment policy.\n\nEvidence: flashinfer/experimental/cake_kda_train/README.md, flashinfer/experimental/cake_kda_train/cake_backend.py",
+    "analysis": {
+      "classification": "experimental_only",
+      "reason": "Experimental-only changes are excluded from stable checks by the containment policy.",
+      "evidence_paths": [
+        "flashinfer/experimental/cake_kda_train/README.md",
+        "flashinfer/experimental/cake_kda_train/cake_backend.py"
+      ],
+      "case_gap": "",
+      "targets": []
+    },
+    "check_id": 59952915598,
+    "model_call_indices": [],
+    "same_as_formal": true,
+    "note": "No response shortcut: formal analysis already supplies this classification."
+  }
+}
