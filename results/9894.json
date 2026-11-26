@@ -19,23 +19,32 @@
       "first_line": "GitLab MR [!3047](https://nv/flashinfer/-/merge_requests/3047) has been created, and the CI pipeline [#84765223](https://nv/flashinfer-ci/-/pipelines/84765223) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938407328",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828374616",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938444933",
+  "classification": "cpu_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Only test-local mocks change: fake capture accepts pool and torch.cuda.current_device/graph_pool_handle are patched; no library, kernel, or launcher code touched, and the test runs CPU Gloo processes.",
+  "case_gap": "Real CUDA graph-pool sharing stays covered only by tests/autotuner/test_profile_graph_pool.py, which this PR does not change.",
+  "selected_tests": [
+    "tests/autotuner/test_cupti_distributed.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Only fake CUDA capture function accepts pool and simulated device/pool handles; changed test path is GPU-free.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9894,
     "experiment_pr": 161,
@@ -70,5 +79,155 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139385407431",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9894,
+    "experiment_pr": 161,
+    "experiment_head": "d3d32c223cb218049a5e056ca818f7f12d943468",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "d6ab9eb1a43dd913fcdeb1caf69441aa6e3cefdd",
+    "comparison_head_sha": "4dc8006558250ad7480cf04657687ec791d793a5",
+    "comment_snapshot_sha256": "08a6fc931b6cec3577f76ebe2d8c1577840f251fb9bd8e281f45ed375d8ba3b0",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "0d59dd7bbbd93776499178be1e56a5800a8d5ca74423e1bb5a733259880a30a6",
+        "http_status": 400,
+        "seconds": 1.609
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "0d59dd7bbbd93776499178be1e56a5800a8d5ca74423e1bb5a733259880a30a6",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1202,
+          "prompt_tokens": 103253,
+          "total_tokens": 104455,
+          "completion_tokens_details": {
+            "reasoning_tokens": 888,
+            "text_tokens": 314
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102596,
+            "cache_creation_tokens": 102596,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102596,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102596,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.545
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "a867ba106f321d818879100f106e2a90e094593e262c9c09dd8cbd6776c8892d",
+        "http_status": 400,
+        "seconds": 2.35
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "a867ba106f321d818879100f106e2a90e094593e262c9c09dd8cbd6776c8892d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1574,
+          "prompt_tokens": 123821,
+          "total_tokens": 125395,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1168,
+            "text_tokens": 406
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 121320,
+            "cache_creation_tokens": 121320,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 121320,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 121320,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.561
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9894#issuecomment-7106000551)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139938407328,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only test-local mocks change: fake capture accepts pool and torch.cuda.current_device/graph_pool_handle are patched; no library, kernel, or launcher code touched, and the test runs CPU Gloo processes.\n\nEvidence: tests/autotuner/test_cupti_distributed.py, flashinfer/autotuner/_graph_timing.py\n\nSuggested tests: tests/autotuner/test_cupti_distributed.py\n\nTest selection gap: Real CUDA graph-pool sharing stays covered only by tests/autotuner/test_profile_graph_pool.py, which this PR does not change.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only test-local mocks change: fake capture accepts pool and torch.cuda.current_device/graph_pool_handle are patched; no library, kernel, or launcher code touched, and the test runs CPU Gloo processes.",
+          "evidence_paths": [
+            "tests/autotuner/test_cupti_distributed.py",
+            "flashinfer/autotuner/_graph_timing.py"
+          ],
+          "case_gap": "Real CUDA graph-pool sharing stays covered only by tests/autotuner/test_profile_graph_pool.py, which this PR does not change.",
+          "targets": [
+            "tests/autotuner/test_cupti_distributed.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139938444933,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139938407328,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938407328",
+        "head_sha": "d3d32c223cb218049a5e056ca818f7f12d943468",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139938444933,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938444933",
+        "head_sha": "d3d32c223cb218049a5e056ca818f7f12d943468",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828374616,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828374616",
+    "artifact_id": 15120981214
+  }
 }

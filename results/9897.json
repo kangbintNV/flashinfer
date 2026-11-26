@@ -24,23 +24,32 @@
       "first_line": "GitLab MR [!3048](https://nv/flashinfer/-/merge_requests/3048) has been updated with latest changes, and the CI pipeline [#84850617](https://nv/flashinfer-ci/-/pipelines/84850617) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896670588",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816247632",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896704166",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Moved parametrized grid executes real PrimTS FMHA decode kernels in mixed FP8/NVFP4 precision across head dims and page sizes; numerical validation needs Blackwell GPU",
+  "case_gap": "Original file body unavailable (size limit); helper refactor and nvfp4 small-page caller verified only via patch, not inspected source.",
+  "selected_tests": [
+    "tests/attention/test_attention_ts_decode_mixed_precision.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims-ts): move the mixed-precision decode grid into its own file",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9897,
     "experiment_pr": 153,
@@ -75,5 +84,155 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384592675",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9897,
+    "experiment_pr": 153,
+    "experiment_head": "28bf49ebf588fb50fe8a897edbe243e81361f94c",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "ff73235a98cbb2e41331a8b3508301583b33d456",
+    "comparison_head_sha": "540960367c0bbf3218e7d37c442a4f8514de272d",
+    "comment_snapshot_sha256": "d91257ec4223d5b56d8f0181d3154fe6680adc8af4a4857cfb84cf27907375b4",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "10bac264e7a855a290d8329c141106071cc47432df4c7247e73857bbc9aed1b2",
+        "http_status": 400,
+        "seconds": 1.674
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "10bac264e7a855a290d8329c141106071cc47432df4c7247e73857bbc9aed1b2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1238,
+          "prompt_tokens": 116426,
+          "total_tokens": 117664,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1007,
+            "text_tokens": 231
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115769,
+            "cache_creation_tokens": 115769,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115769,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115769,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.959
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "2c0c61897b65baa3fcf97ead3bff620427765651101c5f6ac663dc8bd79a92cf",
+        "http_status": 400,
+        "seconds": 1.536
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "2c0c61897b65baa3fcf97ead3bff620427765651101c5f6ac663dc8bd79a92cf",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1886,
+          "prompt_tokens": 134050,
+          "total_tokens": 135936,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1465,
+            "text_tokens": 421
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131549,
+            "cache_creation_tokens": 131549,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131549,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131549,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 29.346
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9897#issuecomment-7115181575)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139896670588,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Moved parametrized grid executes real PrimTS FMHA decode kernels in mixed FP8/NVFP4 precision across head dims and page sizes; numerical validation needs Blackwell GPU\n\nEvidence: tests/attention/test_attention_ts_decode_mixed_precision.py, flashinfer/attention/prims_ts/kernels/fmha_decode/README.md\n\nSuggested tests: tests/attention/test_attention_ts_decode_mixed_precision.py\n\nTest selection gap: Original file body unavailable (size limit); helper refactor and nvfp4 small-page caller verified only via patch, not inspected source.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Moved parametrized grid executes real PrimTS FMHA decode kernels in mixed FP8/NVFP4 precision across head dims and page sizes; numerical validation needs Blackwell GPU",
+          "evidence_paths": [
+            "tests/attention/test_attention_ts_decode_mixed_precision.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/README.md"
+          ],
+          "case_gap": "Original file body unavailable (size limit); helper refactor and nvfp4 small-page caller verified only via patch, not inspected source.",
+          "targets": [
+            "tests/attention/test_attention_ts_decode_mixed_precision.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896704166,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139896670588,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896670588",
+        "head_sha": "28bf49ebf588fb50fe8a897edbe243e81361f94c",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139896704166,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896704166",
+        "head_sha": "28bf49ebf588fb50fe8a897edbe243e81361f94c",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816247632,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816247632",
+    "artifact_id": 15114968136
+  }
 }

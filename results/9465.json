@@ -13,23 +13,33 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6795e640daaa94a879fbe255fd5eb8116ffd2d17/experiments/source.json",
   "comment_snapshot_sha256": "849c9422de3445726cf38f762f0367f98aee7eb7d54428bfa8952bc8815d05b3",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942657212",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829600364",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942657212",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changes are a GitHub workflow, docs, a bash branch skipping the provider spec lint (plus header prefetch), and CPU YAML/bash tests; no kernel, binding, dispatch or runtime behavior changes, and the AOT build runs with --no-gpu.",
+  "case_gap": "scripts/task_test_jit_cache_package_build_import.sh body was budget-omitted; only its patch hunk and a bash-fragment test cover the new skip path.",
+  "selected_tests": [
+    "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+    "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "CI-only AOT cache-seed scheduling and lint-skip/header-prefetch branch; compilation source and GPU runtime are unchanged; pipeline uses CPU/no-gpu builds.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9465,
     "experiment_pr": 187,
@@ -63,5 +73,176 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9465.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9465,
+    "experiment_pr": 187,
+    "experiment_head": "6795e640daaa94a879fbe255fd5eb8116ffd2d17",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "127fb6dfd8bb7f70a01dcc34fcda1566a3a98a64",
+    "comparison_head_sha": "dc99c09c60f33291e6753cbc3ee97026217b7be8",
+    "comment_snapshot_sha256": "849c9422de3445726cf38f762f0367f98aee7eb7d54428bfa8952bc8815d05b3",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "82254f58f0c7d52d6703806c014bb3af5ce15580bdeb59fe0538e46020e142a8",
+        "http_status": 400,
+        "seconds": 1.918
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "82254f58f0c7d52d6703806c014bb3af5ce15580bdeb59fe0538e46020e142a8",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1177,
+          "prompt_tokens": 117229,
+          "total_tokens": 118406,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1037,
+            "text_tokens": 140
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 116572,
+            "cache_creation_tokens": 116572,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 116572,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 116572,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.526
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "79c276e12c46a5373a8bcc099a7edfd1f39bde3d2234a7708c7258d9bd18f5f2",
+        "http_status": 400,
+        "seconds": 1.311
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "79c276e12c46a5373a8bcc099a7edfd1f39bde3d2234a7708c7258d9bd18f5f2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1675,
+          "prompt_tokens": 141815,
+          "total_tokens": 143490,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1071,
+            "text_tokens": 604
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 139314,
+            "cache_creation_tokens": 139314,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 139314,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 139314,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.284
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changes are a GitHub workflow, docs, a bash branch skipping the provider spec lint (plus header prefetch), and CPU YAML/bash tests; no kernel, binding, dispatch or runtime behavior changes, and the AOT build runs with --no-gpu.\n\nEvidence: .github/workflows/aot-cache-seed.yml, tests/cpu/infra/test_aot_cache_seed_workflow.py, scripts/prefetch_jit_spec_headers.py\n\nSuggested tests: tests/cpu/infra/test_aot_cache_seed_workflow.py, tests/cpu/jit/test_jit_spec_gencode_lint.py\n\nTest selection gap: scripts/task_test_jit_cache_package_build_import.sh body was budget-omitted; only its patch hunk and a bash-fragment test cover the new skip path.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changes are a GitHub workflow, docs, a bash branch skipping the provider spec lint (plus header prefetch), and CPU YAML/bash tests; no kernel, binding, dispatch or runtime behavior changes, and the AOT build runs with --no-gpu.",
+          "evidence_paths": [
+            ".github/workflows/aot-cache-seed.yml",
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+            "scripts/prefetch_jit_spec_headers.py"
+          ],
+          "case_gap": "scripts/task_test_jit_cache_package_build_import.sh body was budget-omitted; only its patch hunk and a bash-fragment test cover the new skip path.",
+          "targets": [
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+            "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942657212,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changes are a GitHub workflow, docs, a bash branch skipping the provider spec lint (plus header prefetch), and CPU YAML/bash tests; no kernel, binding, dispatch or runtime behavior changes, and the AOT build runs with --no-gpu.\n\nEvidence: .github/workflows/aot-cache-seed.yml, tests/cpu/infra/test_aot_cache_seed_workflow.py, scripts/prefetch_jit_spec_headers.py\n\nSuggested tests: tests/cpu/infra/test_aot_cache_seed_workflow.py, tests/cpu/jit/test_jit_spec_gencode_lint.py\n\nTest selection gap: scripts/task_test_jit_cache_package_build_import.sh body was budget-omitted; only its patch hunk and a bash-fragment test cover the new skip path.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changes are a GitHub workflow, docs, a bash branch skipping the provider spec lint (plus header prefetch), and CPU YAML/bash tests; no kernel, binding, dispatch or runtime behavior changes, and the AOT build runs with --no-gpu.",
+          "evidence_paths": [
+            ".github/workflows/aot-cache-seed.yml",
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+            "scripts/prefetch_jit_spec_headers.py"
+          ],
+          "case_gap": "scripts/task_test_jit_cache_package_build_import.sh body was budget-omitted; only its patch hunk and a bash-fragment test cover the new skip path.",
+          "targets": [
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+            "tests/cpu/jit/test_jit_spec_gencode_lint.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942657212,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139942657212,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942657212",
+        "head_sha": "6795e640daaa94a879fbe255fd5eb8116ffd2d17",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829600364,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829600364",
+    "artifact_id": 15121521712
+  }
 }

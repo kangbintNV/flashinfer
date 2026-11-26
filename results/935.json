@@ -31,6 +31,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "Deletes two obsolete argument-description lines from the sampling docstring; executable AST unchanged.",
   "formal_assessment": "correct_allow",

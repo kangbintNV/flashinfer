@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!3039](https://nv/flashinfer/-/merge_requests/3039) has been created, and the CI pipeline [#84659016](https://nv/flashinfer-ci/-/pipelines/84659016) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938375881",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828366765",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938384235",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Patch strengthens persistent decode attention-sink test: exact inactive-row sentinel checks plus CUDA graph capture/replay across KV-length states, requiring real kernel execution and graph replay on GPU.",
+  "case_gap": "Changed test body not fully inspected (size limit); lane routing for this file in A10G/T4 shard scripts unverified.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims-ts): cover inactive sink outputs and graph replay",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9865,
     "experiment_pr": 160,
@@ -70,5 +77,153 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139385351505",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9865,
+    "experiment_pr": 160,
+    "experiment_head": "a5cf3ea1930a42f91086c97653f277f906aa05f1",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "72ea00b18cd13a00b7e04e9deff11ab53f46fbfd",
+    "comparison_head_sha": "2d9d851b0ac9a43a7687c5d21ff95130af9469da",
+    "comment_snapshot_sha256": "e17fe18fce2dcc42d5de5b1e5ca0fbc93f009505284bf9743923b3f4767154f7",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "f9b1449332637b481632bb3b1044a9fea7e3ad3fdf18abdf1c37f3545dfe07e3",
+        "http_status": 400,
+        "seconds": 1.552
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "f9b1449332637b481632bb3b1044a9fea7e3ad3fdf18abdf1c37f3545dfe07e3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1855,
+          "prompt_tokens": 100950,
+          "total_tokens": 102805,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1567,
+            "text_tokens": 288
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 100293,
+            "cache_creation_tokens": 100293,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 100293,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 100293,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.657
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "cd16a6001c4c4c4e43f8daf354aac9b3ec7a00fde1dfba8b2f5b8473b8f158f2",
+        "http_status": 400,
+        "seconds": 4.567
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "cd16a6001c4c4c4e43f8daf354aac9b3ec7a00fde1dfba8b2f5b8473b8f158f2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1815,
+          "prompt_tokens": 140345,
+          "total_tokens": 142160,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1494,
+            "text_tokens": 321
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 137844,
+            "cache_creation_tokens": 137844,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 137844,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 137844,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 30.649
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9865#issuecomment-7093929737)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139938375881,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Patch strengthens persistent decode attention-sink test: exact inactive-row sentinel checks plus CUDA graph capture/replay across KV-length states, requiring real kernel execution and graph replay on GPU.\n\nEvidence: tests/attention/test_attention_ts_decode.py, tests/attention/conftest.py\n\nTest selection gap: Changed test body not fully inspected (size limit); lane routing for this file in A10G/T4 shard scripts unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Patch strengthens persistent decode attention-sink test: exact inactive-row sentinel checks plus CUDA graph capture/replay across KV-length states, requiring real kernel execution and graph replay on GPU.",
+          "evidence_paths": [
+            "tests/attention/test_attention_ts_decode.py",
+            "tests/attention/conftest.py"
+          ],
+          "case_gap": "Changed test body not fully inspected (size limit); lane routing for this file in A10G/T4 shard scripts unverified.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139938384235,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139938375881,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938375881",
+        "head_sha": "a5cf3ea1930a42f91086c97653f277f906aa05f1",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139938384235,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938384235",
+        "head_sha": "a5cf3ea1930a42f91086c97653f277f906aa05f1",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828366765,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828366765",
+    "artifact_id": 15120444886
+  }
 }

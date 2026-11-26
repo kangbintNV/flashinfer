@@ -19,23 +19,25 @@
       "first_line": "GitLab MR [!2787](https://nv/flashinfer/-/merge_requests/2787) has been created, and the CI pipeline [#81377130](https://nv/flashinfer-ci/-/pipelines/81377130) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940974154",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829128440",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139941013356",
+  "classification": "docs_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Only Markdown/RST documentation changed.",
+  "case_gap": "",
+  "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "Unified MoE activation matrix RST/Markdown text only.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9369,
     "experiment_pr": 176,
@@ -69,5 +71,62 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9369.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9369,
+    "experiment_pr": 176,
+    "experiment_head": "ba849d1b34a633a8091f46d48c8017bf6821ef97",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "3db2f474e4053a6400d3128ba0683cbd4a05f5a4",
+    "comparison_head_sha": "990f90f9ba5b9cb6109ee06556d77bf77ab2b5c5",
+    "comment_snapshot_sha256": "a25e3d582ca23fd031da96fd1a1d8c189c4a6d0a9cd5e3770dc033004389d481",
+    "calls": [],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9369#issuecomment-6806129216)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139940974154,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/design_docs/flashinfer_moe_api.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "docs/design_docs/flashinfer_moe_api.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139941013356,
+        "model_call_indices": []
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940974154,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940974154",
+        "head_sha": "ba849d1b34a633a8091f46d48c8017bf6821ef97",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139941013356,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139941013356",
+        "head_sha": "ba849d1b34a633a8091f46d48c8017bf6821ef97",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829128440,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829128440",
+    "artifact_id": 15121521111
+  }
 }

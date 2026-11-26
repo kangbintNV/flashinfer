@@ -54,6 +54,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: refactor(kda): stop 0.7 advertising unreleased KDA surface (mark prefill wrapper experimental, trim kda_kernels.__all__)",
   "formal_assessment": "correct_allow",

@@ -24,23 +24,30 @@
       "first_line": "GitLab MR [!2942](https://nv/flashinfer/-/merge_requests/2942) has been created, and the CI pipeline [#83841170](https://nv/flashinfer-ci/-/pipelines/83841170) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945498024",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830411665",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945536054",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Patch adds \"memory\" clobbers to fence.release/acquire/acq_rel.sys inline PTX in moeA2ADispatchKernel/moeA2ACombineKernel, altering compiler ordering of peer flag and payload accesses; only multi-GPU NVLink execution validates it.",
+  "case_gap": "Multi-GPU all-to-all test bodies were budget-omitted; no supplied lane provides sm100/103 hardware to execute the fenced kernels.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Stable CUDA implementation edits affect GPU execution; not a documentation-only change.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9649,
     "experiment_pr": 201,
@@ -74,5 +81,153 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9649.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9649,
+    "experiment_pr": 201,
+    "experiment_head": "b1d816866fde48b5e37025e76b950c2429c5b4d2",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "f92266907449b03c6ad8f6a0bc088f7ad00d63c5",
+    "comparison_head_sha": "bc69e528ef216bb7b827e27704595d5decbc9b5b",
+    "comment_snapshot_sha256": "bee8326c56cce4dad3bdf3dfb32f45cd4be19bc540c27ca5c68a6fee4deb7999",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "9f41e535c9bac7221d3539ca021124ac445399e1adc6050f843699bfe92bd7f9",
+        "http_status": 400,
+        "seconds": 0.874
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "9f41e535c9bac7221d3539ca021124ac445399e1adc6050f843699bfe92bd7f9",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1769,
+          "prompt_tokens": 100009,
+          "total_tokens": 101778,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1486,
+            "text_tokens": 283
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99352,
+            "cache_creation_tokens": 99352,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99352,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99352,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.191
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "9f672bee462d74cec62e0322a7aa28daf06d1141472a0e57877596127e3a4f4d",
+        "http_status": 400,
+        "seconds": 0.829
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "9f672bee462d74cec62e0322a7aa28daf06d1141472a0e57877596127e3a4f4d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2434,
+          "prompt_tokens": 141048,
+          "total_tokens": 143482,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2049,
+            "text_tokens": 385
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 138547,
+            "cache_creation_tokens": 138547,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 138547,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 138547,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 36.387
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9649#issuecomment-7029324566)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139945498024,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Patch adds \"memory\" clobbers to fence.release/acquire/acq_rel.sys inline PTX in moeA2ADispatchKernel/moeA2ACombineKernel, altering compiler ordering of peer flag and payload accesses; only multi-GPU NVLink execution validates it.\n\nEvidence: csrc/nv_internal/tensorrt_llm/kernels/moe/communication/moeAlltoAllKernels.cu, tests/comm/test_cake_moe_alltoall.py\n\nTest selection gap: Multi-GPU all-to-all test bodies were budget-omitted; no supplied lane provides sm100/103 hardware to execute the fenced kernels.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Patch adds \"memory\" clobbers to fence.release/acquire/acq_rel.sys inline PTX in moeA2ADispatchKernel/moeA2ACombineKernel, altering compiler ordering of peer flag and payload accesses; only multi-GPU NVLink execution validates it.",
+          "evidence_paths": [
+            "csrc/nv_internal/tensorrt_llm/kernels/moe/communication/moeAlltoAllKernels.cu",
+            "tests/comm/test_cake_moe_alltoall.py"
+          ],
+          "case_gap": "Multi-GPU all-to-all test bodies were budget-omitted; no supplied lane provides sm100/103 hardware to execute the fenced kernels.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139945536054,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139945498024,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945498024",
+        "head_sha": "b1d816866fde48b5e37025e76b950c2429c5b4d2",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139945536054,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945536054",
+        "head_sha": "b1d816866fde48b5e37025e76b950c2429c5b4d2",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830411665,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830411665",
+    "artifact_id": 15122925246
+  }
 }

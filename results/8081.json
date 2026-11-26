@@ -24,23 +24,38 @@
       "first_line": "[FAILED] Pipeline [#81994720](https://nv/flashinfer-ci/-/pipelines/81994720) — 29/30 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945539826",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830437145",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945550958",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changes device-side PTX memory-model ordering in a BF16 GEMM kernel: per-lane mbarrier empty-barrier arrives, cp.async.wait_all on loader exit, griddepcontrol.wait before PDL output/peer stores",
+  "case_gap": "New test only inspects host-compiled PTX; runtime PDL/stage-reuse behavior needs SM100/103 execution, and cute-dsl cases skip on A10G/T4 lanes",
+  "selected_tests": [
+    "tests/gemm/test_mm_bf16_warp_splitk_sync.py",
+    "tests/gemm/test_mm_bf16.py",
+    "tests/gemm/test_bf16_gemm_peer_store.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI requested a file outside the supplied repository inventory"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "CuTe kernel stage-release/store/loader-exit ordering changes. New PTX-inspection test is CPU-only, but changed synchronization is GPU-related.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8081,
     "experiment_pr": 205,
@@ -74,5 +89,203 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8081,
+    "experiment_pr": 205,
+    "experiment_head": "c0879e13036c6c51187b9adbea6a651bd15624a8",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "85c65fb3969bd3195d4d571e377ebf0615ea3276",
+    "comparison_head_sha": "8c21ca5e42d2b19e14bb03658c6b2c15adc7a1b9",
+    "comment_snapshot_sha256": "6e0ae1797e00841b1ba11d8c702ee2d8bb4373d8ec63819d1b957d45c95fd343",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "c122d7b5b58c612b0f3dda4e2e40082406d036b1f91beed7f48b13cc820894c6",
+        "http_status": 400,
+        "seconds": 1.361
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "c122d7b5b58c612b0f3dda4e2e40082406d036b1f91beed7f48b13cc820894c6",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2163,
+          "prompt_tokens": 102743,
+          "total_tokens": 104906,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1839,
+            "text_tokens": 324
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102086,
+            "cache_creation_tokens": 102086,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102086,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102086,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.306
+      },
+      {
+        "index": 3,
+        "effort": "minimal",
+        "context_sha256": "c122d7b5b58c612b0f3dda4e2e40082406d036b1f91beed7f48b13cc820894c6",
+        "http_status": 400,
+        "seconds": 1.315
+      },
+      {
+        "index": 4,
+        "effort": "minimal",
+        "context_sha256": "c122d7b5b58c612b0f3dda4e2e40082406d036b1f91beed7f48b13cc820894c6",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2045,
+          "prompt_tokens": 102743,
+          "total_tokens": 104788,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1812,
+            "text_tokens": 233
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 102741,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 102741,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.692
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "c6f8fa2959d0b38e7a37c6fc14b6f0aeadf4795e13b81d7229ebea9beb4089b6",
+        "http_status": 400,
+        "seconds": 3.793
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "c6f8fa2959d0b38e7a37c6fc14b6f0aeadf4795e13b81d7229ebea9beb4089b6",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1981,
+          "prompt_tokens": 134335,
+          "total_tokens": 136316,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1205,
+            "text_tokens": 776
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131834,
+            "cache_creation_tokens": 131834,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131834,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131834,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 28.65
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6880608414)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139945539826,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes device-side PTX memory-model ordering in a BF16 GEMM kernel: per-lane mbarrier empty-barrier arrives, cp.async.wait_all on loader exit, griddepcontrol.wait before PDL output/peer stores\n\nEvidence: flashinfer/gemm/kernels/dense_bf16_gemm_warp_splitk.py, tests/gemm/test_mm_bf16_warp_splitk_sync.py, tests/gemm/test_bf16_gemm_peer_store.py\n\nSuggested tests: tests/gemm/test_mm_bf16_warp_splitk_sync.py, tests/gemm/test_mm_bf16.py, tests/gemm/test_bf16_gemm_peer_store.py\n\nTest selection gap: New test only inspects host-compiled PTX; runtime PDL/stage-reuse behavior needs SM100/103 execution, and cute-dsl cases skip on A10G/T4 lanes\n\nAnalysis attempts:\n- default: AI requested a file outside the supplied repository inventory\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes device-side PTX memory-model ordering in a BF16 GEMM kernel: per-lane mbarrier empty-barrier arrives, cp.async.wait_all on loader exit, griddepcontrol.wait before PDL output/peer stores",
+          "evidence_paths": [
+            "flashinfer/gemm/kernels/dense_bf16_gemm_warp_splitk.py",
+            "tests/gemm/test_mm_bf16_warp_splitk_sync.py",
+            "tests/gemm/test_bf16_gemm_peer_store.py"
+          ],
+          "case_gap": "New test only inspects host-compiled PTX; runtime PDL/stage-reuse behavior needs SM100/103 execution, and cute-dsl cases skip on A10G/T4 lanes",
+          "targets": [
+            "tests/gemm/test_mm_bf16_warp_splitk_sync.py",
+            "tests/gemm/test_mm_bf16.py",
+            "tests/gemm/test_bf16_gemm_peer_store.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI requested a file outside the supplied repository inventory"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139945550958,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139945539826,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945539826",
+        "head_sha": "c0879e13036c6c51187b9adbea6a651bd15624a8",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139945550958,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945550958",
+        "head_sha": "c0879e13036c6c51187b9adbea6a651bd15624a8",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830437145,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830437145",
+    "artifact_id": 15121093324
+  }
 }

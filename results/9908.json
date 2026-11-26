@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/03c96c60e2b5916a0a4e6400783bc706e8577789/experiments/source.json",
   "comment_snapshot_sha256": "5412962e67e7292c5e63a99ec222b05b0e2b7bbd8452ef9dcf1995d366f05ca9",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896691556",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816241015",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896691556",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only GitHub Actions matrix scheduling changed (H100 lane disabled); no kernel, binding, dispatch or runtime behavior altered, so GPU-free validation (YAML/shell gate inspection) suffices.",
+  "case_gap": "H100 lane no longer runs on PRs, reducing sm90 coverage until re-enabled; scheduled main runs still gate it.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Disables an H100 CI job; host workflow scheduling change, no product GPU execution code change.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9908,
     "experiment_pr": 152,
@@ -64,5 +71,166 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384495881",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9908,
+    "experiment_pr": 152,
+    "experiment_head": "03c96c60e2b5916a0a4e6400783bc706e8577789",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "8faa12077da39325a3ef8151ffc9954f6949001c",
+    "comparison_head_sha": "866ac7fb23531d7ddee83efd34d0011a9d251a5b",
+    "comment_snapshot_sha256": "5412962e67e7292c5e63a99ec222b05b0e2b7bbd8452ef9dcf1995d366f05ca9",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "306abb3ba3c783636e024309d7e06cecd2131ee563ff15bdf532f6a6a83e0eb9",
+        "http_status": 400,
+        "seconds": 2.128
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "306abb3ba3c783636e024309d7e06cecd2131ee563ff15bdf532f6a6a83e0eb9",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1797,
+          "prompt_tokens": 99711,
+          "total_tokens": 101508,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1600,
+            "text_tokens": 197
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99054,
+            "cache_creation_tokens": 99054,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99054,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99054,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.775
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "d6e8819ae7bb1caad2a8f45fadcbf3517632db652e2d97737b6b86b64aaba5f8",
+        "http_status": 400,
+        "seconds": 1.562
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "d6e8819ae7bb1caad2a8f45fadcbf3517632db652e2d97737b6b86b64aaba5f8",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 261,
+          "prompt_tokens": 134054,
+          "total_tokens": 134315,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 261
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131553,
+            "cache_creation_tokens": 131553,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131553,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131553,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 9.059
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only GitHub Actions matrix scheduling changed (H100 lane disabled); no kernel, binding, dispatch or runtime behavior altered, so GPU-free validation (YAML/shell gate inspection) suffices.\n\nEvidence: .github/workflows/pr-test.yml\n\nTest selection gap: H100 lane no longer runs on PRs, reducing sm90 coverage until re-enabled; scheduled main runs still gate it.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only GitHub Actions matrix scheduling changed (H100 lane disabled); no kernel, binding, dispatch or runtime behavior altered, so GPU-free validation (YAML/shell gate inspection) suffices.",
+          "evidence_paths": [
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "H100 lane no longer runs on PRs, reducing sm90 coverage until re-enabled; scheduled main runs still gate it.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896691556,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only GitHub Actions matrix scheduling changed (H100 lane disabled); no kernel, binding, dispatch or runtime behavior altered, so GPU-free validation (YAML/shell gate inspection) suffices.\n\nEvidence: .github/workflows/pr-test.yml\n\nTest selection gap: H100 lane no longer runs on PRs, reducing sm90 coverage until re-enabled; scheduled main runs still gate it.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only GitHub Actions matrix scheduling changed (H100 lane disabled); no kernel, binding, dispatch or runtime behavior altered, so GPU-free validation (YAML/shell gate inspection) suffices.",
+          "evidence_paths": [
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "H100 lane no longer runs on PRs, reducing sm90 coverage until re-enabled; scheduled main runs still gate it.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896691556,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139896691556,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896691556",
+        "head_sha": "03c96c60e2b5916a0a4e6400783bc706e8577789",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816241015,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816241015",
+    "artifact_id": 15116391020
+  }
 }

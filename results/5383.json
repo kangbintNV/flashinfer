@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/734c40c8f84659180f393f4bc30d22861e55e375/experiments/source.json",
   "comment_snapshot_sha256": "b16ebf161f6f0c06585e2bdfbe1b3de2f665f4416927d63774b85ae4aee87224",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942634470",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829592369",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942634470",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Change is a CI docs-deploy guard in a workflow file; it alters only whether built documentation publishes to the stable site, with no runtime, kernel, or binding effect.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Docs deployment condition excludes rc tags; purely workflow control.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "docs_cpu_label_difference",
   "source_audit": {
     "original_number": 5383,
     "experiment_pr": 186,
@@ -63,5 +70,166 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5383.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 5383,
+    "experiment_pr": 186,
+    "experiment_head": "734c40c8f84659180f393f4bc30d22861e55e375",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "eed39c7576d65de7a3f5ce06fa3f32c752dfd198",
+    "comparison_head_sha": "399cc6109630aa76448c0ea18c45310992620a30",
+    "comment_snapshot_sha256": "b16ebf161f6f0c06585e2bdfbe1b3de2f665f4416927d63774b85ae4aee87224",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "3a8d69803fee3eedaf15bd20e4932cd28f17585b48db7e89b6e20f9eb220ceee",
+        "http_status": 400,
+        "seconds": 2.674
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "3a8d69803fee3eedaf15bd20e4932cd28f17585b48db7e89b6e20f9eb220ceee",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 952,
+          "prompt_tokens": 76553,
+          "total_tokens": 77505,
+          "completion_tokens_details": {
+            "reasoning_tokens": 865,
+            "text_tokens": 87
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 75896,
+            "cache_creation_tokens": 75896,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 75896,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 75896,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.148
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "336981eb0c417fb6d1021c67696f0336a8fdbf7efe039413b17dcc04a2e899ca",
+        "http_status": 400,
+        "seconds": 2.981
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "336981eb0c417fb6d1021c67696f0336a8fdbf7efe039413b17dcc04a2e899ca",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 215,
+          "prompt_tokens": 96178,
+          "total_tokens": 96393,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 215
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 93677,
+            "cache_creation_tokens": 93677,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 93677,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 93677,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 5.35
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Change is a CI docs-deploy guard in a workflow file; it alters only whether built documentation publishes to the stable site, with no runtime, kernel, or binding effect.\n\nEvidence: .github/workflows/build-doc.yml",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Change is a CI docs-deploy guard in a workflow file; it alters only whether built documentation publishes to the stable site, with no runtime, kernel, or binding effect.",
+          "evidence_paths": [
+            ".github/workflows/build-doc.yml"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942634470,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Change is a CI docs-deploy guard in a workflow file; it alters only whether built documentation publishes to the stable site, with no runtime, kernel, or binding effect.\n\nEvidence: .github/workflows/build-doc.yml",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Change is a CI docs-deploy guard in a workflow file; it alters only whether built documentation publishes to the stable site, with no runtime, kernel, or binding effect.",
+          "evidence_paths": [
+            ".github/workflows/build-doc.yml"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942634470,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139942634470,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942634470",
+        "head_sha": "734c40c8f84659180f393f4bc30d22861e55e375",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829592369,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829592369",
+    "artifact_id": 15121437114
+  }
 }

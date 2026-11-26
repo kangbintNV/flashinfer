@@ -31,6 +31,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Release upload destination and installation documentation change; no GPU binary contents or execution path changes.",
   "formal_assessment": "correct_allow",

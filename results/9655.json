@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/435ab36dc4fe90335e52fc9bb2616a7d034a75f3/experiments/source.json",
   "comment_snapshot_sha256": "80dfb211050e51eb8ee2bebf8eecc074bd638ce8a338c3f04e9289ae54d932b3",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942005273",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829419381",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942005273",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Test-only change: conftest fixture monkeypatches torch.cuda.is_available to False and tightens BF16 negative-config regex; no kernel, launcher, or production path altered, tests remain cpu_only host admission checks.",
+  "case_gap": "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); judged from its one-line pytestmark patch.",
+  "selected_tests": [
+    "tests/cpu/moe_ep"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "CPU test fixture mocks CUDA discovery and tightens an exception-message assertion; no product kernel change.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9655,
     "experiment_pr": 183,
@@ -63,5 +72,174 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9655.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9655,
+    "experiment_pr": 183,
+    "experiment_head": "435ab36dc4fe90335e52fc9bb2616a7d034a75f3",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "5e578a6c6e1c6fa8f67fdd892e96a3d75bbb7be4",
+    "comparison_head_sha": "25bc267eb84dd1b28997f62aa4c282a09184c952",
+    "comment_snapshot_sha256": "80dfb211050e51eb8ee2bebf8eecc074bd638ce8a338c3f04e9289ae54d932b3",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "264dc53d761a47eaeea93f3cbeb64733445f0805abff95a9019089eebf77ff63",
+        "http_status": 400,
+        "seconds": 1.76
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "264dc53d761a47eaeea93f3cbeb64733445f0805abff95a9019089eebf77ff63",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 948,
+          "prompt_tokens": 116229,
+          "total_tokens": 117177,
+          "completion_tokens_details": {
+            "reasoning_tokens": 836,
+            "text_tokens": 112
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115572,
+            "cache_creation_tokens": 115572,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115572,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115572,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 15.923
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "4dc921c69954ec7b8f7aa5ce5f9897d3cecac2aaf89b6edbb61c5f15d5e825ca",
+        "http_status": 400,
+        "seconds": 1.456
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "4dc921c69954ec7b8f7aa5ce5f9897d3cecac2aaf89b6edbb61c5f15d5e825ca",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 964,
+          "prompt_tokens": 140245,
+          "total_tokens": 141209,
+          "completion_tokens_details": {
+            "reasoning_tokens": 504,
+            "text_tokens": 460
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 137744,
+            "cache_creation_tokens": 137744,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 137744,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 137744,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.167
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Test-only change: conftest fixture monkeypatches torch.cuda.is_available to False and tightens BF16 negative-config regex; no kernel, launcher, or production path altered, tests remain cpu_only host admission checks.\n\nEvidence: tests/cpu/moe_ep/conftest.py, tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py, tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py\n\nSuggested tests: tests/cpu/moe_ep\n\nTest selection gap: tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); judged from its one-line pytestmark patch.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Test-only change: conftest fixture monkeypatches torch.cuda.is_available to False and tightens BF16 negative-config regex; no kernel, launcher, or production path altered, tests remain cpu_only host admission checks.",
+          "evidence_paths": [
+            "tests/cpu/moe_ep/conftest.py",
+            "tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py",
+            "tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py"
+          ],
+          "case_gap": "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); judged from its one-line pytestmark patch.",
+          "targets": [
+            "tests/cpu/moe_ep"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942005273,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Test-only change: conftest fixture monkeypatches torch.cuda.is_available to False and tightens BF16 negative-config regex; no kernel, launcher, or production path altered, tests remain cpu_only host admission checks.\n\nEvidence: tests/cpu/moe_ep/conftest.py, tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py, tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py\n\nSuggested tests: tests/cpu/moe_ep\n\nTest selection gap: tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); judged from its one-line pytestmark patch.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Test-only change: conftest fixture monkeypatches torch.cuda.is_available to False and tightens BF16 negative-config regex; no kernel, launcher, or production path altered, tests remain cpu_only host admission checks.",
+          "evidence_paths": [
+            "tests/cpu/moe_ep/conftest.py",
+            "tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py",
+            "tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py"
+          ],
+          "case_gap": "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py body not inspected (context budget); judged from its one-line pytestmark patch.",
+          "targets": [
+            "tests/cpu/moe_ep"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942005273,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139942005273,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942005273",
+        "head_sha": "435ab36dc4fe90335e52fc9bb2616a7d034a75f3",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829419381,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829419381",
+    "artifact_id": 15121072015
+  }
 }

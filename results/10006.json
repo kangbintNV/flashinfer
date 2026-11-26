@@ -31,6 +31,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "pending",
+  "static_review_correction": null,
   "static_expected": "pending",
   "static_reason": "EP setup preserves newer NCCL wheels; effect on communication runtime compatibility versus bounded packaging behavior needs confirmation.",
   "formal_assessment": "pending_review",

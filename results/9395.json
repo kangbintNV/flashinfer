@@ -34,23 +34,34 @@
       "first_line": "GitLab MR [!3022](https://nv/flashinfer/-/merge_requests/3022) has been updated with latest changes, and the CI pipeline [#85038636](https://nv/flashinfer-ci/-/pipelines/85038636) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944044764",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830005768",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944053044",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changes alter CuTe kernel build/load, cache publication, MoE GEMM compile path, and BatchSparseMLADecodePagedTSWrapper.plan(compile=False) workspace/launch-tensor allocation and run() gating; needs GPU validation.",
+  "case_gap": "Changed GPU tests test_attention_ts_sparse_mla.py and test_attention_ts_features.py bodies not inspected, so deferred-plan/is_kernel_cached GPU coverage unverified.",
+  "selected_tests": [
+    "tests/cpu/jit/test_cute_dsl_cache.py",
+    "tests/cpu/jit/test_cute_dsl_export_only_compile.py",
+    "tests/cpu/prims_ts/test_moe_compile_cache.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Compile serialization/deferred sparse-MLA plans and cache ownership cross the GPU planning/lifetime boundary.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9395,
     "experiment_pr": 195,
@@ -84,5 +95,163 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9395.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9395,
+    "experiment_pr": 195,
+    "experiment_head": "edc2589aa86bc89268fdea64ab2162a04f19a381",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "556438772364c8506e4b76c72b1227a0f7af69b9",
+    "comparison_head_sha": "b37daecc1adafd9cf210314bed570fa67f6b55da",
+    "comment_snapshot_sha256": "3b9e4762df18dcd8900654e6dd875a5213c5ab832c5b6a96cae2b8bfd6aef409",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "d832cf59ad79e60de9669cc9544a1448127c1d542bda28f8e2bb54e4235ce61c",
+        "http_status": 400,
+        "seconds": 3.537
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "d832cf59ad79e60de9669cc9544a1448127c1d542bda28f8e2bb54e4235ce61c",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1711,
+          "prompt_tokens": 116661,
+          "total_tokens": 118372,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1355,
+            "text_tokens": 356
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 116004,
+            "cache_creation_tokens": 116004,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 116004,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 116004,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.131
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "7f85e769aecf5992fd93499798a7f7eaf8009114269eb8050901c757e54522b3",
+        "http_status": 400,
+        "seconds": 1.288
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "7f85e769aecf5992fd93499798a7f7eaf8009114269eb8050901c757e54522b3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1615,
+          "prompt_tokens": 144378,
+          "total_tokens": 145993,
+          "completion_tokens_details": {
+            "reasoning_tokens": 836,
+            "text_tokens": 779
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 141877,
+            "cache_creation_tokens": 141877,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 141877,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 141877,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.946
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9395#issuecomment-7132488096)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139944044764,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes alter CuTe kernel build/load, cache publication, MoE GEMM compile path, and BatchSparseMLADecodePagedTSWrapper.plan(compile=False) workspace/launch-tensor allocation and run() gating; needs GPU validation.\n\nEvidence: flashinfer/attention/prims_ts/mla_decode.py, flashinfer/prims_ts/moe/compile_cache.py, tests/attention/test_attention_ts_sparse_mla.py\n\nSuggested tests: tests/cpu/jit/test_cute_dsl_cache.py, tests/cpu/jit/test_cute_dsl_export_only_compile.py, tests/cpu/prims_ts/test_moe_compile_cache.py\n\nPatch content unavailable (informational): flashinfer/jit/cute_dsl_core.py, tests/cpu/jit/test_cute_dsl_cache.py\n\nTest selection gap: Changed GPU tests test_attention_ts_sparse_mla.py and test_attention_ts_features.py bodies not inspected, so deferred-plan/is_kernel_cached GPU coverage unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes alter CuTe kernel build/load, cache publication, MoE GEMM compile path, and BatchSparseMLADecodePagedTSWrapper.plan(compile=False) workspace/launch-tensor allocation and run() gating; needs GPU validation.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/mla_decode.py",
+            "flashinfer/prims_ts/moe/compile_cache.py",
+            "tests/attention/test_attention_ts_sparse_mla.py"
+          ],
+          "case_gap": "Changed GPU tests test_attention_ts_sparse_mla.py and test_attention_ts_features.py bodies not inspected, so deferred-plan/is_kernel_cached GPU coverage unverified.",
+          "missing_patch_paths": [
+            "flashinfer/jit/cute_dsl_core.py",
+            "tests/cpu/jit/test_cute_dsl_cache.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/jit/test_cute_dsl_cache.py",
+            "tests/cpu/jit/test_cute_dsl_export_only_compile.py",
+            "tests/cpu/prims_ts/test_moe_compile_cache.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139944053044,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139944044764,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139944044764",
+        "head_sha": "edc2589aa86bc89268fdea64ab2162a04f19a381",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139944053044,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139944053044",
+        "head_sha": "edc2589aa86bc89268fdea64ab2162a04f19a381",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830005768,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830005768",
+    "artifact_id": 15121217676
+  }
 }

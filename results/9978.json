@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!3065](https://nv/flashinfer/-/merge_requests/3065) has been created, and the CI pipeline [#85020395](https://nv/flashinfer-ci/-/pipelines/85020395) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893902661",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815433682",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893910618",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Adds a CUDA-profiled NVFP4 MoE autotuning test: fresh AutoTuner, torch.profiler CUDA activity, GEMM2 fused-FINALIZE kernel detection, plus a shared helper running the real NVFP4 MoE path; GPU-free validation cannot observe kernel activity.",
+  "case_gap": "No inspected CI lane provides SM100/SM103, so the new skipif-guarded profiling test would not execute on current PR lanes.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test: verify cold MoE autotuning profiles fused finalize",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9978,
     "experiment_pr": 134,
@@ -70,5 +77,153 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139380086852",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9978,
+    "experiment_pr": 134,
+    "experiment_head": "69ac108c7994543ccd69cfa3a0087780ee5c1e79",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "33b7d201c8ae4789716b5ef474b7f0f170309aae",
+    "comparison_head_sha": "f0dea847547f2751dbfdf3c4c36a2c9c29ff5a48",
+    "comment_snapshot_sha256": "8671ff83df19c0fcce8f423bf0f20ee7609ad2f456233661cd108ecca411a49f",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "3ccc7f9f65c5cd1b260fcbf2bfaa7e11849a0c29257f7e1a6f62e7f3a3da82ee",
+        "http_status": 400,
+        "seconds": 1.935
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "3ccc7f9f65c5cd1b260fcbf2bfaa7e11849a0c29257f7e1a6f62e7f3a3da82ee",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1381,
+          "prompt_tokens": 102098,
+          "total_tokens": 103479,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1081,
+            "text_tokens": 300
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 101441,
+            "cache_creation_tokens": 101441,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 101441,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 101441,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.392
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "18196354314d6f5b32c1de8639cda2f16f24547c36af7b90c393c8dfe9ead825",
+        "http_status": 400,
+        "seconds": 3.903
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "18196354314d6f5b32c1de8639cda2f16f24547c36af7b90c393c8dfe9ead825",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1727,
+          "prompt_tokens": 143111,
+          "total_tokens": 144838,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1357,
+            "text_tokens": 370
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140610,
+            "cache_creation_tokens": 140610,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140610,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140610,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.011
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9978#issuecomment-7130412330)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139893902661,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds a CUDA-profiled NVFP4 MoE autotuning test: fresh AutoTuner, torch.profiler CUDA activity, GEMM2 fused-FINALIZE kernel detection, plus a shared helper running the real NVFP4 MoE path; GPU-free validation cannot observe kernel activity.\n\nEvidence: tests/moe/test_trtllm_cutlass_fused_moe.py, .github/workflows/pr-test.yml\n\nTest selection gap: No inspected CI lane provides SM100/SM103, so the new skipif-guarded profiling test would not execute on current PR lanes.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds a CUDA-profiled NVFP4 MoE autotuning test: fresh AutoTuner, torch.profiler CUDA activity, GEMM2 fused-FINALIZE kernel detection, plus a shared helper running the real NVFP4 MoE path; GPU-free validation cannot observe kernel activity.",
+          "evidence_paths": [
+            "tests/moe/test_trtllm_cutlass_fused_moe.py",
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "No inspected CI lane provides SM100/SM103, so the new skipif-guarded profiling test would not execute on current PR lanes.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893910618,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893902661,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893902661",
+        "head_sha": "69ac108c7994543ccd69cfa3a0087780ee5c1e79",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139893910618,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893910618",
+        "head_sha": "69ac108c7994543ccd69cfa3a0087780ee5c1e79",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815433682,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815433682",
+    "artifact_id": 15115800912
+  }
 }

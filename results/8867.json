@@ -33,6 +33,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_mla_value_gate): add an experimental fused MLA value projection + sigmoid gate",
   "formal_assessment": "correct_block",

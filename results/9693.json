@@ -19,23 +19,34 @@
       "first_line": "GitLab MR [!2973](https://nv/flashinfer/-/merge_requests/2973) has been created, and the CI pipeline [#83522322](https://nv/flashinfer-ci/-/pipelines/83522322) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947682437",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831058363",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947691807",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changes the CTA barrier-12 arrival predicate of the persistent PrimTS decode sink task to skip_work_tile_if; wrong behavior hangs the kernel on empty-KV requests, so only GPU execution validates it.",
+  "case_gap": "New persistent-sink inactive-request test body and its CI lane routing are unverified; no inspected test covers the barrier predicate.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI target has no inspected executable test candidate in the merged tree"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Persistent decode sink barriers and empty-KV queue predicates change; new CUDA tests exercise synchronization.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9693,
     "experiment_pr": 216,
@@ -69,5 +80,198 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9693.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9693,
+    "experiment_pr": 216,
+    "experiment_head": "d5e0d864e9089f7ef79a25068ec8714ab9b54d89",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "4433ef48d1eabaab82c7cdd33244aabedd810aa8",
+    "comparison_head_sha": "b966a5b24c6c942247000abd335c9a3cff83db6a",
+    "comment_snapshot_sha256": "8101bd32028f959602e805fae2992b0d706509c797f5a14ec15eb9c93c7ef632",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "518a24f73076563af060f9e98a04c6251890205d756d13f39601c7ca3a6a36d3",
+        "http_status": 400,
+        "seconds": 0.949
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "518a24f73076563af060f9e98a04c6251890205d756d13f39601c7ca3a6a36d3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1698,
+          "prompt_tokens": 102254,
+          "total_tokens": 103952,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1448,
+            "text_tokens": 250
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 101597,
+            "cache_creation_tokens": 101597,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 101597,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 101597,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.638
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "8e67c2df2da9a10ebcdbe08eda86e592b82df1376c6276a81926fd7719956b4a",
+        "http_status": 400,
+        "seconds": 1.027
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "8e67c2df2da9a10ebcdbe08eda86e592b82df1376c6276a81926fd7719956b4a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1742,
+          "prompt_tokens": 130204,
+          "total_tokens": 131946,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1349,
+            "text_tokens": 393
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 127703,
+            "cache_creation_tokens": 127703,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 127703,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 127703,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.052
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "8e67c2df2da9a10ebcdbe08eda86e592b82df1376c6276a81926fd7719956b4a",
+        "http_status": 400,
+        "seconds": 3.051
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "8e67c2df2da9a10ebcdbe08eda86e592b82df1376c6276a81926fd7719956b4a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1663,
+          "prompt_tokens": 130204,
+          "total_tokens": 131867,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1312,
+            "text_tokens": 351
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 130202,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 130202,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 29.231
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9693#issuecomment-7001872107)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139947682437,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes the CTA barrier-12 arrival predicate of the persistent PrimTS decode sink task to skip_work_tile_if; wrong behavior hangs the kernel on empty-KV requests, so only GPU execution validates it.\n\nEvidence: flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py, tests/attention/test_attention_ts_decode.py\n\nTest selection gap: New persistent-sink inactive-request test body and its CI lane routing are unverified; no inspected test covers the barrier predicate.\n\nAnalysis attempts:\n- default: AI target has no inspected executable test candidate in the merged tree\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes the CTA barrier-12 arrival predicate of the persistent PrimTS decode sink task to skip_work_tile_if; wrong behavior hangs the kernel on empty-KV requests, so only GPU execution validates it.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+            "tests/attention/test_attention_ts_decode.py"
+          ],
+          "case_gap": "New persistent-sink inactive-request test body and its CI lane routing are unverified; no inspected test covers the barrier predicate.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI target has no inspected executable test candidate in the merged tree"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139947691807,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139947682437,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947682437",
+        "head_sha": "d5e0d864e9089f7ef79a25068ec8714ab9b54d89",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139947691807,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947691807",
+        "head_sha": "d5e0d864e9089f7ef79a25068ec8714ab9b54d89",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831058363,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831058363",
+    "artifact_id": 15121898620
+  }
 }

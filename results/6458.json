@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/f845edb3ca60d763ba431ef224210a9087344fd6/experiments/source.json",
   "comment_snapshot_sha256": "2bc967f7fe071a8bb3a7e9deb1e4e451ecb41c32b0fa9a9623b5a7f7b12128d8",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "waiting_for_bot",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139948130194",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831174192",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139948130194",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "decode.py changes planner/backend gating (CUDA-core reject, cuDNN auto-route preservation, cuTile workspace_size gate), altering which decode kernels and workspaces run; needs GPU plan/run validation.",
+  "case_gap": "PR-added tests/utils/test_decode_split_contract.py is CPU-only and not routed by any inspected lane (A10G/T4 shard lists, CPU lane=tests/cpu, H100 lane never scheduled).",
+  "selected_tests": [
+    "tests/attention/test_batch_decode_kernels.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Stable decode backend/split-KV admission and preserved plan route change; CPU-only tests do not prove GPU dispatch/graph correctness.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 6458,
     "experiment_pr": 219,
@@ -63,5 +72,182 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6458.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 6458,
+    "experiment_pr": 219,
+    "experiment_head": "f845edb3ca60d763ba431ef224210a9087344fd6",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "820766cc90a2ac9492e086372e46212f88ed5e32",
+    "comparison_head_sha": "9e37595004d839e934a5444b4a71d6026034b136",
+    "comment_snapshot_sha256": "2bc967f7fe071a8bb3a7e9deb1e4e451ecb41c32b0fa9a9623b5a7f7b12128d8",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "4f4f7c1997c77264c85d229a7853f2e4b5c061652b7370350216fa414b6e413d",
+        "http_status": 400,
+        "seconds": 1.157
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "4f4f7c1997c77264c85d229a7853f2e4b5c061652b7370350216fa414b6e413d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1334,
+          "prompt_tokens": 111575,
+          "total_tokens": 112909,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1073,
+            "text_tokens": 261
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 110918,
+            "cache_creation_tokens": 110918,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 110918,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 110918,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.207
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "ce175f645aef36b2f1be76cb1c1044416d6e6dd2e196a15a4c642b06d133a83c",
+        "http_status": 400,
+        "seconds": 0.964
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "ce175f645aef36b2f1be76cb1c1044416d6e6dd2e196a15a4c642b06d133a83c",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2585,
+          "prompt_tokens": 145384,
+          "total_tokens": 147969,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2128,
+            "text_tokens": 457
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142883,
+            "cache_creation_tokens": 142883,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142883,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142883,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 35.987
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "waiting_for_bot",
+        "title": "Waiting for flashinfer-bot",
+        "summary": "decode.py changes planner/backend gating (CUDA-core reject, cuDNN auto-route preservation, cuTile workspace_size gate), altering which decode kernels and workspaces run; needs GPU plan/run validation.\n\nEvidence: flashinfer/decode.py, tests/attention/test_batch_decode_kernels.py, tests/utils/test_decode_split_contract.py\n\nSuggested tests: tests/attention/test_batch_decode_kernels.py\n\nPatch content unavailable (informational): tests/utils/test_decode_split_contract.py\n\nTest selection gap: PR-added tests/utils/test_decode_split_contract.py is CPU-only and not routed by any inspected lane (A10G/T4 shard lists, CPU lane=tests/cpu, H100 lane never scheduled).\n\nDetected [/bot run command](https://github.com/flashinfer-ai/flashinfer/pull/6458#issuecomment-6615626793); waiting for the bot response.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "decode.py changes planner/backend gating (CUDA-core reject, cuDNN auto-route preservation, cuTile workspace_size gate), altering which decode kernels and workspaces run; needs GPU plan/run validation.",
+          "evidence_paths": [
+            "flashinfer/decode.py",
+            "tests/attention/test_batch_decode_kernels.py",
+            "tests/utils/test_decode_split_contract.py"
+          ],
+          "case_gap": "PR-added tests/utils/test_decode_split_contract.py is CPU-only and not routed by any inspected lane (A10G/T4 shard lists, CPU lane=tests/cpu, H100 lane never scheduled).",
+          "missing_patch_paths": [
+            "tests/utils/test_decode_split_contract.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/attention/test_batch_decode_kernels.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139948130194,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "waiting_for_bot",
+        "title": "Waiting for flashinfer-bot",
+        "summary": "decode.py changes planner/backend gating (CUDA-core reject, cuDNN auto-route preservation, cuTile workspace_size gate), altering which decode kernels and workspaces run; needs GPU plan/run validation.\n\nEvidence: flashinfer/decode.py, tests/attention/test_batch_decode_kernels.py, tests/utils/test_decode_split_contract.py\n\nSuggested tests: tests/attention/test_batch_decode_kernels.py\n\nPatch content unavailable (informational): tests/utils/test_decode_split_contract.py\n\nTest selection gap: PR-added tests/utils/test_decode_split_contract.py is CPU-only and not routed by any inspected lane (A10G/T4 shard lists, CPU lane=tests/cpu, H100 lane never scheduled).\n\nDetected [/bot run command](https://github.com/flashinfer-ai/flashinfer/pull/6458#issuecomment-6615626793); waiting for the bot response.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "decode.py changes planner/backend gating (CUDA-core reject, cuDNN auto-route preservation, cuTile workspace_size gate), altering which decode kernels and workspaces run; needs GPU plan/run validation.",
+          "evidence_paths": [
+            "flashinfer/decode.py",
+            "tests/attention/test_batch_decode_kernels.py",
+            "tests/utils/test_decode_split_contract.py"
+          ],
+          "case_gap": "PR-added tests/utils/test_decode_split_contract.py is CPU-only and not routed by any inspected lane (A10G/T4 shard lists, CPU lane=tests/cpu, H100 lane never scheduled).",
+          "missing_patch_paths": [
+            "tests/utils/test_decode_split_contract.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/attention/test_batch_decode_kernels.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139948130194,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139948130194,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139948130194",
+        "head_sha": "f845edb3ca60d763ba431ef224210a9087344fd6",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831174192,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831174192",
+    "artifact_id": 15121418769
+  }
 }

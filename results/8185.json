@@ -26,6 +26,8 @@
   "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
   "formal_assessment": "correct_allow",

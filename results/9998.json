@@ -37,6 +37,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prim_ts) keep D512 grouped Keeps for decode planned at a long max_kv_len",
   "formal_assessment": "correct_allow",

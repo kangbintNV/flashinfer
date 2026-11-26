@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/f563e6d521c457e2f046365d2328a25ddf0756dc/experiments/source.json",
   "comment_snapshot_sha256": "2ef256cfe7a838f1cf9b76f045aafa268cb05429add8c86d764d292a17a5eb60",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947629631",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831040781",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947629631",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only docstring lines changed in flashinfer/gemm/gemm_base.py; kernel launch, scale conversion and dispatch logic (deep_gemm UE8M0 path) untouched, so no GPU validation is needed.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "DeepGEMM scale requirements and doctest import/continuation text inside Python docstrings; no runtime statement changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8889,
     "experiment_pr": 214,
@@ -63,5 +70,168 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8889.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8889,
+    "experiment_pr": 214,
+    "experiment_head": "f563e6d521c457e2f046365d2328a25ddf0756dc",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "6761139f6115954dbb96cdb110977910f4e64c60",
+    "comparison_head_sha": "9f29ff4883e481c119e1d1ba61e8112db5433034",
+    "comment_snapshot_sha256": "2ef256cfe7a838f1cf9b76f045aafa268cb05429add8c86d764d292a17a5eb60",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "d1d55cc3cb85824ba86f6921761b4f698e6d7ad16f08fb7ce8879f4ae10c7d82",
+        "http_status": 400,
+        "seconds": 0.998
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "d1d55cc3cb85824ba86f6921761b4f698e6d7ad16f08fb7ce8879f4ae10c7d82",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1407,
+          "prompt_tokens": 100464,
+          "total_tokens": 101871,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1185,
+            "text_tokens": 222
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99807,
+            "cache_creation_tokens": 99807,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99807,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99807,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.318
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "7365641d73cdbe59b311b8d25b1a0f0244fa4a338c09e0fff52e2d79f6007ccd",
+        "http_status": 400,
+        "seconds": 1.022
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "7365641d73cdbe59b311b8d25b1a0f0244fa4a338c09e0fff52e2d79f6007ccd",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 399,
+          "prompt_tokens": 140434,
+          "total_tokens": 140833,
+          "completion_tokens_details": {
+            "reasoning_tokens": 158,
+            "text_tokens": 241
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 137933,
+            "cache_creation_tokens": 137933,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 137933,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 137933,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 9.304
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only docstring lines changed in flashinfer/gemm/gemm_base.py; kernel launch, scale conversion and dispatch logic (deep_gemm UE8M0 path) untouched, so no GPU validation is needed.\n\nEvidence: flashinfer/gemm/gemm_base.py, flashinfer/deep_gemm.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only docstring lines changed in flashinfer/gemm/gemm_base.py; kernel launch, scale conversion and dispatch logic (deep_gemm UE8M0 path) untouched, so no GPU validation is needed.",
+          "evidence_paths": [
+            "flashinfer/gemm/gemm_base.py",
+            "flashinfer/deep_gemm.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139947629631,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only docstring lines changed in flashinfer/gemm/gemm_base.py; kernel launch, scale conversion and dispatch logic (deep_gemm UE8M0 path) untouched, so no GPU validation is needed.\n\nEvidence: flashinfer/gemm/gemm_base.py, flashinfer/deep_gemm.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only docstring lines changed in flashinfer/gemm/gemm_base.py; kernel launch, scale conversion and dispatch logic (deep_gemm UE8M0 path) untouched, so no GPU validation is needed.",
+          "evidence_paths": [
+            "flashinfer/gemm/gemm_base.py",
+            "flashinfer/deep_gemm.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139947629631,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139947629631,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947629631",
+        "head_sha": "f563e6d521c457e2f046365d2328a25ddf0756dc",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831040781,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831040781",
+    "artifact_id": 15121528723
+  }
 }

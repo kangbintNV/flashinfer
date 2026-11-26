@@ -39,6 +39,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "CUTLASS DSL setup resolves checkout-root paths; new subprocess/source-path regression is CPU-only.",
   "formal_assessment": "correct_allow",

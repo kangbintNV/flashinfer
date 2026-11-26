@@ -24,23 +24,33 @@
       "first_line": "GitLab MR [!3051](https://nv/flashinfer/-/merge_requests/3051) has been updated with latest changes, and the CI pipeline [#84900224](https://nv/flashinfer-ci/-/pipelines/84900224) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893888319",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815428248",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893897092",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Adds a Triton MXFP8 staging kernel writing device data/scale/swizzle buffers and a runtime fast-path gate in the SM107 shared-expert path; byte-exactness and CUDA-graph replay need GPU validation.",
+  "case_gap": "Selected tests require sm_107 hardware (and 2 GPUs for the layer test); non-Rubin CI lanes skip them, leaving the kernel unverified there.",
+  "selected_tests": [
+    "tests/moe_ep/test_sm107_shared_staging.py",
+    "tests/moe_ep/test_sm107_shared_expert.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe_ep): fuse SM107 shared-expert input staging",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9916,
     "experiment_pr": 133,
@@ -75,5 +85,157 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139379972198",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9916,
+    "experiment_pr": 133,
+    "experiment_head": "9e144a77bfda0192433e59cfb19071910a72b5bb",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a27e5791162bddfe4b59b2787a40b5a18be5352f",
+    "comparison_head_sha": "b48fe25cff8f184d61f77b5116aa21eb7d3d0f85",
+    "comment_snapshot_sha256": "6baac8dcc6dac2ff4c1518daa75277ac033697dfd520b59363ad56b5ff494af0",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "3b40dbcb366782536bcf5dc2c426c2ecbc37b5658fc0c280edbba11f0d507a33",
+        "http_status": 400,
+        "seconds": 2.111
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "3b40dbcb366782536bcf5dc2c426c2ecbc37b5658fc0c280edbba11f0d507a33",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1823,
+          "prompt_tokens": 116065,
+          "total_tokens": 117888,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1608,
+            "text_tokens": 215
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115408,
+            "cache_creation_tokens": 115408,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115408,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115408,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.961
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "c363db33518e3fa9aebc96a927af72f2dd9e9de452a1dd00f5230556c1e057ba",
+        "http_status": 400,
+        "seconds": 1.246
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "c363db33518e3fa9aebc96a927af72f2dd9e9de452a1dd00f5230556c1e057ba",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 629,
+          "prompt_tokens": 145023,
+          "total_tokens": 145652,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 629
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142522,
+            "cache_creation_tokens": 142522,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142522,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142522,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 11.096
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9916#issuecomment-7119623448)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139893888319,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds a Triton MXFP8 staging kernel writing device data/scale/swizzle buffers and a runtime fast-path gate in the SM107 shared-expert path; byte-exactness and CUDA-graph replay need GPU validation.\n\nEvidence: flashinfer/moe_ep/shims/sm107/cutedsl_megamoe/shared_staging.py, flashinfer/moe_ep/backends/mega/kernel/sm107/shared_expert.py, tests/moe_ep/test_sm107_shared_staging.py\n\nSuggested tests: tests/moe_ep/test_sm107_shared_staging.py, tests/moe_ep/test_sm107_shared_expert.py\n\nTest selection gap: Selected tests require sm_107 hardware (and 2 GPUs for the layer test); non-Rubin CI lanes skip them, leaving the kernel unverified there.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds a Triton MXFP8 staging kernel writing device data/scale/swizzle buffers and a runtime fast-path gate in the SM107 shared-expert path; byte-exactness and CUDA-graph replay need GPU validation.",
+          "evidence_paths": [
+            "flashinfer/moe_ep/shims/sm107/cutedsl_megamoe/shared_staging.py",
+            "flashinfer/moe_ep/backends/mega/kernel/sm107/shared_expert.py",
+            "tests/moe_ep/test_sm107_shared_staging.py"
+          ],
+          "case_gap": "Selected tests require sm_107 hardware (and 2 GPUs for the layer test); non-Rubin CI lanes skip them, leaving the kernel unverified there.",
+          "targets": [
+            "tests/moe_ep/test_sm107_shared_staging.py",
+            "tests/moe_ep/test_sm107_shared_expert.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139893897092,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893888319,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893888319",
+        "head_sha": "9e144a77bfda0192433e59cfb19071910a72b5bb",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139893897092,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893897092",
+        "head_sha": "9e144a77bfda0192433e59cfb19071910a72b5bb",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815428248,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815428248",
+    "artifact_id": 15115985805
+  }
 }

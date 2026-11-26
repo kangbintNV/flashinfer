@@ -33,6 +33,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "pending",
+  "static_review_correction": null,
   "static_expected": "pending",
   "static_reason": "New native Windows ARM64 wheel/JIT-provider driver and DLL layout validation; requires native build evidence to decide whether GPU-free validation sufficiently covers generated-provider integration.",
   "formal_assessment": "pending_review",

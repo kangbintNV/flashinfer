@@ -35,6 +35,8 @@
     }
   ],
   "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: [Experimental] Qwen 3.5 block: the Qwen3.8-27B dense attention layer as a validated member and the packed K|V pool binding (kv_layout=\"UNIFIED\")",
   "formal_assessment": "correct_block",

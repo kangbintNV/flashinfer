@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/abddbae9d0080ea276dda292982aad0020ff43a1/experiments/source.json",
   "comment_snapshot_sha256": "1b70a2e811f7d1dae05e5679a0c9217c110916c5e53f5a3bf1241c490dddee69",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139939580876",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828719270",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139939580876",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Replaced split-KV mainloop and reducer device programs (.cu), changed reducer dynamic shared memory 256-&gt;34048B and kernel symbols in the sm_100a binding, plus new auto offer rows routing shapes to Cake; needs Blackwell GPU numerics/launch validation.",
+  "case_gap": "Changed tests tests/attention/test_trtllm_gen_mla.py and tests/mla/test_cake_autotune_candidates_mla.py bodies not inspected (size limit); sm_103a binding not supplied.",
+  "selected_tests": [
+    "tests/mla"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(mla): Cake BF16 split-KV decode with a staged epilogue and a bulk-copy split reducer, and backend=\"auto\" split-KV offers (1.04x at batch 1, KV 16384 on B200)",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9834,
     "experiment_pr": 167,
@@ -64,5 +73,184 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386129914",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9834,
+    "experiment_pr": 167,
+    "experiment_head": "abddbae9d0080ea276dda292982aad0020ff43a1",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "9bd0a68c94687ad920d2de04284370397a073798",
+    "comparison_head_sha": "2b88f42e1f7fad4ddc7c7c7e2dbf099d2c0283e1",
+    "comment_snapshot_sha256": "1b70a2e811f7d1dae05e5679a0c9217c110916c5e53f5a3bf1241c490dddee69",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "83cf86bf67af8241d55fc40806d967ce9755997f53c6d9603a0dbeb4c3948506",
+        "http_status": 400,
+        "seconds": 1.667
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "83cf86bf67af8241d55fc40806d967ce9755997f53c6d9603a0dbeb4c3948506",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2129,
+          "prompt_tokens": 116345,
+          "total_tokens": 118474,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1959,
+            "text_tokens": 170
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115688,
+            "cache_creation_tokens": 115688,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115688,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115688,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 33.041
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "cc7f0faebb261aa43d9cc5da612d7ae117694012fa7d23e9efc0262b92028608",
+        "http_status": 400,
+        "seconds": 1.214
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "cc7f0faebb261aa43d9cc5da612d7ae117694012fa7d23e9efc0262b92028608",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1693,
+          "prompt_tokens": 139954,
+          "total_tokens": 141647,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1145,
+            "text_tokens": 548
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 137453,
+            "cache_creation_tokens": 137453,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 137453,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 137453,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.321
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Replaced split-KV mainloop and reducer device programs (.cu), changed reducer dynamic shared memory 256-&amp;gt;34048B and kernel symbols in the sm_100a binding, plus new auto offer rows routing shapes to Cake; needs Blackwell GPU numerics/launch validation.\n\nEvidence: csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu, flashinfer/mla/_core.py, tests/mla/test_cake_mla_splitkv.py\n\nSuggested tests: tests/mla\n\nPatch content unavailable (informational): csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu, csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_fbf16857022e32d4d9a9_kernel.cu\n\nTest selection gap: Changed tests tests/attention/test_trtllm_gen_mla.py and tests/mla/test_cake_autotune_candidates_mla.py bodies not inspected (size limit); sm_103a binding not supplied.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Replaced split-KV mainloop and reducer device programs (.cu), changed reducer dynamic shared memory 256-&gt;34048B and kernel symbols in the sm_100a binding, plus new auto offer rows routing shapes to Cake; needs Blackwell GPU numerics/launch validation.",
+          "evidence_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu",
+            "flashinfer/mla/_core.py",
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "case_gap": "Changed tests tests/attention/test_trtllm_gen_mla.py and tests/mla/test_cake_autotune_candidates_mla.py bodies not inspected (size limit); sm_103a binding not supplied.",
+          "missing_patch_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu",
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_fbf16857022e32d4d9a9_kernel.cu"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/mla"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139939580876,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Replaced split-KV mainloop and reducer device programs (.cu), changed reducer dynamic shared memory 256-&amp;gt;34048B and kernel symbols in the sm_100a binding, plus new auto offer rows routing shapes to Cake; needs Blackwell GPU numerics/launch validation.\n\nEvidence: csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu, flashinfer/mla/_core.py, tests/mla/test_cake_mla_splitkv.py\n\nSuggested tests: tests/mla\n\nPatch content unavailable (informational): csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu, csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_fbf16857022e32d4d9a9_kernel.cu\n\nTest selection gap: Changed tests tests/attention/test_trtllm_gen_mla.py and tests/mla/test_cake_autotune_candidates_mla.py bodies not inspected (size limit); sm_103a binding not supplied.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Replaced split-KV mainloop and reducer device programs (.cu), changed reducer dynamic shared memory 256-&gt;34048B and kernel symbols in the sm_100a binding, plus new auto offer rows routing shapes to Cake; needs Blackwell GPU numerics/launch validation.",
+          "evidence_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu",
+            "flashinfer/mla/_core.py",
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "case_gap": "Changed tests tests/attention/test_trtllm_gen_mla.py and tests/mla/test_cake_autotune_candidates_mla.py bodies not inspected (size limit); sm_103a binding not supplied.",
+          "missing_patch_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu",
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_fbf16857022e32d4d9a9_kernel.cu"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/mla"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139939580876,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139939580876,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139939580876",
+        "head_sha": "abddbae9d0080ea276dda292982aad0020ff43a1",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828719270,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828719270",
+    "artifact_id": 15122085722
+  }
 }

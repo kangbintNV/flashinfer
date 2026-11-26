@@ -24,23 +24,30 @@
       "first_line": "GitLab MR [!3043](https://nv/flashinfer/-/merge_requests/3043) has been created, and the CI pipeline [#84931211](https://nv/flashinfer-ci/-/pipelines/84931211) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895363058",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815866830",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895397913",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changed table routes homed sm_107a batch DeepGEMM FP8 weights to the masked pair GPU program from expected_m 128; PR also adds a CUDA kernel latency test. Kernel/program selection needs GPU validation.",
+  "case_gap": "Threshold-routing test body unavailable (file size limit); sm_107a-only tests are skipped on available A10G/T4/H100 lanes.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_batch_deepgemm_fp8): masked pair program for homed weights from expected_m 128 on sm_107a",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9885,
     "experiment_pr": 142,
@@ -75,5 +82,158 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139383352778",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9885,
+    "experiment_pr": 142,
+    "experiment_head": "740954ae89d5e44597bc5039596ec68663688551",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "4d5a6ce322587d247fb192f97a0d23eeba9e3412",
+    "comparison_head_sha": "28d638a8d9d37a6c9463441435756dd4af0201f4",
+    "comment_snapshot_sha256": "1c0c198218021fe46910e5c71a88951ca193c22ed97cdaa6717ab2a861fb9631",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "eb4b0f5de54730cc2d22a6bb96200e49110688b9393ba8079c76879e98fc9455",
+        "http_status": 400,
+        "seconds": 1.761
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "eb4b0f5de54730cc2d22a6bb96200e49110688b9393ba8079c76879e98fc9455",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1702,
+          "prompt_tokens": 107640,
+          "total_tokens": 109342,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1431,
+            "text_tokens": 271
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 106983,
+            "cache_creation_tokens": 106983,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 106983,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 106983,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.243
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "5d37d2bc4e07fe3284c67936d8a08e582c83ac00f1cf96a573f85b490d19b925",
+        "http_status": 400,
+        "seconds": 5.799
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "5d37d2bc4e07fe3284c67936d8a08e582c83ac00f1cf96a573f85b490d19b925",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1294,
+          "prompt_tokens": 140602,
+          "total_tokens": 141896,
+          "completion_tokens_details": {
+            "reasoning_tokens": 925,
+            "text_tokens": 369
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 138101,
+            "cache_creation_tokens": 138101,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 138101,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 138101,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.372
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9885#issuecomment-7122274355)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139895363058,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changed table routes homed sm_107a batch DeepGEMM FP8 weights to the masked pair GPU program from expected_m 128; PR also adds a CUDA kernel latency test. Kernel/program selection needs GPU validation.\n\nEvidence: flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py, tests/test_cake_locality_latency.py\n\nPatch content unavailable (informational): flashinfer/gemm/cake_batch_deepgemm_fp8.py, tests/test_cake_locality_latency.py\n\nTest selection gap: Threshold-routing test body unavailable (file size limit); sm_107a-only tests are skipped on available A10G/T4/H100 lanes.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changed table routes homed sm_107a batch DeepGEMM FP8 weights to the masked pair GPU program from expected_m 128; PR also adds a CUDA kernel latency test. Kernel/program selection needs GPU validation.",
+          "evidence_paths": [
+            "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/test_cake_locality_latency.py"
+          ],
+          "case_gap": "Threshold-routing test body unavailable (file size limit); sm_107a-only tests are skipped on available A10G/T4/H100 lanes.",
+          "missing_patch_paths": [
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+            "tests/test_cake_locality_latency.py"
+          ],
+          "missing_patch_count": 2,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139895397913,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139895363058,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139895363058",
+        "head_sha": "740954ae89d5e44597bc5039596ec68663688551",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139895397913,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139895397913",
+        "head_sha": "740954ae89d5e44597bc5039596ec68663688551",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815866830,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815866830",
+    "artifact_id": 15115177049
+  }
 }

@@ -19,23 +19,33 @@
       "first_line": "GitLab MR [!3026](https://nv/flashinfer/-/merge_requests/3026) has been created, and the CI pipeline [#84403267](https://nv/flashinfer-ci/-/pipelines/84403267) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896294349",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816134944",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896303699",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Knob-cache isolation changes which tuned MegaMoE tile/cluster knobs compile and launch; affected tests run Blackwell CuTeDSL kernels and symmetric workspace allocation, so GPU-free validation is insufficient",
+  "case_gap": "H100/Blackwell lane appears disabled in pr-test.yml matrix, so arch_blackwell cases may skip in CI",
+  "selected_tests": [
+    "tests/moe_ep/test_workspace_pool.py",
+    "tests/moe_ep/test_bf16_mxfp8_cutedsl_kernel_vs_reference.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(moe_ep): isolate MegaMoE tuning caches",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9813,
     "experiment_pr": 149,
@@ -70,5 +80,157 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384153154",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9813,
+    "experiment_pr": 149,
+    "experiment_head": "b89394d52d41ec306819b48a5069dd3b28716e3b",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a7ed3574386db659bd017381ebafdd9513723125",
+    "comparison_head_sha": "e58bf8e973da7fd98cb9dab7250357435dd0ed47",
+    "comment_snapshot_sha256": "69784b00d882eb4216a5ebf2e92bdb517a3bee8d6839ef1d08aceabf497336dd",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "a02bfc28a554c7267e12826976489207c1782a549b94fb3e9c1367d1459f3652",
+        "http_status": 400,
+        "seconds": 1.536
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "a02bfc28a554c7267e12826976489207c1782a549b94fb3e9c1367d1459f3652",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2382,
+          "prompt_tokens": 110224,
+          "total_tokens": 112606,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2126,
+            "text_tokens": 256
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 109567,
+            "cache_creation_tokens": 109567,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 109567,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 109567,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 31.088
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "f6198f815b6c81ee75d2dbafe34d126678f208d4489659889759b11e2a1c0a27",
+        "http_status": 400,
+        "seconds": 1.159
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "f6198f815b6c81ee75d2dbafe34d126678f208d4489659889759b11e2a1c0a27",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2081,
+          "prompt_tokens": 149483,
+          "total_tokens": 151564,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1456,
+            "text_tokens": 625
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 146982,
+            "cache_creation_tokens": 146982,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 146982,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 146982,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 29.047
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9813#issuecomment-7073352142)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139896294349,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Knob-cache isolation changes which tuned MegaMoE tile/cluster knobs compile and launch; affected tests run Blackwell CuTeDSL kernels and symmetric workspace allocation, so GPU-free validation is insufficient\n\nEvidence: tests/moe_ep/test_bf16_mxfp8_cutedsl_kernel_vs_reference.py, tests/moe_ep/test_workspace_pool.py, tests/moe_ep/test_knob_cache.py\n\nSuggested tests: tests/moe_ep/test_workspace_pool.py, tests/moe_ep/test_bf16_mxfp8_cutedsl_kernel_vs_reference.py\n\nTest selection gap: H100/Blackwell lane appears disabled in pr-test.yml matrix, so arch_blackwell cases may skip in CI\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Knob-cache isolation changes which tuned MegaMoE tile/cluster knobs compile and launch; affected tests run Blackwell CuTeDSL kernels and symmetric workspace allocation, so GPU-free validation is insufficient",
+          "evidence_paths": [
+            "tests/moe_ep/test_bf16_mxfp8_cutedsl_kernel_vs_reference.py",
+            "tests/moe_ep/test_workspace_pool.py",
+            "tests/moe_ep/test_knob_cache.py"
+          ],
+          "case_gap": "H100/Blackwell lane appears disabled in pr-test.yml matrix, so arch_blackwell cases may skip in CI",
+          "targets": [
+            "tests/moe_ep/test_workspace_pool.py",
+            "tests/moe_ep/test_bf16_mxfp8_cutedsl_kernel_vs_reference.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896303699,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139896294349,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896294349",
+        "head_sha": "b89394d52d41ec306819b48a5069dd3b28716e3b",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139896303699,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896303699",
+        "head_sha": "b89394d52d41ec306819b48a5069dd3b28716e3b",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816134944,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816134944",
+    "artifact_id": 15116421012
+  }
 }

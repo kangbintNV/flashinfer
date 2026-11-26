@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/0476911eccc4978ad2b98e8456df6b289be5c203/experiments/source.json",
   "comment_snapshot_sha256": "47acdbed0cce49a339b78e1cdc0828293ca6300b646a17dd385f011721dde653",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139949327921",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831514083",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139949327921",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Beyond docstrings, GegluTanh is added to _GATED_ACTIVATION_TYPES, changing is_gated_activation/ActivationConfig.is_gated used for MoE activation gating and weight/shape wiring in fused_moe dispatch.",
+  "case_gap": "No inspected GPU MoE test exercises GegluTanh now treated as gated in fused_moe dispatch/weight layout.",
+  "selected_tests": [
+    "tests/utils/test_tllm_enums.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "pending",
+  "static_review_correction": null,
   "static_expected": "pending",
   "static_reason": "The docs-titled PR also changes GegluTanh CPU enum/helper behavior. Current code consumes this in GEMM dimensions, but the pinned historical fused_moe/core.py does not show that consumer; GPU effect at this snapshot versus sufficient CPU utility tests needs owner confirmation.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "pending_review",
+  "classification_assessment": "pending_review",
   "source_audit": {
     "original_number": 3827,
     "experiment_pr": 225,
@@ -63,5 +72,172 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/3827.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 3827,
+    "experiment_pr": 225,
+    "experiment_head": "0476911eccc4978ad2b98e8456df6b289be5c203",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a0efa0adfe49bb836ab1a147d6572980b870f3d4",
+    "comparison_head_sha": "5b8da12050f80a5b5cb2bab9e87d9635a8872e5b",
+    "comment_snapshot_sha256": "47acdbed0cce49a339b78e1cdc0828293ca6300b646a17dd385f011721dde653",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "ed8457cd7ac4a906ba855a2ec7d1b79c91e38772d14d48f96640e9b044f2c88d",
+        "http_status": 400,
+        "seconds": 0.717
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "ed8457cd7ac4a906ba855a2ec7d1b79c91e38772d14d48f96640e9b044f2c88d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1224,
+          "prompt_tokens": 68383,
+          "total_tokens": 69607,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1046,
+            "text_tokens": 178
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 67726,
+            "cache_creation_tokens": 67726,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 67726,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 67726,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.358
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "da634a106d78ee31d0f63acb11631537a8c71210caacecba25cb6d863c76ab35",
+        "http_status": 400,
+        "seconds": 0.76
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "da634a106d78ee31d0f63acb11631537a8c71210caacecba25cb6d863c76ab35",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1262,
+          "prompt_tokens": 93154,
+          "total_tokens": 94416,
+          "completion_tokens_details": {
+            "reasoning_tokens": 889,
+            "text_tokens": 373
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 90653,
+            "cache_creation_tokens": 90653,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 90653,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 90653,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.351
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Beyond docstrings, GegluTanh is added to _GATED_ACTIVATION_TYPES, changing is_gated_activation/ActivationConfig.is_gated used for MoE activation gating and weight/shape wiring in fused_moe dispatch.\n\nEvidence: flashinfer/tllm_enums.py, flashinfer/fused_moe/api.py\n\nSuggested tests: tests/utils/test_tllm_enums.py\n\nTest selection gap: No inspected GPU MoE test exercises GegluTanh now treated as gated in fused_moe dispatch/weight layout.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Beyond docstrings, GegluTanh is added to _GATED_ACTIVATION_TYPES, changing is_gated_activation/ActivationConfig.is_gated used for MoE activation gating and weight/shape wiring in fused_moe dispatch.",
+          "evidence_paths": [
+            "flashinfer/tllm_enums.py",
+            "flashinfer/fused_moe/api.py"
+          ],
+          "case_gap": "No inspected GPU MoE test exercises GegluTanh now treated as gated in fused_moe dispatch/weight layout.",
+          "targets": [
+            "tests/utils/test_tllm_enums.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139949327921,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Beyond docstrings, GegluTanh is added to _GATED_ACTIVATION_TYPES, changing is_gated_activation/ActivationConfig.is_gated used for MoE activation gating and weight/shape wiring in fused_moe dispatch.\n\nEvidence: flashinfer/tllm_enums.py, flashinfer/fused_moe/api.py\n\nSuggested tests: tests/utils/test_tllm_enums.py\n\nTest selection gap: No inspected GPU MoE test exercises GegluTanh now treated as gated in fused_moe dispatch/weight layout.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Beyond docstrings, GegluTanh is added to _GATED_ACTIVATION_TYPES, changing is_gated_activation/ActivationConfig.is_gated used for MoE activation gating and weight/shape wiring in fused_moe dispatch.",
+          "evidence_paths": [
+            "flashinfer/tllm_enums.py",
+            "flashinfer/fused_moe/api.py"
+          ],
+          "case_gap": "No inspected GPU MoE test exercises GegluTanh now treated as gated in fused_moe dispatch/weight layout.",
+          "targets": [
+            "tests/utils/test_tllm_enums.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139949327921,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139949327921,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139949327921",
+        "head_sha": "0476911eccc4978ad2b98e8456df6b289be5c203",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831514083,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831514083",
+    "artifact_id": 15122018983
+  }
 }

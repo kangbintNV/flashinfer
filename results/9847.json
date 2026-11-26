@@ -19,23 +19,32 @@
       "first_line": "GitLab MR [!3031](https://nv/flashinfer/-/merge_requests/3031) has been created, and the CI pipeline [#84464446](https://nv/flashinfer-ci/-/pipelines/84464446) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938301869",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828342906",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938341249",
+  "classification": "cpu_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Change only alters how test files resolve provider manifests/benchmark pins (importlib.metadata fallback) plus a CPU regression test that avoids importing FlashInfer or CUDA; no kernel, JIT or dispatch path touched.",
+  "case_gap": "tests/moe_ep/test_provider_package.py itself is not routed on PR lanes (H100 lane disabled; A10G/T4 shards run no pytest target for it).",
+  "selected_tests": [
+    "tests/cpu/moe_ep/test_provider_package_isolation.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Provider data discovery switches to distribution metadata outside checkout; explicit isolated-layout CPU test avoids importing GPU dependencies.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9847,
     "experiment_pr": 157,
@@ -70,5 +79,155 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384991870",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9847,
+    "experiment_pr": 157,
+    "experiment_head": "42e9eb33335741842fc8cf6adb19900db5347654",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "57e5a38b76fe8e683fc540415c4c8c4a30bd6547",
+    "comparison_head_sha": "72831b42c320689f8f7ac323bc13a35fd82ee26b",
+    "comment_snapshot_sha256": "02ff04f845be2c1e65a4ce8acbaf9c995a4412ea0215306608cf68dab318ffae",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "8ff464eee8a04b386d7a10ff67758aee79e06cb5cadbd9fa253f4e3ebca3634b",
+        "http_status": 400,
+        "seconds": 1.529
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "8ff464eee8a04b386d7a10ff67758aee79e06cb5cadbd9fa253f4e3ebca3634b",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 998,
+          "prompt_tokens": 104362,
+          "total_tokens": 105360,
+          "completion_tokens_details": {
+            "reasoning_tokens": 779,
+            "text_tokens": 219
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "text_tokens": 2,
+            "cache_write_tokens": 104360,
+            "cache_creation_tokens": 104360,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 103705,
+              "ephemeral_1h_input_tokens": 655
+            }
+          },
+          "cache_creation_input_tokens": 104360,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 14.166
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "ee85232ae57e0010d9f2daaf7f809a3a10dbeb7d190b9745e546b3d995fcfc27",
+        "http_status": 400,
+        "seconds": 1.968
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "ee85232ae57e0010d9f2daaf7f809a3a10dbeb7d190b9745e546b3d995fcfc27",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1396,
+          "prompt_tokens": 124422,
+          "total_tokens": 125818,
+          "completion_tokens_details": {
+            "reasoning_tokens": 975,
+            "text_tokens": 421
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "text_tokens": 2,
+            "cache_write_tokens": 124420,
+            "cache_creation_tokens": 124420,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 121921,
+              "ephemeral_1h_input_tokens": 2499
+            }
+          },
+          "cache_creation_input_tokens": 124420,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 21.901
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9847#issuecomment-7077462090)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139938301869,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Change only alters how test files resolve provider manifests/benchmark pins (importlib.metadata fallback) plus a CPU regression test that avoids importing FlashInfer or CUDA; no kernel, JIT or dispatch path touched.\n\nEvidence: tests/moe_ep/test_provider_package.py, tests/cpu/moe_ep/test_provider_package_isolation.py\n\nSuggested tests: tests/cpu/moe_ep/test_provider_package_isolation.py\n\nTest selection gap: tests/moe_ep/test_provider_package.py itself is not routed on PR lanes (H100 lane disabled; A10G/T4 shards run no pytest target for it).",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Change only alters how test files resolve provider manifests/benchmark pins (importlib.metadata fallback) plus a CPU regression test that avoids importing FlashInfer or CUDA; no kernel, JIT or dispatch path touched.",
+          "evidence_paths": [
+            "tests/moe_ep/test_provider_package.py",
+            "tests/cpu/moe_ep/test_provider_package_isolation.py"
+          ],
+          "case_gap": "tests/moe_ep/test_provider_package.py itself is not routed on PR lanes (H100 lane disabled; A10G/T4 shards run no pytest target for it).",
+          "targets": [
+            "tests/cpu/moe_ep/test_provider_package_isolation.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139938341249,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139938301869,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938301869",
+        "head_sha": "42e9eb33335741842fc8cf6adb19900db5347654",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139938341249,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938341249",
+        "head_sha": "42e9eb33335741842fc8cf6adb19900db5347654",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828342906,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828342906",
+    "artifact_id": 15120589002
+  }
 }

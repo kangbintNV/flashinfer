@@ -31,6 +31,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Version metadata changes from 0.7.5 to 0.7.6; package-version validation is GPU-free.",
   "formal_assessment": "correct_allow",

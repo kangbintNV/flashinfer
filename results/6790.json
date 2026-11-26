@@ -44,6 +44,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mhc): add experimental mhc_pre_big_fuse_with_norm",
   "formal_assessment": "correct_allow",

@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!2919](https://nv/flashinfer/-/merge_requests/2919) has been created, and the CI pipeline [#82998637](https://nv/flashinfer-ci/-/pipelines/82998637) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940934015",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829092643",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940974162",
+  "classification": "docs_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Only comment text above fence_view_async_tmem_load changed; the inspected patch leaves tcgen05 fence/dealloc sequence and emitted kernel identical, so no GPU validation needed.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "Only a TMEM load/fence explanatory comment changes; executable AST unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9545,
     "experiment_pr": 172,
@@ -70,5 +77,152 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386663941",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9545,
+    "experiment_pr": 172,
+    "experiment_head": "57edaa9dee755af76ab3cf4502d13715adcb3745",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "74cb235c8be6d16adfb2b892f0d68f717fa2417a",
+    "comparison_head_sha": "b6829811010ebe41a4f7dc118b1b045199a44aff",
+    "comment_snapshot_sha256": "6c65dcabacb1d0cadf709fa78725469c1d3166a650ee21f168db0f37567223e6",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "a53726d83557709c312a02a7f400cd10f38227751525a0093300d88f51ed1d65",
+        "http_status": 400,
+        "seconds": 1.705
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "a53726d83557709c312a02a7f400cd10f38227751525a0093300d88f51ed1d65",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1067,
+          "prompt_tokens": 97121,
+          "total_tokens": 98188,
+          "completion_tokens_details": {
+            "reasoning_tokens": 825,
+            "text_tokens": 242
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 96464,
+            "cache_creation_tokens": 96464,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 96464,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 96464,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 14.458
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "29c5c117230e67ec6332e291f13167a2df7c6c8ebd91de46606f556dbbf1edba",
+        "http_status": 400,
+        "seconds": 0.756
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "29c5c117230e67ec6332e291f13167a2df7c6c8ebd91de46606f556dbbf1edba",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 228,
+          "prompt_tokens": 145370,
+          "total_tokens": 145598,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 228
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142869,
+            "cache_creation_tokens": 142869,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142869,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142869,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 6.743
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9545#issuecomment-6957693037)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139940934015,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only comment text above fence_view_async_tmem_load changed; the inspected patch leaves tcgen05 fence/dealloc sequence and emitted kernel identical, so no GPU validation needed.\n\nEvidence: flashinfer/gemm/kernels/tgv_gemm_cute_ext.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only comment text above fence_view_async_tmem_load changed; the inspected patch leaves tcgen05 fence/dealloc sequence and emitted kernel identical, so no GPU validation needed.",
+          "evidence_paths": [
+            "flashinfer/gemm/kernels/tgv_gemm_cute_ext.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940974162,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940934015,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940934015",
+        "head_sha": "57edaa9dee755af76ab3cf4502d13715adcb3745",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139940974162,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940974162",
+        "head_sha": "57edaa9dee755af76ab3cf4502d13715adcb3745",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829092643,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829092643",
+    "artifact_id": 15120744767
+  }
 }

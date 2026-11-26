@@ -29,23 +29,34 @@
       "first_line": "GitLab MR [!2978](https://nv/flashinfer/-/merge_requests/2978) has been updated with latest changes, and the CI pipeline [#83930903](https://nv/flashinfer-ci/-/pipelines/83930903) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139898194966",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816687586",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139898204597",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Adds SM100/103/107 CuTe DSL TF32 split-K kernel, PDL launches, cuBLAS/auto backend dispatch and tactic autotuning; correctness and sync need GPU execution",
+  "case_gap": "mm_tf32 fuzz adapter in tests/gemm/test_unified_gemm_fuzz.py not inspected (budget), so not selected despite covering new quant mode",
+  "selected_tests": [
+    "tests/gemm/test_mm_tf32.py",
+    "tests/gemm/test_mm_tf32_cute_dsl_splitk_sync.py",
+    "tests/trace/test_mm_tf32_reference_correctness.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): add fast tf32 router gemm",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9694,
     "experiment_pr": 156,
@@ -80,5 +91,169 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384928131",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9694,
+    "experiment_pr": 156,
+    "experiment_head": "f2094888de862f0842ab40c1589fbf8ee6d6b409",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "ec7210591017ef90487b2c028d57759cb0b87426",
+    "comparison_head_sha": "aad7568d18c5b15c9e65b80df450d97cd239bed2",
+    "comment_snapshot_sha256": "c4be6a36afb8ca45e205533d368b9eb3e26721e86f0c66dd5908487f0334a9d3",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "7e553db6607b85ab66e3648c9b69007249f39e70a40fefd69a6ec2d252a35eaa",
+        "http_status": 400,
+        "seconds": 1.332
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "7e553db6607b85ab66e3648c9b69007249f39e70a40fefd69a6ec2d252a35eaa",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2361,
+          "prompt_tokens": 121392,
+          "total_tokens": 123753,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2131,
+            "text_tokens": 230
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 120735,
+            "cache_creation_tokens": 120735,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 120735,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 120735,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 32.075
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "a908bc709b6160478be75154d9671de59fa0cf319750297f12cb132dd0badddb",
+        "http_status": 400,
+        "seconds": 1.13
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "a908bc709b6160478be75154d9671de59fa0cf319750297f12cb132dd0badddb",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1130,
+          "prompt_tokens": 143925,
+          "total_tokens": 145055,
+          "completion_tokens_details": {
+            "reasoning_tokens": 381,
+            "text_tokens": 749
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 141424,
+            "cache_creation_tokens": 141424,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 141424,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 141424,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 16.223
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9694#issuecomment-7035450417)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139898194966,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds SM100/103/107 CuTe DSL TF32 split-K kernel, PDL launches, cuBLAS/auto backend dispatch and tactic autotuning; correctness and sync need GPU execution\n\nEvidence: flashinfer/gemm/kernels/dense_tf32_gemm_sm100_splitk.py, tests/gemm/test_mm_tf32_cute_dsl_splitk_sync.py, flashinfer/gemm/gemm_base.py\n\nSuggested tests: tests/gemm/test_mm_tf32.py, tests/gemm/test_mm_tf32_cute_dsl_splitk_sync.py, tests/trace/test_mm_tf32_reference_correctness.py\n\nPatch content unavailable (informational): flashinfer/gemm/gemm_base.py, flashinfer/gemm/kernels/dense_tf32_gemm_sm100_splitk.py, tests/gemm/test_mm_tf32.py, tests/trace/fi_trace_out/gemm_tf32_N256_K8192.json\n\nTest selection gap: mm_tf32 fuzz adapter in tests/gemm/test_unified_gemm_fuzz.py not inspected (budget), so not selected despite covering new quant mode\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds SM100/103/107 CuTe DSL TF32 split-K kernel, PDL launches, cuBLAS/auto backend dispatch and tactic autotuning; correctness and sync need GPU execution",
+          "evidence_paths": [
+            "flashinfer/gemm/kernels/dense_tf32_gemm_sm100_splitk.py",
+            "tests/gemm/test_mm_tf32_cute_dsl_splitk_sync.py",
+            "flashinfer/gemm/gemm_base.py"
+          ],
+          "case_gap": "mm_tf32 fuzz adapter in tests/gemm/test_unified_gemm_fuzz.py not inspected (budget), so not selected despite covering new quant mode",
+          "filename_only_evidence": [
+            "flashinfer/gemm/gemm_base.py",
+            "flashinfer/gemm/kernels/dense_tf32_gemm_sm100_splitk.py"
+          ],
+          "missing_patch_paths": [
+            "flashinfer/gemm/gemm_base.py",
+            "flashinfer/gemm/kernels/dense_tf32_gemm_sm100_splitk.py",
+            "tests/gemm/test_mm_tf32.py",
+            "tests/trace/fi_trace_out/gemm_tf32_N256_K8192.json"
+          ],
+          "missing_patch_count": 4,
+          "targets": [
+            "tests/gemm/test_mm_tf32.py",
+            "tests/gemm/test_mm_tf32_cute_dsl_splitk_sync.py",
+            "tests/trace/test_mm_tf32_reference_correctness.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139898204597,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139898194966,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139898194966",
+        "head_sha": "f2094888de862f0842ab40c1589fbf8ee6d6b409",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139898204597,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139898204597",
+        "head_sha": "f2094888de862f0842ab40c1589fbf8ee6d6b409",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816687586,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816687586",
+    "artifact_id": 15116166921
+  }
 }

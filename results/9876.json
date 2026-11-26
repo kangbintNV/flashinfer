@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/f46c21fef5c04ec86b750fa9c576a3bf8cae52af/experiments/source.json",
   "comment_snapshot_sha256": "29430effcdf745263342f74364e8a5ad1ff63c29eb7e74f7f08047706818933b",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895409626",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815878328",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895409626",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Metadata CUDA kernel gains route_order counting-sort outputs, CLC work queue reorders routes, NVFP4 scale copies switch to TMA 2D gather4 TensorMaps, and plan adds balanced_scheduler/flat scale heads; only GPU execution validates correctness/perf.",
+  "case_gap": "Route-order scheduling and gather4 scale path coverage unverified: changed metadata test body and policy/metadata sources were not inspected.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): QToken NVFP4 prefill: gather4 scale copies, per-layout group policy and balanced CLC scheduling",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9876,
     "experiment_pr": 144,
@@ -64,5 +71,184 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139383655215",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9876,
+    "experiment_pr": 144,
+    "experiment_head": "f46c21fef5c04ec86b750fa9c576a3bf8cae52af",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "56e0befb07b47cb26048c368a2dad025f5dd1a8f",
+    "comparison_head_sha": "ee253d3713d34618f58d07279e9e0ff0570c9125",
+    "comment_snapshot_sha256": "29430effcdf745263342f74364e8a5ad1ff63c29eb7e74f7f08047706818933b",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "892ddfc5f2a000f8f9e7cbeb63c90816f93df075c308cacc221eaffc3a38c8d7",
+        "http_status": 400,
+        "seconds": 3.238
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "892ddfc5f2a000f8f9e7cbeb63c90816f93df075c308cacc221eaffc3a38c8d7",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1612,
+          "prompt_tokens": 114038,
+          "total_tokens": 115650,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1312,
+            "text_tokens": 300
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 113381,
+            "cache_creation_tokens": 113381,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 113381,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 113381,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.089
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "46ce9b083c962f19a44415aaf5c19657ec7e5140b12362a367aca43dfda6d480",
+        "http_status": 400,
+        "seconds": 1.018
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "46ce9b083c962f19a44415aaf5c19657ec7e5140b12362a367aca43dfda6d480",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1021,
+          "prompt_tokens": 134169,
+          "total_tokens": 135190,
+          "completion_tokens_details": {
+            "reasoning_tokens": 604,
+            "text_tokens": 417
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131668,
+            "cache_creation_tokens": 131668,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131668,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131668,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 16.209
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Metadata CUDA kernel gains route_order counting-sort outputs, CLC work queue reorders routes, NVFP4 scale copies switch to TMA 2D gather4 TensorMaps, and plan adds balanced_scheduler/flat scale heads; only GPU execution validates correctness/perf.\n\nEvidence: csrc/prims_ts_q_token_kv_block_sparse_metadata.cu, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: Route-order scheduling and gather4 scale path coverage unverified: changed metadata test body and policy/metadata sources were not inspected.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Metadata CUDA kernel gains route_order counting-sort outputs, CLC work queue reorders routes, NVFP4 scale copies switch to TMA 2D gather4 TensorMaps, and plan adds balanced_scheduler/flat scale heads; only GPU execution validates correctness/perf.",
+          "evidence_paths": [
+            "csrc/prims_ts_q_token_kv_block_sparse_metadata.cu",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py"
+          ],
+          "case_gap": "Route-order scheduling and gather4 scale path coverage unverified: changed metadata test body and policy/metadata sources were not inspected.",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+            "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+            "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+            "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+          ],
+          "missing_patch_count": 4,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139895409626,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Metadata CUDA kernel gains route_order counting-sort outputs, CLC work queue reorders routes, NVFP4 scale copies switch to TMA 2D gather4 TensorMaps, and plan adds balanced_scheduler/flat scale heads; only GPU execution validates correctness/perf.\n\nEvidence: csrc/prims_ts_q_token_kv_block_sparse_metadata.cu, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: Route-order scheduling and gather4 scale path coverage unverified: changed metadata test body and policy/metadata sources were not inspected.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Metadata CUDA kernel gains route_order counting-sort outputs, CLC work queue reorders routes, NVFP4 scale copies switch to TMA 2D gather4 TensorMaps, and plan adds balanced_scheduler/flat scale heads; only GPU execution validates correctness/perf.",
+          "evidence_paths": [
+            "csrc/prims_ts_q_token_kv_block_sparse_metadata.cu",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py"
+          ],
+          "case_gap": "Route-order scheduling and gather4 scale path coverage unverified: changed metadata test body and policy/metadata sources were not inspected.",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+            "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+            "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+            "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+          ],
+          "missing_patch_count": 4,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139895409626,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139895409626,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139895409626",
+        "head_sha": "f46c21fef5c04ec86b750fa9c576a3bf8cae52af",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815878328,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815878328",
+    "artifact_id": 15114987735
+  }
 }

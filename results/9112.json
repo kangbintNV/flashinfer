@@ -40,6 +40,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Adds device-side IPC spin deadlines and __trap in GPU synchronization loops, with multi-GPU missing-peer tests.",
   "formal_assessment": "correct_allow",

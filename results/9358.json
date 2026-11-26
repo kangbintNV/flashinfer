@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/94e36f832c6f50ea135bd45a7d65415eeab7cf3f/experiments/source.json",
   "comment_snapshot_sha256": "dd851990b43b48d060002206efa00345aa58f07386da8aa79a4178178c1f9c56",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940177037",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828891587",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940177037",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only .rst prose and docstring text changed (RoPE REPL prompts, Returns types, LSE/backend wording); signatures, defaults and kernel/dispatch code unchanged, so GPU-free validation suffices.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "API docstrings/RST/doctests only; inspected Python non-doc AST unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9358,
     "experiment_pr": 169,
@@ -64,5 +71,170 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386291979",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9358,
+    "experiment_pr": 169,
+    "experiment_head": "94e36f832c6f50ea135bd45a7d65415eeab7cf3f",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "639106be4e25aac87c3f6d32f381d7372e4edbf5",
+    "comparison_head_sha": "4d2951660568fde1d573df570baaab810975942e",
+    "comment_snapshot_sha256": "dd851990b43b48d060002206efa00345aa58f07386da8aa79a4178178c1f9c56",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "1946531bbbf7ef5d1c3438b73cc9801ae4a401c0377e6b2355c901460f2572b9",
+        "http_status": 400,
+        "seconds": 1.693
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "1946531bbbf7ef5d1c3438b73cc9801ae4a401c0377e6b2355c901460f2572b9",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2061,
+          "prompt_tokens": 116870,
+          "total_tokens": 118931,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1839,
+            "text_tokens": 222
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 116213,
+            "cache_creation_tokens": 116213,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 116213,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 116213,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 28.306
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "0375dd555196039ffcf3eb258629595b98b2140c3802716b147604270af45908",
+        "http_status": 400,
+        "seconds": 1.364
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "0375dd555196039ffcf3eb258629595b98b2140c3802716b147604270af45908",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 253,
+          "prompt_tokens": 143420,
+          "total_tokens": 143673,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 253
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140919,
+            "cache_creation_tokens": 140919,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140919,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140919,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 6.921
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only .rst prose and docstring text changed (RoPE REPL prompts, Returns types, LSE/backend wording); signatures, defaults and kernel/dispatch code unchanged, so GPU-free validation suffices.\n\nEvidence: docs/installation.rst, flashinfer/cake_fused_qk_rope_fp8_append.py, flashinfer/rope.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only .rst prose and docstring text changed (RoPE REPL prompts, Returns types, LSE/backend wording); signatures, defaults and kernel/dispatch code unchanged, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "docs/installation.rst",
+            "flashinfer/cake_fused_qk_rope_fp8_append.py",
+            "flashinfer/rope.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940177037,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only .rst prose and docstring text changed (RoPE REPL prompts, Returns types, LSE/backend wording); signatures, defaults and kernel/dispatch code unchanged, so GPU-free validation suffices.\n\nEvidence: docs/installation.rst, flashinfer/cake_fused_qk_rope_fp8_append.py, flashinfer/rope.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only .rst prose and docstring text changed (RoPE REPL prompts, Returns types, LSE/backend wording); signatures, defaults and kernel/dispatch code unchanged, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "docs/installation.rst",
+            "flashinfer/cake_fused_qk_rope_fp8_append.py",
+            "flashinfer/rope.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940177037,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940177037,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940177037",
+        "head_sha": "94e36f832c6f50ea135bd45a7d65415eeab7cf3f",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828891587,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828891587",
+    "artifact_id": 15121870911
+  }
 }

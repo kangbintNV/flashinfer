@@ -33,6 +33,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "pending",
+  "static_review_correction": null,
   "static_expected": "pending",
   "static_reason": "CI dependency constraint changes cuda-core binding selection. Confirm whether GPU-free environment/import validation suffices for the exact binding compatibility issue.",
   "formal_assessment": "pending_review",

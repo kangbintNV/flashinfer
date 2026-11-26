@@ -44,6 +44,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(gemm): swap-AB small-M tiles for the SM120 FP8 groupwise GEMM",
   "formal_assessment": "correct_allow",

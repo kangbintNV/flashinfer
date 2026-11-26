@@ -46,6 +46,8 @@
     }
   ],
   "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(sm120_dsa_indexer): DeepSeek-V4.1 decode in the paged form: strided page caches and candidate blocks",
   "formal_assessment": "correct_allow",

@@ -19,23 +19,34 @@
       "first_line": "GitLab MR [!3029](https://nv/flashinfer/-/merge_requests/3029) has been created, and the CI pipeline [#84450006](https://nv/flashinfer-ci/-/pipelines/84450006) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139897049996",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816345521",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139897057951",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Test now derives KV256 ring depth from device/compile-target SMEM budget and skips on native SM107, so its outcome depends on detected SM arch (10.0/10.3 vs 10.7) in prims_ts decode schedule building; arch-dependent validation is not GPU-free.",
+  "case_gap": "Changed test body uninspected (file size limit); routing of this file to any PR GPU lane unconfirmed (H100 tests/ lane disabled on PRs).",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "Test-only edit deriving KV256 ring depth from TOTAL_SMEM_BUDGET_KIB and skipping on is_sm107_compile_target; host-side schedule validation suggests CPU-checkable, but the uninspected test body leaves CUDA/device dependence unresolved."
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "pending",
+  "static_review_correction": null,
   "static_expected": "pending",
   "static_reason": "Test adjusts host SMEM over-capacity ring calculation and architecture skip. Need confirm GPU-free configuration validation versus actual device-dependent test requirements.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "pending_review",
   "source_audit": {
     "original_number": 9843,
     "experiment_pr": 155,
@@ -70,5 +81,198 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384899934",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9843,
+    "experiment_pr": 155,
+    "experiment_head": "44f85382e12b2b43704c9a4a148157ed07ecb2fe",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "e2d163fb3d46dfe251feba5b6652a08871f4a0b8",
+    "comparison_head_sha": "c33a65e250dcf1b89245eb388956ccc93cedfb33",
+    "comment_snapshot_sha256": "9bb872206ece9bbe4763d2e188ba4140700a3b84ebc90507eb8e2f8dbc6ec70c",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "95143724f37c14fd276ee6f85c0b7795298fb1454e272a6f0e8acdd30d4e35fa",
+        "http_status": 400,
+        "seconds": 1.079
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "95143724f37c14fd276ee6f85c0b7795298fb1454e272a6f0e8acdd30d4e35fa",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1212,
+          "prompt_tokens": 100643,
+          "total_tokens": 101855,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1032,
+            "text_tokens": 180
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99986,
+            "cache_creation_tokens": 99986,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99986,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99986,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.361
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b50853178dbbddd3d84fdf8010792de16970516a4dd40953986a46ba5f8a2bf3",
+        "http_status": 400,
+        "seconds": 1.511
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b50853178dbbddd3d84fdf8010792de16970516a4dd40953986a46ba5f8a2bf3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1487,
+          "prompt_tokens": 115413,
+          "total_tokens": 116900,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1201,
+            "text_tokens": 286
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 112912,
+            "cache_creation_tokens": 112912,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 112912,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 112912,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.992
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "b50853178dbbddd3d84fdf8010792de16970516a4dd40953986a46ba5f8a2bf3",
+        "http_status": 400,
+        "seconds": 3.211
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "b50853178dbbddd3d84fdf8010792de16970516a4dd40953986a46ba5f8a2bf3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1526,
+          "prompt_tokens": 115413,
+          "total_tokens": 116939,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1162,
+            "text_tokens": 364
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 115411,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 115411,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.547
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9843#issuecomment-7076551897)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139897049996,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Test now derives KV256 ring depth from device/compile-target SMEM budget and skips on native SM107, so its outcome depends on detected SM arch (10.0/10.3 vs 10.7) in prims_ts decode schedule building; arch-dependent validation is not GPU-free.\n\nEvidence: tests/attention/test_attention_ts_block_sparse.py, tests/attention/conftest.py\n\nTest selection gap: Changed test body uninspected (file size limit); routing of this file to any PR GPU lane unconfirmed (H100 tests/ lane disabled on PRs).\n\nAnalysis attempts:\n- default: Test-only edit deriving KV256 ring depth from TOTAL_SMEM_BUDGET_KIB and skipping on is_sm107_compile_target; host-side schedule validation suggests CPU-checkable, but the uninspected test body leaves CUDA/device dependence unresolved.\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Test now derives KV256 ring depth from device/compile-target SMEM budget and skips on native SM107, so its outcome depends on detected SM arch (10.0/10.3 vs 10.7) in prims_ts decode schedule building; arch-dependent validation is not GPU-free.",
+          "evidence_paths": [
+            "tests/attention/test_attention_ts_block_sparse.py",
+            "tests/attention/conftest.py"
+          ],
+          "case_gap": "Changed test body uninspected (file size limit); routing of this file to any PR GPU lane unconfirmed (H100 tests/ lane disabled on PRs).",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "Test-only edit deriving KV256 ring depth from TOTAL_SMEM_BUDGET_KIB and skipping on is_sm107_compile_target; host-side schedule validation suggests CPU-checkable, but the uninspected test body leaves CUDA/device dependence unresolved."
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139897057951,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139897049996,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139897049996",
+        "head_sha": "44f85382e12b2b43704c9a4a148157ed07ecb2fe",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139897057951,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139897057951",
+        "head_sha": "44f85382e12b2b43704c9a4a148157ed07ecb2fe",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816345521,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816345521",
+    "artifact_id": 15115762594
+  }
 }

@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/84d040ff7e1136da16f37107ceadff2434e8dea9/experiments/source.json",
   "comment_snapshot_sha256": "8a130c66a8da182d4b178c1688675f4970715825ec340704162569a2454686f2",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940198066",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828899369",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940198066",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Markdown guidance plus scripts/pr_checks static-analysis helpers (AGENT_GUIDANCE_DOCS list, per-doc path/env/arch scanning); no kernels, bindings, dispatch or JIT paths touched, so GPU-free validation suffices.",
+  "case_gap": "Agent-guidance scanner changes have no inspected unit test; validated only by the PR doc-check job.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Agent guidance plus standalone documentation-checker text/path scans; no GPU execution behavior changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9332,
     "experiment_pr": 170,
@@ -64,5 +71,182 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386376557",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9332,
+    "experiment_pr": 170,
+    "experiment_head": "84d040ff7e1136da16f37107ceadff2434e8dea9",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a4cd87cd731442a950c76003b0973c531f70054b",
+    "comparison_head_sha": "a7fbaec3ffc99a9fb518be42ef21da62a344348a",
+    "comment_snapshot_sha256": "8a130c66a8da182d4b178c1688675f4970715825ec340704162569a2454686f2",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "1a05e00ca43a72d806c1d9e272d50c2928add7f0aad4de131eee596adc82c116",
+        "http_status": 400,
+        "seconds": 1.193
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "1a05e00ca43a72d806c1d9e272d50c2928add7f0aad4de131eee596adc82c116",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2245,
+          "prompt_tokens": 116242,
+          "total_tokens": 118487,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2082,
+            "text_tokens": 163
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115585,
+            "cache_creation_tokens": 115585,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115585,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115585,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 31.219
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "f09c094b98c1e8b156ea8e95df89ace7c4850a644daf9786faf7ed6884ef857e",
+        "http_status": 400,
+        "seconds": 1.207
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "f09c094b98c1e8b156ea8e95df89ace7c4850a644daf9786faf7ed6884ef857e",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 327,
+          "prompt_tokens": 140273,
+          "total_tokens": 140600,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 327
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 137772,
+            "cache_creation_tokens": 137772,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 137772,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 137772,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 7.757
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Markdown guidance plus scripts/pr_checks static-analysis helpers (AGENT_GUIDANCE_DOCS list, per-doc path/env/arch scanning); no kernels, bindings, dispatch or JIT paths touched, so GPU-free validation suffices.\n\nEvidence: docs/code_review_guidance.md, scripts/pr_checks/check_cross_sources.py, scripts/pr_checks/configure_checks.py\n\nPatch content unavailable (informational): AGENTS.md, docs/development/environment_variables.md, docs/development/jit_and_build.md\n\nTest selection gap: Agent-guidance scanner changes have no inspected unit test; validated only by the PR doc-check job.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Markdown guidance plus scripts/pr_checks static-analysis helpers (AGENT_GUIDANCE_DOCS list, per-doc path/env/arch scanning); no kernels, bindings, dispatch or JIT paths touched, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "docs/code_review_guidance.md",
+            "scripts/pr_checks/check_cross_sources.py",
+            "scripts/pr_checks/configure_checks.py"
+          ],
+          "case_gap": "Agent-guidance scanner changes have no inspected unit test; validated only by the PR doc-check job.",
+          "missing_patch_paths": [
+            "AGENTS.md",
+            "docs/development/environment_variables.md",
+            "docs/development/jit_and_build.md"
+          ],
+          "missing_patch_count": 3,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940198066,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Markdown guidance plus scripts/pr_checks static-analysis helpers (AGENT_GUIDANCE_DOCS list, per-doc path/env/arch scanning); no kernels, bindings, dispatch or JIT paths touched, so GPU-free validation suffices.\n\nEvidence: docs/code_review_guidance.md, scripts/pr_checks/check_cross_sources.py, scripts/pr_checks/configure_checks.py\n\nPatch content unavailable (informational): AGENTS.md, docs/development/environment_variables.md, docs/development/jit_and_build.md\n\nTest selection gap: Agent-guidance scanner changes have no inspected unit test; validated only by the PR doc-check job.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Markdown guidance plus scripts/pr_checks static-analysis helpers (AGENT_GUIDANCE_DOCS list, per-doc path/env/arch scanning); no kernels, bindings, dispatch or JIT paths touched, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "docs/code_review_guidance.md",
+            "scripts/pr_checks/check_cross_sources.py",
+            "scripts/pr_checks/configure_checks.py"
+          ],
+          "case_gap": "Agent-guidance scanner changes have no inspected unit test; validated only by the PR doc-check job.",
+          "missing_patch_paths": [
+            "AGENTS.md",
+            "docs/development/environment_variables.md",
+            "docs/development/jit_and_build.md"
+          ],
+          "missing_patch_count": 3,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940198066,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940198066,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940198066",
+        "head_sha": "84d040ff7e1136da16f37107ceadff2434e8dea9",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828899369,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828899369",
+    "artifact_id": 15121986102
+  }
 }

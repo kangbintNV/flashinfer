@@ -13,23 +13,25 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/2e0925e94a9a00d1fa2ec5c0c522e47d9961cfce/experiments/source.json",
   "comment_snapshot_sha256": "ae963fccd6d3cc789d4bfa47fcff02d580c4022babe492c9d2df59d4ad015ec7",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940946518",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829118139",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940946518",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
+  "classification_reason": "Only Markdown/RST documentation changed.",
+  "case_gap": "",
+  "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "Autograd backend naming Markdown only.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8930,
     "experiment_pr": 175,
@@ -64,5 +66,65 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386914295",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8930,
+    "experiment_pr": 175,
+    "experiment_head": "2e0925e94a9a00d1fa2ec5c0c522e47d9961cfce",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "fe80f6b5447bb53f481e5f70fdc01ddc87caf82b",
+    "comparison_head_sha": "f273ff4cd926bf6dedcb8a5730c8590b300b9c3b",
+    "comment_snapshot_sha256": "ae963fccd6d3cc789d4bfa47fcff02d580c4022babe492c9d2df59d4ad015ec7",
+    "calls": [],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/training_backend_names.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "docs/training_backend_names.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139940946518,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/training_backend_names.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "docs/training_backend_names.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139940946518,
+        "model_call_indices": [],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940946518,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940946518",
+        "head_sha": "2e0925e94a9a00d1fa2ec5c0c522e47d9961cfce",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829118139,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829118139",
+    "artifact_id": 15121076588
+  }
 }

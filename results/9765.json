@@ -19,23 +19,32 @@
       "first_line": "GitLab MR [!3003](https://nv/flashinfer/-/merge_requests/3003) has been created, and the CI pipeline [#83916693](https://nv/flashinfer-ci/-/pipelines/83916693) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947652276",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831050421",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947692897",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Change alters cuDNN linear-attention graph output unpacking in the GDN/KDA prefill dispatch path; real FE graph build/execute and numerics need GPU, though the added test is CPU-only with fakes.",
+  "case_gap": "No selected GPU test re-validates real cuDNN FE 1.33 output ordering; tests/gdn cuDNN suites are gated on frontend availability.",
+  "selected_tests": [
+    "tests/cpu/kda/test_cudnn_linear_attention_contract.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "cuDNN FE linear-attention output binding accepts appended tensors; GPU graph/backend contract changes despite CPU mock tests.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9765,
     "experiment_pr": 215,
@@ -69,5 +78,156 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9765.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9765,
+    "experiment_pr": 215,
+    "experiment_head": "ac151840b3c78de1f2e5c8cdf498d245616d7838",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "3042c3d070da47d655cd7d486a6c3823d086e5b8",
+    "comparison_head_sha": "377335b87916a1d4a5d848cff376fd483648e6f9",
+    "comment_snapshot_sha256": "a1d98d86575f13909d406519619a8a873758e3de2e630346126d5f5c9c0a0f3d",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "70b185b4fa4d3d90e890a3ba659a4762a52d67bb15d87c3568649de781b9ade2",
+        "http_status": 400,
+        "seconds": 1.266
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "70b185b4fa4d3d90e890a3ba659a4762a52d67bb15d87c3568649de781b9ade2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1645,
+          "prompt_tokens": 106766,
+          "total_tokens": 108411,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1313,
+            "text_tokens": 332
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 106109,
+            "cache_creation_tokens": 106109,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 106109,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 106109,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.517
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "9b5ccb38fa89116d87f720d647ec03b215e1598a89a33665f62689575c12cbb9",
+        "http_status": 400,
+        "seconds": 1.201
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "9b5ccb38fa89116d87f720d647ec03b215e1598a89a33665f62689575c12cbb9",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 440,
+          "prompt_tokens": 142274,
+          "total_tokens": 142714,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 440
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 139773,
+            "cache_creation_tokens": 139773,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 139773,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 139773,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 8.011
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9765#issuecomment-7034104120)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139947652276,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Change alters cuDNN linear-attention graph output unpacking in the GDN/KDA prefill dispatch path; real FE graph build/execute and numerics need GPU, though the added test is CPU-only with fakes.\n\nEvidence: flashinfer/cudnn/linear_attention.py, tests/cpu/kda/test_cudnn_linear_attention_contract.py, tests/gdn/test_cudnn_auto_dispatch.py\n\nSuggested tests: tests/cpu/kda/test_cudnn_linear_attention_contract.py\n\nTest selection gap: No selected GPU test re-validates real cuDNN FE 1.33 output ordering; tests/gdn cuDNN suites are gated on frontend availability.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Change alters cuDNN linear-attention graph output unpacking in the GDN/KDA prefill dispatch path; real FE graph build/execute and numerics need GPU, though the added test is CPU-only with fakes.",
+          "evidence_paths": [
+            "flashinfer/cudnn/linear_attention.py",
+            "tests/cpu/kda/test_cudnn_linear_attention_contract.py",
+            "tests/gdn/test_cudnn_auto_dispatch.py"
+          ],
+          "case_gap": "No selected GPU test re-validates real cuDNN FE 1.33 output ordering; tests/gdn cuDNN suites are gated on frontend availability.",
+          "targets": [
+            "tests/cpu/kda/test_cudnn_linear_attention_contract.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139947692897,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139947652276,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947652276",
+        "head_sha": "ac151840b3c78de1f2e5c8cdf498d245616d7838",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139947692897,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947692897",
+        "head_sha": "ac151840b3c78de1f2e5c8cdf498d245616d7838",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831050421,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831050421",
+    "artifact_id": 15122797033
+  }
 }

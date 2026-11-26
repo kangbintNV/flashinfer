@@ -1,0 +1,1222 @@
+{
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "scope": "Actual native results only; static review is assistant assessment, not maintainer ground truth.",
+  "unknown_failure_stages": {
+    "gpu_evidence_validation": 4,
+    "requested_file_validation": 9
+  },
+  "cases": [
+    {
+      "original_number": 9989,
+      "experiment_pr": 131,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893850246",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893860250",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "GPU-impact evidence was not inspected",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "GPU-impact evidence was not inspected"
+        },
+        {
+          "effort": "minimal",
+          "error": "GPU-impact evidence was not inspected"
+        }
+      ],
+      "absent_requested_paths": [],
+      "failure_stage": "gpu_evidence_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds three sm_90a CUDA kernels/bindings plus build.json entries and changes SM90 launch/split planning and CUDA-graph-captured item tables; numerics and capture need H100 validation.",
+            "evidence_paths": [
+              "flashinfer/cake_gdp_backend/csrc/cake_gdp_446ecf26f72f95aacf84_kernel.cu",
+              "flashinfer/cake_gdp_backend/build.json",
+              "tests/gdp/test_cake_gdp_prefill_api.py"
+            ],
+            "case_gap": "Body of tests/gdp/test_cake_gdp_prefill.py (numerical SM90 coverage) not inspected; H100 lane currently disabled on PR events."
+          },
+          "selected_targets": [
+            "tests/gdp"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds three sm_90a split kernels/bindings plus build.json entries and changes SM90 dispatch to one launch per call with graph-capturable split tables; numerics and capture need an H100.",
+            "evidence_paths": [
+              "flashinfer/cake_gdp_backend/build.json",
+              "flashinfer/cake_gdp_backend/csrc/cake_gdp_446ecf26f72f95aacf84_kernel.cu",
+              "tests/gdp/test_cake_gdp_prefill_api.py"
+            ],
+            "case_gap": "Kernel-numerics body (tests/gdp/test_cake_gdp_prefill.py) not inspected (context budget), so split-vs-reference accuracy coverage is unverified."
+          },
+          "selected_targets": [
+            "tests/gdp"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9991,
+      "experiment_pr": 137,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894292574",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894327628",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "GPU-impact evidence was not inspected",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "GPU-impact evidence was not inspected"
+        },
+        {
+          "effort": "minimal",
+          "error": "GPU-impact evidence was not inspected"
+        }
+      ],
+      "absent_requested_paths": [],
+      "failure_stage": "gpu_evidence_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds SM100a/SM103a prefill kernels/bindings, state-pool slot indexing, BF16/FP16 state stores with Philox stochastic rounding and CUDA-graph replay paths; only device execution validates numerics",
+            "evidence_paths": [
+              "flashinfer/cake_gdp_backend/csrc/cake_gdp_0ad4bbaf5ef274640c3a_kernel.cu",
+              "flashinfer/gdp_prefill.py",
+              "tests/gdp/test_cake_gdp_prefill_state.py"
+            ],
+            "case_gap": "tests/gdn/test_cake_gdp_decode.py role-filter update not selected (body not inspected); H100 GPU lane appears disabled for PR runs"
+          },
+          "selected_targets": [
+            "tests/gdp",
+            "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "New SM100a/SM103a kernels and bindings, pooled/BF16/FP16 state stores, Philox stochastic rounding and CUDA-graph replay paths need device validation; only the host plan registry is CPU-checkable",
+            "evidence_paths": [
+              "flashinfer/gdp_prefill.py",
+              "tests/gdp/test_cake_gdp_prefill_state.py",
+              "flashinfer/cake_gdp_backend/csrc/cake_gdp_0ad4bbaf5ef274640c3a_kernel.cu"
+            ],
+            "case_gap": "Supplied CI lanes are A10G/T4/H100/CPU; no SM100/SM103 runner, so the new GPU state tests skip there"
+          },
+          "selected_targets": [
+            "tests/gdp",
+            "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9716,
+      "experiment_pr": 139,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894921593",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894932828",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
+      "reason": "Binding dtype checks switch to FP8 e4m3, sm_103a kernel moves griddepcontrol.launch_dependents to kernel start (PDL), and wrapper launches entries directly; launch/dtype behavior needs GPU validation.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI target has no inspected executable test candidate in the merged tree"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Binding dtype checks to float8_e4m3fn, kernel griddepcontrol/PDL change for __CUDA_ARCH__==1030, and wrapper launch/output allocation change require GPU execution to validate.",
+            "evidence_paths": [
+              "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e9c6917d77ff68ee48b9_kernel.cu",
+              "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_0c9c3d675b3afcbad4f5_binding.cu",
+              "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py"
+            ],
+            "case_gap": "sm_103a PDL tail-split route needs GB300 hardware; CI lanes (A10G/T4/H100) cannot execute these tests."
+          },
+          "selected_targets": [
+            "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py",
+            "tests/attention/test_cake_sage_block_sparse_attention_sm100.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Binding dtype checks switch to FP8 e4m3, sm_103a kernel moves griddepcontrol.launch_dependents to kernel start (PDL), and wrapper launches entries directly; launch/dtype behavior needs GPU validation.",
+            "evidence_paths": [
+              "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e9c6917d77ff68ee48b9_kernel.cu",
+              "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_0c9c3d675b3afcbad4f5_binding.cu",
+              "flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py"
+            ],
+            "case_gap": "PR-modified tests/attention/test_cake_sage_block_sparse_attention_sm100.py body unavailable; selected tests skip on non-sm100/103 CI hardware."
+          },
+          "selected_targets": [
+            "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9843,
+      "experiment_pr": 155,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139897049996",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139897057951",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "pending_review",
+      "reason": "Test now derives KV256 ring depth from device/compile-target SMEM budget and skips on native SM107, so its outcome depends on detected SM arch (10.0/10.3 vs 10.7) in prims_ts decode schedule building; arch-dependent validation is not GPU-free.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "Test-only edit deriving KV256 ring depth from TOTAL_SMEM_BUDGET_KIB and skipping on is_sm107_compile_target; host-side schedule validation suggests CPU-checkable, but the uninspected test body leaves CUDA/device dependence unresolved."
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "unknown",
+            "reason": "Test-only edit deriving KV256 ring depth from TOTAL_SMEM_BUDGET_KIB and skipping on is_sm107_compile_target; host-side schedule validation suggests CPU-checkable, but the uninspected test body leaves CUDA/device dependence unresolved.",
+            "evidence_paths": [
+              "tests/attention/test_attention_ts_block_sparse.py"
+            ],
+            "case_gap": "Test body unavailable (file size limit); device/compile-target requirements and CI lane routing for this file unverified."
+          },
+          "selected_targets": []
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Test now derives KV256 ring depth from device/compile-target SMEM budget and skips on native SM107, so its outcome depends on detected SM arch (10.0/10.3 vs 10.7) in prims_ts decode schedule building; arch-dependent validation is not GPU-free.",
+            "evidence_paths": [
+              "tests/attention/test_attention_ts_block_sparse.py",
+              "tests/attention/conftest.py"
+            ],
+            "case_gap": "Changed test body uninspected (file size limit); routing of this file to any PR GPU lane unconfirmed (H100 tests/ lane disabled on PRs)."
+          },
+          "selected_targets": []
+        }
+      ]
+    },
+    {
+      "original_number": 8464,
+      "experiment_pr": 173,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940973357",
+      "classification": "docs_only",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940982788",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
+      "reason": "Diff is limited to docs/api/*.rst and Python docstrings (e.g. NVFP4KVMaterializer.__init__ param docs, RMSNorm ``max(|dx|, rms(dx))`` literals); no kernel, launcher, dispatch or workspace behavior changes.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "docs_only",
+            "reason": "Diff is limited to docs/api/*.rst and Python docstrings (e.g. NVFP4KVMaterializer.__init__ param docs, RMSNorm ``max(|dx|, rms(dx))`` literals); no kernel, launcher, dispatch or workspace behavior changes.",
+            "evidence_paths": [
+              "docs/api/norm.rst",
+              "flashinfer/cake_rmsnorm_train.py",
+              "flashinfer/quantization/kernels/nvfp4_kv_materialize.py"
+            ],
+            "case_gap": ""
+          },
+          "selected_targets": []
+        }
+      ]
+    },
+    {
+      "original_number": 10036,
+      "experiment_pr": 199,
+      "formal_conclusion": "failure",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944440345",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944440345",
+      "reply_present": false,
+      "formal_assessment": "correct_block",
+      "classification_assessment": "match",
+      "reason": "Replaced Cake device kernel (.cu) for the &gt;32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI target has no inspected executable test candidate in the merged tree"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Replaced CUDA device program (wide BF16 split-KV reducer reading seq_lens, mbarrier/TMA, skipping empty splits) plus binding and family dependency rewiring; correctness/determinism needs Blackwell GPU.",
+            "evidence_paths": [
+              "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+              "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+              "tests/mla/test_cake_mla_splitkv.py"
+            ],
+            "case_gap": "Binding .cu patch not inspected (context budget); sm_103a binding file not shown, so GB300 route verified only via family flags."
+          },
+          "selected_targets": [
+            "tests/mla/test_cake_mla_splitkv.py",
+            "tests/attention/test_trtllm_gen_mla.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Replaced Cake device kernel (.cu) for the >32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.",
+            "evidence_paths": [
+              "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+              "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+              "tests/mla/test_cake_mla_splitkv.py"
+            ],
+            "case_gap": "Tests skip on non-Blackwell CI lanes (A10G/T4/H100); changed binding file and tests/attention/test_trtllm_gen_mla.py body not inspected."
+          },
+          "selected_targets": [
+            "tests/mla/test_cake_mla_splitkv.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9550,
+      "experiment_pr": 203,
+      "formal_conclusion": "failure",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945504095",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945504095",
+      "reply_present": false,
+      "formal_assessment": "correct_block",
+      "classification_assessment": "match",
+      "reason": "Adds caller-owned final_states buffer binding, explicit state_dtype validation, removal of per-shape final-state workspace and a 32-bit state-row guard in the Cake SSD kernel launch path; needs GPU numerics/allocation validation.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds caller-owned final_states buffer binding, explicit state_dtype validation, removal of per-shape final-state workspace and a 32-bit state-row guard in the Cake SSD kernel launch path; needs GPU numerics/allocation validation.",
+            "evidence_paths": [
+              "flashinfer/mamba/ssd_combined.py",
+              "flashinfer/mamba/cake_ssd_combined.py",
+              "flashinfer/trace/templates/mamba.py"
+            ],
+            "case_gap": "cake_ssd_combined.py patch and both changed mamba test bodies uninspected (patch_omitted/file size limit); kernel-binding coverage judged from filename and public API diff."
+          },
+          "selected_targets": []
+        }
+      ]
+    },
+    {
+      "original_number": 8081,
+      "experiment_pr": 205,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945539826",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945550958",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
+      "reason": "Changes device-side PTX memory-model ordering in a BF16 GEMM kernel: per-lane mbarrier empty-barrier arrives, cp.async.wait_all on loader exit, griddepcontrol.wait before PDL output/peer stores",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Changes device-side PTX memory-model ordering in a BF16 GEMM kernel: per-lane mbarrier empty-barrier arrives, cp.async.wait_all on loader exit, griddepcontrol.wait before PDL output/peer stores",
+            "evidence_paths": [
+              "flashinfer/gemm/kernels/dense_bf16_gemm_warp_splitk.py",
+              "tests/gemm/test_mm_bf16_warp_splitk_sync.py",
+              "tests/gemm/test_bf16_gemm_peer_store.py"
+            ],
+            "case_gap": "New test only inspects host-compiled PTX; runtime PDL/stage-reuse behavior needs SM100/103 execution, and cute-dsl cases skip on A10G/T4 lanes"
+          },
+          "selected_targets": [
+            "tests/gemm/test_mm_bf16_warp_splitk_sync.py",
+            "tests/gemm/test_mm_bf16.py",
+            "tests/gemm/test_bf16_gemm_peer_store.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9478,
+      "experiment_pr": 213,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947640376",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947682971",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "mismatch",
+      "reason": "_LIBC malloc/free backs device_view DLPack capsules wrapping CUDA pointers for the Cake Ulysses all-to-all handle; allocator pairing/lifetime affects GPU tensor views, not just import.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "_LIBC malloc/free backs device_view DLPack capsules wrapping CUDA pointers for the Cake Ulysses all-to-all handle; allocator pairing/lifetime affects GPU tensor views, not just import.",
+            "evidence_paths": [
+              "flashinfer/cake_ulysses_backend/cake_backend.py"
+            ],
+            "case_gap": "No inspected test exercises device_view/CakeUlyssesA2A launches on the Windows ucrtbase branch; tests/comm/test_cake_ulysses_a2a.py uninspected."
+          },
+          "selected_targets": [
+            "tests/cpu/cake/test_cake_packages_standalone.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9693,
+      "experiment_pr": 216,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947682437",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947691807",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
+      "reason": "Changes the CTA barrier-12 arrival predicate of the persistent PrimTS decode sink task to skip_work_tile_if; wrong behavior hangs the kernel on empty-KV requests, so only GPU execution validates it.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI target has no inspected executable test candidate in the merged tree"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Changes CTA barrier 12 arrival predicate in persistent PrimTS decode scheduler task; wrong predicate deadlocks the kernel on GPU, so only device execution validates it",
+            "evidence_paths": [
+              "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+              "tests/attention/test_attention_ts_decode.py"
+            ],
+            "case_gap": "Kernel file body not inspected (size limit); CI lanes routing this decode test are disabled/absent on PRs"
+          },
+          "selected_targets": [
+            "tests/attention/test_attention_ts_decode.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Changes the CTA barrier-12 arrival predicate of the persistent PrimTS decode sink task to skip_work_tile_if; wrong behavior hangs the kernel on empty-KV requests, so only GPU execution validates it.",
+            "evidence_paths": [
+              "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+              "tests/attention/test_attention_ts_decode.py"
+            ],
+            "case_gap": "New persistent-sink inactive-request test body and its CI lane routing are unverified; no inspected test covers the barrier predicate."
+          },
+          "selected_targets": []
+        }
+      ]
+    },
+    {
+      "original_number": 8433,
+      "experiment_pr": 221,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139948628562",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139948638945",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/jit_test_logging.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part2.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part3.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part4.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part5.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_t4.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 8932,
+      "experiment_pr": 223,
+      "formal_conclusion": "failure",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139948700294",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139948700294",
+      "reply_present": false,
+      "formal_assessment": "false_block",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 8036,
+      "experiment_pr": 239,
+      "formal_conclusion": "failure",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888155076",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888155076",
+      "reply_present": false,
+      "formal_assessment": "correct_block",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/jit_test_logging.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 8740,
+      "experiment_pr": 245,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888471999",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888484104",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/jit_test_logging.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part2.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part3.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part4.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part5.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_t4.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 8479,
+      "experiment_pr": 247,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888698666",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888733199",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/jit_test_logging.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 5545,
+      "experiment_pr": 253,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889392355",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139889401889",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "GPU-impact evidence was not inspected",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "GPU-impact evidence was not inspected"
+        },
+        {
+          "effort": "minimal",
+          "error": "GPU-impact evidence was not inspected"
+        }
+      ],
+      "absent_requested_paths": [],
+      "failure_stage": "gpu_evidence_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "New SM120 NVFP4 attention kernel (mma.sync mxf4nvf4), JIT spec, workspace/plan tables and BF16 output path; numerical correctness needs GB202 GPU execution",
+            "evidence_paths": [
+              "csrc/cake_minimax_h3_sm120_nvfp4_varlen_attention_sm120a.cu",
+              "flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py",
+              "tests/diffusion_ops/test_minimax_h3_sm120_nvfp4_varlen_attention.py"
+            ],
+            "case_gap": "CUDA source judged from filename/JIT spec (not inspected, size limit); SM120 hardware may be absent in listed CI lanes, so tests would skip."
+          },
+          "selected_targets": [
+            "tests/diffusion_ops/test_minimax_h3_sm120_nvfp4_varlen_attention.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "New SM120 NVFP4 attention CUDA kernel, JIT spec, workspace/plan bindings and block-scaled mma paths; numerical correctness needs GB202 GPU execution",
+            "evidence_paths": [
+              "csrc/cake_minimax_h3_sm120_nvfp4_varlen_attention_sm120a.cu",
+              "flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py",
+              "tests/diffusion_ops/test_minimax_h3_sm120_nvfp4_varlen_attention.py"
+            ],
+            "case_gap": ".cu kernel body not inspected (file size limit); CI lanes listed (A10G/T4/H100) show no SM120 runner, so tests likely skip"
+          },
+          "selected_targets": [
+            "tests/diffusion_ops/test_minimax_h3_sm120_nvfp4_varlen_attention.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9679,
+      "experiment_pr": 257,
+      "formal_conclusion": "failure",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890024071",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890024071",
+      "reply_present": false,
+      "formal_assessment": "correct_block",
+      "classification_assessment": "analysis_failure",
+      "reason": "GPU-impact evidence was not inspected",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "GPU-impact evidence was not inspected"
+        },
+        {
+          "effort": "minimal",
+          "error": "GPU-impact evidence was not inspected"
+        }
+      ],
+      "absent_requested_paths": [],
+      "failure_stage": "gpu_evidence_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds four sm_107a state-slot CUDA programs (claim/wrap, bf16/f32) and changes slot-call program routing with in-place state-pool reads/writes; kernel selection and numerics need GPU validation.",
+            "evidence_paths": [
+              "csrc/cake_mamba_ssd_combined/generated/device/mamba_ssd_q_tmem_alias_f32_varlen_precomputed_claim_slots_2a9deab04e.cu",
+              "flashinfer/mamba/cake_ssd_combined.py",
+              "tests/cpu/mamba/test_cake_ssd_combined_rubin_wrap.py"
+            ],
+            "case_gap": "GPU numerical coverage of new slot claim/wrap programs likely in tests/mamba/test_cake_ssd_combined_state_slots.py; body not inspected, so not selectable."
+          },
+          "selected_targets": [
+            "tests/cpu/mamba/test_cake_ssd_combined_rubin_wrap.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds four generated sm_107a CUDA device programs for state-slot claim/wrap and changes Cake SSD dispatch/launch in cake_ssd_combined.py; kernel selection, in-place state-pool writes and CUDA-graph capture need GPU validation.",
+            "evidence_paths": [
+              "csrc/cake_mamba_ssd_combined/generated/device/mamba_ssd_q_tmem_alias_f32_varlen_precomputed_claim_slots_2a9deab04e.cu",
+              "flashinfer/mamba/cake_ssd_combined.py",
+              "tests/mamba/test_cake_ssd_combined.py"
+            ],
+            "case_gap": "Changed GPU test tests/mamba/test_cake_ssd_combined_state_slots.py body was not supplied (size limit), so slot-program numerics coverage is unverified."
+          },
+          "selected_targets": [
+            "tests/cpu/mamba/test_cake_ssd_combined_rubin_wrap.py",
+            "tests/cpu/mamba/test_cake_ssd_combined_rubin_claim.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9379,
+      "experiment_pr": 260,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890638037",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890646691",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part2.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part3.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part4.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part5.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 8002,
+      "experiment_pr": 261,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890645042",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890654321",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/jit_test_logging.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part2.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part3.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part4.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part5.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_t4.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 9628,
+      "experiment_pr": 264,
+      "formal_conclusion": "failure",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890948393",
+      "classification": "gpu_required",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139890948393",
+      "reply_present": false,
+      "formal_assessment": "correct_block",
+      "classification_assessment": "match",
+      "reason": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "GPU-impact evidence was not inspected"
+        },
+        {
+          "effort": "minimal",
+          "success": true
+        }
+      ],
+      "raw_final_gpu_outputs": [
+        {
+          "response_file": "call-4-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "Adds SM103 CUDA kernels/bindings, JIT program specs, host planner with workspaces, grids, CUDA-graph pinned plans and a new prefill dispatch route; correctness needs GPU execution.",
+            "evidence_paths": [
+              "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+              "flashinfer/jit/cake_gdn_affine_split.py",
+              "tests/gdn/test_cake_gdn_affine_split.py"
+            ],
+            "case_gap": "GPU test requires sm_103a; standard CI lanes (A10G/T4/H100) would skip it, leaving kernel paths unvalidated in CI."
+          },
+          "selected_targets": [
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+            "tests/gdn/test_cake_gdn_affine_split.py"
+          ]
+        },
+        {
+          "response_file": "call-6-response.json",
+          "gpu_impact": {
+            "classification": "gpu_required",
+            "reason": "New SM103 Cake GDN affine-split prefill adds CUDA kernels/bindings, JIT program specs, workspace/plan allocation, CUDA-graph capture and dispatch; numerical and graph behavior needs GPU validation.",
+            "evidence_paths": [
+              "flashinfer/jit/cake_gdn_affine_split.py",
+              "flashinfer/gdn_kernels/blackwell/__init__.py",
+              "tests/gdn/test_cake_gdn_affine_split.py"
+            ],
+            "case_gap": "Kernel/binding .cu bodies and gdn_prefill.py patch were budget/size omitted; GPU relevance judged from filenames and inspected specs/tests."
+          },
+          "selected_targets": [
+            "tests/gdn/test_cake_gdn_affine_split.py",
+            "tests/cpu/gdn/test_cake_gdn_affine_split.py"
+          ]
+        }
+      ]
+    },
+    {
+      "original_number": 9329,
+      "experiment_pr": 267,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891528607",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891537601",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/jit_test_logging.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part2.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part3.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part4.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part5.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_t4.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    },
+    {
+      "original_number": 9493,
+      "experiment_pr": 269,
+      "formal_conclusion": "success",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891919978",
+      "classification": "unknown",
+      "diagnostic_check_url": "https://github.com/kangbintNV/flashinfer/runs/139891954821",
+      "reply_present": true,
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "analysis_failure",
+      "reason": "AI requested a file outside the supplied repository inventory",
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "error": "AI requested a file outside the supplied repository inventory"
+        },
+        {
+          "effort": "minimal",
+          "error": "AI requested a file outside the supplied repository inventory"
+        }
+      ],
+      "absent_requested_paths": [
+        {
+          "path": "scripts/infra/task_jit_run_tests_part1.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part2.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part3.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part4.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_part5.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_jit_run_tests_t4.sh",
+          "referenced_by_current_trusted_ci": true,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/task_run_unit_tests.sh",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        },
+        {
+          "path": "scripts/infra/unit_test_runner.py",
+          "referenced_by_current_trusted_ci": false,
+          "old_scripts_prefix_exists": true
+        }
+      ],
+      "failure_stage": "requested_file_validation",
+      "validated_gpu_impact_discarded_by_target_error": false,
+      "raw_final_gpu_outputs": []
+    }
+  ]
+}

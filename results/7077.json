@@ -13,23 +13,41 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/e8befc7799453772c0a57c086df4dcf6b9c34a91/experiments/source.json",
   "comment_snapshot_sha256": "345bc88afa5a1dd3c3e00e599ab756f34d1bfdf87579b69bc7b4298bcb32e477",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942699848",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829606704",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942699848",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "cake_autograd drops custom-op/fake-op registration around the three GPU grouped-GEMM launch wrappers and cake_backend/__init__ rebind experimental helpers used on kernel entry paths; GPU-free checks cover only import/warning behavior",
+  "case_gap": "New standalone test is CPU-only; GPU re-validation of fwd/dgrad/wgrad autograd path after decorator removal relies on existing backend suite",
+  "selected_tests": [
+    "tests/experimental/test_cake_moe_grouped_gemm_standalone.py",
+    "tests/experimental/test_cake_moe_grouped_gemm.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
-  "static_expected": "cpu_only",
-  "static_reason": "Experimental module import guard and GPU-free standalone-import test; no kernel or device contract change.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": {
+    "original_number": 7077,
+    "initial_expected": "cpu_only",
+    "corrected_expected": "gpu_required",
+    "reason": "Full diff includes removal of register_custom_op/register_fake_op around fwd/dgrad/wgrad GPU launch wrappers. The initial review focused on import guards and CPU standalone tests and missed this GPU integration change.",
+    "source_commit": "24c21c0ba1f1c7079a2dbcab482b128f8befe24c",
+    "source_path": "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+    "changed_checker_or_native_result": false
+  },
+  "static_expected": "gpu_required",
+  "static_reason": "Besides import guards/CPU tests, cake_autograd removes custom-op and fake-op registration for GPU fwd/dgrad/wgrad launch wrappers and calls them as plain functions. This affects tracing/autograd integration and requires GPU validation.",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 7077,
     "experiment_pr": 188,
@@ -63,5 +81,184 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7077.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 7077,
+    "experiment_pr": 188,
+    "experiment_head": "e8befc7799453772c0a57c086df4dcf6b9c34a91",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "420c0e7b17cb75b3632088bbd9444de40d782f29",
+    "comparison_head_sha": "24c21c0ba1f1c7079a2dbcab482b128f8befe24c",
+    "comment_snapshot_sha256": "345bc88afa5a1dd3c3e00e599ab756f34d1bfdf87579b69bc7b4298bcb32e477",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "c8907e601f8387b8bf834a8c7fe5f8bb9a43257c50ae1088c4b131bad109cae3",
+        "http_status": 400,
+        "seconds": 0.927
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "c8907e601f8387b8bf834a8c7fe5f8bb9a43257c50ae1088c4b131bad109cae3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1415,
+          "prompt_tokens": 116524,
+          "total_tokens": 117939,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1136,
+            "text_tokens": 279
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115867,
+            "cache_creation_tokens": 115867,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115867,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115867,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.228
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b302abf0a8fc4d47c47c409bd336f6ea55c189e5f49137b041296914bc8612a4",
+        "http_status": 400,
+        "seconds": 1.117
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b302abf0a8fc4d47c47c409bd336f6ea55c189e5f49137b041296914bc8612a4",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1892,
+          "prompt_tokens": 141868,
+          "total_tokens": 143760,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1228,
+            "text_tokens": 664
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 139367,
+            "cache_creation_tokens": 139367,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 139367,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 139367,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 28.577
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "cake_autograd drops custom-op/fake-op registration around the three GPU grouped-GEMM launch wrappers and cake_backend/__init__ rebind experimental helpers used on kernel entry paths; GPU-free checks cover only import/warning behavior\n\nEvidence: flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py, flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py, tests/experimental/test_cake_moe_grouped_gemm.py\n\nSuggested tests: tests/experimental/test_cake_moe_grouped_gemm_standalone.py, tests/experimental/test_cake_moe_grouped_gemm.py\n\nPatch content unavailable (informational): tests/experimental/test_cake_moe_grouped_gemm_standalone.py\n\nTest selection gap: New standalone test is CPU-only; GPU re-validation of fwd/dgrad/wgrad autograd path after decorator removal relies on existing backend suite\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "cake_autograd drops custom-op/fake-op registration around the three GPU grouped-GEMM launch wrappers and cake_backend/__init__ rebind experimental helpers used on kernel entry paths; GPU-free checks cover only import/warning behavior",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+            "flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py",
+            "tests/experimental/test_cake_moe_grouped_gemm.py"
+          ],
+          "case_gap": "New standalone test is CPU-only; GPU re-validation of fwd/dgrad/wgrad autograd path after decorator removal relies on existing backend suite",
+          "missing_patch_paths": [
+            "tests/experimental/test_cake_moe_grouped_gemm_standalone.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/experimental/test_cake_moe_grouped_gemm_standalone.py",
+            "tests/experimental/test_cake_moe_grouped_gemm.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942699848,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "cake_autograd drops custom-op/fake-op registration around the three GPU grouped-GEMM launch wrappers and cake_backend/__init__ rebind experimental helpers used on kernel entry paths; GPU-free checks cover only import/warning behavior\n\nEvidence: flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py, flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py, tests/experimental/test_cake_moe_grouped_gemm.py\n\nSuggested tests: tests/experimental/test_cake_moe_grouped_gemm_standalone.py, tests/experimental/test_cake_moe_grouped_gemm.py\n\nPatch content unavailable (informational): tests/experimental/test_cake_moe_grouped_gemm_standalone.py\n\nTest selection gap: New standalone test is CPU-only; GPU re-validation of fwd/dgrad/wgrad autograd path after decorator removal relies on existing backend suite\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "cake_autograd drops custom-op/fake-op registration around the three GPU grouped-GEMM launch wrappers and cake_backend/__init__ rebind experimental helpers used on kernel entry paths; GPU-free checks cover only import/warning behavior",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+            "flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py",
+            "tests/experimental/test_cake_moe_grouped_gemm.py"
+          ],
+          "case_gap": "New standalone test is CPU-only; GPU re-validation of fwd/dgrad/wgrad autograd path after decorator removal relies on existing backend suite",
+          "missing_patch_paths": [
+            "tests/experimental/test_cake_moe_grouped_gemm_standalone.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/experimental/test_cake_moe_grouped_gemm_standalone.py",
+            "tests/experimental/test_cake_moe_grouped_gemm.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942699848,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139942699848,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942699848",
+        "head_sha": "e8befc7799453772c0a57c086df4dcf6b9c34a91",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829606704,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829606704",
+    "artifact_id": 15122396316
+  }
 }

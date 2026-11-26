@@ -19,23 +19,32 @@
       "first_line": "GitLab MR [!2993](https://nv/flashinfer/-/merge_requests/2993) has been created, and the CI pipeline [#83790057](https://nv/flashinfer-ci/-/pipelines/83790057) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942594933",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829577431",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942605778",
+  "classification": "cpu_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Test-only change: monkeypatch sets FLASHINFER_PRIMS_TS_DEBUG_CHECKS=0 for one pure-Python TaskManager SMEM-accounting assertion; no kernel launch, JIT, or device memory involved",
+  "case_gap": "Changed test body not inspected (context budget); disabling BFS search removes exhaustive interleaving validation for this SM107 config.",
+  "selected_tests": [
+    "tests/cpu/prims_ts"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "One CPU shared-memory-accounting test disables the host BFS search using monkeypatch; no GPU execution changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9739,
     "experiment_pr": 184,
@@ -69,5 +78,156 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9739.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9739,
+    "experiment_pr": 184,
+    "experiment_head": "9a1c17db3a894eae30bf4d980950f13323526326",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "9133d44d5bba7ddd2e7de3de9ba189457d52555f",
+    "comparison_head_sha": "67b5329067a258a7e0da3e211da7c31ff6c3b672",
+    "comment_snapshot_sha256": "84fb75de2f42655955a93d01457b62cbd2a8a3cd2694bcbde29a1318c6c48910",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "74371c4e0d80d520737316e57618c1c76cff4bf7d3411c1312005352d3c3cbb4",
+        "http_status": 400,
+        "seconds": 1.151
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "74371c4e0d80d520737316e57618c1c76cff4bf7d3411c1312005352d3c3cbb4",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1084,
+          "prompt_tokens": 100209,
+          "total_tokens": 101293,
+          "completion_tokens_details": {
+            "reasoning_tokens": 970,
+            "text_tokens": 114
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99552,
+            "cache_creation_tokens": 99552,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99552,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99552,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 16.876
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "c866a588fcaf09f9bad69e8bfbb257ec144ab865ac04e6ed51b5e600450eac09",
+        "http_status": 400,
+        "seconds": 1.078
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "c866a588fcaf09f9bad69e8bfbb257ec144ab865ac04e6ed51b5e600450eac09",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1353,
+          "prompt_tokens": 131923,
+          "total_tokens": 133276,
+          "completion_tokens_details": {
+            "reasoning_tokens": 911,
+            "text_tokens": 442
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 129422,
+            "cache_creation_tokens": 129422,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 129422,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 129422,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.575
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9739#issuecomment-7026412299)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139942594933,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Test-only change: monkeypatch sets FLASHINFER_PRIMS_TS_DEBUG_CHECKS=0 for one pure-Python TaskManager SMEM-accounting assertion; no kernel launch, JIT, or device memory involved\n\nEvidence: tests/cpu/prims_ts/conftest.py, tests/cpu/prims_ts/test_batched_gemm_captured_schedule_tasks.py, .github/workflows/pr-test.yml\n\nSuggested tests: tests/cpu/prims_ts\n\nTest selection gap: Changed test body not inspected (context budget); disabling BFS search removes exhaustive interleaving validation for this SM107 config.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Test-only change: monkeypatch sets FLASHINFER_PRIMS_TS_DEBUG_CHECKS=0 for one pure-Python TaskManager SMEM-accounting assertion; no kernel launch, JIT, or device memory involved",
+          "evidence_paths": [
+            "tests/cpu/prims_ts/conftest.py",
+            "tests/cpu/prims_ts/test_batched_gemm_captured_schedule_tasks.py",
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "Changed test body not inspected (context budget); disabling BFS search removes exhaustive interleaving validation for this SM107 config.",
+          "targets": [
+            "tests/cpu/prims_ts"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942605778,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139942594933,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942594933",
+        "head_sha": "9a1c17db3a894eae30bf4d980950f13323526326",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139942605778,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942605778",
+        "head_sha": "9a1c17db3a894eae30bf4d980950f13323526326",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829577431,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829577431",
+    "artifact_id": 15122665463
+  }
 }

@@ -34,6 +34,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdn): several sequences per call in the opt-in Cake GDN sequence split",
   "formal_assessment": "correct_block",

@@ -1,7 +1,11 @@
 {
   "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
   "policy": "No experimental GPU exemption; documentation/CPU exemptions and internal-response shortcut only.",
-  "before_native_model_runs": true,
+  "initial_categories_recorded_before_native_runs": true,
+  "post_run_review_corrections": [
+    9814,
+    7077
+  ],
   "rows": [
     {
       "original_number": 935,
@@ -395,8 +399,8 @@
     {
       "original_number": 7077,
       "cohort": "fresh50",
-      "expected_classification": "cpu_only",
-      "reason": "Experimental module import guard and GPU-free standalone-import test; no kernel or device contract change.",
+      "expected_classification": "gpu_required",
+      "reason": "Besides import guards/CPU tests, cake_autograd removes custom-op and fake-op registration for GPU fwd/dgrad/wgrad launch wrappers and calls them as plain functions. This affects tracing/autograd integration and requires GPU validation.",
       "source_paths": [
         "flashinfer/experimental/cake_moe_grouped_gemm/README.md",
         "flashinfer/experimental/cake_moe_grouped_gemm/__init__.py",
@@ -2117,8 +2121,8 @@
     {
       "original_number": 9814,
       "cohort": "old50",
-      "expected_classification": "gpu_required",
-      "reason": "Benchmark now launches the legacy MegaMoE reducer with a different CTA grid; changed behavior requires real GPU execution even though it is benchmark code.",
+      "expected_classification": "cpu_only",
+      "reason": "Only baseline_grid_ctas in JSON metadata changes. Runner construction and launch/timing use unchanged fields; full consumer trace confirms no changed GPU execution. Initial static review was corrected with evidence in static-review-corrections.json.",
       "source_paths": [
         "benchmarks/bench_cake_megamoe_topk_reduce.py"
       ],

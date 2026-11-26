@@ -24,23 +24,30 @@
       "first_line": "**Automatic target selection unavailable.** No CI pipeline was started. Review and specify targets with `/bot run tests/<dir-or-file>` or use `/bot run all` to request the full suite."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940229188",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828907473",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940238779",
+  "classification": "docs_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Inspected diffs add/split Parameters and Returns entries and reword Notes in CAKE/GDN/KDA/GQA facades plus an .rst paragraph; no signatures, defaults, dispatch, or kernels change, so GPU-free doc rendering checks suffice.",
+  "case_gap": "Patches for flashinfer/decode.py, sampling.py, msa_ops/* and comm/qkv_norm_rope_exchange_overlap.py were budget-omitted; their docstring-only nature is unverified.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "API docstrings plus documentation-report workflow behavior; changed product Python non-doc AST unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "docs_cpu_label_difference",
   "source_audit": {
     "original_number": 9307,
     "experiment_pr": 171,
@@ -75,5 +82,173 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386553904",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9307,
+    "experiment_pr": 171,
+    "experiment_head": "99e1df770782e2827b0c081953ff83cfd1aa277a",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "a3ea68269b7160f0f0821d27395a9e9c22dd2833",
+    "comparison_head_sha": "e0f21f0684e01191d0482bcd8df5a5c1e1c67cf3",
+    "comment_snapshot_sha256": "54c26db44f4582423e9a2ab04e2751a803451c8feb16fef691d12dd51fcb79f1",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "a0e0ef21a73c8f225be982df789b2f53a071bc0e358baa95b70dc503cbb38160",
+        "http_status": 400,
+        "seconds": 1.667
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "a0e0ef21a73c8f225be982df789b2f53a071bc0e358baa95b70dc503cbb38160",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1846,
+          "prompt_tokens": 115507,
+          "total_tokens": 117353,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1544,
+            "text_tokens": 302
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 114850,
+            "cache_creation_tokens": 114850,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 114850,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 114850,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.458
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b9b17eba5cd54ec423417c81c2ea16bcab31d12b874dcd0e92a9090406210045",
+        "http_status": 400,
+        "seconds": 1.5
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b9b17eba5cd54ec423417c81c2ea16bcab31d12b874dcd0e92a9090406210045",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2687,
+          "prompt_tokens": 143690,
+          "total_tokens": 146377,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2326,
+            "text_tokens": 361
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 141189,
+            "cache_creation_tokens": 141189,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 141189,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 141189,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 43.203
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9307#issuecomment-6785807973)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139940229188,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Inspected diffs add/split Parameters and Returns entries and reword Notes in CAKE/GDN/KDA/GQA facades plus an .rst paragraph; no signatures, defaults, dispatch, or kernels change, so GPU-free doc rendering checks suffice.\n\nEvidence: flashinfer/cake_gdn_det_train.py, flashinfer/cake_gqa_det_train.py, docs/api/comm.rst\n\nPatch content unavailable (informational): .github/workflows/pr-api-doc-comment.yml, flashinfer/cake_kda_det_train_kcp.py, flashinfer/cake_kda_nondet_train_kcp.py, flashinfer/cake_lm_head_det_train.py, flashinfer/cake_moe_grouped_gemm_det_train.py, flashinfer/cake_moe_grouped_gemm_nondet_train.py, flashinfer/cake_rmsnorm_det_train.py, flashinfer/cake_rmsnorm_nondet_train.py, flashinfer/comm/qkv_norm_rope_exchange_overlap.py, flashinfer/decode.py, flashinfer/experimental/cake/cake_rmsnorm_det_train/__init__.py, flashinfer/gdn_decode.py, flashinfer/gdn_prefill.py, flashinfer/msa_ops/_blackwell_sm100.py, flashinfer/msa_ops/sparse_prefill.py, flashinfer/sampling.py\n\nTest selection gap: Patches for flashinfer/decode.py, sampling.py, msa_ops/* and comm/qkv_norm_rope_exchange_overlap.py were budget-omitted; their docstring-only nature is unverified.",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Inspected diffs add/split Parameters and Returns entries and reword Notes in CAKE/GDN/KDA/GQA facades plus an .rst paragraph; no signatures, defaults, dispatch, or kernels change, so GPU-free doc rendering checks suffice.",
+          "evidence_paths": [
+            "flashinfer/cake_gdn_det_train.py",
+            "flashinfer/cake_gqa_det_train.py",
+            "docs/api/comm.rst"
+          ],
+          "case_gap": "Patches for flashinfer/decode.py, sampling.py, msa_ops/* and comm/qkv_norm_rope_exchange_overlap.py were budget-omitted; their docstring-only nature is unverified.",
+          "missing_patch_paths": [
+            ".github/workflows/pr-api-doc-comment.yml",
+            "flashinfer/cake_kda_det_train_kcp.py",
+            "flashinfer/cake_kda_nondet_train_kcp.py",
+            "flashinfer/cake_lm_head_det_train.py",
+            "flashinfer/cake_moe_grouped_gemm_det_train.py",
+            "flashinfer/cake_moe_grouped_gemm_nondet_train.py",
+            "flashinfer/cake_rmsnorm_det_train.py",
+            "flashinfer/cake_rmsnorm_nondet_train.py",
+            "flashinfer/comm/qkv_norm_rope_exchange_overlap.py",
+            "flashinfer/decode.py",
+            "flashinfer/experimental/cake/cake_rmsnorm_det_train/__init__.py",
+            "flashinfer/gdn_decode.py",
+            "flashinfer/gdn_prefill.py",
+            "flashinfer/msa_ops/_blackwell_sm100.py",
+            "flashinfer/msa_ops/sparse_prefill.py",
+            "flashinfer/sampling.py"
+          ],
+          "missing_patch_count": 16,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940238779,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940229188,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940229188",
+        "head_sha": "99e1df770782e2827b0c081953ff83cfd1aa277a",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139940238779,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940238779",
+        "head_sha": "99e1df770782e2827b0c081953ff83cfd1aa277a",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828907473,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828907473",
+    "artifact_id": 15121366469
+  }
 }

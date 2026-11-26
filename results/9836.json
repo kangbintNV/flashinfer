@@ -59,23 +59,34 @@
       "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been updated with latest changes, and the CI pipeline [#84623388](https://nv/flashinfer-ci/-/pipelines/84623388) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938501777",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828383039",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938510234",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changes alter DLPack strides for empty planes in fused BF16 staging, cooperative-launch refusal under CUDA graph capture, distributed barrier semantics, and NVFP4 quantizer JIT min_cuda; all need GPU execution to validate.",
+  "case_gap": "Multirank/torchrun-only tests (mok_bf16, mega_native_topk_reduce_multirank, bf16_stage gpu_2) are skipped under supplied lanes, so barrier and staging fixes lack routed coverage.",
+  "selected_tests": [
+    "tests/comm/test_cake_dcp_alltoall.py",
+    "tests/comm/test_cake_fused_norm_combine.py",
+    "tests/experimental/test_cake_nvfp4_attention_api.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix: make Cake tests pass on every internal-CI GPU lane",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9836,
     "experiment_pr": 162,
@@ -110,5 +121,166 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139385569855",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9836,
+    "experiment_pr": 162,
+    "experiment_head": "28c8fefd93f756c7ee1293724c6b48ff431b1098",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "7b1f4400b1129066705fb5c5524225cfce422f10",
+    "comparison_head_sha": "7d585a05f1b22dcd6a83431321f3fe0fc2a212b3",
+    "comment_snapshot_sha256": "7171da6b693bbe232766ada05863f4215d195c107afd1ebc1a51019b14a0dcfa",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "7a936644b31dc25e3c12013728eec1522cafc6fbedf151d5f58cbddf68e9d140",
+        "http_status": 400,
+        "seconds": 3.262
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "7a936644b31dc25e3c12013728eec1522cafc6fbedf151d5f58cbddf68e9d140",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2609,
+          "prompt_tokens": 119557,
+          "total_tokens": 122166,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2279,
+            "text_tokens": 330
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 118900,
+            "cache_creation_tokens": 118900,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118900,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 118900,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 32.501
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "a7096fbe0b481b532cbf7f39425a0aaa5cc712ad10f45a6138ed88b3e21b9325",
+        "http_status": 400,
+        "seconds": 1.278
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "a7096fbe0b481b532cbf7f39425a0aaa5cc712ad10f45a6138ed88b3e21b9325",
+        "transport_error": "TimeoutError",
+        "seconds": 60.378
+      },
+      {
+        "index": 5,
+        "effort": "default",
+        "context_sha256": "a7096fbe0b481b532cbf7f39425a0aaa5cc712ad10f45a6138ed88b3e21b9325",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 3111,
+          "prompt_tokens": 141200,
+          "total_tokens": 144311,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2303,
+            "text_tokens": 808
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 141198,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 141198,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 40.838
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7091022464)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139938501777,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes alter DLPack strides for empty planes in fused BF16 staging, cooperative-launch refusal under CUDA graph capture, distributed barrier semantics, and NVFP4 quantizer JIT min_cuda; all need GPU execution to validate.\n\nEvidence: flashinfer/moe_ep/core/bf16_stage.py, flashinfer/experimental/kimi_k3_latent_moe/cake_backend.py, flashinfer/experimental/nvfp4_attention/build.json\n\nSuggested tests: tests/comm/test_cake_dcp_alltoall.py, tests/comm/test_cake_fused_norm_combine.py, tests/experimental/test_cake_nvfp4_attention_api.py\n\nTest selection gap: Multirank/torchrun-only tests (mok_bf16, mega_native_topk_reduce_multirank, bf16_stage gpu_2) are skipped under supplied lanes, so barrier and staging fixes lack routed coverage.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes alter DLPack strides for empty planes in fused BF16 staging, cooperative-launch refusal under CUDA graph capture, distributed barrier semantics, and NVFP4 quantizer JIT min_cuda; all need GPU execution to validate.",
+          "evidence_paths": [
+            "flashinfer/moe_ep/core/bf16_stage.py",
+            "flashinfer/experimental/kimi_k3_latent_moe/cake_backend.py",
+            "flashinfer/experimental/nvfp4_attention/build.json"
+          ],
+          "case_gap": "Multirank/torchrun-only tests (mok_bf16, mega_native_topk_reduce_multirank, bf16_stage gpu_2) are skipped under supplied lanes, so barrier and staging fixes lack routed coverage.",
+          "targets": [
+            "tests/comm/test_cake_dcp_alltoall.py",
+            "tests/comm/test_cake_fused_norm_combine.py",
+            "tests/experimental/test_cake_nvfp4_attention_api.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139938510234,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139938501777,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938501777",
+        "head_sha": "28c8fefd93f756c7ee1293724c6b48ff431b1098",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139938510234,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938510234",
+        "head_sha": "28c8fefd93f756c7ee1293724c6b48ff431b1098",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828383039,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828383039",
+    "artifact_id": 15122025791
+  }
 }

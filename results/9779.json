@@ -34,6 +34,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(mla): Cake MLA decode in backend=\"auto\" and a split-KV route",
   "formal_assessment": "correct_block",

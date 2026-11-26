@@ -1,0 +1,34 @@
+[
+  {
+    "original_number": 9814,
+    "initial_expected": "gpu_required",
+    "corrected_expected": "cpu_only",
+    "reason": "The changed baseline_grid_ctas value is only emitted in the returned JSON report. Runner construction reads comparison_kind and baseline_tensor_extent; the changed grid-report key has no launch/timing consumer. The actual GPU launch is unchanged.",
+    "source_commit": "d3a764730a8b0587a4ea73b696b70bc283f0c268",
+    "source_path": "benchmarks/bench_cake_megamoe_topk_reduce.py",
+    "source_blob": "63754687de22c36568a4cce1254621fa68066d2e",
+    "evidence_lines": [
+      357,
+      396,
+      439,
+      480,
+      496
+    ],
+    "baseline_grid_ctas_literal_uses": [
+      {
+        "line": 396,
+        "kind": "Constant"
+      }
+    ],
+    "changed_checker_or_native_result": false
+  },
+  {
+    "original_number": 7077,
+    "initial_expected": "cpu_only",
+    "corrected_expected": "gpu_required",
+    "reason": "Full diff includes removal of register_custom_op/register_fake_op around fwd/dgrad/wgrad GPU launch wrappers. The initial review focused on import guards and CPU standalone tests and missed this GPU integration change.",
+    "source_commit": "24c21c0ba1f1c7079a2dbcab482b128f8befe24c",
+    "source_path": "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+    "changed_checker_or_native_result": false
+  }
+]

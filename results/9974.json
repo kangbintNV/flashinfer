@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/a2e4d2291ea718e981b523980fdfa088bc8a0a82/experiments/source.json",
   "comment_snapshot_sha256": "85013f696c78b958e471f545e4195c0c4ccc5b70ddd8b594f1e6dcc3ef02a440",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894896397",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815725205",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894896397",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "_item_table no longer serves a capture-allocated device table to other calls; changes device allocation, pinned-host copy and CUDA-graph replay correctness, verifiable only on GPU",
+  "case_gap": "Regression test requires SM100/SM103; CI lanes are H100/A10G/T4, so it is skipped and the fix stays unvalidated in CI",
+  "selected_tests": [
+    "tests/gdp"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(cake_gdp): do not serve a prefill item table first filled in a CUDA graph to eager calls",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9974,
     "experiment_pr": 140,
@@ -64,5 +73,172 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139383262760",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9974,
+    "experiment_pr": 140,
+    "experiment_head": "a2e4d2291ea718e981b523980fdfa088bc8a0a82",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "ba933516c6730a2aca0e62ba918195dce2e3cfac",
+    "comparison_head_sha": "5374f5ed6067fe28307f1be40fe3bab07a33c1af",
+    "comment_snapshot_sha256": "85013f696c78b958e471f545e4195c0c4ccc5b70ddd8b594f1e6dcc3ef02a440",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "308eb3bc087dd6c01958e28c76c89a6bf0e2c266fc1d1d4fb23b2fb0072d365a",
+        "http_status": 400,
+        "seconds": 1.611
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "308eb3bc087dd6c01958e28c76c89a6bf0e2c266fc1d1d4fb23b2fb0072d365a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1072,
+          "prompt_tokens": 112407,
+          "total_tokens": 113479,
+          "completion_tokens_details": {
+            "reasoning_tokens": 702,
+            "text_tokens": 370
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 111750,
+            "cache_creation_tokens": 111750,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 111750,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 111750,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 14.098
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "4065e6043e7500ac9aae10be787b4c269c9c4e85c9488d594659aaf494470d9a",
+        "http_status": 400,
+        "seconds": 1.376
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "4065e6043e7500ac9aae10be787b4c269c9c4e85c9488d594659aaf494470d9a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1434,
+          "prompt_tokens": 144081,
+          "total_tokens": 145515,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1050,
+            "text_tokens": 384
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 141580,
+            "cache_creation_tokens": 141580,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 141580,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 141580,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 21.55
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "_item_table no longer serves a capture-allocated device table to other calls; changes device allocation, pinned-host copy and CUDA-graph replay correctness, verifiable only on GPU\n\nEvidence: flashinfer/cake_gdp_backend/__init__.py, tests/gdp/test_cake_gdp_prefill_bw.py\n\nSuggested tests: tests/gdp\n\nTest selection gap: Regression test requires SM100/SM103; CI lanes are H100/A10G/T4, so it is skipped and the fix stays unvalidated in CI\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "_item_table no longer serves a capture-allocated device table to other calls; changes device allocation, pinned-host copy and CUDA-graph replay correctness, verifiable only on GPU",
+          "evidence_paths": [
+            "flashinfer/cake_gdp_backend/__init__.py",
+            "tests/gdp/test_cake_gdp_prefill_bw.py"
+          ],
+          "case_gap": "Regression test requires SM100/SM103; CI lanes are H100/A10G/T4, so it is skipped and the fix stays unvalidated in CI",
+          "targets": [
+            "tests/gdp"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139894896397,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "_item_table no longer serves a capture-allocated device table to other calls; changes device allocation, pinned-host copy and CUDA-graph replay correctness, verifiable only on GPU\n\nEvidence: flashinfer/cake_gdp_backend/__init__.py, tests/gdp/test_cake_gdp_prefill_bw.py\n\nSuggested tests: tests/gdp\n\nTest selection gap: Regression test requires SM100/SM103; CI lanes are H100/A10G/T4, so it is skipped and the fix stays unvalidated in CI\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "_item_table no longer serves a capture-allocated device table to other calls; changes device allocation, pinned-host copy and CUDA-graph replay correctness, verifiable only on GPU",
+          "evidence_paths": [
+            "flashinfer/cake_gdp_backend/__init__.py",
+            "tests/gdp/test_cake_gdp_prefill_bw.py"
+          ],
+          "case_gap": "Regression test requires SM100/SM103; CI lanes are H100/A10G/T4, so it is skipped and the fix stays unvalidated in CI",
+          "targets": [
+            "tests/gdp"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139894896397,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139894896397,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139894896397",
+        "head_sha": "a2e4d2291ea718e981b523980fdfa088bc8a0a82",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815725205,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815725205",
+    "artifact_id": 15115801197
+  }
 }

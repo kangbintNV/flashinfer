@@ -13,23 +13,36 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/5ca6a18bc7259aa719a192fcd41e93b96d9c5fea/experiments/source.json",
   "comment_snapshot_sha256": "159aa84f7d3ee86cd3308207da0fc3b68c2dffdc19a92aa5c36e5d84d60c71c6",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944440345",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830118316",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944440345",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "classification_reason": "Replaced Cake device kernel (.cu) for the &gt;32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.",
+  "case_gap": "Tests skip on non-Blackwell CI lanes (A10G/T4/H100); changed binding file and tests/attention/test_trtllm_gen_mla.py body not inspected.",
+  "selected_tests": [
+    "tests/mla/test_cake_mla_splitkv.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI target has no inspected executable test candidate in the merged tree"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "CUDA MLA split-KV reducer now skips empty KV splits; GPU numerical and launch behavior changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 10036,
     "experiment_pr": 199,
@@ -63,5 +76,237 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/10036.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 10036,
+    "experiment_pr": 199,
+    "experiment_head": "5ca6a18bc7259aa719a192fcd41e93b96d9c5fea",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "c743270f9d683faa524e115398c974f910a516ad",
+    "comparison_head_sha": "d0cbb476cf4041a619523c325109b4d51f2a45f1",
+    "comment_snapshot_sha256": "159aa84f7d3ee86cd3308207da0fc3b68c2dffdc19a92aa5c36e5d84d60c71c6",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "d19e2980fc9c8c0630899b87e20a534d54a3eb24830044fa79c0c3fe0720c31c",
+        "http_status": 400,
+        "seconds": 1.57
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "d19e2980fc9c8c0630899b87e20a534d54a3eb24830044fa79c0c3fe0720c31c",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1783,
+          "prompt_tokens": 111018,
+          "total_tokens": 112801,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1573,
+            "text_tokens": 210
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 110361,
+            "cache_creation_tokens": 110361,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 110361,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 110361,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.199
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "aca824023f9bbc172729ca3a589ee2ea01fd84afc828d2b81dfe07408072596d",
+        "http_status": 400,
+        "seconds": 3.337
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "aca824023f9bbc172729ca3a589ee2ea01fd84afc828d2b81dfe07408072596d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 601,
+          "prompt_tokens": 145880,
+          "total_tokens": 146481,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 601
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143379,
+            "cache_creation_tokens": 143379,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143379,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143379,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 12.683
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "aca824023f9bbc172729ca3a589ee2ea01fd84afc828d2b81dfe07408072596d",
+        "http_status": 400,
+        "seconds": 1.707
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "aca824023f9bbc172729ca3a589ee2ea01fd84afc828d2b81dfe07408072596d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1264,
+          "prompt_tokens": 145880,
+          "total_tokens": 147144,
+          "completion_tokens_details": {
+            "reasoning_tokens": 766,
+            "text_tokens": 498
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 145878,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 145878,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.815
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Replaced Cake device kernel (.cu) for the &amp;gt;32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.\n\nEvidence: csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, flashinfer/mla/cake_trtllm_mla_blackwell.py, tests/mla/test_cake_mla_splitkv.py\n\nSuggested tests: tests/mla/test_cake_mla_splitkv.py\n\nPatch content unavailable (informational): csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu, tests/mla/test_cake_mla_splitkv.py\n\nTest selection gap: Tests skip on non-Blackwell CI lanes (A10G/T4/H100); changed binding file and tests/attention/test_trtllm_gen_mla.py body not inspected.\n\nAnalysis attempts:\n- default: AI target has no inspected executable test candidate in the merged tree\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Replaced Cake device kernel (.cu) for the &gt;32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.",
+          "evidence_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+            "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "case_gap": "Tests skip on non-Blackwell CI lanes (A10G/T4/H100); changed binding file and tests/attention/test_trtllm_gen_mla.py body not inspected.",
+          "missing_patch_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+            "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI target has no inspected executable test candidate in the merged tree"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139944440345,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Replaced Cake device kernel (.cu) for the &amp;gt;32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.\n\nEvidence: csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, flashinfer/mla/cake_trtllm_mla_blackwell.py, tests/mla/test_cake_mla_splitkv.py\n\nSuggested tests: tests/mla/test_cake_mla_splitkv.py\n\nPatch content unavailable (informational): csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu, csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu, tests/mla/test_cake_mla_splitkv.py\n\nTest selection gap: Tests skip on non-Blackwell CI lanes (A10G/T4/H100); changed binding file and tests/attention/test_trtllm_gen_mla.py body not inspected.\n\nAnalysis attempts:\n- default: AI target has no inspected executable test candidate in the merged tree\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Replaced Cake device kernel (.cu) for the &gt;32-split BF16 reducer plus family/dependency remap; correctness of split skipping, seq_lens reads and CUDA-graph replay needs Blackwell GPU execution.",
+          "evidence_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+            "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "case_gap": "Tests skip on non-Blackwell CI lanes (A10G/T4/H100); changed binding file and tests/attention/test_trtllm_gen_mla.py body not inspected.",
+          "missing_patch_paths": [
+            "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+            "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "missing_patch_count": 3,
+          "targets": [
+            "tests/mla/test_cake_mla_splitkv.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI target has no inspected executable test candidate in the merged tree"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139944440345,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139944440345,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139944440345",
+        "head_sha": "5ca6a18bc7259aa719a192fcd41e93b96d9c5fea",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830118316,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830118316",
+    "artifact_id": 15122157029
+  }
 }

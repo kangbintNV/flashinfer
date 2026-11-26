@@ -50,6 +50,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(batch_invariant): stateless call of the KDA class `kda.bf16.c16` (a trainer's forward pass)",
   "formal_assessment": "correct_allow",

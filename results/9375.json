@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6982ed98558c6268cddea8f8431b952ff6f0aed2/experiments/source.json",
   "comment_snapshot_sha256": "b97a03f094364c1e3e6ceee88e421a64b1792aee31707239ec9b560cc3cc46b3",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944138564",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830029052",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944138564",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: SMEM/TMEM transform recipes, scale-row offsets, PV TMEM descriptor strides, V-row shuffle fixup, policy-driven Keeps/Swaps MMA selection and metadata PDL release; only GPU execution validates numerics/layout.",
+  "case_gap": "PR-added NVFP4 scale-fragment and metadata test bodies not inspected; coverage of BF16-Q Keeps route and strided HND scale views unverified.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "NVFP4 KV layout/dequantization, GPU shared/tensor-memory resources and metadata CUDA kernel changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9375,
     "experiment_pr": 198,
@@ -63,5 +70,196 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9375.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9375,
+    "experiment_pr": 198,
+    "experiment_head": "6982ed98558c6268cddea8f8431b952ff6f0aed2",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "bf2d4af5b6326eace002f4549a2bb74fca4bf643",
+    "comparison_head_sha": "8295ab85af523ff2b1cf9f757c2ab614db4f5709",
+    "comment_snapshot_sha256": "b97a03f094364c1e3e6ceee88e421a64b1792aee31707239ec9b560cc3cc46b3",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "50d46b5d0ab43d685430019bc350fe12b11f82ee8377ffbeba9c7a66a5af78ba",
+        "http_status": 400,
+        "seconds": 5.791
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "50d46b5d0ab43d685430019bc350fe12b11f82ee8377ffbeba9c7a66a5af78ba",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1523,
+          "prompt_tokens": 111435,
+          "total_tokens": 112958,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1315,
+            "text_tokens": 208
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 110778,
+            "cache_creation_tokens": 110778,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 110778,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 110778,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.251
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "7442983ec1bc961ac433c6f9bba84a236b1ffd121555b90a240bb60534c3ff88",
+        "http_status": 400,
+        "seconds": 1.144
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "7442983ec1bc961ac433c6f9bba84a236b1ffd121555b90a240bb60534c3ff88",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1202,
+          "prompt_tokens": 138693,
+          "total_tokens": 139895,
+          "completion_tokens_details": {
+            "reasoning_tokens": 733,
+            "text_tokens": 469
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 136192,
+            "cache_creation_tokens": 136192,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 136192,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 136192,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.213
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: SMEM/TMEM transform recipes, scale-row offsets, PV TMEM descriptor strides, V-row shuffle fixup, policy-driven Keeps/Swaps MMA selection and metadata PDL release; only GPU execution validates numerics/layout.\n\nEvidence: flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py, flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: PR-added NVFP4 scale-fragment and metadata test bodies not inspected; coverage of BF16-Q Keeps route and strided HND scale views unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: SMEM/TMEM transform recipes, scale-row offsets, PV TMEM descriptor strides, V-row shuffle fixup, policy-driven Keeps/Swaps MMA selection and metadata PDL release; only GPU execution validates numerics/layout.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py"
+          ],
+          "case_gap": "PR-added NVFP4 scale-fragment and metadata test bodies not inspected; coverage of BF16-Q Keeps route and strided HND scale views unverified.",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/decode.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+            "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+            "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+            "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+          ],
+          "missing_patch_count": 10,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139944138564,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: SMEM/TMEM transform recipes, scale-row offsets, PV TMEM descriptor strides, V-row shuffle fixup, policy-driven Keeps/Swaps MMA selection and metadata PDL release; only GPU execution validates numerics/layout.\n\nEvidence: flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py, flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: PR-added NVFP4 scale-fragment and metadata test bodies not inspected; coverage of BF16-Q Keeps route and strided HND scale views unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds NVFP4 K/V storage to D256 QToken block-sparse attention: SMEM/TMEM transform recipes, scale-row offsets, PV TMEM descriptor strides, V-row shuffle fixup, policy-driven Keeps/Swaps MMA selection and metadata PDL release; only GPU execution validates numerics/layout.",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py"
+          ],
+          "case_gap": "PR-added NVFP4 scale-fragment and metadata test bodies not inspected; coverage of BF16-Q Keeps route and strided HND scale views unverified.",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/decode.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+            "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+            "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+            "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+          ],
+          "missing_patch_count": 10,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139944138564,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139944138564,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139944138564",
+        "head_sha": "6982ed98558c6268cddea8f8431b952ff6f0aed2",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830029052,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830029052",
+    "artifact_id": 15121177564
+  }
 }

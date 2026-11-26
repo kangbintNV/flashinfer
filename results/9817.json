@@ -13,23 +13,34 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/946211b13d8a3989b5f7d22b32253b5ae5fc9f0f/experiments/source.json",
   "comment_snapshot_sha256": "2ae78b940bba05e83f1f53bb6239aee6e4b9952f10462dd21e59678a9ed9bd53",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894318681",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815544580",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894318681",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changes select SM100 kernel knobs/workspace geometry per live-token profile and gate EP symmetric workspace allocation across ranks; tuner backend choice affects compiled kernels, needing GPU validation.",
+  "case_gap": "standard_cutedsl.py patch budget-omitted (judged from filename/path); no inspected multi-GPU SM100 run validating actual workspace allocation.",
+  "selected_tests": [
+    "tests/cpu/moe_ep/test_tuning_dispatch.py",
+    "tests/moe_ep/test_sm100_tuning_protocol.py",
+    "tests/moe_ep/test_mega_mxfp4_default_knobs.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(moe_ep): restore offline profiles for SM100 Standard",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9817,
     "experiment_pr": 138,
@@ -64,5 +75,192 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139382872251",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9817,
+    "experiment_pr": 138,
+    "experiment_head": "946211b13d8a3989b5f7d22b32253b5ae5fc9f0f",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "11b60e7a2431850a58feca68bf73519973d309aa",
+    "comparison_head_sha": "160e757bc02fd9bb913f7fd79882ebb9c9a33251",
+    "comment_snapshot_sha256": "2ae78b940bba05e83f1f53bb6239aee6e4b9952f10462dd21e59678a9ed9bd53",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "b31bcc8b8f1532fd45f41f3873697071fc917acfe1f617fed339b8acb27e8e3b",
+        "http_status": 400,
+        "seconds": 1.148
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "b31bcc8b8f1532fd45f41f3873697071fc917acfe1f617fed339b8acb27e8e3b",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1983,
+          "prompt_tokens": 119937,
+          "total_tokens": 121920,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1649,
+            "text_tokens": 334
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 119280,
+            "cache_creation_tokens": 119280,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 119280,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 119280,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.711
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "55ac3caf03d81509333447fd7a70034b8f8caa11daf915c864f7231f0860144d",
+        "http_status": 400,
+        "seconds": 5.818
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "55ac3caf03d81509333447fd7a70034b8f8caa11daf915c864f7231f0860144d",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 794,
+          "prompt_tokens": 145320,
+          "total_tokens": 146114,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 794
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142819,
+            "cache_creation_tokens": 142819,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142819,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142819,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.832
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes select SM100 kernel knobs/workspace geometry per live-token profile and gate EP symmetric workspace allocation across ranks; tuner backend choice affects compiled kernels, needing GPU validation.\n\nEvidence: flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py, flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/sources/knob_cache.py, tests/moe_ep/test_sm100_tuning_protocol.py\n\nSuggested tests: tests/cpu/moe_ep/test_tuning_dispatch.py, tests/moe_ep/test_sm100_tuning_protocol.py, tests/moe_ep/test_mega_mxfp4_default_knobs.py\n\nPatch content unavailable (informational): flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py\n\nTest selection gap: standard_cutedsl.py patch budget-omitted (judged from filename/path); no inspected multi-GPU SM100 run validating actual workspace allocation.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes select SM100 kernel knobs/workspace geometry per live-token profile and gate EP symmetric workspace allocation across ranks; tuner backend choice affects compiled kernels, needing GPU validation.",
+          "evidence_paths": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+            "flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/sources/knob_cache.py",
+            "tests/moe_ep/test_sm100_tuning_protocol.py"
+          ],
+          "case_gap": "standard_cutedsl.py patch budget-omitted (judged from filename/path); no inspected multi-GPU SM100 run validating actual workspace allocation.",
+          "filename_only_evidence": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py"
+          ],
+          "missing_patch_paths": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/cpu/moe_ep/test_tuning_dispatch.py",
+            "tests/moe_ep/test_sm100_tuning_protocol.py",
+            "tests/moe_ep/test_mega_mxfp4_default_knobs.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139894318681,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes select SM100 kernel knobs/workspace geometry per live-token profile and gate EP symmetric workspace allocation across ranks; tuner backend choice affects compiled kernels, needing GPU validation.\n\nEvidence: flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py, flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/sources/knob_cache.py, tests/moe_ep/test_sm100_tuning_protocol.py\n\nSuggested tests: tests/cpu/moe_ep/test_tuning_dispatch.py, tests/moe_ep/test_sm100_tuning_protocol.py, tests/moe_ep/test_mega_mxfp4_default_knobs.py\n\nPatch content unavailable (informational): flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py\n\nTest selection gap: standard_cutedsl.py patch budget-omitted (judged from filename/path); no inspected multi-GPU SM100 run validating actual workspace allocation.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes select SM100 kernel knobs/workspace geometry per live-token profile and gate EP symmetric workspace allocation across ranks; tuner backend choice affects compiled kernels, needing GPU validation.",
+          "evidence_paths": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+            "flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/sources/knob_cache.py",
+            "tests/moe_ep/test_sm100_tuning_protocol.py"
+          ],
+          "case_gap": "standard_cutedsl.py patch budget-omitted (judged from filename/path); no inspected multi-GPU SM100 run validating actual workspace allocation.",
+          "filename_only_evidence": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py"
+          ],
+          "missing_patch_paths": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/cpu/moe_ep/test_tuning_dispatch.py",
+            "tests/moe_ep/test_sm100_tuning_protocol.py",
+            "tests/moe_ep/test_mega_mxfp4_default_knobs.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139894318681,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139894318681,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139894318681",
+        "head_sha": "946211b13d8a3989b5f7d22b32253b5ae5fc9f0f",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815544580,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815544580",
+    "artifact_id": 15115351930
+  }
 }

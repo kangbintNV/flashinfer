@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/0d70ea193f5c8b3e940618a961736b17b0e0fef3/experiments/source.json",
   "comment_snapshot_sha256": "1bb4c04b23a34f7babbe3f6e1e64448b7093f73089ec79fd4bea6425fc8104d6",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139939611408",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828730156",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139939611408",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changes are docstring/comment text in sm120 backend.py and cake_jit.py, an error-message reword in _paths.py sentinel check (logic unchanged), markdown docs, and test docstring/path-string updates; no kernel, layout, or dispatch behavior altered.",
+  "case_gap": "No inspected test asserts the reworded _paths.py RuntimeError message; docs files were budget-omitted and judged by filename.",
+  "selected_tests": [
+    "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Docstrings/comments, exception wording and one CPU AOT seed path fixture change; GPU execution statements remain unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9818,
     "experiment_pr": 168,
@@ -64,5 +73,184 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386310190",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9818,
+    "experiment_pr": 168,
+    "experiment_head": "0d70ea193f5c8b3e940618a961736b17b0e0fef3",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "6c4401dc7b6ba6288d9c81a418d8429ea2c56851",
+    "comparison_head_sha": "e8929620397b55150814da3bd699d12c8e105e9f",
+    "comment_snapshot_sha256": "1bb4c04b23a34f7babbe3f6e1e64448b7093f73089ec79fd4bea6425fc8104d6",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "434db33ebaaa892405e03e87057b193045fd8281bf2fd409ae43f9ade6b46e27",
+        "http_status": 400,
+        "seconds": 1.342
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "434db33ebaaa892405e03e87057b193045fd8281bf2fd409ae43f9ade6b46e27",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2414,
+          "prompt_tokens": 120007,
+          "total_tokens": 122421,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2182,
+            "text_tokens": 232
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 119350,
+            "cache_creation_tokens": 119350,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 119350,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 119350,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 31.37
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "cdab4fae270ac7b7b2061f843d375859db14295d23ab04a85be1e56affa018e5",
+        "http_status": 400,
+        "seconds": 1.763
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "cdab4fae270ac7b7b2061f843d375859db14295d23ab04a85be1e56affa018e5",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1127,
+          "prompt_tokens": 144714,
+          "total_tokens": 145841,
+          "completion_tokens_details": {
+            "reasoning_tokens": 650,
+            "text_tokens": 477
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 142213,
+            "cache_creation_tokens": 142213,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 142213,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 142213,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.045
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changes are docstring/comment text in sm120 backend.py and cake_jit.py, an error-message reword in _paths.py sentinel check (logic unchanged), markdown docs, and test docstring/path-string updates; no kernel, layout, or dispatch behavior altered.\n\nEvidence: flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py, flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py, tests/cpu/infra/test_aot_cache_seed_workflow.py\n\nSuggested tests: tests/cpu/infra/test_aot_cache_seed_workflow.py\n\nPatch content unavailable (informational): docs/design_docs/moe_ep_runbook.md, flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/TUNING.md\n\nTest selection gap: No inspected test asserts the reworded _paths.py RuntimeError message; docs files were budget-omitted and judged by filename.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changes are docstring/comment text in sm120 backend.py and cake_jit.py, an error-message reword in _paths.py sentinel check (logic unchanged), markdown docs, and test docstring/path-string updates; no kernel, layout, or dispatch behavior altered.",
+          "evidence_paths": [
+            "flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py",
+            "flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py",
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+          ],
+          "case_gap": "No inspected test asserts the reworded _paths.py RuntimeError message; docs files were budget-omitted and judged by filename.",
+          "missing_patch_paths": [
+            "docs/design_docs/moe_ep_runbook.md",
+            "flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/TUNING.md"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139939611408,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changes are docstring/comment text in sm120 backend.py and cake_jit.py, an error-message reword in _paths.py sentinel check (logic unchanged), markdown docs, and test docstring/path-string updates; no kernel, layout, or dispatch behavior altered.\n\nEvidence: flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py, flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py, tests/cpu/infra/test_aot_cache_seed_workflow.py\n\nSuggested tests: tests/cpu/infra/test_aot_cache_seed_workflow.py\n\nPatch content unavailable (informational): docs/design_docs/moe_ep_runbook.md, flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/TUNING.md\n\nTest selection gap: No inspected test asserts the reworded _paths.py RuntimeError message; docs files were budget-omitted and judged by filename.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changes are docstring/comment text in sm120 backend.py and cake_jit.py, an error-message reword in _paths.py sentinel check (logic unchanged), markdown docs, and test docstring/path-string updates; no kernel, layout, or dispatch behavior altered.",
+          "evidence_paths": [
+            "flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py",
+            "flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py",
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+          ],
+          "case_gap": "No inspected test asserts the reworded _paths.py RuntimeError message; docs files were budget-omitted and judged by filename.",
+          "missing_patch_paths": [
+            "docs/design_docs/moe_ep_runbook.md",
+            "flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/TUNING.md"
+          ],
+          "missing_patch_count": 2,
+          "targets": [
+            "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139939611408,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139939611408,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139939611408",
+        "head_sha": "0d70ea193f5c8b3e940618a961736b17b0e0fef3",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828730156,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828730156",
+    "artifact_id": 15121650954
+  }
 }

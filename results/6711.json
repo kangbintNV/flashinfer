@@ -19,23 +19,32 @@
       "first_line": "GitLab MR [!2943](https://nv/flashinfer/-/merge_requests/2943) has been created, and the CI pipeline [#83203036](https://nv/flashinfer-ci/-/pipelines/83203036) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945560396",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830446405",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945570785",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "fast_decode_plan adopts indptr/indices/last_page_len as wrapper device buffers passed as raw pointers to decode kernels; new device guard affects plan/run on CUDA, needing GPU validation",
+  "case_gap": "PR-added tests/attention/test_fast_decode_plan_device.py is in no shard list and H100 lane is disabled, so the new guard has no routed CI case.",
+  "selected_tests": [
+    "tests/attention/test_batch_decode_kernels.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "fast_decode_plan validates device placement of metadata pointers adopted by GPU kernels, with CUDA-device tests.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 6711,
     "experiment_pr": 206,
@@ -69,5 +78,156 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6711.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 6711,
+    "experiment_pr": 206,
+    "experiment_head": "294bb4b73e81348fe0b602e4f67c338d9b1e65f5",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "e65caf5cbb90cbc1a6e90ad6aab1c38ff8132291",
+    "comparison_head_sha": "4b01bc0799671564240d4e5bb997d952fa0bd2aa",
+    "comment_snapshot_sha256": "77c8c80e32af4cc59b2599ee4c03dd839f765398ff26eca4021c29b2b8d15073",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "4aa89a91dc58ebc8551965a3dbb10697670d8868b3ab55d77dd847251c2a96e5",
+        "http_status": 400,
+        "seconds": 1.841
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "4aa89a91dc58ebc8551965a3dbb10697670d8868b3ab55d77dd847251c2a96e5",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1961,
+          "prompt_tokens": 102191,
+          "total_tokens": 104152,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1741,
+            "text_tokens": 220
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 101534,
+            "cache_creation_tokens": 101534,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 101534,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 101534,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.131
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "6a9aea73a5ad555ed9d464950903137ec9a212538b551095dc2658970c5b5221",
+        "http_status": 400,
+        "seconds": 1.655
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "6a9aea73a5ad555ed9d464950903137ec9a212538b551095dc2658970c5b5221",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2602,
+          "prompt_tokens": 142492,
+          "total_tokens": 145094,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2187,
+            "text_tokens": 415
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 139991,
+            "cache_creation_tokens": 139991,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 139991,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 139991,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 37.881
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/6711#issuecomment-6974039523)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139945560396,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "fast_decode_plan adopts indptr/indices/last_page_len as wrapper device buffers passed as raw pointers to decode kernels; new device guard affects plan/run on CUDA, needing GPU validation\n\nEvidence: flashinfer/decode.py, tests/attention/test_fast_decode_plan_device.py, tests/attention/test_batch_decode_kernels.py\n\nSuggested tests: tests/attention/test_batch_decode_kernels.py\n\nTest selection gap: PR-added tests/attention/test_fast_decode_plan_device.py is in no shard list and H100 lane is disabled, so the new guard has no routed CI case.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "fast_decode_plan adopts indptr/indices/last_page_len as wrapper device buffers passed as raw pointers to decode kernels; new device guard affects plan/run on CUDA, needing GPU validation",
+          "evidence_paths": [
+            "flashinfer/decode.py",
+            "tests/attention/test_fast_decode_plan_device.py",
+            "tests/attention/test_batch_decode_kernels.py"
+          ],
+          "case_gap": "PR-added tests/attention/test_fast_decode_plan_device.py is in no shard list and H100 lane is disabled, so the new guard has no routed CI case.",
+          "targets": [
+            "tests/attention/test_batch_decode_kernels.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139945570785,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139945560396,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945560396",
+        "head_sha": "294bb4b73e81348fe0b602e4f67c338d9b1e65f5",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139945570785,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945570785",
+        "head_sha": "294bb4b73e81348fe0b602e4f67c338d9b1e65f5",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830446405,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830446405",
+    "artifact_id": 15121808000
+  }
 }

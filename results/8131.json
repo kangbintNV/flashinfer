@@ -31,6 +31,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: [Experimental] Qwen 3.5 GDN block: decode and MTP verify behind a backend registry, with an SM100 CuTe DSL backend",
   "formal_assessment": "correct_block",

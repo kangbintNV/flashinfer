@@ -13,23 +13,32 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/56108b02c5db983cf1c1729cc368b9f51e55a349/experiments/source.json",
   "comment_snapshot_sha256": "85b4e0654297af5c42f6554804fc39c7a1e49de5b623276008c00827ad9976a2",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895774677",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815983816",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895774677",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changes scale dtype handed to SM100 NVFP4 cutedsl mega kernels (uint8 bytes viewed as float8_e4m3fn) plus new prepare_transformed_weights hook used at layer construction; kernel weight dtype needs GPU validation",
+  "case_gap": "No inspected GPU test runs SM100 NVFP4 mega forward with byte-view scales end to end",
+  "selected_tests": [
+    "tests/cpu/moe_ep/test_megamoe_refresh_contracts.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(moe_ep): accept byte-view NVFP4 scales on SM100",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9815,
     "experiment_pr": 147,
@@ -64,5 +73,174 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139383978130",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9815,
+    "experiment_pr": 147,
+    "experiment_head": "56108b02c5db983cf1c1729cc368b9f51e55a349",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "d3a764730a8b0587a4ea73b696b70bc283f0c268",
+    "comparison_head_sha": "82209d1356562b95a1020cbdf3f3da44aca0b856",
+    "comment_snapshot_sha256": "85b4e0654297af5c42f6554804fc39c7a1e49de5b623276008c00827ad9976a2",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "a2b3d9aea9f9b1a67ed8b2b70121de8caa232d6885f3346f7ecfcf34667931e3",
+        "http_status": 400,
+        "seconds": 1.479
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "a2b3d9aea9f9b1a67ed8b2b70121de8caa232d6885f3346f7ecfcf34667931e3",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1489,
+          "prompt_tokens": 116297,
+          "total_tokens": 117786,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1276,
+            "text_tokens": 213
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115640,
+            "cache_creation_tokens": 115640,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115640,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115640,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.203
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b81e70580ba87ccb4c826fb95d9aa9f45e28b86341f8b558e7584b494240f615",
+        "http_status": 400,
+        "seconds": 1.721
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b81e70580ba87ccb4c826fb95d9aa9f45e28b86341f8b558e7584b494240f615",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1097,
+          "prompt_tokens": 143307,
+          "total_tokens": 144404,
+          "completion_tokens_details": {
+            "reasoning_tokens": 647,
+            "text_tokens": 450
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140806,
+            "cache_creation_tokens": 140806,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140806,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140806,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 16.716
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes scale dtype handed to SM100 NVFP4 cutedsl mega kernels (uint8 bytes viewed as float8_e4m3fn) plus new prepare_transformed_weights hook used at layer construction; kernel weight dtype needs GPU validation\n\nEvidence: flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py, flashinfer/moe_ep/modes/mega_layer.py, flashinfer/moe_ep/core/kernel/base.py\n\nSuggested tests: tests/cpu/moe_ep/test_megamoe_refresh_contracts.py\n\nTest selection gap: No inspected GPU test runs SM100 NVFP4 mega forward with byte-view scales end to end\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes scale dtype handed to SM100 NVFP4 cutedsl mega kernels (uint8 bytes viewed as float8_e4m3fn) plus new prepare_transformed_weights hook used at layer construction; kernel weight dtype needs GPU validation",
+          "evidence_paths": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+            "flashinfer/moe_ep/modes/mega_layer.py",
+            "flashinfer/moe_ep/core/kernel/base.py"
+          ],
+          "case_gap": "No inspected GPU test runs SM100 NVFP4 mega forward with byte-view scales end to end",
+          "targets": [
+            "tests/cpu/moe_ep/test_megamoe_refresh_contracts.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139895774677,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes scale dtype handed to SM100 NVFP4 cutedsl mega kernels (uint8 bytes viewed as float8_e4m3fn) plus new prepare_transformed_weights hook used at layer construction; kernel weight dtype needs GPU validation\n\nEvidence: flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py, flashinfer/moe_ep/modes/mega_layer.py, flashinfer/moe_ep/core/kernel/base.py\n\nSuggested tests: tests/cpu/moe_ep/test_megamoe_refresh_contracts.py\n\nTest selection gap: No inspected GPU test runs SM100 NVFP4 mega forward with byte-view scales end to end\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes scale dtype handed to SM100 NVFP4 cutedsl mega kernels (uint8 bytes viewed as float8_e4m3fn) plus new prepare_transformed_weights hook used at layer construction; kernel weight dtype needs GPU validation",
+          "evidence_paths": [
+            "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+            "flashinfer/moe_ep/modes/mega_layer.py",
+            "flashinfer/moe_ep/core/kernel/base.py"
+          ],
+          "case_gap": "No inspected GPU test runs SM100 NVFP4 mega forward with byte-view scales end to end",
+          "targets": [
+            "tests/cpu/moe_ep/test_megamoe_refresh_contracts.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139895774677,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139895774677,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139895774677",
+        "head_sha": "56108b02c5db983cf1c1729cc368b9f51e55a349",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815983816,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815983816",
+    "artifact_id": 15115766753
+  }
 }

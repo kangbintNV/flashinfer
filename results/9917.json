@@ -19,23 +19,35 @@
       "first_line": "GitLab MR [!3053](https://nv/flashinfer/-/merge_requests/3053) has been created, and the CI pipeline [#84889478](https://nv/flashinfer-ci/-/pipelines/84889478) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895745179",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815971804",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139895754402",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Adds SM100a/SM103a CUDA kernels, bindings and build.json AOT entries plus dispatch/doc changes in gdp_prefill.py; launch planning, item-table upload and CUDA-graph capture need GPU validation.",
+  "case_gap": "Kernel .cu bodies and cake_jit.py not inspected (size limits); kernel-internal correctness judged only via tests.",
+  "selected_tests": [
+    "tests/gdp/test_cake_gdp_prefill_bw.py",
+    "tests/gdp/test_cake_gdp_prefill_api.py",
+    "tests/gdp/test_cake_gdp_prefill_route.py",
+    "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdp): add SM100a and SM103a prefill backend for chunk_gated_delta_product",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9917,
     "experiment_pr": 145,
@@ -70,5 +82,175 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139383724879",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9917,
+    "experiment_pr": 145,
+    "experiment_head": "f98d4a785bece2af25f300b13f342ac692130b2e",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "fabcf6898012d3ed4faf33a64f48c586c58efdb5",
+    "comparison_head_sha": "6f5e8232b29f09514f032313048023971cab6b5c",
+    "comment_snapshot_sha256": "8e511f57933686928dba6fe1d1b179e19c174d0effb89ed9edc6ae2007d8d85e",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "c26444703d333a7397f0af1f216fce4e05ffbeee5f3051883c3b46d2de17ae79",
+        "http_status": 400,
+        "seconds": 1.306
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "c26444703d333a7397f0af1f216fce4e05ffbeee5f3051883c3b46d2de17ae79",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1554,
+          "prompt_tokens": 121382,
+          "total_tokens": 122936,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1378,
+            "text_tokens": 176
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 120725,
+            "cache_creation_tokens": 120725,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 120725,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 120725,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.762
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "f1f7df5431e5d658b408578d759dbb9e6a7b2c67de80b6b2c4b733bc4c496df4",
+        "http_status": 400,
+        "seconds": 1.514
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "f1f7df5431e5d658b408578d759dbb9e6a7b2c67de80b6b2c4b733bc4c496df4",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 827,
+          "prompt_tokens": 145752,
+          "total_tokens": 146579,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 827
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143251,
+            "cache_creation_tokens": 143251,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143251,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143251,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 12.791
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9917#issuecomment-7118627807)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139895745179,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds SM100a/SM103a CUDA kernels, bindings and build.json AOT entries plus dispatch/doc changes in gdp_prefill.py; launch planning, item-table upload and CUDA-graph capture need GPU validation.\n\nEvidence: flashinfer/cake_gdp_backend/build.json, flashinfer/gdp_prefill.py, tests/gdp/test_cake_gdp_prefill_bw.py\n\nSuggested tests: tests/gdp/test_cake_gdp_prefill_bw.py, tests/gdp/test_cake_gdp_prefill_api.py, tests/gdp/test_cake_gdp_prefill_route.py, tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py\n\nPatch content unavailable (informational): benchmarks/bench_gdp_prefill.py, flashinfer/cake_gdp_backend/__init__.py, flashinfer/cake_gdp_backend/cake_jit.py, flashinfer/cake_gdp_backend/csrc/cake_gdp_157b3ebf33cf7c928af5_binding.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_157b3ebf33cf7c928af5_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_68796be6ca9ae12f2e19_binding.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_68796be6ca9ae12f2e19_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_88c5777dabbda5e1e5a8_binding.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_88c5777dabbda5e1e5a8_kernel.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_f108e105bd1ec635650f_binding.cu, flashinfer/cake_gdp_backend/csrc/cake_gdp_f108e105bd1ec635650f_kernel.cu, tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py, tests/gdp/test_cake_gdp_prefill_bw.py\n\nTest selection gap: Kernel .cu bodies and cake_jit.py not inspected (size limits); kernel-internal correctness judged only via tests.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds SM100a/SM103a CUDA kernels, bindings and build.json AOT entries plus dispatch/doc changes in gdp_prefill.py; launch planning, item-table upload and CUDA-graph capture need GPU validation.",
+          "evidence_paths": [
+            "flashinfer/cake_gdp_backend/build.json",
+            "flashinfer/gdp_prefill.py",
+            "tests/gdp/test_cake_gdp_prefill_bw.py"
+          ],
+          "case_gap": "Kernel .cu bodies and cake_jit.py not inspected (size limits); kernel-internal correctness judged only via tests.",
+          "missing_patch_paths": [
+            "benchmarks/bench_gdp_prefill.py",
+            "flashinfer/cake_gdp_backend/__init__.py",
+            "flashinfer/cake_gdp_backend/cake_jit.py",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_157b3ebf33cf7c928af5_binding.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_157b3ebf33cf7c928af5_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_68796be6ca9ae12f2e19_binding.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_68796be6ca9ae12f2e19_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_88c5777dabbda5e1e5a8_binding.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_88c5777dabbda5e1e5a8_kernel.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_f108e105bd1ec635650f_binding.cu",
+            "flashinfer/cake_gdp_backend/csrc/cake_gdp_f108e105bd1ec635650f_kernel.cu",
+            "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py",
+            "tests/gdp/test_cake_gdp_prefill_bw.py"
+          ],
+          "missing_patch_count": 13,
+          "targets": [
+            "tests/gdp/test_cake_gdp_prefill_bw.py",
+            "tests/gdp/test_cake_gdp_prefill_api.py",
+            "tests/gdp/test_cake_gdp_prefill_route.py",
+            "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139895754402,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139895745179,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139895745179",
+        "head_sha": "f98d4a785bece2af25f300b13f342ac692130b2e",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139895754402,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139895754402",
+        "head_sha": "f98d4a785bece2af25f300b13f342ac692130b2e",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815971804,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815971804",
+    "artifact_id": 15116021282
+  }
 }

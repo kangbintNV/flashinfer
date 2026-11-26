@@ -13,23 +13,33 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/873b826c7a32d14a8403e191938a8a39c05b190a/experiments/source.json",
   "comment_snapshot_sha256": "3de7ee5193abb65660aade24b492f59142dfe73bf37999b40c2d52273fb70914",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "waiting_for_bot",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139949222375",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831504346",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139949222375",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "New csrc export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS FP4 runner tactic filtering/validate_tactic change kernel tactic selection and output bits; needs SM12x GPU validation",
+  "case_gap": "No SM12x runner in supplied CI lanes (A10G sm86, T4 sm75, H100 sm90), so the GPU bit-equality test self-skips there.",
+  "selected_tests": [
+    "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+    "tests/gemm/test_mm_fp4.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Adds stream-K tactic filtering/validation for SM120 FP4 GEMM, changing kernel choice and numerical variation.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 7819,
     "experiment_pr": 224,
@@ -63,5 +73,176 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7819.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 7819,
+    "experiment_pr": 224,
+    "experiment_head": "873b826c7a32d14a8403e191938a8a39c05b190a",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "6018abff613be3fc217d576fdddc8c9857555f19",
+    "comparison_head_sha": "267030a9adb5d6303f2582bc3cd76bec7ee740a0",
+    "comment_snapshot_sha256": "3de7ee5193abb65660aade24b492f59142dfe73bf37999b40c2d52273fb70914",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "dc32e3d87a94b5658c68ff251e31e2d87d8f6294dc137e2d57c9be846523b513",
+        "http_status": 400,
+        "seconds": 1.57
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "dc32e3d87a94b5658c68ff251e31e2d87d8f6294dc137e2d57c9be846523b513",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1483,
+          "prompt_tokens": 116797,
+          "total_tokens": 118280,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1209,
+            "text_tokens": 274
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 116140,
+            "cache_creation_tokens": 116140,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 116140,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 116140,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.48
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "d78c9f443b5c8fa97f2015b32bebda0a03f310dfe73d2871955664416519a201",
+        "http_status": 400,
+        "seconds": 1.569
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "d78c9f443b5c8fa97f2015b32bebda0a03f310dfe73d2871955664416519a201",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1394,
+          "prompt_tokens": 143926,
+          "total_tokens": 145320,
+          "completion_tokens_details": {
+            "reasoning_tokens": 770,
+            "text_tokens": 624
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 141425,
+            "cache_creation_tokens": 141425,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 141425,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 141425,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 21.345
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "waiting_for_bot",
+        "title": "Waiting for flashinfer-bot",
+        "summary": "New csrc export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS FP4 runner tactic filtering/validate_tactic change kernel tactic selection and output bits; needs SM12x GPU validation\n\nEvidence: csrc/fp4_gemm_cutlass_sm120.cu, flashinfer/gemm/gemm_base.py, tests/gemm/test_mm_fp4.py\n\nSuggested tests: tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py, tests/gemm/test_mm_fp4.py\n\nTest selection gap: No SM12x runner in supplied CI lanes (A10G sm86, T4 sm75, H100 sm90), so the GPU bit-equality test self-skips there.\n\nDetected [/bot run command](https://github.com/flashinfer-ai/flashinfer/pull/7819#issuecomment-6979431171); waiting for the bot response.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New csrc export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS FP4 runner tactic filtering/validate_tactic change kernel tactic selection and output bits; needs SM12x GPU validation",
+          "evidence_paths": [
+            "csrc/fp4_gemm_cutlass_sm120.cu",
+            "flashinfer/gemm/gemm_base.py",
+            "tests/gemm/test_mm_fp4.py"
+          ],
+          "case_gap": "No SM12x runner in supplied CI lanes (A10G sm86, T4 sm75, H100 sm90), so the GPU bit-equality test self-skips there.",
+          "targets": [
+            "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+            "tests/gemm/test_mm_fp4.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139949222375,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "waiting_for_bot",
+        "title": "Waiting for flashinfer-bot",
+        "summary": "New csrc export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS FP4 runner tactic filtering/validate_tactic change kernel tactic selection and output bits; needs SM12x GPU validation\n\nEvidence: csrc/fp4_gemm_cutlass_sm120.cu, flashinfer/gemm/gemm_base.py, tests/gemm/test_mm_fp4.py\n\nSuggested tests: tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py, tests/gemm/test_mm_fp4.py\n\nTest selection gap: No SM12x runner in supplied CI lanes (A10G sm86, T4 sm75, H100 sm90), so the GPU bit-equality test self-skips there.\n\nDetected [/bot run command](https://github.com/flashinfer-ai/flashinfer/pull/7819#issuecomment-6979431171); waiting for the bot response.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "New csrc export fp4_gemm_tactic_is_stream_k and SM120 CUTLASS FP4 runner tactic filtering/validate_tactic change kernel tactic selection and output bits; needs SM12x GPU validation",
+          "evidence_paths": [
+            "csrc/fp4_gemm_cutlass_sm120.cu",
+            "flashinfer/gemm/gemm_base.py",
+            "tests/gemm/test_mm_fp4.py"
+          ],
+          "case_gap": "No SM12x runner in supplied CI lanes (A10G sm86, T4 sm75, H100 sm90), so the GPU bit-equality test self-skips there.",
+          "targets": [
+            "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+            "tests/gemm/test_mm_fp4.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139949222375,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139949222375,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139949222375",
+        "head_sha": "873b826c7a32d14a8403e191938a8a39c05b190a",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831504346,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831504346",
+    "artifact_id": 15121519116
+  }
 }

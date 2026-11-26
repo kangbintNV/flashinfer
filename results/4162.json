@@ -13,23 +13,25 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6d492ca61ff18a4b53ffe0f57cb6607ca3613d44/experiments/source.json",
   "comment_snapshot_sha256": "31a4825afd9e336ce3cb79d5afd887598ade977e38ebe1027b52a2aec526b949",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139941922472",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829386487",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139941922472",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
+  "classification_reason": "Only Markdown/RST documentation changed.",
+  "case_gap": "",
+  "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "CuTe prefill scheduling override documentation only.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 4162,
     "experiment_pr": 179,
@@ -63,5 +65,65 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/4162.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 4162,
+    "experiment_pr": 179,
+    "experiment_head": "6d492ca61ff18a4b53ffe0f57cb6607ca3613d44",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "e63fc611d74e5c11d5ca9068ef498a3bb19c3bbb",
+    "comparison_head_sha": "ba56578d75893a8c512d0076c8de108984e6a3e6",
+    "comment_snapshot_sha256": "31a4825afd9e336ce3cb79d5afd887598ade977e38ebe1027b52a2aec526b949",
+    "calls": [],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "CLAUDE.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139941922472,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "CLAUDE.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139941922472,
+        "model_call_indices": [],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139941922472,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139941922472",
+        "head_sha": "6d492ca61ff18a4b53ffe0f57cb6607ca3613d44",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829386487,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829386487",
+    "artifact_id": 15122425852
+  }
 }

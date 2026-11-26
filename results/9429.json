@@ -52,6 +52,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: Optionally fuse padding in MXFP8 quantize kernel",
   "formal_assessment": "correct_allow",

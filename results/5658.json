@@ -40,6 +40,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "SM110 tcgen05/TMEM CUDA kernels, launch bindings and dispatch change; experimental status gives no exemption.",
   "formal_assessment": "correct_allow",

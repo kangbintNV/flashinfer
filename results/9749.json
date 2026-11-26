@@ -19,23 +19,33 @@
       "first_line": "GitLab MR [!2998](https://nv/flashinfer/-/merge_requests/2998) has been created, and the CI pipeline [#83822065](https://nv/flashinfer-ci/-/pipelines/83822065) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938503311",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828397995",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938513222",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "CUDA header kernel changes fp32 accumulation and single rounding for Lamport store in deferred MoE finalize all-reduce; numerics verifiable only on multi-GPU runs.",
+  "case_gap": "Known pre-existing bf16 4-rank tolerance failure and undersized scale_out buffer remain unaddressed by selected tests.",
+  "selected_tests": [
+    "tests/comm/test_trtllm_moe_allreduce_fusion_finalize.py",
+    "tests/comm/test_allreduce_fusion_moe_unified_api.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(comm): fp32 accumulation in the deferred MoE finalize all-reduce",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9749,
     "experiment_pr": 164,
@@ -70,5 +80,156 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139385776430",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9749,
+    "experiment_pr": 164,
+    "experiment_head": "6d1bc2e3e0cdf113a8d4b38850083389f5dafade",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "6046d47f2907e7abb89c7061e63c2f7766c00446",
+    "comparison_head_sha": "014124fe87cb5ad6fa7860f79f91759d7f8f5b1f",
+    "comment_snapshot_sha256": "2b431f584175654ad9d2d88914a832b3f5dd6b557819cb9538cb79fa8a4f5b1f",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "9f74b9117483c55807142150ae44e3b96d94d19e6a6df585086408081d1b0351",
+        "http_status": 400,
+        "seconds": 1.283
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "9f74b9117483c55807142150ae44e3b96d94d19e6a6df585086408081d1b0351",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2001,
+          "prompt_tokens": 100575,
+          "total_tokens": 102576,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1779,
+            "text_tokens": 222
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99918,
+            "cache_creation_tokens": 99918,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99918,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99918,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.265
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "ff1ff2e79209a5b4cb4f569cffe9d30d3b073bc44f512747c716d8585c773919",
+        "http_status": 400,
+        "seconds": 2.077
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "ff1ff2e79209a5b4cb4f569cffe9d30d3b073bc44f512747c716d8585c773919",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 587,
+          "prompt_tokens": 132845,
+          "total_tokens": 133432,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 587
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 130344,
+            "cache_creation_tokens": 130344,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 130344,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 130344,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 10.601
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9749#issuecomment-7028226027)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139938503311,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "CUDA header kernel changes fp32 accumulation and single rounding for Lamport store in deferred MoE finalize all-reduce; numerics verifiable only on multi-GPU runs.\n\nEvidence: include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh, tests/comm/test_trtllm_moe_allreduce_fusion_finalize.py\n\nSuggested tests: tests/comm/test_trtllm_moe_allreduce_fusion_finalize.py, tests/comm/test_allreduce_fusion_moe_unified_api.py\n\nTest selection gap: Known pre-existing bf16 4-rank tolerance failure and undersized scale_out buffer remain unaddressed by selected tests.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "CUDA header kernel changes fp32 accumulation and single rounding for Lamport store in deferred MoE finalize all-reduce; numerics verifiable only on multi-GPU runs.",
+          "evidence_paths": [
+            "include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh",
+            "tests/comm/test_trtllm_moe_allreduce_fusion_finalize.py"
+          ],
+          "case_gap": "Known pre-existing bf16 4-rank tolerance failure and undersized scale_out buffer remain unaddressed by selected tests.",
+          "targets": [
+            "tests/comm/test_trtllm_moe_allreduce_fusion_finalize.py",
+            "tests/comm/test_allreduce_fusion_moe_unified_api.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139938513222,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139938503311,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938503311",
+        "head_sha": "6d1bc2e3e0cdf113a8d4b38850083389f5dafade",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139938513222,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938513222",
+        "head_sha": "6d1bc2e3e0cdf113a8d4b38850083389f5dafade",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828397995,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828397995",
+    "artifact_id": 15120853704
+  }
 }

@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!3061](https://nv/flashinfer/-/merge_requests/3061) has been created, and the CI pipeline [#84933043](https://nv/flashinfer-ci/-/pipelines/84933043) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894265296",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815532728",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894275387",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Adds BF16/E4M3 attention regressions running BatchPrefillTSWrapper over 16K Q/KV on CUDA with E4M3 V rescaling, compared to an FP32 reference; numerical kernel behavior cannot be validated without a Blackwell GPU.",
+  "case_gap": "New cases carry pytest.mark.arch_blackwell; supplied CI lanes provide no sm_100/sm_103 hardware, so they would skip in current routing.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims_ts): cover E4M3 V rescaling after row-max rise",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9958,
     "experiment_pr": 136,
@@ -70,5 +77,153 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139382753865",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9958,
+    "experiment_pr": 136,
+    "experiment_head": "4ec4e79dd1d04d824f850b67295b00334fa9d8bf",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "7774af26fa347aefd43e2a45cb8d9ab93a7a12e4",
+    "comparison_head_sha": "9a3e0f33cf91bdec5f375601c14a932fbf11cb2a",
+    "comment_snapshot_sha256": "2bb1fa46f0ad23d73a867d895097dffbfb9d7919e8e82d36c63e141f0abc2ce0",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "024b39562ea3a5c8ed5ad2b0793288ccc41d2852355a1721cdf0d3d46d2d6bff",
+        "http_status": 400,
+        "seconds": 1.267
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "024b39562ea3a5c8ed5ad2b0793288ccc41d2852355a1721cdf0d3d46d2d6bff",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1815,
+          "prompt_tokens": 100345,
+          "total_tokens": 102160,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1590,
+            "text_tokens": 225
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99688,
+            "cache_creation_tokens": 99688,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99688,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99688,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.777
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "fd1a28213058f79516728e7dc37b85fded596343d1e2aa538dd88cf2948aa222",
+        "http_status": 400,
+        "seconds": 1.396
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "fd1a28213058f79516728e7dc37b85fded596343d1e2aa538dd88cf2948aa222",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1964,
+          "prompt_tokens": 126475,
+          "total_tokens": 128439,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1609,
+            "text_tokens": 355
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 123974,
+            "cache_creation_tokens": 123974,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 123974,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 123974,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 29.19
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9958#issuecomment-7122388075)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139894265296,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds BF16/E4M3 attention regressions running BatchPrefillTSWrapper over 16K Q/KV on CUDA with E4M3 V rescaling, compared to an FP32 reference; numerical kernel behavior cannot be validated without a Blackwell GPU.\n\nEvidence: tests/attention/test_attention_ts_context.py, tests/conftest.py\n\nTest selection gap: New cases carry pytest.mark.arch_blackwell; supplied CI lanes provide no sm_100/sm_103 hardware, so they would skip in current routing.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds BF16/E4M3 attention regressions running BatchPrefillTSWrapper over 16K Q/KV on CUDA with E4M3 V rescaling, compared to an FP32 reference; numerical kernel behavior cannot be validated without a Blackwell GPU.",
+          "evidence_paths": [
+            "tests/attention/test_attention_ts_context.py",
+            "tests/conftest.py"
+          ],
+          "case_gap": "New cases carry pytest.mark.arch_blackwell; supplied CI lanes provide no sm_100/sm_103 hardware, so they would skip in current routing.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139894275387,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139894265296,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139894265296",
+        "head_sha": "4ec4e79dd1d04d824f850b67295b00334fa9d8bf",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139894275387,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139894275387",
+        "head_sha": "4ec4e79dd1d04d824f850b67295b00334fa9d8bf",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815532728,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815532728",
+    "artifact_id": 15116080811
+  }
 }

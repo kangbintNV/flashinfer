@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/69a172f2d235a87e9ceef9462c7296bb49e312e8/experiments/source.json",
   "comment_snapshot_sha256": "a1f32a349c90202dfd42714f14bbab448496c15eeab46005c257952fbf16a85a",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139941988776",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829410105",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139941988776",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only the subprocess working directory for host-side documentation checkers changed; no kernel, binding, dispatch, JIT or tensor behavior is touched, so GPU-free validation suffices.",
+  "case_gap": "No pytest covers the documentation adapter's module resolution; validation was manual.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Documentation-checker subprocess import root changes scripts to scripts/infra; no device execution.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9639,
     "experiment_pr": 182,
@@ -63,5 +70,166 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9639.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9639,
+    "experiment_pr": 182,
+    "experiment_head": "69a172f2d235a87e9ceef9462c7296bb49e312e8",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "8fcbf653c03f6649e096a256ecc8ac86bab850f9",
+    "comparison_head_sha": "b7a92c0e402eb93411191d79fbd382a59487241f",
+    "comment_snapshot_sha256": "a1f32a349c90202dfd42714f14bbab448496c15eeab46005c257952fbf16a85a",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "809a5a768295130ae5458e008bd45131443d6a5f559c011212f83d1a157e3937",
+        "http_status": 400,
+        "seconds": 1.419
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "809a5a768295130ae5458e008bd45131443d6a5f559c011212f83d1a157e3937",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2060,
+          "prompt_tokens": 102693,
+          "total_tokens": 104753,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1880,
+            "text_tokens": 180
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102036,
+            "cache_creation_tokens": 102036,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102036,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102036,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.554
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "e73cc104cce00ccf0c6997e3202e1995c9a19c5b878ab803d43b1da8f4738764",
+        "http_status": 400,
+        "seconds": 3.284
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "e73cc104cce00ccf0c6997e3202e1995c9a19c5b878ab803d43b1da8f4738764",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 254,
+          "prompt_tokens": 134468,
+          "total_tokens": 134722,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 254
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131967,
+            "cache_creation_tokens": 131967,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131967,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131967,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 7.592
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only the subprocess working directory for host-side documentation checkers changed; no kernel, binding, dispatch, JIT or tensor behavior is touched, so GPU-free validation suffices.\n\nEvidence: scripts/infra/check_pr_document.py\n\nTest selection gap: No pytest covers the documentation adapter's module resolution; validation was manual.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only the subprocess working directory for host-side documentation checkers changed; no kernel, binding, dispatch, JIT or tensor behavior is touched, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "scripts/infra/check_pr_document.py"
+          ],
+          "case_gap": "No pytest covers the documentation adapter's module resolution; validation was manual.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139941988776,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Only the subprocess working directory for host-side documentation checkers changed; no kernel, binding, dispatch, JIT or tensor behavior is touched, so GPU-free validation suffices.\n\nEvidence: scripts/infra/check_pr_document.py\n\nTest selection gap: No pytest covers the documentation adapter's module resolution; validation was manual.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Only the subprocess working directory for host-side documentation checkers changed; no kernel, binding, dispatch, JIT or tensor behavior is touched, so GPU-free validation suffices.",
+          "evidence_paths": [
+            "scripts/infra/check_pr_document.py"
+          ],
+          "case_gap": "No pytest covers the documentation adapter's module resolution; validation was manual.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139941988776,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139941988776,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139941988776",
+        "head_sha": "69a172f2d235a87e9ceef9462c7296bb49e312e8",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829410105,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829410105",
+    "artifact_id": 15122775090
+  }
 }

@@ -3,7 +3,11 @@
   "inference_secret_updated_at": "2026-11-25T04:54:34Z",
   "no_secret_values_read_or_printed": true,
   "workflow_id": 307860265,
-  "native_formal_checks": 0,
-  "pending_cases": 150,
-  "pause_source": "https://github.com/kangbintNV/flashinfer/actions"
+  "native_formal_checks": 150,
+  "pending_cases": 0,
+  "pause_source": "https://github.com/kangbintNV/flashinfer/actions",
+  "native_total_checks": 224,
+  "actions_restored_by_user": true,
+  "restoration_verified_by_run": 45813343121,
+  "no_settings_changed_by_agent": true
 }

@@ -41,6 +41,8 @@
     }
   ],
   "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(sampling): align indexed top-k and speculative metrics",
   "formal_assessment": "correct_allow",

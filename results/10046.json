@@ -36,6 +36,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Trusted workflow dispatch/ref selection, history helper and CPU workflow tests; product GPU implementations are unchanged.",
   "formal_assessment": "correct_allow",

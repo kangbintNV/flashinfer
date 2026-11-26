@@ -59,6 +59,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(prims_ts): exact row max for E4M3 V in fmha context",
   "formal_assessment": "correct_allow",

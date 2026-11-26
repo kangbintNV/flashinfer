@@ -24,23 +24,34 @@
       "first_line": "[FAILED] Pipeline [#79201273](https://nv/flashinfer-ci/-/pipelines/79201273) — 10/38 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940973357",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829103142",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139940982788",
+  "classification": "docs_only",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Diff is limited to docs/api/*.rst and Python docstrings (e.g. NVFP4KVMaterializer.__init__ param docs, RMSNorm ``max(|dx|, rms(dx))`` literals); no kernel, launcher, dispatch or workspace behavior changes.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI requested a file outside the supplied repository inventory"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "API RST, docstrings and documentation-text constants only; the AST difference in cake_windows.py is documentation text, not GPU execution.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8464,
     "experiment_pr": 173,
@@ -75,5 +86,199 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139386742553",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8464,
+    "experiment_pr": 173,
+    "experiment_head": "5c51a6c46bb08a698576f6b4c4f1962161460968",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "e042ba88162266cebdd9b204a3c4a8d2e4dffc50",
+    "comparison_head_sha": "eefed87f2bb986a102c2548a8b2a0c8652672740",
+    "comment_snapshot_sha256": "cd526ea8b4d1ccfdcfe25c5c3cc2201c410106fb8cd54a2227d709b7809949be",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "1409d0e3aa1292545a4ada30ceb219526a2d04fd554c0b3ae6ff087be87a060a",
+        "http_status": 400,
+        "seconds": 0.84
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "1409d0e3aa1292545a4ada30ceb219526a2d04fd554c0b3ae6ff087be87a060a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2860,
+          "prompt_tokens": 117983,
+          "total_tokens": 120843,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2500,
+            "text_tokens": 360
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 117326,
+            "cache_creation_tokens": 117326,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 117326,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 117326,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 37.088
+      },
+      {
+        "index": 3,
+        "effort": "minimal",
+        "context_sha256": "1409d0e3aa1292545a4ada30ceb219526a2d04fd554c0b3ae6ff087be87a060a",
+        "http_status": 400,
+        "seconds": 1.806
+      },
+      {
+        "index": 4,
+        "effort": "minimal",
+        "context_sha256": "1409d0e3aa1292545a4ada30ceb219526a2d04fd554c0b3ae6ff087be87a060a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2301,
+          "prompt_tokens": 117983,
+          "total_tokens": 120284,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2069,
+            "text_tokens": 232
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 117981,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 117981,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 31.704
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "46500e825db81a968d3ea38ce70237792c5440c94e1bf6c9726758e3d7a7ab75",
+        "http_status": 400,
+        "seconds": 3.64
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "46500e825db81a968d3ea38ce70237792c5440c94e1bf6c9726758e3d7a7ab75",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 680,
+          "prompt_tokens": 135758,
+          "total_tokens": 136438,
+          "completion_tokens_details": {
+            "reasoning_tokens": 398,
+            "text_tokens": 282
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 133257,
+            "cache_creation_tokens": 133257,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 133257,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 133257,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 11.286
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8464#issuecomment-6659423942)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139940973357,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Diff is limited to docs/api/*.rst and Python docstrings (e.g. NVFP4KVMaterializer.__init__ param docs, RMSNorm ``max(|dx|, rms(dx))`` literals); no kernel, launcher, dispatch or workspace behavior changes.\n\nEvidence: docs/api/norm.rst, flashinfer/cake_rmsnorm_train.py, flashinfer/quantization/kernels/nvfp4_kv_materialize.py\n\nAnalysis attempts:\n- default: AI requested a file outside the supplied repository inventory\n- minimal: succeeded",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Diff is limited to docs/api/*.rst and Python docstrings (e.g. NVFP4KVMaterializer.__init__ param docs, RMSNorm ``max(|dx|, rms(dx))`` literals); no kernel, launcher, dispatch or workspace behavior changes.",
+          "evidence_paths": [
+            "docs/api/norm.rst",
+            "flashinfer/cake_rmsnorm_train.py",
+            "flashinfer/quantization/kernels/nvfp4_kv_materialize.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI requested a file outside the supplied repository inventory"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139940982788,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139940973357,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940973357",
+        "head_sha": "5c51a6c46bb08a698576f6b4c4f1962161460968",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139940982788,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139940982788",
+        "head_sha": "5c51a6c46bb08a698576f6b4c4f1962161460968",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829103142,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829103142",
+    "artifact_id": 15121071837
+  }
 }

@@ -29,23 +29,30 @@
       "first_line": "GitLab MR [!2684](https://nv/flashinfer/-/merge_requests/2684) has been created, and the CI pipeline [#83716001](https://nv/flashinfer-ci/-/pipelines/83716001) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947735000",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831076732",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947775802",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "nvfp4_quant_and_per_token_scale_sm100 now allocates the linear-layout scale buffer with new_empty instead of new_zeros, so output correctness depends on the SM100 kernel writing every scale byte; only GPU execution can validate it.",
+  "case_gap": "New per-token linear-scale no-zero-fill test needs SM100 hardware; supplied PR lanes (A10G/T4, H100 entry unscheduled) do not run it.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "NVFP4 per-token quantization scale initialization changes GPU numerical/kernel behavior.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8815,
     "experiment_pr": 218,
@@ -79,5 +86,153 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8815.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8815,
+    "experiment_pr": 218,
+    "experiment_head": "39ee5e248d5b2a73d36846f565c5174249f4a4e9",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "560d7e296484ce898d1ff508a02916f51ad2287d",
+    "comparison_head_sha": "d6ab9eb1a43dd913fcdeb1caf69441aa6e3cefdd",
+    "comment_snapshot_sha256": "4a80a9e4eb0770f43fff5d69543dfb88a4ccba74f77c3144257554adec279ffa",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "dfea0e8763a05dac68f92c342553cbaa0133b33c1f237bc2b8601d3a341cf97a",
+        "http_status": 400,
+        "seconds": 4.921
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "dfea0e8763a05dac68f92c342553cbaa0133b33c1f237bc2b8601d3a341cf97a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1066,
+          "prompt_tokens": 101081,
+          "total_tokens": 102147,
+          "completion_tokens_details": {
+            "reasoning_tokens": 745,
+            "text_tokens": 321
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 100424,
+            "cache_creation_tokens": 100424,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 100424,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 100424,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 13.408
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "aa6a895dc954ce95d675cd218807c9abccd16b6edd00480f8a0664bef4b072d2",
+        "http_status": 400,
+        "seconds": 1.253
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "aa6a895dc954ce95d675cd218807c9abccd16b6edd00480f8a0664bef4b072d2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2909,
+          "prompt_tokens": 129972,
+          "total_tokens": 132881,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2557,
+            "text_tokens": 352
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 127471,
+            "cache_creation_tokens": 127471,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 127471,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 127471,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 40.075
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8815#issuecomment-7020741789)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139947735000,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "nvfp4_quant_and_per_token_scale_sm100 now allocates the linear-layout scale buffer with new_empty instead of new_zeros, so output correctness depends on the SM100 kernel writing every scale byte; only GPU execution can validate it.\n\nEvidence: flashinfer/quantization/fp4_quantization.py, tests/utils/test_fp4_quantize.py\n\nTest selection gap: New per-token linear-scale no-zero-fill test needs SM100 hardware; supplied PR lanes (A10G/T4, H100 entry unscheduled) do not run it.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "nvfp4_quant_and_per_token_scale_sm100 now allocates the linear-layout scale buffer with new_empty instead of new_zeros, so output correctness depends on the SM100 kernel writing every scale byte; only GPU execution can validate it.",
+          "evidence_paths": [
+            "flashinfer/quantization/fp4_quantization.py",
+            "tests/utils/test_fp4_quantize.py"
+          ],
+          "case_gap": "New per-token linear-scale no-zero-fill test needs SM100 hardware; supplied PR lanes (A10G/T4, H100 entry unscheduled) do not run it.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139947775802,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139947735000,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947735000",
+        "head_sha": "39ee5e248d5b2a73d36846f565c5174249f4a4e9",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139947775802,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947775802",
+        "head_sha": "39ee5e248d5b2a73d36846f565c5174249f4a4e9",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831076732,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831076732",
+    "artifact_id": 15122970682
+  }
 }

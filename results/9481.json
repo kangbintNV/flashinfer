@@ -24,23 +24,32 @@
       "first_line": "[FAILED] Pipeline [#82485470](https://nv/flashinfer-ci/-/pipelines/82485470) — 29/30 executed test jobs passed"
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139943990668",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829988957",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139943999382",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changed _nvcc_identity resolves the nvcc binary used to compile cake_gdn cubins; on Windows it gates JIT compilation and kernel launch, so GPU-free checks only cover the host path string.",
+  "case_gap": "Windows arm64 nvcc.exe discovery and the subsequent cubin compile are not exercised by Linux CI lanes.",
+  "selected_tests": [
+    "tests/cpu/gdn"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "pending",
+  "static_review_correction": null,
   "static_expected": "pending",
   "static_reason": "nvcc versus nvcc.exe compiler discovery changes in JIT; CPU path-selection coverage exists. Whether GPU build/run validation is needed needs owner confirmation.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "pending_review",
   "source_audit": {
     "original_number": 9481,
     "experiment_pr": 193,
@@ -74,5 +83,155 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9481.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9481,
+    "experiment_pr": 193,
+    "experiment_head": "e15d13d601728a9574f860a0f0b0370c8f4b9bd8",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "5b6f9f692b65c866090688f15d7343840b302948",
+    "comparison_head_sha": "f7cdba7e5814311bc814996e592e4a24a97310fb",
+    "comment_snapshot_sha256": "8f8b9b7598327b10ffa67b5d04ac62da9b385c2e2b5e78f5a82e97bf654a2672",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "cf289f406a0e4e4c7dbb76888e99a0575b689cb7404bafe1fd4edc1084f34463",
+        "http_status": 400,
+        "seconds": 0.813
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "cf289f406a0e4e4c7dbb76888e99a0575b689cb7404bafe1fd4edc1084f34463",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1784,
+          "prompt_tokens": 96870,
+          "total_tokens": 98654,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1440,
+            "text_tokens": 344
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 96213,
+            "cache_creation_tokens": 96213,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 96213,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 96213,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.149
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "9ae024a6fec850cb8d498171ba23e9c1f5ae56fe53eb0c298eab40f580c4ecd2",
+        "http_status": 400,
+        "seconds": 3.463
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "9ae024a6fec850cb8d498171ba23e9c1f5ae56fe53eb0c298eab40f580c4ecd2",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2216,
+          "prompt_tokens": 145934,
+          "total_tokens": 148150,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1855,
+            "text_tokens": 361
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 143433,
+            "cache_creation_tokens": 143433,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 143433,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 143433,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 34.966
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9481#issuecomment-6905895364)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139943990668,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changed _nvcc_identity resolves the nvcc binary used to compile cake_gdn cubins; on Windows it gates JIT compilation and kernel launch, so GPU-free checks only cover the host path string.\n\nEvidence: flashinfer/jit/cake_gdn.py, tests/cpu/gdn/test_cake_gdn_decode.py\n\nSuggested tests: tests/cpu/gdn\n\nTest selection gap: Windows arm64 nvcc.exe discovery and the subsequent cubin compile are not exercised by Linux CI lanes.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changed _nvcc_identity resolves the nvcc binary used to compile cake_gdn cubins; on Windows it gates JIT compilation and kernel launch, so GPU-free checks only cover the host path string.",
+          "evidence_paths": [
+            "flashinfer/jit/cake_gdn.py",
+            "tests/cpu/gdn/test_cake_gdn_decode.py"
+          ],
+          "case_gap": "Windows arm64 nvcc.exe discovery and the subsequent cubin compile are not exercised by Linux CI lanes.",
+          "targets": [
+            "tests/cpu/gdn"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139943999382,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139943990668,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139943990668",
+        "head_sha": "e15d13d601728a9574f860a0f0b0370c8f4b9bd8",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139943999382,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139943999382",
+        "head_sha": "e15d13d601728a9574f860a0f0b0370c8f4b9bd8",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829988957,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829988957",
+    "artifact_id": 15122212079
+  }
 }

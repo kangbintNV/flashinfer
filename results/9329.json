@@ -61,6 +61,8 @@
     }
   ],
   "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe): one persistent DeepSeek FP8 activation kernel for the trtllm-gen MoE",
   "formal_assessment": "correct_allow",

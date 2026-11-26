@@ -34,23 +34,33 @@
       "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been created, and the CI pipeline [#83648780](https://nv/flashinfer-ci/-/pipelines/83648780) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139946638329",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830751627",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139946650192",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "autotuner.py changes tuning cache coverage and retune/profiling decisions for runners, affecting kernel tactic selection and profiling on GPU; CPU tests stub CUDA capture only.",
+  "case_gap": "No GPU test exercises retune/profiling with a real native runner opting into get_tactic_cache_key.",
+  "selected_tests": [
+    "tests/cpu/autotuner/test_autotuner_tactic_coverage.py",
+    "tests/cpu/autotuner/test_autotuner_distributed.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Tactic-pool signatures change cache hit/reprofile decisions and therefore GPU tactic selection.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9289,
     "experiment_pr": 211,
@@ -84,5 +94,160 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9289,
+    "experiment_pr": 211,
+    "experiment_head": "d431975ea2409d7566f8f0a779f79ac98675f645",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "f4939b643263a7b5616006a8260a21b401d7e79e",
+    "comparison_head_sha": "d91cc6c70d2dd9b9dd34059b5a49be2916396a72",
+    "comment_snapshot_sha256": "e98d920138213cc10c4dbe61678b4fe4fc7c85e51a7c8f355b816a565474cfd6",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "51af5d302480921a25df748ec12c83e5183298ec83b57c053634b3b3f7585dd1",
+        "http_status": 400,
+        "seconds": 1.534
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "51af5d302480921a25df748ec12c83e5183298ec83b57c053634b3b3f7585dd1",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1848,
+          "prompt_tokens": 107744,
+          "total_tokens": 109592,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1608,
+            "text_tokens": 240
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 107087,
+            "cache_creation_tokens": 107087,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 107087,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 107087,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.989
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "1bc3b1326e195ac2791eaaca8b1a9fd14aa77058f73030f29c03b6da283aeac7",
+        "http_status": 400,
+        "seconds": 4.263
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "1bc3b1326e195ac2791eaaca8b1a9fd14aa77058f73030f29c03b6da283aeac7",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 523,
+          "prompt_tokens": 141292,
+          "total_tokens": 141815,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 523
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 138791,
+            "cache_creation_tokens": 138791,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 138791,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 138791,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 9.386
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-7014293371)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139946638329,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "autotuner.py changes tuning cache coverage and retune/profiling decisions for runners, affecting kernel tactic selection and profiling on GPU; CPU tests stub CUDA capture only.\n\nEvidence: flashinfer/autotuner/autotuner.py, tests/cpu/autotuner/test_autotuner_tactic_coverage.py\n\nSuggested tests: tests/cpu/autotuner/test_autotuner_tactic_coverage.py, tests/cpu/autotuner/test_autotuner_distributed.py\n\nPatch content unavailable (informational): tests/cpu/autotuner/test_autotuner_tactic_coverage.py\n\nTest selection gap: No GPU test exercises retune/profiling with a real native runner opting into get_tactic_cache_key.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "autotuner.py changes tuning cache coverage and retune/profiling decisions for runners, affecting kernel tactic selection and profiling on GPU; CPU tests stub CUDA capture only.",
+          "evidence_paths": [
+            "flashinfer/autotuner/autotuner.py",
+            "tests/cpu/autotuner/test_autotuner_tactic_coverage.py"
+          ],
+          "case_gap": "No GPU test exercises retune/profiling with a real native runner opting into get_tactic_cache_key.",
+          "missing_patch_paths": [
+            "tests/cpu/autotuner/test_autotuner_tactic_coverage.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/cpu/autotuner/test_autotuner_tactic_coverage.py",
+            "tests/cpu/autotuner/test_autotuner_distributed.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139946650192,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139946638329,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139946638329",
+        "head_sha": "d431975ea2409d7566f8f0a779f79ac98675f645",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139946650192,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139946650192",
+        "head_sha": "d431975ea2409d7566f8f0a779f79ac98675f645",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830751627,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830751627",
+    "artifact_id": 15120968722
+  }
 }

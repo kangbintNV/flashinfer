@@ -19,23 +19,30 @@
       "first_line": "GitLab MR [!2979](https://nv/flashinfer/-/merge_requests/2979) has been created, and the CI pipeline [#83610678](https://nv/flashinfer-ci/-/pipelines/83610678) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947709208",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831066788",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139947720917",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "serving_config now sets cta_reserve=0 on 212-SM sm_107a, changing the launched CTA grid of the packed-scale serving kernel for expected_m&gt;=36; launch geometry and kernel results need Rubin GPU validation.",
+  "case_gap": "No inspected numerical/perf test for the 212-SM full-grid route; added host-only grid assertion was not inspected in full and appears unrouted in CI.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Serving-grid policy changes SM107 FP8 GEMM GPU launch geometry.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9687,
     "experiment_pr": 217,
@@ -69,5 +76,152 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9687.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9687,
+    "experiment_pr": 217,
+    "experiment_head": "471c3b7f992d3c9ab618121efcd60fb5db97af31",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "82fab003f58aed31d745e4ae5440e78f8ebd5574",
+    "comparison_head_sha": "c562253865bd551ba3110bae732a6676cf4e7c4f",
+    "comment_snapshot_sha256": "0a45bab46178efbc617059132672e288f86f8bc22c9b40c5818f7e2df9def702",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "31fa457a16cd518a1d3c7e250579ebfb5931858cf532e4cf020f579bfd423aaa",
+        "http_status": 400,
+        "seconds": 1.41
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "31fa457a16cd518a1d3c7e250579ebfb5931858cf532e4cf020f579bfd423aaa",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1129,
+          "prompt_tokens": 103479,
+          "total_tokens": 104608,
+          "completion_tokens_details": {
+            "reasoning_tokens": 881,
+            "text_tokens": 248
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 102822,
+            "cache_creation_tokens": 102822,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 102822,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 102822,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 15.762
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "52dbfd9a4e6e5d5cf969bd3e5dfe30693498328098d6f60bf129ed831533b772",
+        "http_status": 400,
+        "seconds": 1.31
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "52dbfd9a4e6e5d5cf969bd3e5dfe30693498328098d6f60bf129ed831533b772",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1853,
+          "prompt_tokens": 138897,
+          "total_tokens": 140750,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1490,
+            "text_tokens": 363
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 136396,
+            "cache_creation_tokens": 136396,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 136396,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 136396,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 27.893
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9687#issuecomment-7010123047)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139947709208,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "serving_config now sets cta_reserve=0 on 212-SM sm_107a, changing the launched CTA grid of the packed-scale serving kernel for expected_m&amp;gt;=36; launch geometry and kernel results need Rubin GPU validation.\n\nEvidence: flashinfer/gemm/cake_batch_deepgemm_fp8.py\n\nTest selection gap: No inspected numerical/perf test for the 212-SM full-grid route; added host-only grid assertion was not inspected in full and appears unrouted in CI.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "serving_config now sets cta_reserve=0 on 212-SM sm_107a, changing the launched CTA grid of the packed-scale serving kernel for expected_m&gt;=36; launch geometry and kernel results need Rubin GPU validation.",
+          "evidence_paths": [
+            "flashinfer/gemm/cake_batch_deepgemm_fp8.py"
+          ],
+          "case_gap": "No inspected numerical/perf test for the 212-SM full-grid route; added host-only grid assertion was not inspected in full and appears unrouted in CI.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139947720917,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139947709208,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947709208",
+        "head_sha": "471c3b7f992d3c9ab618121efcd60fb5db97af31",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139947720917,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139947720917",
+        "head_sha": "471c3b7f992d3c9ab618121efcd60fb5db97af31",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45831066788,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45831066788",
+    "artifact_id": 15121278467
+  }
 }

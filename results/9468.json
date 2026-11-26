@@ -33,6 +33,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Changes DeepGEMM NVRTC/CUDA driver errors, cubin load checks and CUDA-library teardown behavior alongside CI reporting; runtime/JIT validation is GPU-related.",
   "formal_assessment": "correct_block",

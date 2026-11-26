@@ -1,0 +1,28 @@
+{
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "native_formal": 150,
+  "native_total": 224,
+  "formal_success": 108,
+  "formal_failure": 42,
+  "correct_allow": 106,
+  "correct_block": 37,
+  "false_allow": 0,
+  "false_block": 1,
+  "formal_pending_review": 6,
+  "classification_pending_review": 9,
+  "classification_disagreement": [
+    9478
+  ],
+  "unknown": 13,
+  "formal_unknown": [
+    8932,
+    8036,
+    9679
+  ],
+  "minimal_retries": 21,
+  "minimal_recovered": 8,
+  "native_infrastructure_failures": 0,
+  "resolved_collection_incidents": 1,
+  "resolved_model_transport_timeouts": 1,
+  "independent_human_ground_truth": false
+}

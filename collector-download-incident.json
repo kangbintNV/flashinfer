@@ -1,0 +1,11 @@
+{
+  "original_number": 9813,
+  "run_id": 45816134944,
+  "artifact_id": 15116421012,
+  "retry_exit_code": 1,
+  "retry_bytes": 0,
+  "error": "Get \"https://productionresultssa31.blob.core.windows.net/actions-results/3cb735d2-fd82-476c-8085-af1543b0b584/workflow-job-run-ce39bab6-a930-5256-8453-e151fdfe0d9e/artifacts/1461617694f764e30dc2167d4b518ad91bdaef1b34ca9ad54c6a6316004e2a10.zip?[redacted-query]\": net/http: TLS handshake timeout\n",
+  "model_rerun": false,
+  "storage_no_proxy_retry_succeeded": true,
+  "retry_error": ""
+}

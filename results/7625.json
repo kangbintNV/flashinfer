@@ -26,6 +26,8 @@
   "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "Contributor guidance, PR template and skill text describe targeted CI; no executable code changes.",
   "formal_assessment": "correct_allow",

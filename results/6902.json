@@ -34,6 +34,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: refactor(cake_nvfp4_attention): ship the experimental NVFP4 attention as a self-contained vendorable package",
   "formal_assessment": "correct_block",

@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/2ff04034a768a10eb28ec3aacacd988985ad317e/experiments/source.json",
   "comment_snapshot_sha256": "e6150cd23e2fc0d313d513be4317c9f8cb8d98c494ec7661ff3d9cc9fe2a1bff",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139943161427",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829741609",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139943161427",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Only README prose and docstring/comment lines about sm_107a gate-epilogue buffers changed; no kernel, dispatch, or workspace-sizing code altered, so GPU validation adds nothing.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "docs_only",
+  "static_review_correction": null,
   "static_expected": "docs_only",
   "static_reason": "Experimental KDA backend docstrings/README only; normalized non-doc AST unchanged.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 7653,
     "experiment_pr": 191,
@@ -63,5 +70,168 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/7653.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 7653,
+    "experiment_pr": 191,
+    "experiment_head": "2ff04034a768a10eb28ec3aacacd988985ad317e",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "b05769e489ad28593bfb71969e2473243d65f953",
+    "comparison_head_sha": "a0a590b8513b2499849253e5e702c13b414f25e5",
+    "comment_snapshot_sha256": "e6150cd23e2fc0d313d513be4317c9f8cb8d98c494ec7661ff3d9cc9fe2a1bff",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "ee1c200ed06305cbad8848632483fb4d6848bccc97f336b523aeecb42ca87eb1",
+        "http_status": 400,
+        "seconds": 0.838
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "ee1c200ed06305cbad8848632483fb4d6848bccc97f336b523aeecb42ca87eb1",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1650,
+          "prompt_tokens": 97307,
+          "total_tokens": 98957,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1378,
+            "text_tokens": 272
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 96650,
+            "cache_creation_tokens": 96650,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 96650,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 96650,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.214
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "11a536091d8b6601ab31c72ef51382e2f39010f840b22ea439ba8318e383d909",
+        "http_status": 400,
+        "seconds": 0.858
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "11a536091d8b6601ab31c72ef51382e2f39010f840b22ea439ba8318e383d909",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 481,
+          "prompt_tokens": 141468,
+          "total_tokens": 141949,
+          "completion_tokens_details": {
+            "reasoning_tokens": 240,
+            "text_tokens": 241
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 138967,
+            "cache_creation_tokens": 138967,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 138967,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 138967,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 8.987
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only README prose and docstring/comment lines about sm_107a gate-epilogue buffers changed; no kernel, dispatch, or workspace-sizing code altered, so GPU validation adds nothing.\n\nEvidence: flashinfer/experimental/cake_kda_train/README.md, flashinfer/experimental/cake_kda_train/cake_backend.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only README prose and docstring/comment lines about sm_107a gate-epilogue buffers changed; no kernel, dispatch, or workspace-sizing code altered, so GPU validation adds nothing.",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_kda_train/README.md",
+            "flashinfer/experimental/cake_kda_train/cake_backend.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139943161427,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only README prose and docstring/comment lines about sm_107a gate-epilogue buffers changed; no kernel, dispatch, or workspace-sizing code altered, so GPU validation adds nothing.\n\nEvidence: flashinfer/experimental/cake_kda_train/README.md, flashinfer/experimental/cake_kda_train/cake_backend.py",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only README prose and docstring/comment lines about sm_107a gate-epilogue buffers changed; no kernel, dispatch, or workspace-sizing code altered, so GPU validation adds nothing.",
+          "evidence_paths": [
+            "flashinfer/experimental/cake_kda_train/README.md",
+            "flashinfer/experimental/cake_kda_train/cake_backend.py"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139943161427,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139943161427,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139943161427",
+        "head_sha": "2ff04034a768a10eb28ec3aacacd988985ad317e",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829741609,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829741609",
+    "artifact_id": 15122211688
+  }
 }

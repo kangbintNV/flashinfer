@@ -29,23 +29,33 @@
       "first_line": "GitLab MR [!2554](https://nv/flashinfer/-/merge_requests/2554) has been updated with latest changes, and the CI pipeline [#83872286](https://nv/flashinfer-ci/-/pipelines/83872286) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139946560988",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830731651",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139946569870",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Removes a named-barrier arrive in the Hopper FA3 epilogue, altering device-side smem/global synchronization and output correctness; only SM90 execution can validate.",
+  "case_gap": "pr-test.yml sets RUN_H100=false in all branches, so SM90 lanes may not be scheduled; A10G/T4 shards omit these files.",
+  "selected_tests": [
+    "tests/attention/test_hopper_epilogue.py",
+    "tests/attention/test_hopper.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Hopper epilogue barrier arrival ordering changes, with CUDA numerical regression probe.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 6160,
     "experiment_pr": 209,
@@ -79,5 +89,157 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 6160,
+    "experiment_pr": 209,
+    "experiment_head": "77f9fd31fd145b0ed74cb3fdfdd383183fd51543",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "1cbcb24d577513ed9f337d6df4fff449aa2fe23d",
+    "comparison_head_sha": "ffa8487dbdc25431ea23e73b32ec43c50f9360ec",
+    "comment_snapshot_sha256": "c7cf4ce407c5cee0c0ca3108247c48ff65b97678fa014f3828f44b4e44a33948",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "3c76c1c28b3bd821457cd8d0028ca90a949bbc583aa52f9778f847e1939a96f5",
+        "http_status": 400,
+        "seconds": 0.949
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "3c76c1c28b3bd821457cd8d0028ca90a949bbc583aa52f9778f847e1939a96f5",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2432,
+          "prompt_tokens": 119528,
+          "total_tokens": 121960,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2184,
+            "text_tokens": 248
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 118871,
+            "cache_creation_tokens": 118871,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118871,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 118871,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 32.012
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "4d842ac39618adb4b40c39b6ee090cfb3f8bb712da3fc1c1417b0c7955f0b1f6",
+        "http_status": 400,
+        "seconds": 0.859
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "4d842ac39618adb4b40c39b6ee090cfb3f8bb712da3fc1c1417b0c7955f0b1f6",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1902,
+          "prompt_tokens": 139498,
+          "total_tokens": 141400,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1368,
+            "text_tokens": 534
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 136997,
+            "cache_creation_tokens": 136997,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 136997,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 136997,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 28.325
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-7031181649)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139946560988,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Removes a named-barrier arrive in the Hopper FA3 epilogue, altering device-side smem/global synchronization and output correctness; only SM90 execution can validate.\n\nEvidence: include/flashinfer/attention/hopper/epilogue.cuh, tests/cuda/hopper_epilogue.cu, tests/attention/test_hopper_epilogue.py\n\nSuggested tests: tests/attention/test_hopper_epilogue.py, tests/attention/test_hopper.py\n\nTest selection gap: pr-test.yml sets RUN_H100=false in all branches, so SM90 lanes may not be scheduled; A10G/T4 shards omit these files.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Removes a named-barrier arrive in the Hopper FA3 epilogue, altering device-side smem/global synchronization and output correctness; only SM90 execution can validate.",
+          "evidence_paths": [
+            "include/flashinfer/attention/hopper/epilogue.cuh",
+            "tests/cuda/hopper_epilogue.cu",
+            "tests/attention/test_hopper_epilogue.py"
+          ],
+          "case_gap": "pr-test.yml sets RUN_H100=false in all branches, so SM90 lanes may not be scheduled; A10G/T4 shards omit these files.",
+          "targets": [
+            "tests/attention/test_hopper_epilogue.py",
+            "tests/attention/test_hopper.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139946569870,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139946560988,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139946560988",
+        "head_sha": "77f9fd31fd145b0ed74cb3fdfdd383183fd51543",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139946569870,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139946569870",
+        "head_sha": "77f9fd31fd145b0ed74cb3fdfdd383183fd51543",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830731651,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830731651",
+    "artifact_id": 15122816630
+  }
 }

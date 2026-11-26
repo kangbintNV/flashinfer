@@ -13,23 +13,52 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/3e9cc814d148484ec451d88e8783f83b2a722a76/experiments/source.json",
   "comment_snapshot_sha256": "1bea8b77523db1d45394eb6f64e473f0ecef00976423af4a47b4cbe23af526e2",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896280576",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816128258",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896280576",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Changed lines only select _LEGACY_GRID_CTAS_PER_TOKEN for the reported baseline_grid_ctas field; no kernel launch, shape, dtype, dispatch or timing path altered, so CPU-level inspection suffices.",
+  "case_gap": "No pytest covers benchmark reporting constants; the reported legacy CTA count is unverified by any inspected test.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
-  "static_expected": "gpu_required",
-  "static_reason": "Benchmark now launches the legacy MegaMoE reducer with a different CTA grid; changed behavior requires real GPU execution even though it is benchmark code.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": {
+    "original_number": 9814,
+    "initial_expected": "gpu_required",
+    "corrected_expected": "cpu_only",
+    "reason": "The changed baseline_grid_ctas value is only emitted in the returned JSON report. Runner construction reads comparison_kind and baseline_tensor_extent; the changed grid-report key has no launch/timing consumer. The actual GPU launch is unchanged.",
+    "source_commit": "d3a764730a8b0587a4ea73b696b70bc283f0c268",
+    "source_path": "benchmarks/bench_cake_megamoe_topk_reduce.py",
+    "source_blob": "63754687de22c36568a4cce1254621fa68066d2e",
+    "evidence_lines": [
+      357,
+      396,
+      439,
+      480,
+      496
+    ],
+    "baseline_grid_ctas_literal_uses": [
+      {
+        "line": 396,
+        "kind": "Constant"
+      }
+    ],
+    "changed_checker_or_native_result": false
+  },
+  "static_expected": "cpu_only",
+  "static_reason": "Only baseline_grid_ctas in JSON metadata changes. Runner construction and launch/timing use unchanged fields; full consumer trace confirms no changed GPU execution. Initial static review was corrected with evidence in static-review-corrections.json.",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9814,
     "experiment_pr": 148,
@@ -64,5 +93,166 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384066199",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9814,
+    "experiment_pr": 148,
+    "experiment_head": "3e9cc814d148484ec451d88e8783f83b2a722a76",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "d87ad52ee3f6f45cac2b8d96477de79500056896",
+    "comparison_head_sha": "6464b3383a43939e08b1a388f6d1d0cb2d37d35e",
+    "comment_snapshot_sha256": "1bea8b77523db1d45394eb6f64e473f0ecef00976423af4a47b4cbe23af526e2",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "e2266fdabec0e6ae2316795994c48498fe36867608d1416ad3adbd31ec9e5fb1",
+        "http_status": 400,
+        "seconds": 2.342
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "e2266fdabec0e6ae2316795994c48498fe36867608d1416ad3adbd31ec9e5fb1",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1242,
+          "prompt_tokens": 110591,
+          "total_tokens": 111833,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1050,
+            "text_tokens": 192
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 109934,
+            "cache_creation_tokens": 109934,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 109934,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 109934,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 17.639
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "c53b4a5b7df5c4c973dac59c30ae34ed5eb85e9a467ed603dbbe7bdc216d9c04",
+        "http_status": 400,
+        "seconds": 2.267
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "c53b4a5b7df5c4c973dac59c30ae34ed5eb85e9a467ed603dbbe7bdc216d9c04",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 782,
+          "prompt_tokens": 126417,
+          "total_tokens": 127199,
+          "completion_tokens_details": {
+            "reasoning_tokens": 484,
+            "text_tokens": 298
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 123916,
+            "cache_creation_tokens": 123916,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 123916,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 123916,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 13.732
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changed lines only select _LEGACY_GRID_CTAS_PER_TOKEN for the reported baseline_grid_ctas field; no kernel launch, shape, dtype, dispatch or timing path altered, so CPU-level inspection suffices.\n\nEvidence: benchmarks/bench_cake_megamoe_topk_reduce.py\n\nTest selection gap: No pytest covers benchmark reporting constants; the reported legacy CTA count is unverified by any inspected test.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changed lines only select _LEGACY_GRID_CTAS_PER_TOKEN for the reported baseline_grid_ctas field; no kernel launch, shape, dtype, dispatch or timing path altered, so CPU-level inspection suffices.",
+          "evidence_paths": [
+            "benchmarks/bench_cake_megamoe_topk_reduce.py"
+          ],
+          "case_gap": "No pytest covers benchmark reporting constants; the reported legacy CTA count is unverified by any inspected test.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896280576,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Changed lines only select _LEGACY_GRID_CTAS_PER_TOKEN for the reported baseline_grid_ctas field; no kernel launch, shape, dtype, dispatch or timing path altered, so CPU-level inspection suffices.\n\nEvidence: benchmarks/bench_cake_megamoe_topk_reduce.py\n\nTest selection gap: No pytest covers benchmark reporting constants; the reported legacy CTA count is unverified by any inspected test.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Changed lines only select _LEGACY_GRID_CTAS_PER_TOKEN for the reported baseline_grid_ctas field; no kernel launch, shape, dtype, dispatch or timing path altered, so CPU-level inspection suffices.",
+          "evidence_paths": [
+            "benchmarks/bench_cake_megamoe_topk_reduce.py"
+          ],
+          "case_gap": "No pytest covers benchmark reporting constants; the reported legacy CTA count is unverified by any inspected test.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896280576,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139896280576,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896280576",
+        "head_sha": "3e9cc814d148484ec451d88e8783f83b2a722a76",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816128258,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816128258",
+    "artifact_id": 15115377620
+  }
 }

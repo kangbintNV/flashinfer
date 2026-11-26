@@ -29,23 +29,33 @@
       "first_line": "GitLab MR [!2634](https://nv/flashinfer/-/merge_requests/2634) has been updated with latest changes, and the CI pipeline [#79539000](https://nv/flashinfer-ci/-/pipelines/79539000) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942705022",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829613290",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139942740406",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Persistent CUDA top-k2048 kernel: radix-round helper, pivot-tie second select pass, group barriers and histogram triple-buffer rotation; only device execution validates selection and unwritten rows.",
+  "case_gap": "Changed kernel file judged from filename plus test bodies (patch budget-omitted); non-SM120 architectures and the tie path's perf are unverified.",
+  "selected_tests": [
+    "tests/experimental/b12x/attention/test_persistent_topk_gpu.py",
+    "tests/experimental/b12x/attention/test_persistent_topk_scratch_bindings.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Experimental top-k radix/histogram barrier and GPU tests change; experimental status gives no exemption.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 8561,
     "experiment_pr": 189,
@@ -79,5 +89,163 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 8561,
+    "experiment_pr": 189,
+    "experiment_head": "10058ba7be45e8e7a3e3b60d87aec965f7093b51",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "64b2fa17e7c33156af68cdf4dd4969cb211b024c",
+    "comparison_head_sha": "1c380998cd9a59042a9df5565f7ff03f03931b38",
+    "comment_snapshot_sha256": "3ed6ace9760ced3a87285ace0a9973167de3c66dbe94812a1f38f10f7877f04d",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "f69fbdadd922b33b37d4d3cc2c5923eef377b7c280c7e570e3855c895f72b662",
+        "http_status": 400,
+        "seconds": 2.027
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "f69fbdadd922b33b37d4d3cc2c5923eef377b7c280c7e570e3855c895f72b662",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1846,
+          "prompt_tokens": 106184,
+          "total_tokens": 108030,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1559,
+            "text_tokens": 287
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 105527,
+            "cache_creation_tokens": 105527,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 105527,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 105527,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.431
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "5d828f88a78e65750b93630bfe4cd868bc93cee48945351a846ad8054bc45536",
+        "http_status": 400,
+        "seconds": 1.739
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "5d828f88a78e65750b93630bfe4cd868bc93cee48945351a846ad8054bc45536",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1832,
+          "prompt_tokens": 135003,
+          "total_tokens": 136835,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1255,
+            "text_tokens": 577
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 132502,
+            "cache_creation_tokens": 132502,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 132502,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 132502,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 28.441
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6661899364)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139942705022,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Persistent CUDA top-k2048 kernel: radix-round helper, pivot-tie second select pass, group barriers and histogram triple-buffer rotation; only device execution validates selection and unwritten rows.\n\nEvidence: flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py, tests/experimental/b12x/attention/test_persistent_topk_gpu.py\n\nSuggested tests: tests/experimental/b12x/attention/test_persistent_topk_gpu.py, tests/experimental/b12x/attention/test_persistent_topk_scratch_bindings.py\n\nPatch content unavailable (informational): flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py\n\nTest selection gap: Changed kernel file judged from filename plus test bodies (patch budget-omitted); non-SM120 architectures and the tie path's perf are unverified.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Persistent CUDA top-k2048 kernel: radix-round helper, pivot-tie second select pass, group barriers and histogram triple-buffer rotation; only device execution validates selection and unwritten rows.",
+          "evidence_paths": [
+            "flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py",
+            "tests/experimental/b12x/attention/test_persistent_topk_gpu.py"
+          ],
+          "case_gap": "Changed kernel file judged from filename plus test bodies (patch budget-omitted); non-SM120 architectures and the tie path's perf are unverified.",
+          "filename_only_evidence": [
+            "flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py"
+          ],
+          "missing_patch_paths": [
+            "flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py"
+          ],
+          "missing_patch_count": 1,
+          "targets": [
+            "tests/experimental/b12x/attention/test_persistent_topk_gpu.py",
+            "tests/experimental/b12x/attention/test_persistent_topk_scratch_bindings.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139942740406,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139942705022,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942705022",
+        "head_sha": "10058ba7be45e8e7a3e3b60d87aec965f7093b51",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139942740406,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139942740406",
+        "head_sha": "10058ba7be45e8e7a3e3b60d87aec965f7093b51",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829613290,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829613290",
+    "artifact_id": 15122346454
+  }
 }

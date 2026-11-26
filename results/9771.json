@@ -19,23 +19,32 @@
       "first_line": "GitLab MR [!3038](https://nv/flashinfer/-/merge_requests/3038) has been created, and the CI pipeline [#84650291](https://nv/flashinfer-ci/-/pipelines/84650291) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896328885",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816140319",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139896365721",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changes TMEM ring slot MMA issue, lane-panel O, NVFP4-&gt;FP8 SMEM converters with dense mul.e4m3x4.e2m1x4 PTX, stage-sliced scale TMA and split-reducer warp convergence; only GPU execution validates numerics",
+  "case_gap": "PR-added D512 Keeps selection/reducer tests in tests/attention/test_attention_ts_decode.py could not be inspected (file size limit)",
+  "selected_tests": [
+    "tests/attention/test_attention_ts_decode_mixed_precision.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): faster D512 GQA decode for NVFP4 and FP8 KV",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9771,
     "experiment_pr": 150,
@@ -70,5 +79,165 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139384321868",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9771,
+    "experiment_pr": 150,
+    "experiment_head": "ced59c864dda71740c5ce5a3e3a06a9fdb647930",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "23d136dd16234b9c0f81f52991a3ca5ef007de1d",
+    "comparison_head_sha": "5c29ee46134a4c95ad4e361e2592890a8006a246",
+    "comment_snapshot_sha256": "e05f796c32e1052d51e1496f3180c74b108b67ce2f9298c277f7b37f76014765",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "e66164d13f3c3ea41c50584379d3d323b1b86986972da16b053aa063171576a8",
+        "http_status": 400,
+        "seconds": 1.14
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "e66164d13f3c3ea41c50584379d3d323b1b86986972da16b053aa063171576a8",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1496,
+          "prompt_tokens": 113501,
+          "total_tokens": 114997,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1260,
+            "text_tokens": 236
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 112844,
+            "cache_creation_tokens": 112844,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 112844,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 112844,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 20.875
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "3462f739bda8ffba67510a837e667f97fb7debd8d0e879d4e9713bde104962af",
+        "http_status": 400,
+        "seconds": 1.516
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "3462f739bda8ffba67510a837e667f97fb7debd8d0e879d4e9713bde104962af",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2164,
+          "prompt_tokens": 139316,
+          "total_tokens": 141480,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1626,
+            "text_tokens": 538
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 136815,
+            "cache_creation_tokens": 136815,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 136815,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 136815,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 30.371
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9771#issuecomment-7093273577)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139896328885,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changes TMEM ring slot MMA issue, lane-panel O, NVFP4-&amp;gt;FP8 SMEM converters with dense mul.e4m3x4.e2m1x4 PTX, stage-sliced scale TMA and split-reducer warp convergence; only GPU execution validates numerics\n\nEvidence: flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_transformed_kv.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py\n\nSuggested tests: tests/attention/test_attention_ts_decode_mixed_precision.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py, tests/attention/test_attention_ts_decode.py\n\nTest selection gap: PR-added D512 Keeps selection/reducer tests in tests/attention/test_attention_ts_decode.py could not be inspected (file size limit)\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changes TMEM ring slot MMA issue, lane-panel O, NVFP4-&gt;FP8 SMEM converters with dense mul.e4m3x4.e2m1x4 PTX, stage-sliced scale TMA and split-reducer warp convergence; only GPU execution validates numerics",
+          "evidence_paths": [
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_transformed_kv.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py"
+          ],
+          "case_gap": "PR-added D512 Keeps selection/reducer tests in tests/attention/test_attention_ts_decode.py could not be inspected (file size limit)",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+            "tests/attention/test_attention_ts_decode.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [
+            "tests/attention/test_attention_ts_decode_mixed_precision.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139896365721,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139896328885,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896328885",
+        "head_sha": "ced59c864dda71740c5ce5a3e3a06a9fdb647930",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139896365721,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139896365721",
+        "head_sha": "ced59c864dda71740c5ce5a3e3a06a9fdb647930",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45816140319,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45816140319",
+    "artifact_id": 15115402579
+  }
 }

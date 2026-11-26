@@ -29,23 +29,32 @@
       "first_line": "GitLab MR [!3040](https://nv/flashinfer/-/merge_requests/3040) has been created, and the CI pipeline [#84734567](https://nv/flashinfer-ci/-/pipelines/84734567) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938411008",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828358019",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139938421164",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Changed tests drive b12x NVFP4/MXFP4 GEMM kernels: quantized operands, per-tactic runner.forward, autotune buckets, CUDA graph replay and bitwise output/guard checks; CPU validation cannot verify kernel numerics.",
+  "case_gap": "tests/gemm/test_unified_gemm_fuzz.py body not inspected (budget), so its b12x fuzz additions are unselected; no SM120 lane in supplied CI.",
+  "selected_tests": [
+    "tests/gemm/test_mm_fp4.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test: strengthen b12x tail-N numerical and tactic coverage",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9871,
     "experiment_pr": 159,
@@ -80,5 +89,155 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139385254612",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9871,
+    "experiment_pr": 159,
+    "experiment_head": "9bbe2e758cd5eb62a7670cb46290522d91232e31",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "8b17e7b0bfeb5c5fabe6daa2e4f26df4d006c824",
+    "comparison_head_sha": "5ae7c44ba8611c7ed301539756323c5be8924966",
+    "comment_snapshot_sha256": "60cddc44f1d41683fb8932f41dce0427cbda7a1bfdbb8e8357347748a2ba5341",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "d218a2a9601a17bb8c04bed736c411e9b7a99836367ac29b019062dc822ba77b",
+        "http_status": 400,
+        "seconds": 3.521
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "d218a2a9601a17bb8c04bed736c411e9b7a99836367ac29b019062dc822ba77b",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1037,
+          "prompt_tokens": 104327,
+          "total_tokens": 105364,
+          "completion_tokens_details": {
+            "reasoning_tokens": 838,
+            "text_tokens": 199
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 103670,
+            "cache_creation_tokens": 103670,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 103670,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 103670,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 15.363
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "c56124a3e6dc655237b3a1d14ef81a7309b556d7a2eef8cdc6e26f207037b24f",
+        "http_status": 400,
+        "seconds": 1.317
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "c56124a3e6dc655237b3a1d14ef81a7309b556d7a2eef8cdc6e26f207037b24f",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 3018,
+          "prompt_tokens": 128946,
+          "total_tokens": 131964,
+          "completion_tokens_details": {
+            "reasoning_tokens": 2572,
+            "text_tokens": 446
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 126445,
+            "cache_creation_tokens": 126445,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 126445,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 126445,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 52.374
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9871#issuecomment-7102324850)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139938411008,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Changed tests drive b12x NVFP4/MXFP4 GEMM kernels: quantized operands, per-tactic runner.forward, autotune buckets, CUDA graph replay and bitwise output/guard checks; CPU validation cannot verify kernel numerics.\n\nEvidence: tests/gemm/test_mm_fp4.py, tests/gemm/test_unified_gemm_fuzz.py\n\nSuggested tests: tests/gemm/test_mm_fp4.py\n\nTest selection gap: tests/gemm/test_unified_gemm_fuzz.py body not inspected (budget), so its b12x fuzz additions are unselected; no SM120 lane in supplied CI.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Changed tests drive b12x NVFP4/MXFP4 GEMM kernels: quantized operands, per-tactic runner.forward, autotune buckets, CUDA graph replay and bitwise output/guard checks; CPU validation cannot verify kernel numerics.",
+          "evidence_paths": [
+            "tests/gemm/test_mm_fp4.py",
+            "tests/gemm/test_unified_gemm_fuzz.py"
+          ],
+          "case_gap": "tests/gemm/test_unified_gemm_fuzz.py body not inspected (budget), so its b12x fuzz additions are unselected; no SM120 lane in supplied CI.",
+          "targets": [
+            "tests/gemm/test_mm_fp4.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139938421164,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139938411008,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938411008",
+        "head_sha": "9bbe2e758cd5eb62a7670cb46290522d91232e31",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139938421164,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139938421164",
+        "head_sha": "9bbe2e758cd5eb62a7670cb46290522d91232e31",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45828358019,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45828358019",
+    "artifact_id": 15121455841
+  }
 }

@@ -29,23 +29,33 @@
       "first_line": "GitLab MR [!2992](https://nv/flashinfer/-/merge_requests/2992) has been created, and the CI pipeline [#83769341](https://nv/flashinfer-ci/-/pipelines/83769341) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944010931",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829996299",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139944020504",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Narrowed import-closure keying decides which source edits invalidate the persistent CuTe-DSL JIT cache; under-invalidation reuses stale compiled kernel artifacts on GPU, which CPU key-hash tests cannot observe.",
+  "case_gap": "No test executes a cached CuTe-DSL kernel after a helper edit to confirm rebuild/reuse correctness on GPU.",
+  "selected_tests": [
+    "tests/cpu/infra/test_cute_dsl_strict_key_closure.py",
+    "tests/cpu/infra/test_jit_cache_key_and_build_log.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "AST dependency closure changes JIT artifact reuse; missing dependency can reuse a stale GPU kernel, not merely formatting.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9738,
     "experiment_pr": 194,
@@ -79,5 +89,156 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9738,
+    "experiment_pr": 194,
+    "experiment_head": "c4956899ec16324511e6fc80baf1be44d98c8af3",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "f6290475e8367d2a7e7a0a396f2935f3b3f7a8f7",
+    "comparison_head_sha": "d808a844baec13d35d51fccdf95985fe8b0d06d4",
+    "comment_snapshot_sha256": "ec2b5de3043e613759cc2cb15a9c8cd637e12a29d886ab569d2e481a70755c15",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "1640673774210f204c452bd55505e82f35eadb290545a0b0cb0a6d0310609d88",
+        "http_status": 400,
+        "seconds": 2.633
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "1640673774210f204c452bd55505e82f35eadb290545a0b0cb0a6d0310609d88",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1264,
+          "prompt_tokens": 112932,
+          "total_tokens": 114196,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1158,
+            "text_tokens": 106
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 112275,
+            "cache_creation_tokens": 112275,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 112275,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 112275,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.024
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "b1a2d18df40a06da435dd84034c903ff2fffed7b1bc0ecc643700ec63d1c8fcd",
+        "http_status": 400,
+        "seconds": 3.811
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "b1a2d18df40a06da435dd84034c903ff2fffed7b1bc0ecc643700ec63d1c8fcd",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1460,
+          "prompt_tokens": 136941,
+          "total_tokens": 138401,
+          "completion_tokens_details": {
+            "reasoning_tokens": 922,
+            "text_tokens": 538
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 134440,
+            "cache_creation_tokens": 134440,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 134440,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 134440,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.134
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7025271294)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139944010931,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Narrowed import-closure keying decides which source edits invalidate the persistent CuTe-DSL JIT cache; under-invalidation reuses stale compiled kernel artifacts on GPU, which CPU key-hash tests cannot observe.\n\nEvidence: flashinfer/jit/_cute_dsl_source.py, tests/cpu/infra/test_cute_dsl_strict_key_closure.py\n\nSuggested tests: tests/cpu/infra/test_cute_dsl_strict_key_closure.py, tests/cpu/infra/test_jit_cache_key_and_build_log.py\n\nTest selection gap: No test executes a cached CuTe-DSL kernel after a helper edit to confirm rebuild/reuse correctness on GPU.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Narrowed import-closure keying decides which source edits invalidate the persistent CuTe-DSL JIT cache; under-invalidation reuses stale compiled kernel artifacts on GPU, which CPU key-hash tests cannot observe.",
+          "evidence_paths": [
+            "flashinfer/jit/_cute_dsl_source.py",
+            "tests/cpu/infra/test_cute_dsl_strict_key_closure.py"
+          ],
+          "case_gap": "No test executes a cached CuTe-DSL kernel after a helper edit to confirm rebuild/reuse correctness on GPU.",
+          "targets": [
+            "tests/cpu/infra/test_cute_dsl_strict_key_closure.py",
+            "tests/cpu/infra/test_jit_cache_key_and_build_log.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139944020504,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139944010931,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139944010931",
+        "head_sha": "c4956899ec16324511e6fc80baf1be44d98c8af3",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139944020504,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139944020504",
+        "head_sha": "c4956899ec16324511e6fc80baf1be44d98c8af3",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45829996299,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45829996299",
+    "artifact_id": 15122007288
+  }
 }

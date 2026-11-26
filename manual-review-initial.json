@@ -1,0 +1,2863 @@
+{
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "policy": "No experimental GPU exemption; documentation/CPU exemptions and internal-response shortcut only.",
+  "before_native_model_runs": true,
+  "rows": [
+    {
+      "original_number": 935,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "Deletes two obsolete argument-description lines from the sampling docstring; executable AST unchanged.",
+      "source_paths": [
+        "flashinfer/sampling.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 935,
+          "path": "flashinfer/sampling.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 1163,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "New public green_ctx.py creates CUDA green contexts/SM partitions and adds CUDA device tests; experimental in title is not path containment.",
+      "source_paths": [
+        "docs/api/green_ctx.rst",
+        "docs/index.rst",
+        "flashinfer/green_ctx.py",
+        "setup.py",
+        "tests/test_green_ctx.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 2541,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
+      "source_paths": [
+        "CONTRIBUTING.md",
+        "README.md",
+        "docs/installation.rst"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 3710,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
+      "source_paths": [
+        "docs/api/gemm.rst"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 3827,
+      "cohort": "fresh50",
+      "expected_classification": "pending",
+      "reason": "The docs-titled PR also changes GegluTanh CPU enum/helper behavior. Current code consumes this in GEMM dimensions, but the pinned historical fused_moe/core.py does not show that consumer; GPU effect at this snapshot versus sufficient CPU utility tests needs owner confirmation.",
+      "source_paths": [
+        "docs/api/page.rst",
+        "docs/api/quantization.rst",
+        "flashinfer/decode.py",
+        "flashinfer/prefill.py",
+        "flashinfer/tllm_enums.py",
+        "tests/utils/test_tllm_enums.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 3853,
+      "cohort": "new50",
+      "expected_classification": "cpu_only",
+      "reason": "Release upload destination and installation documentation change; no GPU binary contents or execution path changes.",
+      "source_paths": [
+        ".github/workflows/release.yml",
+        "README.md",
+        "docs/installation.rst"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 3941,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "LoRA delta RST API entries only.",
+      "source_paths": [
+        "docs/api/fused_moe.rst"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 4162,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "CuTe prefill scheduling override documentation only.",
+      "source_paths": [
+        "CLAUDE.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 4175,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
+      "source_paths": [
+        "docs/api/fused_moe.rst"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 4945,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "Docs workflow release-tag validation and Pages deployment split; no runtime/kernel changes.",
+      "source_paths": [
+        ".github/workflows/build-doc.yml",
+        ".github/workflows/release.yml"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 4948,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
+      "source_paths": [
+        "CLAUDE.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 5040,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: refactor(kda): stop 0.7 advertising unreleased KDA surface (mark prefill wrapper experimental, trim kda_kernels.__all__)",
+      "source_paths": [
+        "docs/api/kda_prefill.rst",
+        "examples/experimental/kda_prefill_wrapper.py",
+        "flashinfer/experimental/kda_prefill_wrapper/README.md",
+        "flashinfer/experimental/kda_prefill_wrapper/__init__.py",
+        "flashinfer/kda.py",
+        "flashinfer/kda_kernels/__init__.py",
+        "tests/experimental/test_kda_prefill_wrapper.py",
+        "tests/kda/test_recurrent_kda_prefill.py",
+        "tests/test_helpers/kda_prefill.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 5383,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "Docs deployment condition excludes rc tags; purely workflow control.",
+      "source_paths": [
+        ".github/workflows/build-doc.yml"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 5545,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_nvfp4_attn): MiniMax-H3 SM120 ragged NVFP4 attention with the SageAttention3 FP4 recipe (experimental, #4532 candidate 5090-K2)",
+      "source_paths": [
+        "benchmarks/bench_minimax_h3_sm120_nvfp4_varlen_attention.py",
+        "csrc/cake_minimax_h3_sm120_nvfp4_varlen_attention_sm120a.cu",
+        "docs/api/diffusion_ops.rst",
+        "flashinfer/diffusion_ops/__init__.py",
+        "flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py",
+        "flashinfer/jit/cake_minimax_h3_sm120_nvfp4_varlen_attention.py",
+        "tests/diffusion_ops/test_minimax_h3_sm120_nvfp4_varlen_attention.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 5629,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "Adds measured-workload/performance explanation inside an attention docstring; executable AST unchanged.",
+      "source_paths": [
+        "flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 5629,
+          "path": "flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 5658,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "SM110 tcgen05/TMEM CUDA kernels, launch bindings and dispatch change; experimental status gives no exemption.",
+      "source_paths": [
+        "benchmarks/sm110_xqa_shapes.json",
+        "flashinfer/experimental/sm110_xqa/README.md",
+        "flashinfer/experimental/sm110_xqa/RESULTS.md",
+        "flashinfer/experimental/sm110_xqa/backend.py",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu",
+        "flashinfer/experimental/sm110_xqa/jit.py",
+        "flashinfer/experimental/sm110_xqa/validation.json",
+        "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+        "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6160,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Hopper epilogue barrier arrival ordering changes, with CUDA numerical regression probe.",
+      "source_paths": [
+        "include/flashinfer/attention/hopper/epilogue.cuh",
+        "tests/attention/test_hopper_epilogue.py",
+        "tests/cuda/hopper_epilogue.cu"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6412,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "MegaMoE compile-diagnostics documentation only.",
+      "source_paths": [
+        "CLAUDE.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6436,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: trtllm-gen: raise on cubin load failure, skip unloadable cubins on Windows",
+      "source_paths": [
+        "csrc/trtllm_batched_gemm_runner.cu",
+        "csrc/trtllm_fused_moe_kernel_launcher.cu",
+        "flashinfer/fused_moe/backends/trtllm/sm100_runner.py",
+        "flashinfer/jit/cubin_loader.py",
+        "include/flashinfer/cubin_loader.h",
+        "include/flashinfer/trtllm/batched_gemm/KernelRunner.h"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6458,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Stable decode backend/split-KV admission and preserved plan route change; CPU-only tests do not prove GPU dispatch/graph correctness.",
+      "source_paths": [
+        "docs/api/attention.rst",
+        "flashinfer/decode.py",
+        "tests/utils/test_decode_split_contract.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6711,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "fast_decode_plan validates device placement of metadata pointers adopted by GPU kernels, with CUDA-device tests.",
+      "source_paths": [
+        "flashinfer/decode.py",
+        "tests/attention/test_fast_decode_plan_device.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6790,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mhc): add experimental mhc_pre_big_fuse_with_norm",
+      "source_paths": [
+        "CLAUDE.md",
+        "examples/experimental/mhc_pre_big_fuse_with_norm.py",
+        "flashinfer/experimental/mhc_pre_big_fuse_with_norm/README.md",
+        "flashinfer/experimental/mhc_pre_big_fuse_with_norm/__init__.py",
+        "flashinfer/experimental/mhc_pre_big_fuse_with_norm/backend.py",
+        "flashinfer/experimental/mhc_pre_big_fuse_with_norm/csrc/mhc_pre_big_fuse_with_norm_cluster.cu",
+        "flashinfer/experimental/mhc_pre_big_fuse_with_norm/jit.py",
+        "flashinfer/mhc.py",
+        "pyproject.toml",
+        "tests/experimental/test_mhc_pre_big_fuse_with_norm.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 6902,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: refactor(cake_nvfp4_attention): ship the experimental NVFP4 attention as a self-contained vendorable package",
+      "source_paths": [
+        ".pre-commit-config.yaml",
+        "flashinfer/experimental/nvfp4_attention/.gitignore",
+        "flashinfer/experimental/nvfp4_attention/README.md",
+        "flashinfer/experimental/nvfp4_attention/build.json",
+        "flashinfer/experimental/nvfp4_attention/cake_backend.py",
+        "flashinfer/experimental/nvfp4_attention/cake_build.py",
+        "flashinfer/experimental/nvfp4_attention/cake_jit.py",
+        "flashinfer/experimental/nvfp4_attention/csrc/.clang-format",
+        "flashinfer/experimental/nvfp4_attention/csrc/cake_ffi_checks.h",
+        "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention/cake_nvfp4_attention_6045de810304deb488d9_binding.cu",
+        "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_binding.cu",
+        "flashinfer/experimental/nvfp4_attention/csrc/cake_nvfp4_attention_aeef857fb82e9e29a633_kernel.cu",
+        "pyproject.toml",
+        "scripts/check_cake_build_manifests.py",
+        "tests/experimental/test_cake_nvfp4_attention.py",
+        "tests/experimental/test_cake_nvfp4_attention_api.py",
+        "tests/test_helpers/cake_package.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 7067,
+      "cohort": "fresh50",
+      "expected_classification": "pending",
+      "reason": "Stable wrapper defers experimental backend import and binding-cache configuration to first use. CPU import coverage exists; compiled binding lifetime implications need confirmation.",
+      "source_paths": [
+        "CLAUDE.md",
+        "flashinfer/chunked_lm_head.py",
+        "flashinfer/experimental/cake_lm_head_loss/README.md",
+        "flashinfer/experimental/cake_lm_head_loss/cake_backend.py",
+        "tests/experimental/test_cake_lm_head_loss.py",
+        "tests/experimental/test_cake_lm_head_loss_api.py",
+        "tests/experimental/test_containment.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 7077,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "Experimental module import guard and GPU-free standalone-import test; no kernel or device contract change.",
+      "source_paths": [
+        "flashinfer/experimental/cake_moe_grouped_gemm/README.md",
+        "flashinfer/experimental/cake_moe_grouped_gemm/__init__.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/_experimental.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/cake_autograd.py",
+        "flashinfer/experimental/cake_moe_grouped_gemm/cake_backend.py",
+        "tests/experimental/test_cake_moe_grouped_gemm_standalone.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 7135,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "NVFP4 precision-choice documentation only.",
+      "source_paths": [
+        "docs/api/fused_moe.rst",
+        "docs/design_docs/moe_ep_architecture.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 7625,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "Contributor guidance, PR template and skill text describe targeted CI; no executable code changes.",
+      "source_paths": [
+        ".claude/skills/self-review/SKILL.md",
+        ".github/pull_request_template.md",
+        "CLAUDE.md",
+        "CONTRIBUTING.md",
+        "docs/code_review_guidance.md",
+        "docs/code_review_guidance_human.md",
+        "docs/design_docs/ci_bot_and_targeted_testing.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 7653,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "Experimental KDA backend docstrings/README only; normalized non-doc AST unchanged.",
+      "source_paths": [
+        "flashinfer/experimental/cake_kda_train/README.md",
+        "flashinfer/experimental/cake_kda_train/cake_backend.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 7653,
+          "path": "flashinfer/experimental/cake_kda_train/cake_backend.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 7819,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Adds stream-K tactic filtering/validation for SM120 FP4 GEMM, changing kernel choice and numerical variation.",
+      "source_paths": [
+        "csrc/fp4_gemm_cutlass_sm120.cu",
+        "docs/development/environment_variables.md",
+        "flashinfer/gemm/gemm_base.py",
+        "tests/cpu/gemm/test_sm120_fp4_stream_k_flag.py",
+        "tests/gemm/test_mm_fp4.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8002,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(sampling): align indexed top-k and speculative metrics",
+      "source_paths": [
+        "flashinfer/sampling.py",
+        "include/flashinfer/sampling.cuh",
+        "tests/utils/test_sampling.py",
+        "tests/utils/test_sampling_fuzz.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8036,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: [Experimental] Qwen 3.5 block: the Qwen3.8-27B dense attention layer as a validated member and the packed K|V pool binding (kv_layout=\"UNIFIED\")",
+      "source_paths": [
+        "docs/experimental/qwen_3_5_block.md",
+        "flashinfer/experimental/qwen_3_5_block/README.md",
+        "flashinfer/experimental/qwen_3_5_block/api.py",
+        "flashinfer/experimental/qwen_3_5_block/support.py",
+        "flashinfer/qwen_3_5_block.py",
+        "tests/experimental/qwen_3_5_block/test_admission.py",
+        "tests/experimental/qwen_3_5_block/test_dense_27b.py",
+        "tests/experimental/qwen_3_5_block/test_support.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8081,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "CuTe kernel stage-release/store/loader-exit ordering changes. New PTX-inspection test is CPU-only, but changed synchronization is GPU-related.",
+      "source_paths": [
+        "flashinfer/gemm/kernels/dense_bf16_gemm_warp_splitk.py",
+        "tests/gemm/test_mm_bf16_warp_splitk_sync.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8131,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: [Experimental] Qwen 3.5 GDN block: decode and MTP verify behind a backend registry, with an SM100 CuTe DSL backend",
+      "source_paths": [
+        "benchmarks/bench_qwen_3_5_gdn_block.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/README.md",
+        "flashinfer/experimental/qwen_3_5_gdn_block/__init__.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/api.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/backends/__init__.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/backends/frost/__init__.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/backends/frost/admission.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/backends/frost/gdn.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/backends/frost/gdn_verify.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/backends/frost/runner.py",
+        "flashinfer/experimental/qwen_3_5_gdn_block/support.py",
+        "flashinfer/qwen_3_5_gdn_block.py",
+        "tests/experimental/qwen_3_5_gdn_block/__init__.py",
+        "tests/experimental/qwen_3_5_gdn_block/conftest.py",
+        "tests/experimental/qwen_3_5_gdn_block/reference.py",
+        "tests/experimental/qwen_3_5_gdn_block/test_frost_decode.py",
+        "tests/experimental/qwen_3_5_gdn_block/test_frost_verify.py",
+        "tests/experimental/qwen_3_5_gdn_block/test_support.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8185,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
+      "source_paths": [
+        "docs/api/mhc.rst"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8433,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Beyond docs, adds gated-row tensor layout transform and MXFP8 numerical clamp/offset tests.",
+      "source_paths": [
+        "flashinfer/__init__.py",
+        "flashinfer/fused_moe/__init__.py",
+        "flashinfer/fused_moe/core.py",
+        "tests/moe/test_gated_act_row_layout.py",
+        "tests/moe/test_trtllm_gen_fused_moe.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8464,
+      "cohort": "old50",
+      "expected_classification": "docs_only",
+      "reason": "API RST, docstrings and documentation-text constants only; the AST difference in cake_windows.py is documentation text, not GPU execution.",
+      "source_paths": [
+        "docs/api/comm.rst",
+        "docs/api/gemm.rst",
+        "docs/api/kda.rst",
+        "docs/api/mhc.rst",
+        "docs/api/norm.rst",
+        "flashinfer/cake_rmsnorm_det_train_backend/cake_jit.py",
+        "flashinfer/cake_rmsnorm_train.py",
+        "flashinfer/cake_rmsnorm_train_backend/__init__.py",
+        "flashinfer/cake_rmsnorm_train_backend/cake_jit.py",
+        "flashinfer/cake_rmsnorm_train_backend/cake_windows.py",
+        "flashinfer/gemm/cake_quant_lora_gemm.py",
+        "flashinfer/quantization/kernels/nvfp4_kv_materialize.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 8464,
+          "path": "flashinfer/cake_rmsnorm_det_train_backend/cake_jit.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 8464,
+          "path": "flashinfer/cake_rmsnorm_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 8464,
+          "path": "flashinfer/cake_rmsnorm_train_backend/__init__.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 8464,
+          "path": "flashinfer/cake_rmsnorm_train_backend/cake_jit.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 8464,
+          "path": "flashinfer/cake_rmsnorm_train_backend/cake_windows.py",
+          "non_doc_ast_unchanged": false
+        },
+        {
+          "pr": 8464,
+          "path": "flashinfer/gemm/cake_quant_lora_gemm.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 8464,
+          "path": "flashinfer/quantization/kernels/nvfp4_kv_materialize.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8479,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mega_gate): experimental SM120 CuTe DSL backend for prepare_mega_gate",
+      "source_paths": [
+        "benchmarks/bench_mega_gate_sm12x.py",
+        "flashinfer/experimental/sm12x_mega_gate/DEEPGEMM_NOTICE.txt",
+        "flashinfer/experimental/sm12x_mega_gate/README.md",
+        "flashinfer/experimental/sm12x_mega_gate/__init__.py",
+        "flashinfer/experimental/sm12x_mega_gate/heuristics.py",
+        "flashinfer/experimental/sm12x_mega_gate/kernel.py",
+        "flashinfer/experimental/sm12x_mega_gate/mega_gate.py",
+        "flashinfer/mega_gate.py",
+        "pyproject.toml",
+        "tests/experimental/test_mega_gate_sm12x.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8549,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(prims_ts): exact row max for E4M3 V in fmha context",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/kernels/fmha_context/fmha_kernel.py",
+        "tests/attention/test_attention_ts_context.py",
+        "tests/attention/test_attention_ts_context_sage.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8561,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Experimental top-k radix/histogram barrier and GPU tests change; experimental status gives no exemption.",
+      "source_paths": [
+        "flashinfer/experimental/b12x/attention/dsa_indexer/persistent_topk.py",
+        "tests/experimental/b12x/attention/test_persistent_topk_gpu.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8740,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(sm120_dsa_indexer): DeepSeek-V4.1 decode in the paged form: strided page caches and candidate blocks",
+      "source_paths": [
+        "flashinfer/dsa_indexer.py",
+        "flashinfer/experimental/sm120_dsa_indexer/README.md",
+        "flashinfer/experimental/sm120_dsa_indexer/_api.py",
+        "flashinfer/experimental/sm120_dsa_indexer/csrc/binding.cu",
+        "flashinfer/experimental/sm120_dsa_indexer/csrc/decode_candidates.cuh",
+        "flashinfer/experimental/sm120_dsa_indexer/csrc/decode_scan.cuh",
+        "flashinfer/experimental/sm120_dsa_indexer/csrc/decode_select_long.cuh",
+        "flashinfer/experimental/sm120_dsa_indexer/csrc/decode_select_row.cuh",
+        "flashinfer/experimental/sm120_dsa_indexer/csrc/sm120_dsa_indexer.cuh",
+        "tests/experimental/test_sm120_dsa_indexer.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8766,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Autotune cache merge changes retained workload/runner/tactic selection, affecting subsequent GPU execution.",
+      "source_paths": [
+        "docs/autotuning.rst",
+        "flashinfer/autotuner/autotuner.py",
+        "tests/autotuner/test_autotune_cache_merge.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8815,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "NVFP4 per-token quantization scale initialization changes GPU numerical/kernel behavior.",
+      "source_paths": [
+        "flashinfer/quantization/fp4_quantization.py",
+        "tests/utils/test_fp4_quantize.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8867,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_mla_value_gate): add an experimental fused MLA value projection + sigmoid gate",
+      "source_paths": [
+        "benchmarks/bench_cake_mla_value_gate.py",
+        "examples/cake_mla_value_gate.py",
+        "flashinfer/cake_mla_value_gate.py",
+        "flashinfer/experimental/cake_mla_value_gate/.gitignore",
+        "flashinfer/experimental/cake_mla_value_gate/README.md",
+        "flashinfer/experimental/cake_mla_value_gate/__init__.py",
+        "flashinfer/experimental/cake_mla_value_gate/build.json",
+        "flashinfer/experimental/cake_mla_value_gate/cake_backend.py",
+        "flashinfer/experimental/cake_mla_value_gate/cake_build.py",
+        "flashinfer/experimental/cake_mla_value_gate/cake_jit.py",
+        "flashinfer/experimental/cake_mla_value_gate/csrc/.clang-format",
+        "flashinfer/experimental/cake_mla_value_gate/csrc/cake_ffi_checks.h",
+        "flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_binding.cu",
+        "flashinfer/experimental/cake_mla_value_gate/csrc/cake_mla_value_gate_00ca8bb1c760493fa672_kernel.cu",
+        "pyproject.toml",
+        "scripts/check_cake_build_manifests.py",
+        "tests/experimental/test_cake_mla_value_gate.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8889,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "DeepGEMM scale requirements and doctest import/continuation text inside Python docstrings; no runtime statement changes.",
+      "source_paths": [
+        "flashinfer/gemm/gemm_base.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 8889,
+          "path": "flashinfer/gemm/gemm_base.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8930,
+      "cohort": "old50",
+      "expected_classification": "docs_only",
+      "reason": "Autograd backend naming Markdown only.",
+      "source_paths": [
+        "docs/training_backend_names.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8932,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "Top-level Python lazy-export table and source-file packaging filters; CPU import/zip-membership tests cover changed behavior without running kernels.",
+      "source_paths": [
+        "build_backend.py",
+        "flashinfer/__init__.py",
+        "flashinfer/experimental/README.md",
+        "tests/cpu/test_build_backend_slim_wheel.py",
+        "tests/cpu/test_flashinfer_lazy_exports.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 8960,
+      "cohort": "old50",
+      "expected_classification": "docs_only",
+      "reason": "Training backend migration Markdown only.",
+      "source_paths": [
+        "docs/training_backend_migration.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9045,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "API training-backend migration documentation only.",
+      "source_paths": [
+        "docs/training_backend_migration.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9082,
+      "cohort": "new50",
+      "expected_classification": "docs_only",
+      "reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
+      "source_paths": [
+        "docs/training_backend_names.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9112,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Adds device-side IPC spin deadlines and __trap in GPU synchronization loops, with multi-GPU missing-peer tests.",
+      "source_paths": [
+        "docs/api/comm.rst",
+        "docs/development/environment_variables.md",
+        "flashinfer/comm/pcie_ipc_ar.py",
+        "flashinfer/jit/comm.py",
+        "include/flashinfer/comm/pcie_ipc_all_reduce.cuh",
+        "include/flashinfer/comm/pcie_ipc_ce_ring.cuh",
+        "include/flashinfer/comm/pcie_ipc_ce_sm120.cuh",
+        "tests/comm/test_pcie_ipc_spin_timeout.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9200,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "Experimental registry docstrings/comments only; normalized non-doc AST unchanged.",
+      "source_paths": [
+        "flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 9200,
+          "path": "flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9289,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Tactic-pool signatures change cache hit/reprofile decisions and therefore GPU tactic selection.",
+      "source_paths": [
+        "docs/autotuning.rst",
+        "flashinfer/autotuner/autotuner.py",
+        "tests/cpu/autotuner/test_autotuner_distributed.py",
+        "tests/cpu/autotuner/test_autotuner_tactic_coverage.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9307,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "API docstrings plus documentation-report workflow behavior; changed product Python non-doc AST unchanged.",
+      "source_paths": [
+        ".github/workflows/pr-api-doc-comment.yml",
+        "docs/api/comm.rst",
+        "flashinfer/cake_causal_conv1d_det_train.py",
+        "flashinfer/cake_causal_conv1d_nondet_train.py",
+        "flashinfer/cake_dsa_indexer_det_train.py",
+        "flashinfer/cake_dsa_sparse_attention_det_train.py",
+        "flashinfer/cake_dsa_sparse_attention_nondet_train.py",
+        "flashinfer/cake_gdn_det_train.py",
+        "flashinfer/cake_gdn_det_train_kcp.py",
+        "flashinfer/cake_gdn_nondet_train.py",
+        "flashinfer/cake_gdn_nondet_train_kcp.py",
+        "flashinfer/cake_gqa_det_train.py",
+        "flashinfer/cake_gqa_nondet_train.py",
+        "flashinfer/cake_kda_det_train.py",
+        "flashinfer/cake_kda_det_train_kcp.py",
+        "flashinfer/cake_kda_nondet_train.py",
+        "flashinfer/cake_kda_nondet_train_kcp.py",
+        "flashinfer/cake_lm_head_det_train.py",
+        "flashinfer/cake_mhc_det_train.py",
+        "flashinfer/cake_moe_grouped_gemm_det_train.py",
+        "flashinfer/cake_moe_grouped_gemm_nondet_train.py",
+        "flashinfer/cake_rmsnorm_det_train.py",
+        "flashinfer/cake_rmsnorm_nondet_train.py",
+        "flashinfer/comm/qkv_norm_rope_exchange_overlap.py",
+        "flashinfer/decode.py",
+        "flashinfer/experimental/cake/cake_rmsnorm_det_train/__init__.py",
+        "flashinfer/gdn_decode.py",
+        "flashinfer/gdn_prefill.py",
+        "flashinfer/msa_ops/_blackwell_sm100.py",
+        "flashinfer/msa_ops/sparse_prefill.py",
+        "flashinfer/sampling.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_causal_conv1d_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_causal_conv1d_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_dsa_indexer_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_dsa_sparse_attention_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_dsa_sparse_attention_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_gdn_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_gdn_det_train_kcp.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_gdn_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_gdn_nondet_train_kcp.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_gqa_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_gqa_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_kda_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_kda_det_train_kcp.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_kda_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_kda_nondet_train_kcp.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_lm_head_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_mhc_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_moe_grouped_gemm_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_moe_grouped_gemm_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_rmsnorm_det_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/cake_rmsnorm_nondet_train.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/comm/qkv_norm_rope_exchange_overlap.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/decode.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/experimental/cake/cake_rmsnorm_det_train/__init__.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/gdn_decode.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/gdn_prefill.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/msa_ops/_blackwell_sm100.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/msa_ops/sparse_prefill.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9307,
+          "path": "flashinfer/sampling.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9327,
+      "cohort": "fresh50",
+      "expected_classification": "pending",
+      "reason": "Reuse of host compile-worker pools extends resource lifetimes; CPU lifetime tests exist, but retained CUDA-context/device-resource implications need owner confirmation.",
+      "source_paths": [
+        "flashinfer/autotuner/_resources.py",
+        "flashinfer/autotuner/autotuner.py",
+        "flashinfer/gemm/gemm_mm_fp4_cute_dsl.py",
+        "tests/cpu/autotuner/test_compile_resources.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9329,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe): one persistent DeepSeek FP8 activation kernel for the trtllm-gen MoE",
+      "source_paths": [
+        "csrc/fused_moe/trtllm_backend/trtllm_fused_moe_dev_kernel.cu",
+        "csrc/trtllm_batched_gemm_runner.cu",
+        "csrc/trtllm_fused_moe_runner.cu",
+        "include/flashinfer/trtllm/fused_moe/DevKernel.h",
+        "tests/moe/test_trtllm_gen_fused_moe.py",
+        "tests/moe/test_trtllm_gen_moe_activation_persistent.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9332,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Agent guidance plus standalone documentation-checker text/path scans; no GPU execution behavior changes.",
+      "source_paths": [
+        "AGENTS.md",
+        "docs/code_review_guidance.md",
+        "docs/development/backend_notes.md",
+        "docs/development/environment_variables.md",
+        "docs/development/jit_and_build.md",
+        "docs/development/testing.md",
+        "flashinfer/experimental/AGENTS.md",
+        "scripts/pr_checks/check_cross_sources.py",
+        "scripts/pr_checks/configure_checks.py",
+        "scripts/pr_checks/register_checks.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 9332,
+          "path": "scripts/pr_checks/check_cross_sources.py",
+          "non_doc_ast_unchanged": false
+        },
+        {
+          "pr": 9332,
+          "path": "scripts/pr_checks/configure_checks.py",
+          "non_doc_ast_unchanged": false
+        },
+        {
+          "pr": 9332,
+          "path": "scripts/pr_checks/register_checks.py",
+          "non_doc_ast_unchanged": false
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9358,
+      "cohort": "old50",
+      "expected_classification": "docs_only",
+      "reason": "API docstrings/RST/doctests only; inspected Python non-doc AST unchanged.",
+      "source_paths": [
+        "docs/api/comm.rst",
+        "docs/api/kda.rst",
+        "docs/installation.rst",
+        "flashinfer/cake_fused_qk_rope_fp8_append.py",
+        "flashinfer/comm/trtllm_mnnvl_ar.py",
+        "flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py",
+        "flashinfer/decode.py",
+        "flashinfer/gdn_decode.py",
+        "flashinfer/gdn_prefill.py",
+        "flashinfer/prefill.py",
+        "flashinfer/rope.py",
+        "flashinfer/sampling.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 9358,
+          "path": "flashinfer/cake_fused_qk_rope_fp8_append.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/comm/trtllm_mnnvl_ar.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/decode.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/gdn_decode.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/gdn_prefill.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/prefill.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/rope.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9358,
+          "path": "flashinfer/sampling.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9369,
+      "cohort": "fresh50",
+      "expected_classification": "docs_only",
+      "reason": "Unified MoE activation matrix RST/Markdown text only.",
+      "source_paths": [
+        "docs/design_docs/flashinfer_moe_api.md"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9375,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "NVFP4 KV layout/dequantization, GPU shared/tensor-memory resources and metadata CUDA kernel changes.",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/README.md",
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_output.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_transformed_kv.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_decode.py",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9379,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(comm): Lamport clear size in 16-bit units shared by every writer; fence the Helix sender before refilling shared memory",
+      "source_paths": [
+        "csrc/nv_internal/tensorrt_llm/kernels/helixAllToAll.cu",
+        "flashinfer/comm/trtllm_ar.py",
+        "include/flashinfer/comm/trtllm_allreduce_fusion.cuh",
+        "include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9395,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Compile serialization/deferred sparse-MLA plans and cache ownership cross the GPU planning/lifetime boundary.",
+      "source_paths": [
+        "docs/design_docs/cute_dsl_kernel_cache.md",
+        "flashinfer/attention/prims_ts/_compile_cache.py",
+        "flashinfer/attention/prims_ts/mla_decode.py",
+        "flashinfer/gemm/gemm_mm_fp4_cute_dsl.py",
+        "flashinfer/gemm/gemm_mm_mxfp8_precompile.py",
+        "flashinfer/jit/core.py",
+        "flashinfer/jit/cute_dsl_core.py",
+        "flashinfer/prims_ts/moe/compile_cache.py",
+        "flashinfer/prims_ts/moe/runner.py",
+        "tests/attention/test_attention_ts_features.py",
+        "tests/attention/test_attention_ts_sparse_mla.py",
+        "tests/cpu/gemm/test_mxfp8_precompile.py",
+        "tests/cpu/jit/test_cute_dsl_cache.py",
+        "tests/cpu/jit/test_cute_dsl_export_only_compile.py",
+        "tests/cpu/prims_ts/test_moe_compile_cache.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9429,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: Optionally fuse padding in MXFP8 quantize kernel",
+      "source_paths": [
+        "benchmarks/routines/quantization.py",
+        "flashinfer/quantization/kernels/mxfp8_quantize.py",
+        "tests/utils/test_fp8_quantize.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9462,
+      "cohort": "new50",
+      "expected_classification": "pending",
+      "reason": "New native Windows ARM64 wheel/JIT-provider driver and DLL layout validation; requires native build evidence to decide whether GPU-free validation sufficiently covers generated-provider integration.",
+      "source_paths": [
+        "docs/development/jit_and_build.md",
+        "scripts/build_windows_arm64_wheels.py",
+        "scripts/jit_cache_provider_validation.py",
+        "scripts/verify_jit_cache_provider_artifact.py",
+        "tests/cpu/infra/test_build_windows_arm64_wheels.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9463,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(attention): expand Blackwell paged auto for FP16 and full prefills",
+      "source_paths": [
+        "docs/development/backend_notes.md",
+        "flashinfer/cudnn/prefill.py",
+        "flashinfer/prefill.py",
+        "tests/attention/test_cudnn_paged_full_prefill_auto.py",
+        "tests/attention/test_cudnn_paged_gqa_auto.py",
+        "tests/attention/test_cudnn_wrapper_regressions.py",
+        "tests/cpu/attention/test_paged_auto_cudnn_expansion.py",
+        "tests/cpu/attention/test_paged_fp16_auto.py",
+        "tests/cpu/attention/test_paged_full_prefill_auto.py",
+        "tests/cpu/attention/test_paged_gqa_auto_contract.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9464,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(gemm): swap-AB small-M tiles for the SM120 FP8 groupwise GEMM",
+      "source_paths": [
+        "include/flashinfer/gemm/gemm_groupwise_sm120.cuh",
+        "tests/gemm/test_groupwise_scaled_gemm_fp8.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9465,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "CI-only AOT cache-seed scheduling and lint-skip/header-prefetch branch; compilation source and GPU runtime are unchanged; pipeline uses CPU/no-gpu builds.",
+      "source_paths": [
+        ".github/workflows/aot-cache-seed.yml",
+        "docs/development/jit_and_build.md",
+        "scripts/task_test_jit_cache_package_build_import.sh",
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9468,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Changes DeepGEMM NVRTC/CUDA driver errors, cubin load checks and CUDA-library teardown behavior alongside CI reporting; runtime/JIT validation is GPU-related.",
+      "source_paths": [
+        "csrc/nv_internal/tensorrt_llm/deep_gemm/compiler.cuh",
+        "csrc/nv_internal/tensorrt_llm/deep_gemm/jit_utils.cuh",
+        "csrc/nv_internal/tensorrt_llm/deep_gemm/runtime.cuh",
+        "scripts/infra/test_sharding/workers.py",
+        "tests/infra/test_sharding/test_workers.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9478,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "Only host CRT lookup switches CDLL(None) to ucrtbase on Windows plus os import; CPU symbol-resolution validation can cover this bounded change.",
+      "source_paths": [
+        "flashinfer/cake_ulysses_backend/cake_backend.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9481,
+      "cohort": "fresh50",
+      "expected_classification": "pending",
+      "reason": "nvcc versus nvcc.exe compiler discovery changes in JIT; CPU path-selection coverage exists. Whether GPU build/run validation is needed needs owner confirmation.",
+      "source_paths": [
+        "flashinfer/jit/cake_gdn.py",
+        "tests/cpu/gdn/test_cake_gdn_decode.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9493,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe): optimize SM90 mixed-input CUTLASS MoE backend for TP-dominant workloads",
+      "source_paths": [
+        "csrc/nv_internal/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/epilogue/collective/sm90_epilogue_array_tma_warpspecialized_mixed_input.hpp",
+        "csrc/nv_internal/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/kernel/sm90_gemm_array_tma_warpspecialized_cooperative_precomputed.hpp",
+        "csrc/nv_internal/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/kernel/sm90_gemm_array_tma_warpspecialized_pingpong_precomputed.hpp",
+        "csrc/nv_internal/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_mixed_input_launcher.inl",
+        "csrc/nv_internal/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_mixed_input_prebuild.h",
+        "flashinfer/aot.py",
+        "flashinfer/jit/fused_moe.py",
+        "tests/cpu/jit/test_cutlass_fused_moe_sm90_prebuilt_d.py",
+        "tests/moe/test_trtllm_cutlass_fused_moe.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9545,
+      "cohort": "old50",
+      "expected_classification": "docs_only",
+      "reason": "Only a TMEM load/fence explanatory comment changes; executable AST unchanged.",
+      "source_paths": [
+        "flashinfer/gemm/kernels/tgv_gemm_cute_ext.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 9545,
+          "path": "flashinfer/gemm/kernels/tgv_gemm_cute_ext.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9550,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "GPU Python Mamba/SSD dispatch and generated-kernel execution paths change; device behavior is affected despite the .py suffix.",
+      "source_paths": [
+        "flashinfer/mamba/cake_ssd_combined.py",
+        "flashinfer/mamba/ssd_combined.py",
+        "flashinfer/trace/templates/mamba.py",
+        "tests/mamba/test_cake_ssd_combined.py",
+        "tests/mamba/test_cake_ssd_combined_capture.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9554,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "CUDA graph captures share a profiling memory pool; GPU resource lifetime/replay behavior changes.",
+      "source_paths": [
+        "flashinfer/autotuner/_graph_timing.py",
+        "flashinfer/autotuner/autotuner.py",
+        "tests/autotuner/test_profile_graph_pool.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9628,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdn): opt-in exact sequence split for the Cake GDN prefill on SM103",
+      "source_paths": [
+        ".pre-commit-config.yaml",
+        "csrc/cake_gdn_affine_split/cake_ffi_checks.h",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_binding.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_binding.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_binding.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_binding.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+        "flashinfer/gdn_kernels/__init__.py",
+        "flashinfer/gdn_kernels/blackwell/__init__.py",
+        "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+        "flashinfer/gdn_prefill.py",
+        "flashinfer/jit/cake_gdn_affine_split.py",
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9639,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "Documentation-checker subprocess import root changes scripts to scripts/infra; no device execution.",
+      "source_paths": [
+        "scripts/infra/check_pr_document.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9640,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "CUTLASS MoE operand layout validation changes C++ bindings and public GPU tensor admission; GPU regression tests added.",
+      "source_paths": [
+        "csrc/fused_moe/cutlass_backend/flashinfer_cutlass_fused_moe_binding.cu",
+        "flashinfer/fused_moe/core.py",
+        "tests/moe/test_trtllm_cutlass_fused_moe.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9649,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Stable CUDA implementation edits affect GPU execution; not a documentation-only change.",
+      "source_paths": [
+        "csrc/nv_internal/tensorrt_llm/kernels/moe/communication/moeAlltoAllKernels.cu"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9651,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: Sync upstream SM120 scalar MMA compatibility fix",
+      "source_paths": [
+        "flashinfer/moe_ep/kernels/flashinfer/sm120_split/VENDOR.md",
+        "flashinfer/moe_ep/kernels/flashinfer/sm120_split/moe_sm120_mxfp4mxfp8_split/sm120_mma.py",
+        "flashinfer/moe_ep/kernels/flashinfer/sm120_swapab/VENDOR.md",
+        "flashinfer/moe_ep/kernels/flashinfer/sm120_swapab/moe_sm120_mxfp8_swapab/sm120_mma.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9654,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_gdp): retune five n = 3 static decode programs on SM90 and SM103",
+      "source_paths": [
+        "flashinfer/cake_gdp_backend/build.json",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_1a3d01a5826508d64a06_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_450bb0db3b79acafa419_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_a226c899893599e679a3_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_c51f69d9ac126bbaab36_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_f0b0248a8e7d3ad6047d_kernel.cu"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9655,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "CPU test fixture mocks CUDA discovery and tightens an exception-message assertion; no product kernel change.",
+      "source_paths": [
+        "tests/cpu/moe_ep/conftest.py",
+        "tests/cpu/moe_ep/test_bf16_megamoe_batch_invariant.py",
+        "tests/cpu/moe_ep/test_mxfp4_megamoe_batch_invariant.py",
+        "tests/cpu/moe_ep/test_mxfp8_megamoe_batch_invariant.py",
+        "tests/cpu/moe_ep/test_nvfp4_megamoe_batch_invariant.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9656,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): offer Cake as the last autotuning candidate for bmm_bf16, svdquant and per-token mm_fp4",
+      "source_paths": [
+        "docs/autotuning.rst",
+        "docs/development/environment_variables.md",
+        "flashinfer/api_logging.py",
+        "flashinfer/autotuner/autotuner.py",
+        "flashinfer/experimental/cake_nvfp4_per_token/README.md",
+        "flashinfer/experimental/cake_nvfp4_per_token/__init__.py",
+        "flashinfer/experimental/cake_nvfp4_per_token/auto_candidate.py",
+        "flashinfer/experimental/cake_nvfp4_per_token/cake_backend.py",
+        "flashinfer/gemm/gemm_base.py",
+        "flashinfer/gemm/gemm_svdquant.py",
+        "tests/gemm/test_cake_autotune_candidates_gemm.py",
+        "tests/gemm/test_cake_autotune_candidates_svdquant.py",
+        "tests/gemm/test_cake_mm_fp4.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9659,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Stable CUDA/kernel code changes; changed kernel bodies require device validation.",
+      "source_paths": [
+        "csrc/prims_ts_q_token_kv_block_sparse_metadata.cu",
+        "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_decode.py",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9660,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_batch_deepgemm_fp8): locality-domain serving GEMM for dual-die SM107a",
+      "source_paths": [
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_binding.cu",
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_0166ddf470f84c0cfe4f_kernel.cu",
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_binding.cu",
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_1da4ddd8c761e3fef61d_kernel.cu",
+        "csrc/cake_locality.cu",
+        "flashinfer/cake_locality.py",
+        "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+        "flashinfer/gemm/gemm_base.py",
+        "flashinfer/jit/cake_locality.py",
+        "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py",
+        "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py",
+        "tests/test_cake_locality.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9663,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdn): several sequences per call in the opt-in Cake GDN sequence split",
+      "source_paths": [
+        "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+        "flashinfer/gdn_prefill.py",
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9669,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Changes generated CUDA sequence-split kernels and dispatch support for SM100/107.",
+      "source_paths": [
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_03829716e38373da30f9_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4bb897eeba49c85dd937_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_4cd76cf613d87c68257c_kernel.cu",
+        "csrc/cake_gdn_affine_split/cake_gdn_affine_split_dc6b2bd2dc435072698e_kernel.cu",
+        "flashinfer/gdn_kernels/blackwell/cake_gdn_affine_split.py",
+        "flashinfer/gdn_prefill.py",
+        "flashinfer/jit/cake_gdn_affine_split.py",
+        "tests/cpu/gdn/test_cake_gdn_affine_split.py",
+        "tests/gdn/test_cake_gdn_affine_split.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9676,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(batch_invariant): stateless call of the KDA class `kda.bf16.c16` (a trainer's forward pass)",
+      "source_paths": [
+        "docs/api/kda.rst",
+        "flashinfer/batch_invariant/README.md",
+        "flashinfer/batch_invariant/kda/api.py",
+        "flashinfer/kda.py",
+        "tests/kda/test_batch_invariant_kda_stateless.py",
+        "tests/kda/test_batch_invariant_recurrent_kda.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9677,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(batch_invariant): stateless call of the GDN class `gdn.bf16.c64` (a trainer's forward pass) with its boundary states",
+      "source_paths": [
+        "docs/api/gdn_prefill.rst",
+        "flashinfer/batch_invariant/README.md",
+        "flashinfer/batch_invariant/gdn/__init__.py",
+        "flashinfer/batch_invariant/gdn/api.py",
+        "flashinfer/batch_invariant/gdn/pool.py",
+        "flashinfer/batch_invariant/gdn/train.py",
+        "flashinfer/gdn_prefill.py",
+        "tests/gdn/test_batch_invariant_gdn_stateless.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9679,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_ssd_combined): state-slot claim and wrap programs on SM107",
+      "source_paths": [
+        "csrc/cake_mamba_ssd_combined/generated/device/mamba_ssd_q_tmem_alias_bf16_varlen_precomputed_claim_slots_a58ec59c79.cu",
+        "csrc/cake_mamba_ssd_combined/generated/device/mamba_ssd_q_tmem_alias_bf16_varlen_precomputed_wrap_slots_f8f53690a2.cu",
+        "csrc/cake_mamba_ssd_combined/generated/device/mamba_ssd_q_tmem_alias_f32_varlen_precomputed_claim_slots_2a9deab04e.cu",
+        "csrc/cake_mamba_ssd_combined/generated/device/mamba_ssd_q_tmem_alias_f32_varlen_precomputed_wrap_slots_aeb39a40ef.cu",
+        "flashinfer/mamba/cake_ssd_combined.py",
+        "tests/cpu/mamba/test_cake_ssd_combined_rubin_wrap.py",
+        "tests/mamba/test_cake_ssd_combined.py",
+        "tests/mamba/test_cake_ssd_combined_state_slots.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9681,
+      "cohort": "fresh50",
+      "expected_classification": "pending",
+      "reason": "One JIT object filename expression changes plus CPU Ninja-output tests. GPU-related build/load integration versus sufficient CPU path contract needs owner confirmation.",
+      "source_paths": [
+        "flashinfer/jit/core.py",
+        "tests/cpu/infra/test_jit_object_paths.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9687,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Serving-grid policy changes SM107 FP8 GEMM GPU launch geometry.",
+      "source_paths": [
+        "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+        "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9688,
+      "cohort": "new50",
+      "expected_classification": "cpu_only",
+      "reason": "CUTLASS DSL setup resolves checkout-root paths; new subprocess/source-path regression is CPU-only.",
+      "source_paths": [
+        "scripts/infra/install_cutlass_dsl.sh",
+        "tests/cpu/infra/test_install_cutlass_dsl.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9693,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Persistent decode sink barriers and empty-KV queue predicates change; new CUDA tests exercise synchronization.",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "tests/attention/test_attention_ts_decode.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9694,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): add fast tf32 router gemm",
+      "source_paths": [
+        "benchmarks/README.md",
+        "benchmarks/routines/flashinfer_benchmark_utils.py",
+        "benchmarks/routines/gemm.py",
+        "docs/api/gemm.rst",
+        "flashinfer/__init__.py",
+        "flashinfer/gemm/__init__.py",
+        "flashinfer/gemm/gemm_base.py",
+        "flashinfer/gemm/kernels/dense_tf32_gemm_sm100_splitk.py",
+        "flashinfer/gemm/kernels/utils.py",
+        "flashinfer/trace/templates/gemm.py",
+        "tests/gemm/test_mm_tf32.py",
+        "tests/gemm/test_mm_tf32_cute_dsl_splitk_sync.py",
+        "tests/gemm/test_unified_gemm_fuzz.py",
+        "tests/trace/example.py",
+        "tests/trace/fi_trace_out/gemm_tf32_N256_K8192.json",
+        "tests/trace/test_mm_tf32_reference_correctness.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9706,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Adds SM107a CUDA/TMA state-locality kernel, allocation/counters and graph launch routing.",
+      "source_paths": [
+        "csrc/gdn/cake/README.md",
+        "csrc/gdn/cake/cuda/cake_gdn_decode_nontranspose_fp32_t1_hqsplit_tma3_domain_de015d883e2d.cu",
+        "csrc/gdn/cake/host/templates/cake_decode_fp32_t1_tma_state_domain.cc.in",
+        "csrc/gdn/cake/manifest.json",
+        "docs/api/gdn_decode.rst",
+        "flashinfer/cake_gdn_decode_locality.py",
+        "flashinfer/gdn_decode.py",
+        "flashinfer/jit/cake_gdn.py",
+        "tests/cpu/gdn/cake_gdn_host_shim_sha256.json",
+        "tests/cpu/gdn/test_cake_gdn_decode.py",
+        "tests/cpu/gdn/test_cake_gdn_decode_domain.py",
+        "tests/gdn/test_cake_gdn_decode_domain_gpu.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9716,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_sage): cut host time per call and recover GB300 GPU-bound latency of the FP8 block-sparse attention",
+      "source_paths": [
+        "flashinfer/cake_sage_block_sparse_attention_backend/__init__.py",
+        "flashinfer/cake_sage_block_sparse_attention_backend/build.json",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_0c9c3d675b3afcbad4f5_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_525675dd6fb9dc6deb97_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_525675dd6fb9dc6deb97_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_5e56910ef7b36aff8b31_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_5e56910ef7b36aff8b31_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_689b1e4e1335c8d26800_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_689b1e4e1335c8d26800_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_7ce2c392e42c397bd5c6_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_7ce2c392e42c397bd5c6_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_8b112470569cb7a4826a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_9884891b129880048274_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_99b8c108656485484c8e_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_a8302ae062c99719f30a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_a8302ae062c99719f30a_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_c1a6884884e86854b97c_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_c1a6884884e86854b97c_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_dbf1b13de812f422acb4_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e6c9f6b12dbf57f37ca9_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e6c9f6b12dbf57f37ca9_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e9c6917d77ff68ee48b9_kernel.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_ee7e892951e7917d7b2c_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_ef25366cb9d28aad7efb_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_ef25366cb9d28aad7efb_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_f2d9a9c5d476b8247532_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_f2d9a9c5d476b8247532_sm_103a_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_fbb267096eb2617bd025_binding.cu",
+        "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_fbb267096eb2617bd025_sm_103a_binding.cu",
+        "flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py",
+        "tests/attention/test_cake_sage_block_sparse_attention_sm100.py",
+        "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9725,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(cake_gdn): reject unaligned inputs in the pretranspose decode",
+      "source_paths": [
+        "docs/api/gdn_decode.rst",
+        "flashinfer/gdn_decode.py",
+        "tests/cpu/gdn/test_cake_gdn_decode_public_forwarding.py",
+        "tests/gdn/test_cake_gdn_decode_gpu.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9731,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(b12x): Add opt-in split-K for dense Trellis GEMMs",
+      "source_paths": [
+        "benchmarks/experimental/b12x/benchmark_trellis_dense_split_k.py",
+        "flashinfer/experimental/b12x/gemm/trellis_linear/_preparation.py",
+        "flashinfer/experimental/b12x/gemm/trellis_linear/_tuning.py",
+        "flashinfer/experimental/b12x/moe/_shared/kernels/w4a16/kernel.py",
+        "tests/experimental/b12x/gemm/test_trellis_linear.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9738,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "AST dependency closure changes JIT artifact reuse; missing dependency can reuse a stale GPU kernel, not merely formatting.",
+      "source_paths": [
+        "flashinfer/jit/_cute_dsl_source.py",
+        "tests/cpu/infra/test_cute_dsl_strict_key_closure.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9739,
+      "cohort": "fresh50",
+      "expected_classification": "cpu_only",
+      "reason": "One CPU shared-memory-accounting test disables the host BFS search using monkeypatch; no GPU execution changes.",
+      "source_paths": [
+        "tests/cpu/prims_ts/test_batched_gemm_schedule_validation.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9745,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(moe): routing tile query for routed FP4 MoE routing metadata",
+      "source_paths": [
+        "csrc/trtllm_fused_moe_kernel_launcher.cu",
+        "flashinfer/fused_moe/__init__.py",
+        "flashinfer/fused_moe/core.py",
+        "tests/moe/test_trtllm_fp4_routed_moe_routing_metadata.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9749,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(comm): fp32 accumulation in the deferred MoE finalize all-reduce",
+      "source_paths": [
+        "include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9757,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(cake_batch_deepgemm_fp8): route no twin on a device whose memory runs below its full clock",
+      "source_paths": [
+        "flashinfer/cake_locality.py",
+        "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+        "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py",
+        "tests/test_cake_locality.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9765,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "cuDNN FE linear-attention output binding accepts appended tensors; GPU graph/backend contract changes despite CPU mock tests.",
+      "source_paths": [
+        "flashinfer/cudnn/linear_attention.py",
+        "tests/cpu/kda/test_cudnn_linear_attention_contract.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9771,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): faster D512 GQA decode for NVFP4 and FP8 KV",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/README.md",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_common.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_p.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_transformed_kv.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_corr.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_o.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_transformed_kv.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "tests/attention/test_attention_ts_decode.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9773,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_batch_deepgemm_fp8): masked pair program for large expected_m on 212-SM sm_107a",
+      "source_paths": [
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_binding.cu",
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_6a369701cc56c41c807e_kernel.cu",
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_binding.cu",
+        "csrc/cake_batch_deepgemm_fp8/cake_batch_deepgemm_fp8_9f058e338e8897f88147_kernel.cu",
+        "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+        "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py",
+        "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9779,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(mla): Cake MLA decode in backend=\"auto\" and a split-KV route",
+      "source_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_04fc0af4cb2f9d5e7c1f_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_3e8ec0cdecccb3b5f371_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_94380cee7659fe7ed103_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_be9225dfb9d6e35904ed_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_c5ad7b615951adb801f7_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_d0021c4f5addd97b5dd6_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_fe7678aaf6597970ac2c_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+        "flashinfer/mla/_core.py",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/attention/test_trtllm_gen_mla.py",
+        "tests/mla/test_cake_autotune_candidates_mla.py",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9788,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Version metadata changes from 0.7.5 to 0.7.6; package-version validation is GPU-free.",
+      "source_paths": [
+        "version.txt"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9813,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(moe_ep): isolate MegaMoE tuning caches",
+      "source_paths": [
+        "tests/moe_ep/test_bf16_mxfp8_cutedsl_kernel_vs_reference.py",
+        "tests/moe_ep/test_workspace_pool.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9814,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Benchmark now launches the legacy MegaMoE reducer with a different CTA grid; changed behavior requires real GPU execution even though it is benchmark code.",
+      "source_paths": [
+        "benchmarks/bench_cake_megamoe_topk_reduce.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9815,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(moe_ep): accept byte-view NVFP4 scales on SM100",
+      "source_paths": [
+        "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+        "flashinfer/moe_ep/core/kernel/base.py",
+        "flashinfer/moe_ep/modes/mega_layer.py",
+        "tests/cpu/moe_ep/test_megamoe_refresh_contracts.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9816,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(moe_ep): validate Hopper blockwise FP8 tile K",
+      "source_paths": [
+        "flashinfer/moe_ep/backends/mega/kernel/sm90/fp8_fp8_bf16_pull_cutedsl/config.py",
+        "flashinfer/moe_ep/shims/sm90/cutedsl_megamoe/hopper_fp8.py",
+        "flashinfer/moe_ep/shims/sm90/cutedsl_megamoe/hopper_mxfp4.py",
+        "flashinfer/moe_ep/shims/sm90/cutedsl_megamoe/tuner.py",
+        "tests/moe_ep/test_sm90_pull_fp8_tuner.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9817,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(moe_ep): restore offline profiles for SM100 Standard",
+      "source_paths": [
+        "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+        "flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/sources/knob_cache.py",
+        "flashinfer/moe_ep/tune.py",
+        "tests/cpu/moe_ep/test_tuning_dispatch.py",
+        "tests/moe_ep/test_mega_mxfp4_default_knobs.py",
+        "tests/moe_ep/test_sm100_tuning_protocol.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9818,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Docstrings/comments, exception wording and one CPU AOT seed path fixture change; GPU execution statements remain unchanged.",
+      "source_paths": [
+        "docs/design_docs/moe_ep_runbook.md",
+        "flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py",
+        "flashinfer/moe_ep/shims/sm100/cutedsl_megamoe/TUNING.md",
+        "flashinfer/moe_ep/shims/sm120/cake_mxfp4/cake_jit.py",
+        "flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py",
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+        "tests/moe_ep/mega_oracle_compare.py",
+        "tests/moe_ep/test_moe_ep_sm120_mxfp8_cutedsl_mega_multirank.py",
+        "tests/moe_ep/test_moe_ep_sm90_pull_mxfp4_mega_multirank.py",
+        "tests/moe_ep/test_mxfp8_cutedsl_preprocess_vs_reference.py",
+        "tests/moe_ep/test_sm90_pull_mxfp4_kernel_vs_reference.py"
+      ],
+      "ast_support": [
+        {
+          "pr": 9818,
+          "path": "flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9818,
+          "path": "flashinfer/moe_ep/shims/sm120/cake_mxfp4/cake_jit.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9818,
+          "path": "flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py",
+          "non_doc_ast_unchanged": false
+        },
+        {
+          "pr": 9818,
+          "path": "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+          "non_doc_ast_unchanged": false
+        },
+        {
+          "pr": 9818,
+          "path": "tests/moe_ep/mega_oracle_compare.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9818,
+          "path": "tests/moe_ep/test_moe_ep_sm120_mxfp8_cutedsl_mega_multirank.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9818,
+          "path": "tests/moe_ep/test_moe_ep_sm90_pull_mxfp4_mega_multirank.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9818,
+          "path": "tests/moe_ep/test_mxfp8_cutedsl_preprocess_vs_reference.py",
+          "non_doc_ast_unchanged": true
+        },
+        {
+          "pr": 9818,
+          "path": "tests/moe_ep/test_sm90_pull_mxfp4_kernel_vs_reference.py",
+          "non_doc_ast_unchanged": true
+        }
+      ],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9819,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(moe_ep): reject invalid Blackwell GenPhase scale-pusher counts",
+      "source_paths": [
+        "flashinfer/moe_ep/kernels/cutedsl_megamoe/VENDOR.md",
+        "flashinfer/moe_ep/kernels/cutedsl_megamoe/export_manifest.json",
+        "flashinfer/moe_ep/kernels/cutedsl_megamoe/sources/kernel_src/blackwell/inference/genphase/token_comm_gen_specialized.py",
+        "tests/moe_ep/test_sm100_genphase_dtypes.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9834,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(mla): Cake BF16 split-KV decode with a staged epilogue and a bulk-copy split reducer, and backend=\"auto\" split-KV offers (1.04x at batch 1, KV 16384 on B200)",
+      "source_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_26168a31cc8a607d8a15_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_fbf16857022e32d4d9a9_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+        "flashinfer/mla/_core.py",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/attention/test_trtllm_gen_mla.py",
+        "tests/mla/test_cake_autotune_candidates_mla.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9836,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix: make Cake tests pass on every internal-CI GPU lane",
+      "source_paths": [
+        "docs/design_docs/moe_ep_bf16_rank_major_gpu_tests.md",
+        "flashinfer/experimental/cake_mok_bf16/workspace.py",
+        "flashinfer/experimental/kimi_k3_latent_moe/cake_backend.py",
+        "flashinfer/experimental/nvfp4_attention/build.json",
+        "flashinfer/moe_ep/core/bf16_stage.py",
+        "tests/comm/test_cake_dcp_alltoall.py",
+        "tests/comm/test_cake_fp4_allreduce.py",
+        "tests/comm/test_cake_fused_norm_combine.py",
+        "tests/comm/test_cake_moe_allreduce_distributed.py",
+        "tests/comm/test_cake_moe_finalize_allreduce.py",
+        "tests/comm/test_cake_ulysses_a2a.py",
+        "tests/experimental/test_cake_kimi_k3_attn_res.py",
+        "tests/experimental/test_cake_kimi_k3_latent_moe.py",
+        "tests/experimental/test_cake_minimax_h3_varlen_attention.py",
+        "tests/experimental/test_cake_nvfp4_attention.py",
+        "tests/experimental/test_cake_nvfp4_attention_api.py",
+        "tests/experimental/test_cake_stepfun_moe.py",
+        "tests/experimental/test_cake_stepfun_moe_api.py",
+        "tests/experimental/test_cake_vsa_sm90.py",
+        "tests/experimental/test_generated_mega_moe.py",
+        "tests/moe_ep/run_tests.sh",
+        "tests/moe_ep/test_mega_native_topk_reduce_multirank.py",
+        "tests/moe_ep/test_moe_ep_bf16_rank_major_cuda_multirank.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9843,
+      "cohort": "old50",
+      "expected_classification": "pending",
+      "reason": "Test adjusts host SMEM over-capacity ring calculation and architecture skip. Need confirm GPU-free configuration validation versus actual device-dependent test requirements.",
+      "source_paths": [
+        "tests/attention/test_attention_ts_block_sparse.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9844,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(batch_invariant): skip the MoE graph-capture fill check when the profiler records nothing",
+      "source_paths": [
+        "tests/moe/test_unified_moe_batch_invariant_fp8.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9846,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): compute each work tile's visible K range once for softmax masking",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/kernels/fmha_context/fmha_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_context/fmha_tasks.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/helpers_kv_tile_idx.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "flashinfer/attention/prims_ts/kernels/mask.py",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/helpers/layout.py",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/helpers/mask.py",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/helpers/tile.py",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/throughput_2cta/resources.py",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/throughput_latency_1cta/resources/tmem_s.py",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/throughput_latency_1cta/tasks.py",
+        "tests/attention/test_attention_ts_decode.py",
+        "tests/attention/test_attention_ts_features.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9847,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Provider data discovery switches to distribution metadata outside checkout; explicit isolated-layout CPU test avoids importing GPU dependencies.",
+      "source_paths": [
+        "tests/cpu/moe_ep/test_provider_package_isolation.py",
+        "tests/moe_ep/test_provider_package.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9848,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe): faster pre-FC2 GEMM1 epilogue (compact decode tiles, packed BF16 rounding)",
+      "source_paths": [
+        "flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py",
+        "flashinfer/fused_moe/cute_dsl/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py",
+        "tests/moe/test_routed_nvfp4.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9857,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(mla): Cake BF16 split-KV decode uses up to 64 KV splits for one long-KV query row",
+      "source_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_7d583eccd1e76da0e7bc_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+        "flashinfer/mla/_core.py",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/attention/test_trtllm_gen_mla.py",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9858,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(mla): Cake FP8 page-64 decode merges the splits of one or two query rows over up to 128 CTAs per row",
+      "source_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_3fe1f0c71bfd4d0f4835_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_c461bee2a4bb9454ff11_binding.cu",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/mla/test_cake_autotune_candidates_mla.py",
+        "tests/mla/test_cake_mla_fp8_page64_reduce.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9861,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(comm): fix scale_out size and the reference in the finalize all-reduce test; run the MoE all-reduce tests in multi-GPU CI",
+      "source_paths": [
+        "scripts/infra/task_test_multi_gpu_comm_kernels.sh",
+        "tests/comm/test_trtllm_moe_allreduce_fusion_finalize.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9865,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims-ts): cover inactive sink outputs and graph replay",
+      "source_paths": [
+        "tests/attention/test_attention_ts_decode.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9871,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test: strengthen b12x tail-N numerical and tactic coverage",
+      "source_paths": [
+        "tests/gemm/test_mm_fp4.py",
+        "tests/gemm/test_unified_gemm_fuzz.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9876,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): QToken NVFP4 prefill: gather4 scale copies, per-layout group policy and balanced CLC scheduling",
+      "source_paths": [
+        "csrc/prims_ts_q_token_kv_block_sparse_metadata.cu",
+        "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+        "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+        "flashinfer/attention/prims_ts/decode.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.py",
+        "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+        "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9885,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_batch_deepgemm_fp8): masked pair program for homed weights from expected_m 128 on sm_107a",
+      "source_paths": [
+        "flashinfer/cake_locality.py",
+        "flashinfer/gemm/cake_batch_deepgemm_fp8.py",
+        "flashinfer/jit/gemm/cake_batch_deepgemm_fp8.py",
+        "tests/gemm/test_cake_batch_deepgemm_fp8_nt_groupwise.py",
+        "tests/test_cake_locality_latency.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9892,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): retune MXFP8 CuTe-DSL entries when the tactic budget changes",
+      "source_paths": [
+        "docs/design_docs/cute_dsl_kernel_cache.md",
+        "flashinfer/gemm/gemm_base.py",
+        "tests/cpu/gemm/test_mxfp8_precompile.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9894,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Only fake CUDA capture function accepts pool and simulated device/pool handles; changed test path is GPU-free.",
+      "source_paths": [
+        "tests/autotuner/test_cupti_distributed.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9897,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims-ts): move the mixed-precision decode grid into its own file",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/README.md",
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/README.md",
+        "tests/attention/test_attention_ts_decode.py",
+        "tests/attention/test_attention_ts_decode_mixed_precision.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9908,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Disables an H100 CI job; host workflow scheduling change, no product GPU execution code change.",
+      "source_paths": [
+        ".github/workflows/pr-test.yml"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9916,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe_ep): fuse SM107 shared-expert input staging",
+      "source_paths": [
+        "flashinfer/moe_ep/backends/mega/kernel/sm107/shared_expert.py",
+        "flashinfer/moe_ep/shims/sm107/cutedsl_megamoe/shared_staging.py",
+        "tests/moe_ep/test_sm107_shared_staging.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9917,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdp): add SM100a and SM103a prefill backend for chunk_gated_delta_product",
+      "source_paths": [
+        "benchmarks/bench_gdp_prefill.py",
+        "flashinfer/cake_gdp_backend/__init__.py",
+        "flashinfer/cake_gdp_backend/build.json",
+        "flashinfer/cake_gdp_backend/cake_jit.py",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_157b3ebf33cf7c928af5_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_157b3ebf33cf7c928af5_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_68796be6ca9ae12f2e19_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_68796be6ca9ae12f2e19_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_88c5777dabbda5e1e5a8_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_88c5777dabbda5e1e5a8_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_f108e105bd1ec635650f_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_f108e105bd1ec635650f_kernel.cu",
+        "flashinfer/gdp_prefill.py",
+        "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py",
+        "tests/gdp/test_cake_gdp_prefill_api.py",
+        "tests/gdp/test_cake_gdp_prefill_bw.py",
+        "tests/gdp/test_cake_gdp_prefill_route.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9949,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "Lamport communication clear-buffer offset changes to 64-bit arithmetic; device addressing correctness.",
+      "source_paths": [
+        "include/flashinfer/comm/trtllm_allreduce_fusion.cuh",
+        "include/flashinfer/comm/trtllm_moe_allreduce_fusion.cuh",
+        "scripts/infra/task_test_multi_gpu_comm_kernels.sh",
+        "tests/comm/test_trtllm_allreduce_fusion_large_workspace.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9958,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims_ts): cover E4M3 V rescaling after row-max rise",
+      "source_paths": [
+        "tests/attention/test_attention_ts_context.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9964,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test: strengthen PDL bias and top-k ordering regressions",
+      "source_paths": [
+        "tests/gemm/test_mm_bf16.py",
+        "tests/utils/test_topk.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9967,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prims-ts): use full cluster grid for persistent sparse MLA",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/kernels/mla_decode/README.md",
+        "flashinfer/attention/prims_ts/kernels/mla_decode/throughput_2cta/kernel.py",
+        "flashinfer/attention/prims_ts/mla_decode.py",
+        "tests/attention/test_attention_ts_sparse_mla.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9974,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(cake_gdp): do not serve a prefill item table first filled in a CUDA graph to eager calls",
+      "source_paths": [
+        "flashinfer/cake_gdp_backend/__init__.py",
+        "tests/gdp/test_cake_gdp_prefill.py",
+        "tests/gdp/test_cake_gdp_prefill_bw.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9978,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test: verify cold MoE autotuning profiles fused finalize",
+      "source_paths": [
+        "tests/moe/test_trtllm_cutlass_fused_moe.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9985,
+      "cohort": "new50",
+      "expected_classification": "cpu_only",
+      "reason": "Re-enables the H100 workflow job; workflow-control change without product kernel/runtime modification.",
+      "source_paths": [
+        ".github/workflows/pr-test.yml"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9989,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_gdp): warm-up split and one launch per call for the SM90 prefill",
+      "source_paths": [
+        "flashinfer/cake_gdp_backend/__init__.py",
+        "flashinfer/cake_gdp_backend/build.json",
+        "flashinfer/cake_gdp_backend/cake_jit.py",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_446ecf26f72f95aacf84_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_446ecf26f72f95aacf84_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_5acbda2bd1002fd68a95_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_5acbda2bd1002fd68a95_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_edfb71d95c7a9c2a133d_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_edfb71d95c7a9c2a133d_kernel.cu",
+        "flashinfer/gdp_prefill.py",
+        "tests/gdp/test_cake_gdp_prefill.py",
+        "tests/gdp/test_cake_gdp_prefill_api.py",
+        "tests/gdp/test_cake_gdp_prefill_route.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9990,
+      "cohort": "old50",
+      "expected_classification": "cpu_only",
+      "reason": "Minimum supported Python version and package metadata/docs change; interpreter/build metadata validation can run without a GPU.",
+      "source_paths": [
+        ".python-version",
+        "docs/installation.rst",
+        "pyproject.toml"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9991,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdp): state pools, BF16/FP16 state and stochastic rounding for the SM100a/SM103a prefill",
+      "source_paths": [
+        "flashinfer/cake_gdp_backend/__init__.py",
+        "flashinfer/cake_gdp_backend/build.json",
+        "flashinfer/cake_gdp_backend/cake_jit.py",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_0ad4bbaf5ef274640c3a_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_0ad4bbaf5ef274640c3a_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_1d27e13364ddfad0595c_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_1d27e13364ddfad0595c_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_1ffa9f43b2424a9014e7_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_1ffa9f43b2424a9014e7_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_241bf09e6734085e173e_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_241bf09e6734085e173e_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_25d81fdd5cf38d846a0d_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_25d81fdd5cf38d846a0d_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_2765b8c0ae143504657e_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_2765b8c0ae143504657e_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_4f440244f31edea6a417_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_4f440244f31edea6a417_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_591de83b8e98709df3f3_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_591de83b8e98709df3f3_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_63289a15605137af5bf8_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_63289a15605137af5bf8_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_68d934c41a0fbe0fb027_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_68d934c41a0fbe0fb027_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_6f505b4fb9199bf89c96_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_6f505b4fb9199bf89c96_kernel.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_f52e7ec41bb7f27cd856_binding.cu",
+        "flashinfer/cake_gdp_backend/csrc/cake_gdp_f52e7ec41bb7f27cd856_kernel.cu",
+        "flashinfer/gdp_prefill.py",
+        "tests/cpu/gdp/test_cake_gdp_prefill_bw_plan.py",
+        "tests/gdn/test_cake_gdp_decode.py",
+        "tests/gdp/test_cake_gdp_prefill_api.py",
+        "tests/gdp/test_cake_gdp_prefill_bw.py",
+        "tests/gdp/test_cake_gdp_prefill_route.py",
+        "tests/gdp/test_cake_gdp_prefill_state.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 9998,
+      "cohort": "new50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(prim_ts) keep D512 grouped Keeps for decode planned at a long max_kv_len",
+      "source_paths": [
+        "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_config.py",
+        "tests/attention/test_attention_ts_decode.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 10005,
+      "cohort": "old50",
+      "expected_classification": "pending",
+      "reason": "CI dependency constraint changes cuda-core binding selection. Confirm whether GPU-free environment/import validation suffices for the exact binding compatibility issue.",
+      "source_paths": [
+        "docker/install/install_python_packages.sh"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 10006,
+      "cohort": "old50",
+      "expected_classification": "pending",
+      "reason": "EP setup preserves newer NCCL wheels; effect on communication runtime compatibility versus bounded packaging behavior needs confirmation.",
+      "source_paths": [
+        "docker/install/build_flashinfer_ep_pytorch.sh"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 10013,
+      "cohort": "old50",
+      "expected_classification": "gpu_required",
+      "reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix(comm): deprecate head-major decode_cp_a2a_lse_reduce inputs instead of misreading them",
+      "source_paths": [
+        "benchmarks/bench_dcp_lse_reduce.py",
+        "flashinfer/comm/dcp_lse_reduce.py",
+        "tests/comm/test_dcp_lse_reduce.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 10036,
+      "cohort": "fresh50",
+      "expected_classification": "gpu_required",
+      "reason": "CUDA MLA split-KV reducer now skips empty KV splits; GPU numerical and launch behavior changes.",
+      "source_paths": [
+        "csrc/cake_trtllm_mla_blackwell/cake_trtllm_mla_blackwell_a310b2fcce209bd2556b_kernel.cu",
+        "csrc/cake_trtllm_mla_blackwell/sm_100a/cake_trtllm_mla_blackwell_family_737d83afed0e56250f2a_binding.cu",
+        "flashinfer/mla/cake_trtllm_mla_blackwell.py",
+        "tests/attention/test_trtllm_gen_mla.py",
+        "tests/mla/test_cake_mla_splitkv.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    },
+    {
+      "original_number": 10046,
+      "cohort": "new50",
+      "expected_classification": "cpu_only",
+      "reason": "Trusted workflow dispatch/ref selection, history helper and CPU workflow tests; product GPU implementations are unchanged.",
+      "source_paths": [
+        ".github/workflows/aot-cache-seed.yml",
+        ".github/workflows/ci-bot-commands.yml",
+        ".github/workflows/pr-test-dispatch.yml",
+        ".github/workflows/pr-test-run-cleanup.yml",
+        ".github/workflows/pr-test.yml",
+        "docs/design_docs/ci_bot_and_targeted_testing.md",
+        "docs/design_docs/experimental_apis_and_backends.md",
+        "scripts/infra/pr_checks/ai_test_scope.py",
+        "scripts/infra/pr_checks/pr_test_history.py",
+        "scripts/infra/pr_checks/targeted_lane_scope.py",
+        "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+        "tests/cpu/infra/test_jit_cache_release.py",
+        "tests/cpu/infra/test_pr_test_workflows.py",
+        "tests/cpu/jit/test_jit_spec_gencode_lint.py",
+        "tests/infra/test_sharding/test_ai_test_scope.py",
+        "tests/infra/test_sharding/test_bot_run_workflow.py"
+      ],
+      "ast_support": [],
+      "reviewer": "Codex assistant static review; not independent human annotation",
+      "limits": "Classification review only; no GPU execution or full numerical/kernel correctness proof. Pending means insufficient evidence to judge correctness, not a checker result."
+    }
+  ]
+}

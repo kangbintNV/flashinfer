@@ -13,23 +13,30 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/791184fd5430bbf7272102e6fb5a2f169f1ba80c/experiments/source.json",
   "comment_snapshot_sha256": "a1124a248d94415985d364e50efb35155041c462f335e0e0b187491b593133cd",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "failure",
+  "formal_reason": "command_missing",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945499823",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830403333",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139945499823",
+  "classification": "gpu_required",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Adds G16/G32 page-major membership planes, SMEM-bound metadata kernel launches, workspace sizing, NVFP4 KeepsMmaAb loader/recipe selection and group policy; correctness/perf need real Blackwell execution.",
+  "case_gap": "Cannot confirm whether existing QToken metadata/decode tests cover G16/G32 planes and nvfp4_kv group suggestion; test bodies unavailable.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Stable CUDA/kernel code changes; changed kernel bodies require device validation.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_block",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9659,
     "experiment_pr": 200,
@@ -63,5 +70,188 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9659.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9659,
+    "experiment_pr": 200,
+    "experiment_head": "791184fd5430bbf7272102e6fb5a2f169f1ba80c",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "5ae5c8086d613dabfdb88d385041346cbb04d14c",
+    "comparison_head_sha": "8cf6cb1b1d95abc5dbf3065f0cd91a57aafbfca0",
+    "comment_snapshot_sha256": "a1124a248d94415985d364e50efb35155041c462f335e0e0b187491b593133cd",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "cf32f2717321a868e6e4e812171693c673c8bc6abac3409e820c4090a7ddef15",
+        "http_status": 400,
+        "seconds": 3.637
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "cf32f2717321a868e6e4e812171693c673c8bc6abac3409e820c4090a7ddef15",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1173,
+          "prompt_tokens": 111751,
+          "total_tokens": 112924,
+          "completion_tokens_details": {
+            "reasoning_tokens": 942,
+            "text_tokens": 231
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 111094,
+            "cache_creation_tokens": 111094,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 111094,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 111094,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 15.597
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "37f555680f76a62b50b66ccb634ffe31a57772f6e0e1f510496048460120ecc8",
+        "http_status": 400,
+        "seconds": 4.464
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "37f555680f76a62b50b66ccb634ffe31a57772f6e0e1f510496048460120ecc8",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 812,
+          "prompt_tokens": 141870,
+          "total_tokens": 142682,
+          "completion_tokens_details": {
+            "reasoning_tokens": 384,
+            "text_tokens": 428
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 139369,
+            "cache_creation_tokens": 139369,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 139369,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 139369,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 13.373
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds G16/G32 page-major membership planes, SMEM-bound metadata kernel launches, workspace sizing, NVFP4 KeepsMmaAb loader/recipe selection and group policy; correctness/perf need real Blackwell execution.\n\nEvidence: csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: Cannot confirm whether existing QToken metadata/decode tests cover G16/G32 planes and nvfp4_kv group suggestion; test bodies unavailable.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds G16/G32 page-major membership planes, SMEM-bound metadata kernel launches, workspace sizing, NVFP4 KeepsMmaAb loader/recipe selection and group policy; correctness/perf need real Blackwell execution.",
+          "evidence_paths": [
+            "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py"
+          ],
+          "case_gap": "Cannot confirm whether existing QToken metadata/decode tests cover G16/G32 planes and nvfp4_kv group suggestion; test bodies unavailable.",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+            "flashinfer/attention/prims_ts/decode.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+            "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+            "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139945499823,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds G16/G32 page-major membership planes, SMEM-bound metadata kernel launches, workspace sizing, NVFP4 KeepsMmaAb loader/recipe selection and group policy; correctness/perf need real Blackwell execution.\n\nEvidence: csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py, flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py\n\nPatch content unavailable (informational): flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py, flashinfer/attention/prims_ts/decode.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py, flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py, include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh, tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py\n\nTest selection gap: Cannot confirm whether existing QToken metadata/decode tests cover G16/G32 planes and nvfp4_kv group suggestion; test bodies unavailable.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds G16/G32 page-major membership planes, SMEM-bound metadata kernel launches, workspace sizing, NVFP4 KeepsMmaAb loader/recipe selection and group policy; correctness/perf need real Blackwell execution.",
+          "evidence_paths": [
+            "csrc/prims_ts_q_token_kv_block_sparse_metadata_jit_binding.cu",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_kernel.py",
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py"
+          ],
+          "case_gap": "Cannot confirm whether existing QToken metadata/decode tests cover G16/G32 planes and nvfp4_kv group suggestion; test bodies unavailable.",
+          "missing_patch_paths": [
+            "flashinfer/attention/prims_ts/_q_token_kv_block_sparse_policy.py",
+            "flashinfer/attention/prims_ts/decode.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/smem_resources.py",
+            "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+            "include/flashinfer/attention/prims_ts/q_token_kv_block_sparse_metadata.cuh",
+            "tests/attention/test_attention_ts_q_token_kv_block_sparse_metadata.py"
+          ],
+          "missing_patch_count": 6,
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139945499823,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139945499823,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139945499823",
+        "head_sha": "791184fd5430bbf7272102e6fb5a2f169f1ba80c",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45830403333,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45830403333",
+    "artifact_id": 15122990552
+  }
 }

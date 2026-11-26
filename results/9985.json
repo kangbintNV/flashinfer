@@ -31,6 +31,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "cpu_only",
+  "static_review_correction": null,
   "static_expected": "cpu_only",
   "static_reason": "Re-enables the H100 workflow job; workflow-control change without product kernel/runtime modification.",
   "formal_assessment": "correct_allow",

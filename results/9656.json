@@ -33,6 +33,8 @@
     }
   ],
   "minimal_retry": false,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): offer Cake as the last autotuning candidate for bmm_bf16, svdquant and per-token mm_fp4",
   "formal_assessment": "correct_block",

@@ -19,23 +19,36 @@
       "first_line": "GitLab MR [!3054](https://nv/flashinfer/-/merge_requests/3054) has been created, and the CI pipeline [#84904540](https://nv/flashinfer-ci/-/pipelines/84904540) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "execution_state": "not_started",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894921593",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815718693",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139894932828",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Binding dtype checks switch to FP8 e4m3, sm_103a kernel moves griddepcontrol.launch_dependents to kernel start (PDL), and wrapper launches entries directly; launch/dtype behavior needs GPU validation.",
+  "case_gap": "PR-modified tests/attention/test_cake_sage_block_sparse_attention_sm100.py body unavailable; selected tests skip on non-sm100/103 CI hardware.",
+  "selected_tests": [
+    "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "AI target has no inspected executable test candidate in the merged tree"
+    },
+    {
+      "effort": "minimal",
+      "success": true
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_sage): cut host time per call and recover GB300 GPU-bound latency of the FP8 block-sparse attention",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9716,
     "experiment_pr": 139,
@@ -70,5 +83,208 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139383175408",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9716,
+    "experiment_pr": 139,
+    "experiment_head": "8a2688562ef8be0d8fc5dcf8180c1968039ab2a8",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "928cf4ebde597b7303fd952b614d3d3339178aad",
+    "comparison_head_sha": "81312f45166a0f3174dcf0cd6f3982977de5fdd5",
+    "comment_snapshot_sha256": "e8975c0ebc3ccdf9275eea35929e38301ef2ea58ff663297b83d5825396da058",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "4cef0d15f6a9f8c6bdd30000afaf9baa15c5907b9100b476ea200f18ab181220",
+        "http_status": 400,
+        "seconds": 1.125
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "4cef0d15f6a9f8c6bdd30000afaf9baa15c5907b9100b476ea200f18ab181220",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 2067,
+          "prompt_tokens": 115997,
+          "total_tokens": 118064,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1639,
+            "text_tokens": 428
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115340,
+            "cache_creation_tokens": 115340,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115340,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115340,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 25.928
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "482e9dbc668953ce9edce633f0712e438edeee04eb5f706cc481707485330a99",
+        "http_status": 400,
+        "seconds": 1.034
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "482e9dbc668953ce9edce633f0712e438edeee04eb5f706cc481707485330a99",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 679,
+          "prompt_tokens": 151153,
+          "total_tokens": 151832,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 679
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 148652,
+            "cache_creation_tokens": 148652,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 148652,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 148652,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 12.943
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "482e9dbc668953ce9edce633f0712e438edeee04eb5f706cc481707485330a99",
+        "http_status": 400,
+        "seconds": 3.079
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "482e9dbc668953ce9edce633f0712e438edeee04eb5f706cc481707485330a99",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1406,
+          "prompt_tokens": 151153,
+          "total_tokens": 152559,
+          "completion_tokens_details": {
+            "reasoning_tokens": 852,
+            "text_tokens": 554
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 151151,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 151151,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.69
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9716#issuecomment-7119967898)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139894921593,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Binding dtype checks switch to FP8 e4m3, sm_103a kernel moves griddepcontrol.launch_dependents to kernel start (PDL), and wrapper launches entries directly; launch/dtype behavior needs GPU validation.\n\nEvidence: flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e9c6917d77ff68ee48b9_kernel.cu, flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_0c9c3d675b3afcbad4f5_binding.cu, flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py\n\nSuggested tests: tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py\n\nPatch content unavailable (informational): flashinfer/cake_sage_block_sparse_attention_backend/__init__.py, flashinfer/cake_sage_block_sparse_attention_backend/build.json, tests/attention/test_cake_sage_block_sparse_attention_sm100.py, tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py\n\nTest selection gap: PR-modified tests/attention/test_cake_sage_block_sparse_attention_sm100.py body unavailable; selected tests skip on non-sm100/103 CI hardware.\n\nAnalysis attempts:\n- default: AI target has no inspected executable test candidate in the merged tree\n- minimal: succeeded\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Binding dtype checks switch to FP8 e4m3, sm_103a kernel moves griddepcontrol.launch_dependents to kernel start (PDL), and wrapper launches entries directly; launch/dtype behavior needs GPU validation.",
+          "evidence_paths": [
+            "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_e9c6917d77ff68ee48b9_kernel.cu",
+            "flashinfer/cake_sage_block_sparse_attention_backend/csrc/cake_sage_block_sparse_attention_0c9c3d675b3afcbad4f5_binding.cu",
+            "flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py"
+          ],
+          "case_gap": "PR-modified tests/attention/test_cake_sage_block_sparse_attention_sm100.py body unavailable; selected tests skip on non-sm100/103 CI hardware.",
+          "missing_patch_paths": [
+            "flashinfer/cake_sage_block_sparse_attention_backend/__init__.py",
+            "flashinfer/cake_sage_block_sparse_attention_backend/build.json",
+            "tests/attention/test_cake_sage_block_sparse_attention_sm100.py",
+            "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py"
+          ],
+          "missing_patch_count": 4,
+          "targets": [
+            "tests/attention/test_cake_sage_block_sparse_attention_sm100_api.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "AI target has no inspected executable test candidate in the merged tree"
+            },
+            {
+              "effort": "minimal",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139894932828,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139894921593,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139894921593",
+        "head_sha": "8a2688562ef8be0d8fc5dcf8180c1968039ab2a8",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139894932828,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139894932828",
+        "head_sha": "8a2688562ef8be0d8fc5dcf8180c1968039ab2a8",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815718693,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815718693",
+    "artifact_id": 15115522067
+  }
 }

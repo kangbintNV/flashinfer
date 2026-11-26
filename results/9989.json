@@ -34,23 +34,34 @@
       "first_line": "GitLab MR [!3071](https://nv/flashinfer/-/merge_requests/3071) has been created, and the CI pipeline [#85123165](https://nv/flashinfer-ci/-/pipelines/85123165) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893850246",
   "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815417292",
-  "execution_state": "in_progress",
-  "classification_check_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
-  "minimal_retry": false,
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139893860250",
+  "classification": "unknown",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "GPU-impact evidence was not inspected",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "error": "GPU-impact evidence was not inspected"
+    },
+    {
+      "effort": "minimal",
+      "error": "GPU-impact evidence was not inspected"
+    }
+  ],
+  "minimal_retry": true,
+  "initial_static_expected": "gpu_required",
+  "static_review_correction": null,
   "static_expected": "gpu_required",
   "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_gdp): warm-up split and one launch per call for the SM90 prefill",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "analysis_failure",
   "source_audit": {
     "original_number": 9989,
     "experiment_pr": 131,
@@ -85,5 +96,195 @@
     "url": "https://github.com/kangbintNV/flashinfer/runs/139379317316",
     "type": "native_check_run"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9989,
+    "experiment_pr": 131,
+    "experiment_head": "495d8775f24b2598eba222a64799a1c8bdf7eea3",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "51e580305928e2cceee6798125232b01f39d7382",
+    "comparison_head_sha": "63ad355f2d313752e1a82fdabd062bea75e05392",
+    "comment_snapshot_sha256": "4136007b2cebe570622d15f7f542ea88be4f71fa7a1ad3e43d9e68862f70f0e8",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "534c2110dda00df18cfbdea2628833dd055515f1b6e767801ad3e322002da27a",
+        "http_status": 400,
+        "seconds": 1.496
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "534c2110dda00df18cfbdea2628833dd055515f1b6e767801ad3e322002da27a",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1236,
+          "prompt_tokens": 115727,
+          "total_tokens": 116963,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1008,
+            "text_tokens": 228
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 115070,
+            "cache_creation_tokens": 115070,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 115070,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 115070,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 18.598
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "cd9b4f9d11029f226588a2e9192195beb02bfcd8c429ac9378af915d17c0b2ae",
+        "http_status": 400,
+        "seconds": 1.737
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "cd9b4f9d11029f226588a2e9192195beb02bfcd8c429ac9378af915d17c0b2ae",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1708,
+          "prompt_tokens": 142845,
+          "total_tokens": 144553,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1265,
+            "text_tokens": 443
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 140344,
+            "cache_creation_tokens": 140344,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140344,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 140344,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 24.155
+      },
+      {
+        "index": 5,
+        "effort": "minimal",
+        "context_sha256": "cd9b4f9d11029f226588a2e9192195beb02bfcd8c429ac9378af915d17c0b2ae",
+        "http_status": 400,
+        "seconds": 3.716
+      },
+      {
+        "index": 6,
+        "effort": "minimal",
+        "context_sha256": "cd9b4f9d11029f226588a2e9192195beb02bfcd8c429ac9378af915d17c0b2ae",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1404,
+          "prompt_tokens": 142845,
+          "total_tokens": 144249,
+          "completion_tokens_details": {
+            "reasoning_tokens": 948,
+            "text_tokens": 456
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 142843,
+            "text_tokens": 2,
+            "cache_write_tokens": 0,
+            "cache_creation_tokens": 0,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 142843,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 23.41
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/9989#issuecomment-7141676310)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139893850246,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "unknown",
+        "title": "Unable to determine GPU impact",
+        "summary": "GPU-impact evidence was not inspected\n\nAnalysis attempts:\n- default: GPU-impact evidence was not inspected\n- minimal: GPU-impact evidence was not inspected\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response.",
+        "analysis": {
+          "classification": "unknown",
+          "reason": "GPU-impact evidence was not inspected",
+          "evidence_paths": [],
+          "targets": [],
+          "case_gap": "",
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "error": "GPU-impact evidence was not inspected"
+            },
+            {
+              "effort": "minimal",
+              "error": "GPU-impact evidence was not inspected"
+            }
+          ]
+        },
+        "check_id": 139893860250,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139893850246,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893850246",
+        "head_sha": "495d8775f24b2598eba222a64799a1c8bdf7eea3",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139893860250,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139893860250",
+        "head_sha": "495d8775f24b2598eba222a64799a1c8bdf7eea3",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45815417292,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45815417292",
+    "artifact_id": 15114672319
+  }
 }
