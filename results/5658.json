@@ -19,21 +19,31 @@
       "first_line": "GitLab MR [!1773](https://nv/flashinfer/-/merge_requests/1773) has been created, and the CI pipeline [#70326666](https://nv/flashinfer-ci/-/pipelines/70326666) is currently running. I'll report back once the pipeline job completes."
     }
   ],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "classification": "not_run",
-  "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "formal_conclusion": "success",
+  "formal_reason": "bot_response_found",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139886663294",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813343121",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139886700679",
+  "classification": "gpu_required",
+  "classification_is_separate_diagnostic": true,
+  "classification_reason": "Adds four tcgen05/TMEM D512 tree kernels with TMA multicast clusters, host tensor-map encoding, 230400B smem launches, plus backend auto-dispatch; correctness needs SM110 execution.",
+  "case_gap": "New .cu kernel/binding bodies were budget-omitted (judged from filenames); CI GPU lanes are A10G/T4/H100 so SM110 tests self-skip.",
+  "selected_tests": [
+    "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+    "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py"
+  ],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "gpu_required",
   "static_reason": "SM110 tcgen05/TMEM CUDA kernels, launch bindings and dispatch change; experimental status gives no exemption.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 5658,
     "experiment_pr": 204,
@@ -67,5 +77,174 @@
     "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
     "type": "commit_status"
   },
-  "native_result": null
+  "native_result": {
+    "upstream_number": 5658,
+    "experiment_pr": 204,
+    "experiment_head": "73f2610990ce5b1c52f0d1f46b8c4ed3a0a419ba",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "882c177c2f481886e6a6a308ba4bffa1b90709fe",
+    "comparison_head_sha": "98221238ff71510a48d6a208af6f9cbd1f3b9a25",
+    "comment_snapshot_sha256": "d1bd86df134c8243f2751d02e1106346bca0a170622c3050c37324f02b2b77ad",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "1588a0b8b01e102d6e4e4038d98913a24355bd91a68484460bfee00ab995b26e",
+        "http_status": 400,
+        "seconds": 1.374
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "1588a0b8b01e102d6e4e4038d98913a24355bd91a68484460bfee00ab995b26e",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1325,
+          "prompt_tokens": 118758,
+          "total_tokens": 120083,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1162,
+            "text_tokens": 163
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "text_tokens": 2,
+            "cache_write_tokens": 118756,
+            "cache_creation_tokens": 118756,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 118101,
+              "ephemeral_1h_input_tokens": 655
+            }
+          },
+          "cache_creation_input_tokens": 118756,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 19.657
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "49bb63f8bce00ce957cc703e99cbbbbd05d22b8d2ab3b5f878defa2279179f81",
+        "http_status": 400,
+        "seconds": 0.981
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "49bb63f8bce00ce957cc703e99cbbbbd05d22b8d2ab3b5f878defa2279179f81",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1280,
+          "prompt_tokens": 142990,
+          "total_tokens": 144270,
+          "completion_tokens_details": {
+            "reasoning_tokens": 650,
+            "text_tokens": 630
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "text_tokens": 2,
+            "cache_write_tokens": 142988,
+            "cache_creation_tokens": 142988,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 140489,
+              "ephemeral_1h_input_tokens": 2499
+            }
+          },
+          "cache_creation_input_tokens": 142988,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 22.557
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "bot_response_found",
+        "title": "Bot response found",
+        "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/5658#issuecomment-5880412590)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+        "analysis": null,
+        "check_id": 139886663294,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "failure",
+        "reason": "command_missing",
+        "title": "Bot run required",
+        "summary": "Adds four tcgen05/TMEM D512 tree kernels with TMA multicast clusters, host tensor-map encoding, 230400B smem launches, plus backend auto-dispatch; correctness needs SM110 execution.\n\nEvidence: flashinfer/experimental/sm110_xqa/backend.py, flashinfer/experimental/sm110_xqa/jit.py, tests/experimental/sm110_xqa/test_sm110_xqa.py\n\nSuggested tests: tests/experimental/sm110_xqa/test_sm110_xqa.py, tests/experimental/sm110_xqa/test_sm110_xqa_jit.py\n\nPatch content unavailable (informational): flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/validation.json\n\nTest selection gap: New .cu kernel/binding bodies were budget-omitted (judged from filenames); CI GPU lanes are A10G/T4/H100 so SM110 tests self-skip.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+        "analysis": {
+          "classification": "gpu_required",
+          "reason": "Adds four tcgen05/TMEM D512 tree kernels with TMA multicast clusters, host tensor-map encoding, 230400B smem launches, plus backend auto-dispatch; correctness needs SM110 execution.",
+          "evidence_paths": [
+            "flashinfer/experimental/sm110_xqa/backend.py",
+            "flashinfer/experimental/sm110_xqa/jit.py",
+            "tests/experimental/sm110_xqa/test_sm110_xqa.py"
+          ],
+          "case_gap": "New .cu kernel/binding bodies were budget-omitted (judged from filenames); CI GPU lanes are A10G/T4/H100 so SM110 tests self-skip.",
+          "missing_patch_paths": [
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu",
+            "flashinfer/experimental/sm110_xqa/validation.json"
+          ],
+          "missing_patch_count": 14,
+          "targets": [
+            "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+            "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py"
+          ],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139886700679,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139886663294,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139886663294",
+        "head_sha": "73f2610990ce5b1c52f0d1f46b8c4ed3a0a419ba",
+        "conclusion": "success",
+        "app": "github-actions"
+      },
+      "diagnostic": {
+        "id": 139886700679,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139886700679",
+        "head_sha": "73f2610990ce5b1c52f0d1f46b8c4ed3a0a419ba",
+        "conclusion": "failure",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813343121,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813343121",
+    "artifact_id": 15113408451
+  }
 }

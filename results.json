@@ -7,24 +7,94 @@
       "new50": 50
     },
     "formal": {
-      "not_run": 150
+      "not_run": 140,
+      "success": 10
     },
     "formal_assessment": {
-      "not_run": 150
+      "not_run": 140,
+      "correct_allow": 10,
+      "correct_block": 0,
+      "false_allow": 0,
+      "false_block": 0,
+      "pending_review": 0
     },
     "classifications": {
-      "not_run": 150
+      "not_run": 140,
+      "gpu_required": 1,
+      "docs_only": 8,
+      "cpu_only": 1
     },
     "classification_assessment": {
-      "not_run": 150
+      "not_run": 140,
+      "match": 9,
+      "docs_cpu_label_difference": 1
     },
-    "native_formal_checks_verified": 0,
+    "native_formal_checks_verified": 10,
     "minimal_retry_cases": 0,
     "native_infrastructure_failures": 0,
     "source_integrity_verified": 150,
     "legacy_original_head_merged_blob_difference_prs": 8,
     "gpu_tests_started": 0,
-    "bot_commands_posted": 0
+    "bot_commands_posted": 0,
+    "native_check_runs_verified": 11,
+    "reply_samples": 74,
+    "execution_states": {
+      "not_started": 134,
+      "completed": 10,
+      "in_progress": 6
+    },
+    "analysis_unknown_cases": 0,
+    "formal_unknown_cases": 0,
+    "shortcut_diagnostic_unknown_cases": 0,
+    "minimal_retry_recovered": 0,
+    "model_http_calls": 12,
+    "temperature_compatibility_http400": 6,
+    "baseline_formal_counts": {
+      "success": 74,
+      "failure": 26
+    },
+    "cohorts_detail": {
+      "old50": {
+        "formal": {
+          "not_run": 50
+        },
+        "classifications": {
+          "not_run": 50
+        },
+        "assessment": {
+          "not_run": 50
+        }
+      },
+      "fresh50": {
+        "formal": {
+          "not_run": 49,
+          "success": 1
+        },
+        "classifications": {
+          "not_run": 49,
+          "gpu_required": 1
+        },
+        "assessment": {
+          "not_run": 49,
+          "correct_allow": 1
+        }
+      },
+      "new50": {
+        "formal": {
+          "success": 9,
+          "not_run": 41
+        },
+        "classifications": {
+          "docs_only": 8,
+          "cpu_only": 1,
+          "not_run": 41
+        },
+        "assessment": {
+          "correct_allow": 9,
+          "not_run": 41
+        }
+      }
+    }
   },
   "rows": [
     {
@@ -46,6 +116,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -128,6 +200,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -205,6 +279,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -271,6 +347,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -337,6 +415,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -424,6 +504,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -496,6 +578,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -573,6 +657,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -645,6 +731,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -722,6 +810,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -794,6 +884,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -866,6 +958,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -932,6 +1026,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1004,6 +1100,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1070,6 +1168,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1167,6 +1267,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1244,6 +1346,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1321,6 +1425,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1387,6 +1493,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1459,6 +1567,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1525,6 +1635,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1591,6 +1703,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1657,6 +1771,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1729,6 +1845,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1801,6 +1919,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1867,6 +1987,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -1933,6 +2055,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2010,6 +2134,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2082,6 +2208,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2154,6 +2282,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2236,6 +2366,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2308,6 +2440,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2390,6 +2524,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2472,6 +2608,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2544,6 +2682,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2616,6 +2756,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2728,6 +2870,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2794,6 +2938,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2866,6 +3012,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2932,6 +3080,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -2998,6 +3148,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3064,6 +3216,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3130,6 +3284,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3196,6 +3352,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3262,6 +3420,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3339,6 +3499,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3411,6 +3573,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3488,6 +3652,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3554,6 +3720,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3620,6 +3788,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3692,6 +3862,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3757,6 +3929,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3822,6 +3996,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3887,6 +4063,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -3952,6 +4130,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4017,6 +4197,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4082,6 +4264,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4147,6 +4331,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4218,6 +4404,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4283,6 +4471,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4348,6 +4538,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4413,6 +4605,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4478,6 +4672,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4559,6 +4755,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4624,6 +4822,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4689,6 +4889,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4754,6 +4956,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4830,6 +5034,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4911,6 +5117,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -4997,6 +5205,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5062,6 +5272,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5127,6 +5339,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5192,6 +5406,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5257,6 +5473,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5322,6 +5540,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5398,6 +5618,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5494,6 +5716,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5559,6 +5783,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5626,21 +5852,31 @@
           "first_line": "GitLab MR [!1773](https://nv/flashinfer/-/merge_requests/1773) has been created, and the CI pipeline [#70326666](https://nv/flashinfer-ci/-/pipelines/70326666) is currently running. I'll report back once the pipeline job completes."
         }
       ],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
-      "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
-      "analysis_attempts": [],
+      "formal_conclusion": "success",
+      "formal_reason": "bot_response_found",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139886663294",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813343121",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139886700679",
+      "classification": "gpu_required",
+      "classification_is_separate_diagnostic": true,
+      "classification_reason": "Adds four tcgen05/TMEM D512 tree kernels with TMA multicast clusters, host tensor-map encoding, 230400B smem launches, plus backend auto-dispatch; correctness needs SM110 execution.",
+      "case_gap": "New .cu kernel/binding bodies were budget-omitted (judged from filenames); CI GPU lanes are A10G/T4/H100 so SM110 tests self-skip.",
+      "selected_tests": [
+        "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+        "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py"
+      ],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ],
       "minimal_retry": false,
       "static_expected": "gpu_required",
       "static_reason": "SM110 tcgen05/TMEM CUDA kernels, launch bindings and dispatch change; experimental status gives no exemption.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 5658,
         "experiment_pr": 204,
@@ -5674,7 +5910,176 @@
         "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/5658.json",
         "type": "commit_status"
       },
-      "native_result": null
+      "native_result": {
+        "upstream_number": 5658,
+        "experiment_pr": 204,
+        "experiment_head": "73f2610990ce5b1c52f0d1f46b8c4ed3a0a419ba",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "882c177c2f481886e6a6a308ba4bffa1b90709fe",
+        "comparison_head_sha": "98221238ff71510a48d6a208af6f9cbd1f3b9a25",
+        "comment_snapshot_sha256": "d1bd86df134c8243f2751d02e1106346bca0a170622c3050c37324f02b2b77ad",
+        "calls": [
+          {
+            "index": 1,
+            "effort": "default",
+            "context_sha256": "1588a0b8b01e102d6e4e4038d98913a24355bd91a68484460bfee00ab995b26e",
+            "http_status": 400,
+            "seconds": 1.374
+          },
+          {
+            "index": 2,
+            "effort": "default",
+            "context_sha256": "1588a0b8b01e102d6e4e4038d98913a24355bd91a68484460bfee00ab995b26e",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 1325,
+              "prompt_tokens": 118758,
+              "total_tokens": 120083,
+              "completion_tokens_details": {
+                "reasoning_tokens": 1162,
+                "text_tokens": 163
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "text_tokens": 2,
+                "cache_write_tokens": 118756,
+                "cache_creation_tokens": 118756,
+                "cache_creation_token_details": {
+                  "ephemeral_5m_input_tokens": 118101,
+                  "ephemeral_1h_input_tokens": 655
+                }
+              },
+              "cache_creation_input_tokens": 118756,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "speed": "standard",
+              "service_tier": "standard"
+            },
+            "http_status": 200,
+            "seconds": 19.657
+          },
+          {
+            "index": 3,
+            "effort": "default",
+            "context_sha256": "49bb63f8bce00ce957cc703e99cbbbbd05d22b8d2ab3b5f878defa2279179f81",
+            "http_status": 400,
+            "seconds": 0.981
+          },
+          {
+            "index": 4,
+            "effort": "default",
+            "context_sha256": "49bb63f8bce00ce957cc703e99cbbbbd05d22b8d2ab3b5f878defa2279179f81",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 1280,
+              "prompt_tokens": 142990,
+              "total_tokens": 144270,
+              "completion_tokens_details": {
+                "reasoning_tokens": 650,
+                "text_tokens": 630
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "text_tokens": 2,
+                "cache_write_tokens": 142988,
+                "cache_creation_tokens": 142988,
+                "cache_creation_token_details": {
+                  "ephemeral_5m_input_tokens": 140489,
+                  "ephemeral_1h_input_tokens": 2499
+                }
+              },
+              "cache_creation_input_tokens": 142988,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "speed": "standard",
+              "service_tier": "standard"
+            },
+            "http_status": 200,
+            "seconds": 22.557
+          }
+        ],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "bot_response_found",
+            "title": "Bot response found",
+            "summary": "[Internal bot response](https://github.com/flashinfer-ai/flashinfer/pull/5658#issuecomment-5880412590)\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
+            "analysis": null,
+            "check_id": 139886663294,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "failure",
+            "reason": "command_missing",
+            "title": "Bot run required",
+            "summary": "Adds four tcgen05/TMEM D512 tree kernels with TMA multicast clusters, host tensor-map encoding, 230400B smem launches, plus backend auto-dispatch; correctness needs SM110 execution.\n\nEvidence: flashinfer/experimental/sm110_xqa/backend.py, flashinfer/experimental/sm110_xqa/jit.py, tests/experimental/sm110_xqa/test_sm110_xqa.py\n\nSuggested tests: tests/experimental/sm110_xqa/test_sm110_xqa.py, tests/experimental/sm110_xqa/test_sm110_xqa_jit.py\n\nPatch content unavailable (informational): flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu, flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu, flashinfer/experimental/sm110_xqa/validation.json\n\nTest selection gap: New .cu kernel/binding bodies were budget-omitted (judged from filenames); CI GPU lanes are A10G/T4/H100 so SM110 tests self-skip.\n\nGPU-related changes: comment `/bot run` and wait for `flashinfer-bot` to reply.",
+            "analysis": {
+              "classification": "gpu_required",
+              "reason": "Adds four tcgen05/TMEM D512 tree kernels with TMA multicast clusters, host tensor-map encoding, 230400B smem launches, plus backend auto-dispatch; correctness needs SM110 execution.",
+              "evidence_paths": [
+                "flashinfer/experimental/sm110_xqa/backend.py",
+                "flashinfer/experimental/sm110_xqa/jit.py",
+                "tests/experimental/sm110_xqa/test_sm110_xqa.py"
+              ],
+              "case_gap": "New .cu kernel/binding bodies were budget-omitted (judged from filenames); CI GPU lanes are A10G/T4/H100 so SM110 tests self-skip.",
+              "missing_patch_paths": [
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/manifest.json",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_binding.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_contiguous_tmem_q_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_binding.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp16_paged_tmem_q_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_binding.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_contiguous_tmem_q_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_binding.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/csrc/sm110_xqa/sm_110a/sm110_xqa_tree_fp8_paged_tmem_q_kernel.cu",
+                "flashinfer/experimental/sm110_xqa/validation.json"
+              ],
+              "missing_patch_count": 14,
+              "targets": [
+                "tests/experimental/sm110_xqa/test_sm110_xqa.py",
+                "tests/experimental/sm110_xqa/test_sm110_xqa_jit.py"
+              ],
+              "analysis_attempts": [
+                {
+                  "effort": "default",
+                  "success": true
+                }
+              ]
+            },
+            "check_id": 139886700679,
+            "model_call_indices": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139886663294,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139886663294",
+            "head_sha": "73f2610990ce5b1c52f0d1f46b8c4ed3a0a419ba",
+            "conclusion": "success",
+            "app": "github-actions"
+          },
+          "diagnostic": {
+            "id": 139886700679,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139886700679",
+            "head_sha": "73f2610990ce5b1c52f0d1f46b8c4ed3a0a419ba",
+            "conclusion": "failure",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813343121,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813343121",
+        "artifact_id": 15113408451
+      }
     },
     {
       "original_number": 8081,
@@ -5706,6 +6111,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5777,6 +6184,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5848,6 +6257,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -5934,6 +6345,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6015,6 +6428,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6091,6 +6506,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6177,6 +6594,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6242,6 +6661,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6328,6 +6749,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6393,6 +6816,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6464,6 +6889,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6535,6 +6962,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6606,6 +7035,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6687,6 +7118,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6752,6 +7185,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6823,6 +7258,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6899,6 +7336,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -6964,6 +7403,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7029,6 +7470,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7094,6 +7537,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7159,6 +7604,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7220,21 +7667,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/aeaba4001d1ebed0f97a7f02f4adf079ddd2083e/experiments/source.json",
       "comment_snapshot_sha256": "20a000c3599d5de0ea6d20616bc094dc8a8ea34368baf8a456e30f9212c37bcc",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887403944",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813561830",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887403944",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 9082,
         "experiment_pr": 228,
@@ -7258,7 +7707,67 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 9082,
+        "experiment_pr": 228,
+        "experiment_head": "aeaba4001d1ebed0f97a7f02f4adf079ddd2083e",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "c556746c3f6cb948367067e53b8eb37baf2c209b",
+        "comparison_head_sha": "c1cebf81ec84a6f64f6d6844d06e106ff5f56ad8",
+        "comment_snapshot_sha256": "20a000c3599d5de0ea6d20616bc094dc8a8ea34368baf8a456e30f9212c37bcc",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/training_backend_names.md",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/training_backend_names.md"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887403944,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/training_backend_names.md",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/training_backend_names.md"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887403944,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887403944,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887403944",
+            "head_sha": "aeaba4001d1ebed0f97a7f02f4adf079ddd2083e",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813561830,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813561830",
+        "artifact_id": 15112884777
+      }
     },
     {
       "original_number": 4948,
@@ -7275,21 +7784,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/39368ab0d575561287070ef4fac6d7c9151d244c/experiments/source.json",
       "comment_snapshot_sha256": "1093158761046bd335d7ba8cb8e34cf18654870baefdf383de22ec514a9504fb",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887456354",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813567543",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887456354",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 4948,
         "experiment_pr": 229,
@@ -7313,7 +7824,67 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 4948,
+        "experiment_pr": 229,
+        "experiment_head": "39368ab0d575561287070ef4fac6d7c9151d244c",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "9f5051736e9fd5cab41c06118a7d4b5c1de23a6d",
+        "comparison_head_sha": "60b49158ab4fb81718aef486c2d3c89aec4c1901",
+        "comment_snapshot_sha256": "1093158761046bd335d7ba8cb8e34cf18654870baefdf383de22ec514a9504fb",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "CLAUDE.md"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887456354,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "CLAUDE.md"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887456354,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887456354,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887456354",
+            "head_sha": "39368ab0d575561287070ef4fac6d7c9151d244c",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813567543,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813567543",
+        "artifact_id": 15113423958
+      }
     },
     {
       "original_number": 8185,
@@ -7330,21 +7901,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/e9846d3f2f36ad8da315c68e871850ed10ab3fbd/experiments/source.json",
       "comment_snapshot_sha256": "fece0b80363a7438632ddb10fce2f55b0561f451b530c263ff4c87286cb4940f",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887447382",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813573198",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887447382",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 8185,
         "experiment_pr": 230,
@@ -7368,7 +7941,67 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 8185,
+        "experiment_pr": 230,
+        "experiment_head": "e9846d3f2f36ad8da315c68e871850ed10ab3fbd",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "73bf098e1c0bc9ce73c08fb32ba403ab78c4256e",
+        "comparison_head_sha": "f061f7267364b14098658f609741267e0b361623",
+        "comment_snapshot_sha256": "fece0b80363a7438632ddb10fce2f55b0561f451b530c263ff4c87286cb4940f",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/mhc.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/api/mhc.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887447382,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/mhc.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/api/mhc.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887447382,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887447382,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887447382",
+            "head_sha": "e9846d3f2f36ad8da315c68e871850ed10ab3fbd",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813573198,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813573198",
+        "artifact_id": 15114128744
+      }
     },
     {
       "original_number": 2541,
@@ -7385,21 +8018,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/c02f5f70e2147887a803dd10d8c6e689cccad198/experiments/source.json",
       "comment_snapshot_sha256": "a6d3de7fe8c5cd0faa3ce2b3924fe2b66f4f568f0f31199cfa7f4ebfda87509f",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887463627",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813579044",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887463627",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 2541,
         "experiment_pr": 231,
@@ -7423,7 +8058,71 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 2541,
+        "experiment_pr": 231,
+        "experiment_head": "c02f5f70e2147887a803dd10d8c6e689cccad198",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "ec5f250d5d7b72ddc991c09aa3bc0607e8e5f210",
+        "comparison_head_sha": "2e56f035a781a8f37d5c4cdd31c8a887252f548c",
+        "comment_snapshot_sha256": "a6d3de7fe8c5cd0faa3ce2b3924fe2b66f4f568f0f31199cfa7f4ebfda87509f",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CONTRIBUTING.md, README.md, docs/installation.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "CONTRIBUTING.md",
+                "README.md",
+                "docs/installation.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887463627,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CONTRIBUTING.md, README.md, docs/installation.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "CONTRIBUTING.md",
+                "README.md",
+                "docs/installation.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887463627,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887463627,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887463627",
+            "head_sha": "c02f5f70e2147887a803dd10d8c6e689cccad198",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813579044,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813579044",
+        "artifact_id": 15113838141
+      }
     },
     {
       "original_number": 4175,
@@ -7440,21 +8139,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/866c6e44d9d90cf4ecb2b90641f8424d41c80adb/experiments/source.json",
       "comment_snapshot_sha256": "32a95af59fb9482a5fc13249546469d7590a97bab56be843130c2c8d47ae6120",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887550649",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813584615",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887550649",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 4175,
         "experiment_pr": 232,
@@ -7478,7 +8179,67 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 4175,
+        "experiment_pr": 232,
+        "experiment_head": "866c6e44d9d90cf4ecb2b90641f8424d41c80adb",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "ba56578d75893a8c512d0076c8de108984e6a3e6",
+        "comparison_head_sha": "da70a5c6f3bb361eac56d6f6cf22e688e4659369",
+        "comment_snapshot_sha256": "32a95af59fb9482a5fc13249546469d7590a97bab56be843130c2c8d47ae6120",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/fused_moe.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/api/fused_moe.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887550649,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/fused_moe.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/api/fused_moe.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887550649,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887550649,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887550649",
+            "head_sha": "866c6e44d9d90cf4ecb2b90641f8424d41c80adb",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813584615,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813584615",
+        "artifact_id": 15114332944
+      }
     },
     {
       "original_number": 3710,
@@ -7495,21 +8256,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/c598a28a392e5d1193a4aa34897fb298abac9020/experiments/source.json",
       "comment_snapshot_sha256": "75059aca57dce0108d9681b7421ae4c0a17420b2aee17d231e6384d34e201b14",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887500847",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813590043",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887500847",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 3710,
         "experiment_pr": 233,
@@ -7533,7 +8296,67 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 3710,
+        "experiment_pr": 233,
+        "experiment_head": "c598a28a392e5d1193a4aa34897fb298abac9020",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "95cb94741878c816742265515d20fdca01b5f923",
+        "comparison_head_sha": "dc83d0d391e973109be924bbcf726441af754df4",
+        "comment_snapshot_sha256": "75059aca57dce0108d9681b7421ae4c0a17420b2aee17d231e6384d34e201b14",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/gemm.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/api/gemm.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887500847,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: docs/api/gemm.rst",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                "docs/api/gemm.rst"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139887500847,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887500847,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887500847",
+            "head_sha": "c598a28a392e5d1193a4aa34897fb298abac9020",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813590043,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813590043",
+        "artifact_id": 15113104566
+      }
     },
     {
       "original_number": 9985,
@@ -7550,21 +8373,28 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/019f7b62acf5efc3a8a51d21b42f01664d76f2ef/experiments/source.json",
       "comment_snapshot_sha256": "435d3050407320aeb16bdc6a57bea1b3d91b1a623e853cb9bed2cf9863a1f973",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "cpu_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887530662",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813595880",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887530662",
+      "classification": "cpu_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
-      "analysis_attempts": [],
+      "classification_reason": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.",
+      "case_gap": "Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+      "selected_tests": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ],
       "minimal_retry": false,
       "static_expected": "cpu_only",
       "static_reason": "Re-enables the H100 workflow job; workflow-control change without product kernel/runtime modification.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 9985,
         "experiment_pr": 234,
@@ -7588,7 +8418,168 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 9985,
+        "experiment_pr": 234,
+        "experiment_head": "019f7b62acf5efc3a8a51d21b42f01664d76f2ef",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "b37daecc1adafd9cf210314bed570fa67f6b55da",
+        "comparison_head_sha": "af5a474da924c79dfa216ec5adfad7a5ceb1a53c",
+        "comment_snapshot_sha256": "435d3050407320aeb16bdc6a57bea1b3d91b1a623e853cb9bed2cf9863a1f973",
+        "calls": [
+          {
+            "index": 1,
+            "effort": "default",
+            "context_sha256": "44f73ec25d1cc9eb077ae67861a5eea492aababdb09e9c7f2e373d0aa96412ad",
+            "http_status": 400,
+            "seconds": 1.359
+          },
+          {
+            "index": 2,
+            "effort": "default",
+            "context_sha256": "44f73ec25d1cc9eb077ae67861a5eea492aababdb09e9c7f2e373d0aa96412ad",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 1238,
+              "prompt_tokens": 99763,
+              "total_tokens": 101001,
+              "completion_tokens_details": {
+                "reasoning_tokens": 1057,
+                "text_tokens": 181
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 655,
+                "text_tokens": 2,
+                "cache_write_tokens": 99106,
+                "cache_creation_tokens": 99106,
+                "cache_creation_token_details": {
+                  "ephemeral_5m_input_tokens": 99106,
+                  "ephemeral_1h_input_tokens": 0
+                }
+              },
+              "cache_creation_input_tokens": 99106,
+              "cache_read_input_tokens": 655,
+              "inference_geo": "global",
+              "speed": "standard",
+              "service_tier": "standard"
+            },
+            "http_status": 200,
+            "seconds": 16.862
+          },
+          {
+            "index": 3,
+            "effort": "default",
+            "context_sha256": "3ae5b4cec7469941d3ade0cbefc0de23b67c515f23d30d686742d9867bae8f3e",
+            "http_status": 400,
+            "seconds": 1.877
+          },
+          {
+            "index": 4,
+            "effort": "default",
+            "context_sha256": "3ae5b4cec7469941d3ade0cbefc0de23b67c515f23d30d686742d9867bae8f3e",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 233,
+              "prompt_tokens": 134033,
+              "total_tokens": 134266,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "text_tokens": 233
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 2499,
+                "text_tokens": 2,
+                "cache_write_tokens": 131532,
+                "cache_creation_tokens": 131532,
+                "cache_creation_token_details": {
+                  "ephemeral_5m_input_tokens": 131532,
+                  "ephemeral_1h_input_tokens": 0
+                }
+              },
+              "cache_creation_input_tokens": 131532,
+              "cache_read_input_tokens": 2499,
+              "inference_geo": "global",
+              "speed": "standard",
+              "service_tier": "standard"
+            },
+            "http_status": 200,
+            "seconds": 5.244
+          }
+        ],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "cpu_only",
+            "title": "Bot run not required",
+            "summary": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.\n\nEvidence: .github/workflows/pr-test.yml\n\nTest selection gap: Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+            "analysis": {
+              "classification": "cpu_only",
+              "reason": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.",
+              "evidence_paths": [
+                ".github/workflows/pr-test.yml"
+              ],
+              "case_gap": "Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+              "targets": [],
+              "analysis_attempts": [
+                {
+                  "effort": "default",
+                  "success": true
+                }
+              ]
+            },
+            "check_id": 139887530662,
+            "model_call_indices": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "cpu_only",
+            "title": "Bot run not required",
+            "summary": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.\n\nEvidence: .github/workflows/pr-test.yml\n\nTest selection gap: Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+            "analysis": {
+              "classification": "cpu_only",
+              "reason": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.",
+              "evidence_paths": [
+                ".github/workflows/pr-test.yml"
+              ],
+              "case_gap": "Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+              "targets": [],
+              "analysis_attempts": [
+                {
+                  "effort": "default",
+                  "success": true
+                }
+              ]
+            },
+            "check_id": 139887530662,
+            "model_call_indices": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887530662,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887530662",
+            "head_sha": "019f7b62acf5efc3a8a51d21b42f01664d76f2ef",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813595880,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813595880",
+        "artifact_id": 15114985014
+      }
     },
     {
       "original_number": 3853,
@@ -7605,21 +8596,28 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/eab57aaf09575ce3eb39f5a57235d3f0f73821d2/experiments/source.json",
       "comment_snapshot_sha256": "043bf8b98de08c994c81e8bd02cb88f977bedbababf355b065c30c9c43396d00",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887543040",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813601857",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887543040",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
-      "analysis_attempts": [],
+      "classification_reason": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.",
+      "case_gap": "",
+      "selected_tests": [],
+      "analysis_attempts": [
+        {
+          "effort": "default",
+          "success": true
+        }
+      ],
       "minimal_retry": false,
       "static_expected": "cpu_only",
       "static_reason": "Release upload destination and installation documentation change; no GPU binary contents or execution path changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "docs_cpu_label_difference",
       "source_audit": {
         "original_number": 3853,
         "experiment_pr": 235,
@@ -7643,7 +8641,172 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 3853,
+        "experiment_pr": 235,
+        "experiment_head": "eab57aaf09575ce3eb39f5a57235d3f0f73821d2",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "728658b23f2fa1e6315d8d471faa9a0696110b67",
+        "comparison_head_sha": "9d1fb61fdcd95609e49baebaa6c7436b6819fba6",
+        "comment_snapshot_sha256": "043bf8b98de08c994c81e8bd02cb88f977bedbababf355b065c30c9c43396d00",
+        "calls": [
+          {
+            "index": 1,
+            "effort": "default",
+            "context_sha256": "f57053bfde96056d9585f2ffdfcad416b526585f7260d0691efb026c36d70786",
+            "http_status": 400,
+            "seconds": 1.921
+          },
+          {
+            "index": 2,
+            "effort": "default",
+            "context_sha256": "f57053bfde96056d9585f2ffdfcad416b526585f7260d0691efb026c36d70786",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 858,
+              "prompt_tokens": 73312,
+              "total_tokens": 74170,
+              "completion_tokens_details": {
+                "reasoning_tokens": 738,
+                "text_tokens": 120
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 655,
+                "text_tokens": 2,
+                "cache_write_tokens": 72655,
+                "cache_creation_tokens": 72655,
+                "cache_creation_token_details": {
+                  "ephemeral_5m_input_tokens": 72655,
+                  "ephemeral_1h_input_tokens": 0
+                }
+              },
+              "cache_creation_input_tokens": 72655,
+              "cache_read_input_tokens": 655,
+              "inference_geo": "global",
+              "speed": "standard",
+              "service_tier": "standard"
+            },
+            "http_status": 200,
+            "seconds": 26.334
+          },
+          {
+            "index": 3,
+            "effort": "default",
+            "context_sha256": "dc7fbf99ca02cc60b0838ec6b975c3a2b3be6c0ca504daee313ae9772ad7e08f",
+            "http_status": 400,
+            "seconds": 6.127
+          },
+          {
+            "index": 4,
+            "effort": "default",
+            "context_sha256": "dc7fbf99ca02cc60b0838ec6b975c3a2b3be6c0ca504daee313ae9772ad7e08f",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 211,
+              "prompt_tokens": 95320,
+              "total_tokens": 95531,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "text_tokens": 211
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 2499,
+                "text_tokens": 2,
+                "cache_write_tokens": 92819,
+                "cache_creation_tokens": 92819,
+                "cache_creation_token_details": {
+                  "ephemeral_5m_input_tokens": 92819,
+                  "ephemeral_1h_input_tokens": 0
+                }
+              },
+              "cache_creation_input_tokens": 92819,
+              "cache_read_input_tokens": 2499,
+              "inference_geo": "global",
+              "speed": "standard",
+              "service_tier": "standard"
+            },
+            "http_status": 200,
+            "seconds": 4.638
+          }
+        ],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.\n\nEvidence: README.md, docs/installation.rst, .github/workflows/release.yml",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.",
+              "evidence_paths": [
+                "README.md",
+                "docs/installation.rst",
+                ".github/workflows/release.yml"
+              ],
+              "case_gap": "",
+              "targets": [],
+              "analysis_attempts": [
+                {
+                  "effort": "default",
+                  "success": true
+                }
+              ]
+            },
+            "check_id": 139887543040,
+            "model_call_indices": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.\n\nEvidence: README.md, docs/installation.rst, .github/workflows/release.yml",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.",
+              "evidence_paths": [
+                "README.md",
+                "docs/installation.rst",
+                ".github/workflows/release.yml"
+              ],
+              "case_gap": "",
+              "targets": [],
+              "analysis_attempts": [
+                {
+                  "effort": "default",
+                  "success": true
+                }
+              ]
+            },
+            "check_id": 139887543040,
+            "model_call_indices": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139887543040,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139887543040",
+            "head_sha": "eab57aaf09575ce3eb39f5a57235d3f0f73821d2",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813601857,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813601857",
+        "artifact_id": 15114188066
+      }
     },
     {
       "original_number": 9688,
@@ -7669,7 +8832,9 @@
       "formal_conclusion": "not_run",
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
-      "workflow_url": null,
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813748991",
+      "execution_state": "in_progress",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7724,7 +8889,9 @@
       "formal_conclusion": "not_run",
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
-      "workflow_url": null,
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813754873",
+      "execution_state": "in_progress",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7776,21 +8943,23 @@
       "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/8642ff6aadf38abb0ac5e475e2141244e9a2b6be/experiments/source.json",
       "comment_snapshot_sha256": "b20ffd7f32537bc9dc55c22a18dcaadaba55f4d2b7253a04c0c1ae73fd4ebb97",
       "reply_evidence": [],
-      "formal_conclusion": "not_run",
-      "formal_reason": "awaiting_actions",
-      "formal_check_url": null,
-      "workflow_url": null,
-      "classification": "not_run",
+      "formal_conclusion": "success",
+      "formal_reason": "docs_only",
+      "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888095573",
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813760601",
+      "execution_state": "completed",
+      "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888095573",
+      "classification": "docs_only",
       "classification_is_separate_diagnostic": false,
-      "classification_reason": null,
-      "case_gap": null,
-      "selected_tests": null,
+      "classification_reason": "Only Markdown/RST documentation changed.",
+      "case_gap": "",
+      "selected_tests": [],
       "analysis_attempts": [],
       "minimal_retry": false,
       "static_expected": "docs_only",
       "static_reason": "Contributor guidance, PR template and skill text describe targeted CI; no executable code changes.",
-      "formal_assessment": "not_run",
-      "classification_assessment": "not_run",
+      "formal_assessment": "correct_allow",
+      "classification_assessment": "match",
       "source_audit": {
         "original_number": 7625,
         "experiment_pr": 238,
@@ -7814,7 +8983,79 @@
         "replay_integrity_verified": true
       },
       "baseline": null,
-      "native_result": null
+      "native_result": {
+        "upstream_number": 7625,
+        "experiment_pr": 238,
+        "experiment_head": "8642ff6aadf38abb0ac5e475e2141244e9a2b6be",
+        "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+        "comparison_base_sha": "36ac484d7cc8aac59c219536c50960b1464f895a",
+        "comparison_head_sha": "85b5365fd5b902a97d01070a6445a4cc10f42d85",
+        "comment_snapshot_sha256": "b20ffd7f32537bc9dc55c22a18dcaadaba55f4d2b7253a04c0c1ae73fd4ebb97",
+        "calls": [],
+        "results": {
+          "formal": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: .claude/skills/self-review/SKILL.md, .github/pull_request_template.md, CLAUDE.md, CONTRIBUTING.md, docs/code_review_guidance.md, docs/code_review_guidance_human.md, docs/design_docs/ci_bot_and_targeted_testing.md",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                ".claude/skills/self-review/SKILL.md",
+                ".github/pull_request_template.md",
+                "CLAUDE.md",
+                "CONTRIBUTING.md",
+                "docs/code_review_guidance.md",
+                "docs/code_review_guidance_human.md",
+                "docs/design_docs/ci_bot_and_targeted_testing.md"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139888095573,
+            "model_call_indices": []
+          },
+          "diagnostic": {
+            "conclusion": "success",
+            "reason": "docs_only",
+            "title": "Bot run not required",
+            "summary": "Only Markdown/RST documentation changed.\n\nEvidence: .claude/skills/self-review/SKILL.md, .github/pull_request_template.md, CLAUDE.md, CONTRIBUTING.md, docs/code_review_guidance.md, docs/code_review_guidance_human.md, docs/design_docs/ci_bot_and_targeted_testing.md",
+            "analysis": {
+              "classification": "docs_only",
+              "reason": "Only Markdown/RST documentation changed.",
+              "evidence_paths": [
+                ".claude/skills/self-review/SKILL.md",
+                ".github/pull_request_template.md",
+                "CLAUDE.md",
+                "CONTRIBUTING.md",
+                "docs/code_review_guidance.md",
+                "docs/code_review_guidance_human.md",
+                "docs/design_docs/ci_bot_and_targeted_testing.md"
+              ],
+              "case_gap": "",
+              "targets": []
+            },
+            "check_id": 139888095573,
+            "model_call_indices": [],
+            "same_as_formal": true,
+            "note": "No response shortcut: formal analysis already supplies this classification."
+          }
+        },
+        "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+        "native_checks": {
+          "formal": {
+            "id": 139888095573,
+            "url": "https://github.com/kangbintNV/flashinfer/runs/139888095573",
+            "head_sha": "8642ff6aadf38abb0ac5e475e2141244e9a2b6be",
+            "conclusion": "success",
+            "app": "github-actions"
+          }
+        },
+        "workflow_run_id": 45813760601,
+        "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813760601",
+        "artifact_id": 15114483745
+      }
     },
     {
       "original_number": 8036,
@@ -7834,7 +9075,9 @@
       "formal_conclusion": "not_run",
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
-      "workflow_url": null,
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813765970",
+      "execution_state": "in_progress",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7889,7 +9132,9 @@
       "formal_conclusion": "not_run",
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
-      "workflow_url": null,
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813771337",
+      "execution_state": "in_progress",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7944,7 +9189,9 @@
       "formal_conclusion": "not_run",
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
-      "workflow_url": null,
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813776888",
+      "execution_state": "in_progress",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -7999,7 +9246,9 @@
       "formal_conclusion": "not_run",
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
-      "workflow_url": null,
+      "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813783170",
+      "execution_state": "in_progress",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8076,6 +9325,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8142,6 +9393,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8218,6 +9471,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8284,6 +9539,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8339,6 +9596,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8394,6 +9653,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8449,6 +9710,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8550,6 +9813,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8666,6 +9931,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8727,6 +9994,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8782,6 +10051,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8837,6 +10108,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8892,6 +10165,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -8958,6 +10233,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9019,6 +10296,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9105,6 +10384,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9166,6 +10447,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9221,6 +10504,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9276,6 +10561,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9331,6 +10618,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9386,6 +10675,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9457,6 +10748,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9538,6 +10831,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9614,6 +10909,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9680,6 +10977,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9735,6 +11034,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9790,6 +11091,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9845,6 +11148,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9911,6 +11216,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -9972,6 +11279,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -10033,6 +11342,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -10088,6 +11399,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -10143,6 +11456,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -10219,6 +11534,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,
@@ -10300,6 +11617,8 @@
       "formal_reason": "awaiting_actions",
       "formal_check_url": null,
       "workflow_url": null,
+      "execution_state": "not_started",
+      "classification_check_url": null,
       "classification": "not_run",
       "classification_is_separate_diagnostic": false,
       "classification_reason": null,

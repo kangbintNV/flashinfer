@@ -38,6 +38,8 @@
   "formal_reason": "awaiting_actions",
   "formal_check_url": null,
   "workflow_url": null,
+  "execution_state": "not_started",
+  "classification_check_url": null,
   "classification": "not_run",
   "classification_is_separate_diagnostic": false,
   "classification_reason": null,

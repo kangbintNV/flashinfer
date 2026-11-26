@@ -1,0 +1,9 @@
+{
+  "inference_secret_present": true,
+  "inference_secret_updated_at": "2026-11-25T04:54:34Z",
+  "no_secret_values_read_or_printed": true,
+  "workflow_id": 307860265,
+  "native_formal_checks": 0,
+  "pending_cases": 150,
+  "pause_source": "https://github.com/kangbintNV/flashinfer/actions"
+}

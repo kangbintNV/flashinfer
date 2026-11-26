@@ -13,21 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/019f7b62acf5efc3a8a51d21b42f01664d76f2ef/experiments/source.json",
   "comment_snapshot_sha256": "435d3050407320aeb16bdc6a57bea1b3d91b1a623e853cb9bed2cf9863a1f973",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "cpu_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887530662",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813595880",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887530662",
+  "classification": "cpu_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.",
+  "case_gap": "Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "cpu_only",
   "static_reason": "Re-enables the H100 workflow job; workflow-control change without product kernel/runtime modification.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 9985,
     "experiment_pr": 234,
@@ -51,5 +58,166 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 9985,
+    "experiment_pr": 234,
+    "experiment_head": "019f7b62acf5efc3a8a51d21b42f01664d76f2ef",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "b37daecc1adafd9cf210314bed570fa67f6b55da",
+    "comparison_head_sha": "af5a474da924c79dfa216ec5adfad7a5ceb1a53c",
+    "comment_snapshot_sha256": "435d3050407320aeb16bdc6a57bea1b3d91b1a623e853cb9bed2cf9863a1f973",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "44f73ec25d1cc9eb077ae67861a5eea492aababdb09e9c7f2e373d0aa96412ad",
+        "http_status": 400,
+        "seconds": 1.359
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "44f73ec25d1cc9eb077ae67861a5eea492aababdb09e9c7f2e373d0aa96412ad",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 1238,
+          "prompt_tokens": 99763,
+          "total_tokens": 101001,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1057,
+            "text_tokens": 181
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 99106,
+            "cache_creation_tokens": 99106,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 99106,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 99106,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 16.862
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "3ae5b4cec7469941d3ade0cbefc0de23b67c515f23d30d686742d9867bae8f3e",
+        "http_status": 400,
+        "seconds": 1.877
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "3ae5b4cec7469941d3ade0cbefc0de23b67c515f23d30d686742d9867bae8f3e",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 233,
+          "prompt_tokens": 134033,
+          "total_tokens": 134266,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 233
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 131532,
+            "cache_creation_tokens": 131532,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 131532,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 131532,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 5.244
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.\n\nEvidence: .github/workflows/pr-test.yml\n\nTest selection gap: Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.",
+          "evidence_paths": [
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139887530662,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "cpu_only",
+        "title": "Bot run not required",
+        "summary": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.\n\nEvidence: .github/workflows/pr-test.yml\n\nTest selection gap: Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+        "analysis": {
+          "classification": "cpu_only",
+          "reason": "Single-line GitHub Actions matrix flag re-enabling the H100 lane; no kernel, binding, JIT or dispatch code changed, so GPU-free validation of the workflow config suffices.",
+          "evidence_paths": [
+            ".github/workflows/pr-test.yml"
+          ],
+          "case_gap": "Workflow lane scheduling itself is not covered by an inspected pytest contract test.",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139887530662,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139887530662,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139887530662",
+        "head_sha": "019f7b62acf5efc3a8a51d21b42f01664d76f2ef",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813595880,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813595880",
+    "artifact_id": 15114985014
+  }
 }

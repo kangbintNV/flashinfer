@@ -13,21 +13,28 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/eab57aaf09575ce3eb39f5a57235d3f0f73821d2/experiments/source.json",
   "comment_snapshot_sha256": "043bf8b98de08c994c81e8bd02cb88f977bedbababf355b065c30c9c43396d00",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887543040",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813601857",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887543040",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
-  "analysis_attempts": [],
+  "classification_reason": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.",
+  "case_gap": "",
+  "selected_tests": [],
+  "analysis_attempts": [
+    {
+      "effort": "default",
+      "success": true
+    }
+  ],
   "minimal_retry": false,
   "static_expected": "cpu_only",
   "static_reason": "Release upload destination and installation documentation change; no GPU binary contents or execution path changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "docs_cpu_label_difference",
   "source_audit": {
     "original_number": 3853,
     "experiment_pr": 235,
@@ -51,5 +58,170 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 3853,
+    "experiment_pr": 235,
+    "experiment_head": "eab57aaf09575ce3eb39f5a57235d3f0f73821d2",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "728658b23f2fa1e6315d8d471faa9a0696110b67",
+    "comparison_head_sha": "9d1fb61fdcd95609e49baebaa6c7436b6819fba6",
+    "comment_snapshot_sha256": "043bf8b98de08c994c81e8bd02cb88f977bedbababf355b065c30c9c43396d00",
+    "calls": [
+      {
+        "index": 1,
+        "effort": "default",
+        "context_sha256": "f57053bfde96056d9585f2ffdfcad416b526585f7260d0691efb026c36d70786",
+        "http_status": 400,
+        "seconds": 1.921
+      },
+      {
+        "index": 2,
+        "effort": "default",
+        "context_sha256": "f57053bfde96056d9585f2ffdfcad416b526585f7260d0691efb026c36d70786",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 858,
+          "prompt_tokens": 73312,
+          "total_tokens": 74170,
+          "completion_tokens_details": {
+            "reasoning_tokens": 738,
+            "text_tokens": 120
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 655,
+            "text_tokens": 2,
+            "cache_write_tokens": 72655,
+            "cache_creation_tokens": 72655,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 72655,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 72655,
+          "cache_read_input_tokens": 655,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 26.334
+      },
+      {
+        "index": 3,
+        "effort": "default",
+        "context_sha256": "dc7fbf99ca02cc60b0838ec6b975c3a2b3be6c0ca504daee313ae9772ad7e08f",
+        "http_status": 400,
+        "seconds": 6.127
+      },
+      {
+        "index": 4,
+        "effort": "default",
+        "context_sha256": "dc7fbf99ca02cc60b0838ec6b975c3a2b3be6c0ca504daee313ae9772ad7e08f",
+        "finish_reason": "stop",
+        "usage": {
+          "completion_tokens": 211,
+          "prompt_tokens": 95320,
+          "total_tokens": 95531,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "text_tokens": 211
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 2499,
+            "text_tokens": 2,
+            "cache_write_tokens": 92819,
+            "cache_creation_tokens": 92819,
+            "cache_creation_token_details": {
+              "ephemeral_5m_input_tokens": 92819,
+              "ephemeral_1h_input_tokens": 0
+            }
+          },
+          "cache_creation_input_tokens": 92819,
+          "cache_read_input_tokens": 2499,
+          "inference_geo": "global",
+          "speed": "standard",
+          "service_tier": "standard"
+        },
+        "http_status": 200,
+        "seconds": 4.638
+      }
+    ],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.\n\nEvidence: README.md, docs/installation.rst, .github/workflows/release.yml",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.",
+          "evidence_paths": [
+            "README.md",
+            "docs/installation.rst",
+            ".github/workflows/release.yml"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139887543040,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.\n\nEvidence: README.md, docs/installation.rst, .github/workflows/release.yml",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Docs install instructions plus release workflow dropping the cubin PyPI upload step; no kernel, binding, JIT or runtime code paths changed, so GPU validation is unnecessary.",
+          "evidence_paths": [
+            "README.md",
+            "docs/installation.rst",
+            ".github/workflows/release.yml"
+          ],
+          "case_gap": "",
+          "targets": [],
+          "analysis_attempts": [
+            {
+              "effort": "default",
+              "success": true
+            }
+          ]
+        },
+        "check_id": 139887543040,
+        "model_call_indices": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139887543040,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139887543040",
+        "head_sha": "eab57aaf09575ce3eb39f5a57235d3f0f73821d2",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813601857,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813601857",
+    "artifact_id": 15114188066
+  }
 }

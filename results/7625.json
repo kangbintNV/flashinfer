@@ -13,21 +13,23 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/8642ff6aadf38abb0ac5e475e2141244e9a2b6be/experiments/source.json",
   "comment_snapshot_sha256": "b20ffd7f32537bc9dc55c22a18dcaadaba55f4d2b7253a04c0c1ae73fd4ebb97",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888095573",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813760601",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139888095573",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
+  "classification_reason": "Only Markdown/RST documentation changed.",
+  "case_gap": "",
+  "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
   "static_expected": "docs_only",
   "static_reason": "Contributor guidance, PR template and skill text describe targeted CI; no executable code changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 7625,
     "experiment_pr": 238,
@@ -51,5 +53,77 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 7625,
+    "experiment_pr": 238,
+    "experiment_head": "8642ff6aadf38abb0ac5e475e2141244e9a2b6be",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "36ac484d7cc8aac59c219536c50960b1464f895a",
+    "comparison_head_sha": "85b5365fd5b902a97d01070a6445a4cc10f42d85",
+    "comment_snapshot_sha256": "b20ffd7f32537bc9dc55c22a18dcaadaba55f4d2b7253a04c0c1ae73fd4ebb97",
+    "calls": [],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: .claude/skills/self-review/SKILL.md, .github/pull_request_template.md, CLAUDE.md, CONTRIBUTING.md, docs/code_review_guidance.md, docs/code_review_guidance_human.md, docs/design_docs/ci_bot_and_targeted_testing.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            ".claude/skills/self-review/SKILL.md",
+            ".github/pull_request_template.md",
+            "CLAUDE.md",
+            "CONTRIBUTING.md",
+            "docs/code_review_guidance.md",
+            "docs/code_review_guidance_human.md",
+            "docs/design_docs/ci_bot_and_targeted_testing.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139888095573,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: .claude/skills/self-review/SKILL.md, .github/pull_request_template.md, CLAUDE.md, CONTRIBUTING.md, docs/code_review_guidance.md, docs/code_review_guidance_human.md, docs/design_docs/ci_bot_and_targeted_testing.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            ".claude/skills/self-review/SKILL.md",
+            ".github/pull_request_template.md",
+            "CLAUDE.md",
+            "CONTRIBUTING.md",
+            "docs/code_review_guidance.md",
+            "docs/code_review_guidance_human.md",
+            "docs/design_docs/ci_bot_and_targeted_testing.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139888095573,
+        "model_call_indices": [],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139888095573,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139888095573",
+        "head_sha": "8642ff6aadf38abb0ac5e475e2141244e9a2b6be",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813760601,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813760601",
+    "artifact_id": 15114483745
+  }
 }

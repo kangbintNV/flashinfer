@@ -13,21 +13,23 @@
   "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/39368ab0d575561287070ef4fac6d7c9151d244c/experiments/source.json",
   "comment_snapshot_sha256": "1093158761046bd335d7ba8cb8e34cf18654870baefdf383de22ec514a9504fb",
   "reply_evidence": [],
-  "formal_conclusion": "not_run",
-  "formal_reason": "awaiting_actions",
-  "formal_check_url": null,
-  "workflow_url": null,
-  "classification": "not_run",
+  "formal_conclusion": "success",
+  "formal_reason": "docs_only",
+  "formal_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887456354",
+  "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813567543",
+  "execution_state": "completed",
+  "classification_check_url": "https://github.com/kangbintNV/flashinfer/runs/139887456354",
+  "classification": "docs_only",
   "classification_is_separate_diagnostic": false,
-  "classification_reason": null,
-  "case_gap": null,
-  "selected_tests": null,
+  "classification_reason": "Only Markdown/RST documentation changed.",
+  "case_gap": "",
+  "selected_tests": [],
   "analysis_attempts": [],
   "minimal_retry": false,
   "static_expected": "docs_only",
   "static_reason": "All changed files are Markdown/RST guidance or API reference text; no executable code changes.",
-  "formal_assessment": "not_run",
-  "classification_assessment": "not_run",
+  "formal_assessment": "correct_allow",
+  "classification_assessment": "match",
   "source_audit": {
     "original_number": 4948,
     "experiment_pr": 229,
@@ -51,5 +53,65 @@
     "replay_integrity_verified": true
   },
   "baseline": null,
-  "native_result": null
+  "native_result": {
+    "upstream_number": 4948,
+    "experiment_pr": 229,
+    "experiment_head": "39368ab0d575561287070ef4fac6d7c9151d244c",
+    "checker_version": "b53d126acf2ca62abff733af5525ebd522035750",
+    "comparison_base_sha": "9f5051736e9fd5cab41c06118a7d4b5c1de23a6d",
+    "comparison_head_sha": "60b49158ab4fb81718aef486c2d3c89aec4c1901",
+    "comment_snapshot_sha256": "1093158761046bd335d7ba8cb8e34cf18654870baefdf383de22ec514a9504fb",
+    "calls": [],
+    "results": {
+      "formal": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "CLAUDE.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139887456354,
+        "model_call_indices": []
+      },
+      "diagnostic": {
+        "conclusion": "success",
+        "reason": "docs_only",
+        "title": "Bot run not required",
+        "summary": "Only Markdown/RST documentation changed.\n\nEvidence: CLAUDE.md",
+        "analysis": {
+          "classification": "docs_only",
+          "reason": "Only Markdown/RST documentation changed.",
+          "evidence_paths": [
+            "CLAUDE.md"
+          ],
+          "case_gap": "",
+          "targets": []
+        },
+        "check_id": 139887456354,
+        "model_call_indices": [],
+        "same_as_formal": true,
+        "note": "No response shortcut: formal analysis already supplies this classification."
+      }
+    },
+    "publication_type": "Native GitHub Check Runs from real GitHub Actions execution",
+    "native_checks": {
+      "formal": {
+        "id": 139887456354,
+        "url": "https://github.com/kangbintNV/flashinfer/runs/139887456354",
+        "head_sha": "39368ab0d575561287070ef4fac6d7c9151d244c",
+        "conclusion": "success",
+        "app": "github-actions"
+      }
+    },
+    "workflow_run_id": 45813567543,
+    "workflow_url": "https://github.com/kangbintNV/flashinfer/actions/runs/45813567543",
+    "artifact_id": 15113423958
+  }
 }

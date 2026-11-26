@@ -4,8 +4,8 @@
 
 ## 当前状态
 
-原 100 个实验 PR 已更新，另建 50 个新实验 PR。已核对原始 diff/源码树、评论快照和全部 750 个检查器文件版本。当前已验证的原生正式 Check 数：**0/150**。
-如果显示“未运行”，表示尚未获得实际 Actions 执行结果，不能读作 unknown、通过或失败。[fork Actions 页面](https://github.com/kangbintNV/flashinfer/actions) 明确提示因 Actions 使用规模暂停 workflow，需要维护者重新启用；dispatch 返回 disabled。普通权限开关 enabled=true 并不表示暂停已解除。没有将 commit status 充作原生 Check Run。已准备的手动工作流只运行检查器，不运行 GPU 测试。
+原 100 个实验 PR 已更新，另建 50 个新实验 PR。已核对原始 diff/源码树、评论快照和全部 750 个检查器文件版本。已收集并核验完整原生结果：**10/150**。
+Actions 已由用户恢复，本批通过真实 workflow_dispatch 执行。每个正式 Check 都核对 github-actions App、当前实验 head SHA、完成状态和结论；没有使用 commit status 替代。表中“运行中/排队中/未运行”表示尚未取得完整结果，不是 unknown。此前 fork 因 Actions 使用规模暂停的证据单独保留。
 
 ## 修正规则与验证
 
@@ -27,24 +27,94 @@
     "new50": 50
   },
   "formal": {
-    "not_run": 150
+    "not_run": 140,
+    "success": 10
   },
   "formal_assessment": {
-    "not_run": 150
+    "not_run": 140,
+    "correct_allow": 10,
+    "correct_block": 0,
+    "false_allow": 0,
+    "false_block": 0,
+    "pending_review": 0
   },
   "classifications": {
-    "not_run": 150
+    "not_run": 140,
+    "gpu_required": 1,
+    "docs_only": 8,
+    "cpu_only": 1
   },
   "classification_assessment": {
-    "not_run": 150
+    "not_run": 140,
+    "match": 9,
+    "docs_cpu_label_difference": 1
   },
-  "native_formal_checks_verified": 0,
+  "native_formal_checks_verified": 10,
   "minimal_retry_cases": 0,
   "native_infrastructure_failures": 0,
   "source_integrity_verified": 150,
   "legacy_original_head_merged_blob_difference_prs": 8,
   "gpu_tests_started": 0,
-  "bot_commands_posted": 0
+  "bot_commands_posted": 0,
+  "native_check_runs_verified": 11,
+  "reply_samples": 74,
+  "execution_states": {
+    "not_started": 134,
+    "completed": 10,
+    "in_progress": 6
+  },
+  "analysis_unknown_cases": 0,
+  "formal_unknown_cases": 0,
+  "shortcut_diagnostic_unknown_cases": 0,
+  "minimal_retry_recovered": 0,
+  "model_http_calls": 12,
+  "temperature_compatibility_http400": 6,
+  "baseline_formal_counts": {
+    "success": 74,
+    "failure": 26
+  },
+  "cohorts_detail": {
+    "old50": {
+      "formal": {
+        "not_run": 50
+      },
+      "classifications": {
+        "not_run": 50
+      },
+      "assessment": {
+        "not_run": 50
+      }
+    },
+    "fresh50": {
+      "formal": {
+        "not_run": 49,
+        "success": 1
+      },
+      "classifications": {
+        "not_run": 49,
+        "gpu_required": 1
+      },
+      "assessment": {
+        "not_run": 49,
+        "correct_allow": 1
+      }
+    },
+    "new50": {
+      "formal": {
+        "success": 9,
+        "not_run": 41
+      },
+      "classifications": {
+        "docs_only": 8,
+        "cpu_only": 1,
+        "not_run": 41
+      },
+      "assessment": {
+        "correct_allow": 9,
+        "not_run": 41
+      }
+    }
+  }
 }
 ```
 
@@ -132,7 +202,7 @@
 | [#9649](https://github.com/flashinfer-ai/flashinfer/pull/9649) | [#201](https://github.com/kangbintNV/flashinfer/pull/201) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/9649#issuecomment-7029324566) | 未运行 | 未运行 | — | GPU |
 | [#9949](https://github.com/flashinfer-ai/flashinfer/pull/9949) | [#202](https://github.com/kangbintNV/flashinfer/pull/202) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7181797949) | 未运行 | 未运行 | — | GPU |
 | [#9550](https://github.com/flashinfer-ai/flashinfer/pull/9550) | [#203](https://github.com/kangbintNV/flashinfer/pull/203) | fresh50 | 无 | 未运行 | 未运行 | — | GPU |
-| [#5658](https://github.com/flashinfer-ai/flashinfer/pull/5658) | [#204](https://github.com/kangbintNV/flashinfer/pull/204) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/5658#issuecomment-5880412590) | 未运行 | 未运行 | — | GPU |
+| [#5658](https://github.com/flashinfer-ai/flashinfer/pull/5658) | [#204](https://github.com/kangbintNV/flashinfer/pull/204) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/5658#issuecomment-5880412590) | [success](https://github.com/kangbintNV/flashinfer/runs/139886663294) | [GPU](https://github.com/kangbintNV/flashinfer/runs/139886700679) | — | GPU |
 | [#8081](https://github.com/flashinfer-ai/flashinfer/pull/8081) | [#205](https://github.com/kangbintNV/flashinfer/pull/205) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6880608414) | 未运行 | 未运行 | — | GPU |
 | [#6711](https://github.com/flashinfer-ai/flashinfer/pull/6711) | [#206](https://github.com/kangbintNV/flashinfer/pull/206) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/6711#issuecomment-6974039523) | 未运行 | 未运行 | — | GPU |
 | [#9554](https://github.com/flashinfer-ai/flashinfer/pull/9554) | [#207](https://github.com/kangbintNV/flashinfer/pull/207) | fresh50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/9554#issuecomment-7076077410) | 未运行 | 未运行 | — | GPU |
@@ -154,21 +224,21 @@
 | [#8932](https://github.com/flashinfer-ai/flashinfer/pull/8932) | [#223](https://github.com/kangbintNV/flashinfer/pull/223) | fresh50 | 无 | 未运行 | 未运行 | — | CPU |
 | [#7819](https://github.com/flashinfer-ai/flashinfer/pull/7819) | [#224](https://github.com/kangbintNV/flashinfer/pull/224) | fresh50 | 无 | 未运行 | 未运行 | — | GPU |
 | [#3827](https://github.com/flashinfer-ai/flashinfer/pull/3827) | [#225](https://github.com/kangbintNV/flashinfer/pull/225) | fresh50 | 无 | 未运行 | 未运行 | — | 审阅未定 |
-| [#9082](https://github.com/flashinfer-ai/flashinfer/pull/9082) | [#228](https://github.com/kangbintNV/flashinfer/pull/228) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#4948](https://github.com/flashinfer-ai/flashinfer/pull/4948) | [#229](https://github.com/kangbintNV/flashinfer/pull/229) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#8185](https://github.com/flashinfer-ai/flashinfer/pull/8185) | [#230](https://github.com/kangbintNV/flashinfer/pull/230) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#2541](https://github.com/flashinfer-ai/flashinfer/pull/2541) | [#231](https://github.com/kangbintNV/flashinfer/pull/231) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#4175](https://github.com/flashinfer-ai/flashinfer/pull/4175) | [#232](https://github.com/kangbintNV/flashinfer/pull/232) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#3710](https://github.com/flashinfer-ai/flashinfer/pull/3710) | [#233](https://github.com/kangbintNV/flashinfer/pull/233) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#9985](https://github.com/flashinfer-ai/flashinfer/pull/9985) | [#234](https://github.com/kangbintNV/flashinfer/pull/234) | new50 | 无 | 未运行 | 未运行 | — | CPU |
-| [#3853](https://github.com/flashinfer-ai/flashinfer/pull/3853) | [#235](https://github.com/kangbintNV/flashinfer/pull/235) | new50 | 无 | 未运行 | 未运行 | — | CPU |
-| [#9688](https://github.com/flashinfer-ai/flashinfer/pull/9688) | [#236](https://github.com/kangbintNV/flashinfer/pull/236) | new50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/9688#issuecomment-7001181982) | 未运行 | 未运行 | — | CPU |
-| [#9462](https://github.com/flashinfer-ai/flashinfer/pull/9462) | [#237](https://github.com/kangbintNV/flashinfer/pull/237) | new50 | 无 | 未运行 | 未运行 | — | 审阅未定 |
-| [#7625](https://github.com/flashinfer-ai/flashinfer/pull/7625) | [#238](https://github.com/kangbintNV/flashinfer/pull/238) | new50 | 无 | 未运行 | 未运行 | — | 文档 |
-| [#8036](https://github.com/flashinfer-ai/flashinfer/pull/8036) | [#239](https://github.com/kangbintNV/flashinfer/pull/239) | new50 | 无 | 未运行 | 未运行 | — | GPU |
-| [#9656](https://github.com/flashinfer-ai/flashinfer/pull/9656) | [#240](https://github.com/kangbintNV/flashinfer/pull/240) | new50 | 无 | 未运行 | 未运行 | — | GPU |
-| [#8867](https://github.com/flashinfer-ai/flashinfer/pull/8867) | [#241](https://github.com/kangbintNV/flashinfer/pull/241) | new50 | 无 | 未运行 | 未运行 | — | GPU |
-| [#6902](https://github.com/flashinfer-ai/flashinfer/pull/6902) | [#242](https://github.com/kangbintNV/flashinfer/pull/242) | new50 | 无 | 未运行 | 未运行 | — | GPU |
+| [#9082](https://github.com/flashinfer-ai/flashinfer/pull/9082) | [#228](https://github.com/kangbintNV/flashinfer/pull/228) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887403944) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887403944) | — | 文档 |
+| [#4948](https://github.com/flashinfer-ai/flashinfer/pull/4948) | [#229](https://github.com/kangbintNV/flashinfer/pull/229) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887456354) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887456354) | — | 文档 |
+| [#8185](https://github.com/flashinfer-ai/flashinfer/pull/8185) | [#230](https://github.com/kangbintNV/flashinfer/pull/230) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887447382) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887447382) | — | 文档 |
+| [#2541](https://github.com/flashinfer-ai/flashinfer/pull/2541) | [#231](https://github.com/kangbintNV/flashinfer/pull/231) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887463627) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887463627) | — | 文档 |
+| [#4175](https://github.com/flashinfer-ai/flashinfer/pull/4175) | [#232](https://github.com/kangbintNV/flashinfer/pull/232) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887550649) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887550649) | — | 文档 |
+| [#3710](https://github.com/flashinfer-ai/flashinfer/pull/3710) | [#233](https://github.com/kangbintNV/flashinfer/pull/233) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887500847) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887500847) | — | 文档 |
+| [#9985](https://github.com/flashinfer-ai/flashinfer/pull/9985) | [#234](https://github.com/kangbintNV/flashinfer/pull/234) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887530662) | [CPU](https://github.com/kangbintNV/flashinfer/runs/139887530662) | — | CPU |
+| [#3853](https://github.com/flashinfer-ai/flashinfer/pull/3853) | [#235](https://github.com/kangbintNV/flashinfer/pull/235) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139887543040) | [文档](https://github.com/kangbintNV/flashinfer/runs/139887543040) | — | CPU |
+| [#9688](https://github.com/flashinfer-ai/flashinfer/pull/9688) | [#236](https://github.com/kangbintNV/flashinfer/pull/236) | new50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/9688#issuecomment-7001181982) | 运行中 | 未运行 | — | CPU |
+| [#9462](https://github.com/flashinfer-ai/flashinfer/pull/9462) | [#237](https://github.com/kangbintNV/flashinfer/pull/237) | new50 | 无 | 运行中 | 未运行 | — | 审阅未定 |
+| [#7625](https://github.com/flashinfer-ai/flashinfer/pull/7625) | [#238](https://github.com/kangbintNV/flashinfer/pull/238) | new50 | 无 | [success](https://github.com/kangbintNV/flashinfer/runs/139888095573) | [文档](https://github.com/kangbintNV/flashinfer/runs/139888095573) | — | 文档 |
+| [#8036](https://github.com/flashinfer-ai/flashinfer/pull/8036) | [#239](https://github.com/kangbintNV/flashinfer/pull/239) | new50 | 无 | 运行中 | 未运行 | — | GPU |
+| [#9656](https://github.com/flashinfer-ai/flashinfer/pull/9656) | [#240](https://github.com/kangbintNV/flashinfer/pull/240) | new50 | 无 | 运行中 | 未运行 | — | GPU |
+| [#8867](https://github.com/flashinfer-ai/flashinfer/pull/8867) | [#241](https://github.com/kangbintNV/flashinfer/pull/241) | new50 | 无 | 运行中 | 未运行 | — | GPU |
+| [#6902](https://github.com/flashinfer-ai/flashinfer/pull/6902) | [#242](https://github.com/kangbintNV/flashinfer/pull/242) | new50 | 无 | 运行中 | 未运行 | — | GPU |
 | [#5040](https://github.com/flashinfer-ai/flashinfer/pull/5040) | [#243](https://github.com/kangbintNV/flashinfer/pull/243) | new50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/5040#issuecomment-5610482618) | 未运行 | 未运行 | — | GPU |
 | [#8740](https://github.com/flashinfer-ai/flashinfer/pull/8740) | [#245](https://github.com/kangbintNV/flashinfer/pull/245) | new50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/8740#issuecomment-6759578978) | 未运行 | 未运行 | — | GPU |
 | [#8479](https://github.com/flashinfer-ai/flashinfer/pull/8479) | [#247](https://github.com/kangbintNV/flashinfer/pull/247) | new50 | [有](https://github.com/flashinfer-ai/flashinfer/pull/8479#issuecomment-6813765933) | 未运行 | 未运行 | — | GPU |
@@ -207,7 +277,7 @@
 
 ## 能证明与不能证明
 
-最终原生结果完成后可验证固定代码、冻结证据下的门禁判断、分类/重试输出及 GitHub Check 发布。工作流自身成功仅表示实验完成，不代表正式 Bot Run Request Check 通过；GPU 无回复的正式失败是预期结果。
+原生结果用于验证固定代码、冻结证据下的门禁判断、分类/重试输出及 GitHub Check 发布。工作流自身成功仅表示实验完成，不代表正式 Bot Run Request Check 通过；GPU 无回复的正式失败是预期结果。
 本批不证明 GPU 数值/性能正确、用例覆盖充分、真实 bot 服务健康或当前 commit 实际已测试。未配置 required check/branch protection，不能声称已验证强制合并阻塞。新鲜模型响应非确定，本次不是严格的单变量因果 A/B。
 代理没有修改 fork main 或仓库设置；运行中观察到 fork main 被其他活动更新，已另存观察记录，未覆盖或恢复该分支。
 
