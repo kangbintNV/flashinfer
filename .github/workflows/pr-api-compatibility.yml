@@ -2,6 +2,7 @@ name: PR API Compatibility
 
 on:
   pull_request_target:
+    branches: [main, "codex/api-demo-base-*", "codex/api-audit-base-*", "codex/api-fresh30-*-base-*"]
     types: [opened, synchronize, reopened, ready_for_review, edited]
 
 permissions:
@@ -13,8 +14,7 @@ permissions:
 
 jobs:
   api:
-    if: >-
-      (github.event.action != 'edited' || github.event.changes.base.ref != null) && (contains(fromJSON('["codex/api-fresh30-4680ebf4-base-2906", "codex/api-fresh30-4680ebf4-base-4302", "codex/api-fresh30-4680ebf4-base-4460", "codex/api-fresh30-4680ebf4-base-4518", "codex/api-fresh30-4680ebf4-base-4596", "codex/api-fresh30-4680ebf4-base-4624", "codex/api-fresh30-4680ebf4-base-4625", "codex/api-fresh30-4680ebf4-base-4697", "codex/api-fresh30-4680ebf4-base-4793", "codex/api-fresh30-4680ebf4-base-4876", "codex/api-fresh30-4680ebf4-base-4980", "codex/api-fresh30-4680ebf4-base-5003", "codex/api-fresh30-4680ebf4-base-5039", "codex/api-fresh30-4680ebf4-base-5070", "codex/api-fresh30-4680ebf4-base-5082", "codex/api-fresh30-4680ebf4-base-5138", "codex/api-fresh30-4680ebf4-base-5218", "codex/api-fresh30-4680ebf4-base-5257", "codex/api-fresh30-4680ebf4-base-5286", "codex/api-fresh30-4680ebf4-base-5364", "codex/api-fresh30-4680ebf4-base-5494", "codex/api-fresh30-4680ebf4-base-5612", "codex/api-fresh30-4680ebf4-base-5697", "codex/api-fresh30-4680ebf4-base-5927", "codex/api-fresh30-4680ebf4-base-5989", "codex/api-fresh30-4680ebf4-base-6047", "codex/api-fresh30-4680ebf4-base-6198", "codex/api-fresh30-4680ebf4-base-6621", "codex/api-fresh30-4680ebf4-base-6956", "codex/api-fresh30-4680ebf4-base-7089"]'), github.event.pull_request.base.ref) || startsWith(github.event.pull_request.base.ref, 'codex/api-audit-base-') || startsWith(github.event.pull_request.base.ref, 'codex/api-demo-base-'))
+    if: github.event.action != 'edited' || github.event.changes.base.ref != null
     name: Trusted API compatibility scan
     runs-on: ubuntu-latest
     timeout-minutes: 10
