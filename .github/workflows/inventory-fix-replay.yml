@@ -1,0 +1,38 @@
+name: Bot Run Request Experiment - No Experimental Exemption
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'codex/bot-run-demo-inventory-fix-20261126/*/head'
+      - 'codex/bot-run-fresh50-20261126/*/head'
+      - 'codex/bot-run-no-experimental-20261126/*/head'
+      - 'codex/bot-run-no-experimental-20261126/preflight'
+permissions:
+  contents: read
+  pull-requests: read
+  checks: write
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            scripts
+            experiments
+      - name: Replay frozen original evidence through pinned run_pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INFERENCE_API_KEY: ${{ secrets.INFERENCE_API_KEY }}
+          INFERENCE_BASE_URL: 'https://inference-api.nvidia.com/v1'
+          CI_BOT_TARGET_MODEL: 'azure/anthropic/claude-opus-5'
+          CI_BOT_TARGET_TIMEOUT_SECONDS: '360'
+          EXPERIMENT_CACHE: ${{ runner.temp }}/bot-run-source-cache
+        run: python3 scripts/infra/pr_checks/fresh50_replay.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bot-run-experiment-evidence
+          path: reports/
