@@ -1,3 +1,3 @@
 @flashinfer_api
-def foo(x):
+def foo(x, required):
     return x
