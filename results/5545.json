@@ -1,0 +1,116 @@
+{
+  "original_number": 5545,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/5545",
+  "experiment_number": 253,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/253",
+  "cohort": "new50",
+  "title": "feat(cake_nvfp4_attn): MiniMax-H3 SM120 ragged NVFP4 attention with the SageAttention3 FP4 recipe (experimental, #4532 candidate 5090-K2)",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "c939a4e9418ce0aeea41b71c1115d2d5e6e25012",
+  "comparison_head_sha": "6dd62183e53c75303d32df6bfa7f9a80a7a49af8",
+  "inspected_source_tree": "99755f4e6a076dcf3a187e23c56505ed45d70069",
+  "experiment_head": "42dbedce9604e9e6e8e261f42445d19791681c88",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/42dbedce9604e9e6e8e261f42445d19791681c88/experiments/source.json",
+  "comment_snapshot_sha256": "3135540d48d495829122c1315d37435ac1109d402733dcb5fd236439dbdd8ced",
+  "reply_evidence": [
+    {
+      "id": 5829106027,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5829106027",
+      "first_line": "GitLab MR [!1694](https://nv/flashinfer/-/merge_requests/1694) has been created, and the CI pipeline [#69771868](https://nv/flashinfer-ci/-/pipelines/69771868) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5829120832,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5829120832",
+      "first_line": "[FAILED] Pipeline [#69771868](https://nv/flashinfer-ci/-/pipelines/69771868) — 0/0 executed test jobs passed"
+    },
+    {
+      "id": 5829158999,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5829158999",
+      "first_line": "GitLab MR [!1694](https://nv/flashinfer/-/merge_requests/1694) has been created, and the CI pipeline [#69772121](https://nv/flashinfer-ci/-/pipelines/69772121) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5829172118,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5829172118",
+      "first_line": "GitLab MR [!1694](https://nv/flashinfer/-/merge_requests/1694) has been updated with latest changes, and the CI pipeline [#69772142](https://nv/flashinfer-ci/-/pipelines/69772142) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5830540771,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5830540771",
+      "first_line": "[SUCCESS] Pipeline [#69772142](https://nv/flashinfer-ci/-/pipelines/69772142): 25/25 executed test jobs passed"
+    },
+    {
+      "id": 5841938018,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5841938018",
+      "first_line": "GitLab MR [!1694](https://nv/flashinfer/-/merge_requests/1694) has been updated with latest changes, and the CI pipeline [#69872071](https://nv/flashinfer-ci/-/pipelines/69872071) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5841947434,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5841947434",
+      "first_line": "[FAILED] Pipeline [#69872071](https://nv/flashinfer-ci/-/pipelines/69872071) — 0/0 executed test jobs passed"
+    },
+    {
+      "id": 5842943547,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5842943547",
+      "first_line": "Invalid `/bot run` path(s): `csrc/cake_minimax_h3_sm120_nvfp4_varlen_attention_sm120a.cu`, `flashinfer/jit/cake_minimax_h3_sm120_nvfp4_varlen_attention.py`, `flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py`, `benchmarks/bench_minimax_h3_sm120_nvfp4_varlen_attention.py`. Expected `tests/<dir>` or `tests/<dir>/<file>.py`."
+    },
+    {
+      "id": 5845965878,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5845965878",
+      "first_line": "GitLab MR [!1694](https://nv/flashinfer/-/merge_requests/1694) has been updated with latest changes, and the CI pipeline [#69927806](https://nv/flashinfer-ci/-/pipelines/69927806) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5845974163,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5845974163",
+      "first_line": "[FAILED] Pipeline [#69927806](https://nv/flashinfer-ci/-/pipelines/69927806) — 0/0 executed test jobs passed"
+    },
+    {
+      "id": 5850621832,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5850621832",
+      "first_line": "GitLab MR [!1694](https://nv/flashinfer/-/merge_requests/1694) has been updated with latest changes, and the CI pipeline [#69990758](https://nv/flashinfer-ci/-/pipelines/69990758) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5850911673,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5545#issuecomment-5850911673",
+      "first_line": "[SUCCESS] Pipeline [#69990758](https://nv/flashinfer-ci/-/pipelines/69990758): 25/25 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_nvfp4_attn): MiniMax-H3 SM120 ragged NVFP4 attention with the SageAttention3 FP4 recipe (experimental, #4532 candidate 5090-K2)",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 5545,
+    "experiment_pr": 253,
+    "experiment_head": "42dbedce9604e9e6e8e261f42445d19791681c88",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 7,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

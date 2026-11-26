@@ -1,0 +1,76 @@
+{
+  "original_number": 8081,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8081",
+  "experiment_number": 205,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/205",
+  "cohort": "fresh50",
+  "title": "fix(gemm): order the stage release, output stores and loader exit of the warp split-K BF16 GEMM",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "85c65fb3969bd3195d4d571e377ebf0615ea3276",
+  "comparison_head_sha": "8c21ca5e42d2b19e14bb03658c6b2c15adc7a1b9",
+  "inspected_source_tree": "3d299b56acc5e629b8e0c94e3512f7f6738702e8",
+  "experiment_head": "c0879e13036c6c51187b9adbea6a651bd15624a8",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/c0879e13036c6c51187b9adbea6a651bd15624a8/experiments/source.json",
+  "comment_snapshot_sha256": "6e0ae1797e00841b1ba11d8c702ee2d8bb4373d8ec63819d1b957d45c95fd343",
+  "reply_evidence": [
+    {
+      "id": 6863992253,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6863992253",
+      "first_line": "GitLab MR [!2823](https://nv/flashinfer/-/merge_requests/2823) has been created, and the CI pipeline [#81994720](https://nv/flashinfer-ci/-/pipelines/81994720) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6880608414,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8081#issuecomment-6880608414",
+      "first_line": "[FAILED] Pipeline [#81994720](https://nv/flashinfer-ci/-/pipelines/81994720) — 29/30 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "CuTe kernel stage-release/store/loader-exit ordering changes. New PTX-inspection test is CPU-only, but changed synchronization is GPU-related.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 8081,
+    "experiment_pr": 205,
+    "experiment_head": "c0879e13036c6c51187b9adbea6a651bd15624a8",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 2,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "defffe741df871472912308fc93af8b3dd899352",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8081.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

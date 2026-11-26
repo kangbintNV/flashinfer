@@ -1,0 +1,112 @@
+{
+  "original_number": 9836,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9836",
+  "experiment_number": 162,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/162",
+  "cohort": "old50",
+  "title": "fix: make Cake tests pass on every internal-CI GPU lane",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "7b1f4400b1129066705fb5c5524225cfce422f10",
+  "comparison_head_sha": "7d585a05f1b22dcd6a83431321f3fe0fc2a212b3",
+  "inspected_source_tree": "f5885e2d52376a5e295963ef9f7a2e8e3dc02ca5",
+  "experiment_head": "28c8fefd93f756c7ee1293724c6b48ff431b1098",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/28c8fefd93f756c7ee1293724c6b48ff431b1098/experiments/source.json",
+  "comment_snapshot_sha256": "7171da6b693bbe232766ada05863f4215d195c107afd1ebc1a51019b14a0dcfa",
+  "reply_evidence": [
+    {
+      "id": 7070824970,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7070824970",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been created, and the CI pipeline [#84372747](https://nv/flashinfer-ci/-/pipelines/84372747) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7071949105,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7071949105",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been created, and the CI pipeline [#84386806](https://nv/flashinfer-ci/-/pipelines/84386806) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7073350460,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7073350460",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been created, and the CI pipeline [#84403253](https://nv/flashinfer-ci/-/pipelines/84403253) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7074275785,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7074275785",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been created, and the CI pipeline [#84414733](https://nv/flashinfer-ci/-/pipelines/84414733) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7075262394,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7075262394",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been updated with latest changes, and the CI pipeline [#84430283](https://nv/flashinfer-ci/-/pipelines/84430283) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7076024704,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7076024704",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been updated with latest changes, and the CI pipeline [#84442815](https://nv/flashinfer-ci/-/pipelines/84442815) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7077463827,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7077463827",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been updated with latest changes, and the CI pipeline [#84464461](https://nv/flashinfer-ci/-/pipelines/84464461) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7078253002,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7078253002",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been created, and the CI pipeline [#84475161](https://nv/flashinfer-ci/-/pipelines/84475161) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7091022464,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9836#issuecomment-7091022464",
+      "first_line": "GitLab MR [!3025](https://nv/flashinfer/-/merge_requests/3025) has been updated with latest changes, and the CI pipeline [#84623388](https://nv/flashinfer-ci/-/pipelines/84623388) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: fix: make Cake tests pass on every internal-CI GPU lane",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9836,
+    "experiment_pr": 162,
+    "experiment_head": "28c8fefd93f756c7ee1293724c6b48ff431b1098",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 23,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "370d15e106cc7d77a68b42ffccf50268ae7c3629",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139385569855",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

@@ -1,0 +1,320 @@
+{
+  "purpose": "Assistant review support only; never substitutes for the actual checker",
+  "rows": [
+    {
+      "pr": 9818,
+      "path": "flashinfer/moe_ep/backends/mega/kernel/sm120/mxfp8_mxfp8_bf16_cutedsl/backend.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9818,
+      "path": "flashinfer/moe_ep/shims/sm120/cake_mxfp4/cake_jit.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9818,
+      "path": "flashinfer/moe_ep/shims/sm120/swapab_cutedsl/_paths.py",
+      "non_doc_ast_unchanged": false
+    },
+    {
+      "pr": 9818,
+      "path": "tests/cpu/infra/test_aot_cache_seed_workflow.py",
+      "non_doc_ast_unchanged": false
+    },
+    {
+      "pr": 9818,
+      "path": "tests/moe_ep/mega_oracle_compare.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9818,
+      "path": "tests/moe_ep/test_moe_ep_sm120_mxfp8_cutedsl_mega_multirank.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9818,
+      "path": "tests/moe_ep/test_moe_ep_sm90_pull_mxfp4_mega_multirank.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9818,
+      "path": "tests/moe_ep/test_mxfp8_cutedsl_preprocess_vs_reference.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9818,
+      "path": "tests/moe_ep/test_sm90_pull_mxfp4_kernel_vs_reference.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/cake_fused_qk_rope_fp8_append.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/comm/trtllm_mnnvl_ar.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/cute_dsl/sparse/bsa_attn_sm100_blk64.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/decode.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/gdn_decode.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/gdn_prefill.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/prefill.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/rope.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9358,
+      "path": "flashinfer/sampling.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9332,
+      "path": "scripts/pr_checks/check_cross_sources.py",
+      "non_doc_ast_unchanged": false
+    },
+    {
+      "pr": 9332,
+      "path": "scripts/pr_checks/configure_checks.py",
+      "non_doc_ast_unchanged": false
+    },
+    {
+      "pr": 9332,
+      "path": "scripts/pr_checks/register_checks.py",
+      "non_doc_ast_unchanged": false
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_causal_conv1d_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_causal_conv1d_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_dsa_indexer_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_dsa_sparse_attention_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_dsa_sparse_attention_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_gdn_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_gdn_det_train_kcp.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_gdn_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_gdn_nondet_train_kcp.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_gqa_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_gqa_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_kda_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_kda_det_train_kcp.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_kda_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_kda_nondet_train_kcp.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_lm_head_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_mhc_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_moe_grouped_gemm_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_moe_grouped_gemm_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_rmsnorm_det_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/cake_rmsnorm_nondet_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/comm/qkv_norm_rope_exchange_overlap.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/decode.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/experimental/cake/cake_rmsnorm_det_train/__init__.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/gdn_decode.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/gdn_prefill.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/msa_ops/_blackwell_sm100.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/msa_ops/sparse_prefill.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9307,
+      "path": "flashinfer/sampling.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9545,
+      "path": "flashinfer/gemm/kernels/tgv_gemm_cute_ext.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/cake_rmsnorm_det_train_backend/cake_jit.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/cake_rmsnorm_train.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/cake_rmsnorm_train_backend/__init__.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/cake_rmsnorm_train_backend/cake_jit.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/cake_rmsnorm_train_backend/cake_windows.py",
+      "non_doc_ast_unchanged": false
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/gemm/cake_quant_lora_gemm.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8464,
+      "path": "flashinfer/quantization/kernels/nvfp4_kv_materialize.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 935,
+      "path": "flashinfer/sampling.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 5629,
+      "path": "flashinfer/diffusion_ops/cake_minimax_h3_sm120_nvfp4_varlen_attention.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 8889,
+      "path": "flashinfer/gemm/gemm_base.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 9200,
+      "path": "flashinfer/experimental/cake/cake_mhc_nondet_train/cake_jit.py",
+      "non_doc_ast_unchanged": true
+    },
+    {
+      "pr": 7653,
+      "path": "flashinfer/experimental/cake_kda_train/cake_backend.py",
+      "non_doc_ast_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "original_number": 9897,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9897",
+  "experiment_number": 153,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/153",
+  "cohort": "old50",
+  "title": "test(prims-ts): move the mixed-precision decode grid into its own file",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "ff73235a98cbb2e41331a8b3508301583b33d456",
+  "comparison_head_sha": "540960367c0bbf3218e7d37c442a4f8514de272d",
+  "inspected_source_tree": "1173f1b0f8b63060075cd0333d01c9b6790f8c3e",
+  "experiment_head": "28bf49ebf588fb50fe8a897edbe243e81361f94c",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/28bf49ebf588fb50fe8a897edbe243e81361f94c/experiments/source.json",
+  "comment_snapshot_sha256": "d91257ec4223d5b56d8f0181d3154fe6680adc8af4a4857cfb84cf27907375b4",
+  "reply_evidence": [
+    {
+      "id": 7111160018,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9897#issuecomment-7111160018",
+      "first_line": "GitLab MR [!3048](https://nv/flashinfer/-/merge_requests/3048) has been created, and the CI pipeline [#84812680](https://nv/flashinfer-ci/-/pipelines/84812680) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7115181575,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9897#issuecomment-7115181575",
+      "first_line": "GitLab MR [!3048](https://nv/flashinfer/-/merge_requests/3048) has been updated with latest changes, and the CI pipeline [#84850617](https://nv/flashinfer-ci/-/pipelines/84850617) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test(prims-ts): move the mixed-precision decode grid into its own file",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9897,
+    "experiment_pr": 153,
+    "experiment_head": "28bf49ebf588fb50fe8a897edbe243e81361f94c",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 4,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "c6c7f8b9d12aca8820c84fd7a041240a3416f3b9",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139384592675",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

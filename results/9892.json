@@ -1,0 +1,97 @@
+{
+  "original_number": 9892,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9892",
+  "experiment_number": 141,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/141",
+  "cohort": "old50",
+  "title": "feat(gemm): retune MXFP8 CuTe-DSL entries when the tactic budget changes",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "bdb7fc83825b70e2cfda46a9a63974f9077f7705",
+  "comparison_head_sha": "d605ffbcb58c8c78768f431b15ab74ab252d3e99",
+  "inspected_source_tree": "852f85affcd588570bb8cd28d8a89738bbe9a799",
+  "experiment_head": "6432ff5361b8c6ad14b815a06d89f96f31ec7900",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6432ff5361b8c6ad14b815a06d89f96f31ec7900/experiments/source.json",
+  "comment_snapshot_sha256": "1d073f582b07ba116445cfdf28c70f51f69c2970d371197ef99a0a7d55c1edc9",
+  "reply_evidence": [
+    {
+      "id": 7104988780,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9892#issuecomment-7104988780",
+      "first_line": "GitLab MR [!3046](https://nv/flashinfer/-/merge_requests/3046) has been created, and the CI pipeline [#84756841](https://nv/flashinfer-ci/-/pipelines/84756841) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7106940383,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9892#issuecomment-7106940383",
+      "first_line": "Too many test paths (22); maximum is 16."
+    },
+    {
+      "id": 7107047019,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9892#issuecomment-7107047019",
+      "first_line": "GitLab MR [!3046](https://nv/flashinfer/-/merge_requests/3046) has been created, and the CI pipeline [#84774090](https://nv/flashinfer-ci/-/pipelines/84774090) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7110396217,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9892#issuecomment-7110396217",
+      "first_line": "GitLab MR [!3046](https://nv/flashinfer/-/merge_requests/3046) has been updated with latest changes, and the CI pipeline [#84803138](https://nv/flashinfer-ci/-/pipelines/84803138) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7113861841,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9892#issuecomment-7113861841",
+      "first_line": "GitLab MR [!3046](https://nv/flashinfer/-/merge_requests/3046) has been created, and the CI pipeline [#84837501](https://nv/flashinfer-ci/-/pipelines/84837501) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7131921554,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9892#issuecomment-7131921554",
+      "first_line": "GitLab MR [!3046](https://nv/flashinfer/-/merge_requests/3046) has been updated with latest changes, and the CI pipeline [#85033570](https://nv/flashinfer-ci/-/pipelines/85033570) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(gemm): retune MXFP8 CuTe-DSL entries when the tactic budget changes",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9892,
+    "experiment_pr": 141,
+    "experiment_head": "6432ff5361b8c6ad14b815a06d89f96f31ec7900",
+    "paths_match": true,
+    "blob_status_match": false,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 3,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": false,
+    "legacy_merged_context_blob_difference": true,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "cff36f07fb27090979e5702df53dcd4cb25a6409",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139383348238",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

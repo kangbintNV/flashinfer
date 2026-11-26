@@ -1,0 +1,81 @@
+{
+  "original_number": 6160,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/6160",
+  "experiment_number": 209,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/209",
+  "cohort": "fresh50",
+  "title": "fix(fa3): prevent silent numerical errors in Hopper FP16/BF16 prefill",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "1cbcb24d577513ed9f337d6df4fff449aa2fe23d",
+  "comparison_head_sha": "ffa8487dbdc25431ea23e73b32ec43c50f9360ec",
+  "inspected_source_tree": "b43aec8a53c64e8f3e5775bfda2cb3872e866d80",
+  "experiment_head": "77f9fd31fd145b0ed74cb3fdfdd383183fd51543",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/77f9fd31fd145b0ed74cb3fdfdd383183fd51543/experiments/source.json",
+  "comment_snapshot_sha256": "c7cf4ce407c5cee0c0ca3108247c48ff65b97678fa014f3828f44b4e44a33948",
+  "reply_evidence": [
+    {
+      "id": 6512300092,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-6512300092",
+      "first_line": "GitLab MR [!2554](https://nv/flashinfer/-/merge_requests/2554) has been created, and the CI pipeline [#77754710](https://nv/flashinfer-ci/-/pipelines/77754710) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6518500862,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-6518500862",
+      "first_line": "[SUCCESS] Pipeline [#77754710](https://nv/flashinfer-ci/-/pipelines/77754710): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 7031181649,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6160#issuecomment-7031181649",
+      "first_line": "GitLab MR [!2554](https://nv/flashinfer/-/merge_requests/2554) has been updated with latest changes, and the CI pipeline [#83872286](https://nv/flashinfer-ci/-/pipelines/83872286) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Hopper epilogue barrier arrival ordering changes, with CUDA numerical regression probe.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 6160,
+    "experiment_pr": 209,
+    "experiment_head": "77f9fd31fd145b0ed74cb3fdfdd383183fd51543",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 3,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "25c23dc7f02377298533755b4aecfa889a3129f0",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/6160.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

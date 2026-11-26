@@ -1,0 +1,76 @@
+{
+  "original_number": 9677,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9677",
+  "experiment_number": 268,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/268",
+  "cohort": "new50",
+  "title": "feat(batch_invariant): stateless call of the GDN class `gdn.bf16.c64` (a trainer's forward pass) with its boundary states",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "4f24496fc78299a6deb5157dd3a514c4430f2360",
+  "comparison_head_sha": "f6290475e8367d2a7e7a0a396f2935f3b3f7a8f7",
+  "inspected_source_tree": "e607bfdf732e7a21bfe8b793be438ef0123d4713",
+  "experiment_head": "23e2dc44809c25485a277bdb0f631c54c105666b",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/23e2dc44809c25485a277bdb0f631c54c105666b/experiments/source.json",
+  "comment_snapshot_sha256": "011bb33df008f11e154c0013085223e6079a27df4597deeeccaba41d620a3c3b",
+  "reply_evidence": [
+    {
+      "id": 6995939973,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9677#issuecomment-6995939973",
+      "first_line": "GitLab MR [!2959](https://nv/flashinfer/-/merge_requests/2959) has been created, and the CI pipeline [#83434786](https://nv/flashinfer-ci/-/pipelines/83434786) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6996727785,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9677#issuecomment-6996727785",
+      "first_line": "GitLab MR [!2959](https://nv/flashinfer/-/merge_requests/2959) has been updated with latest changes, and the CI pipeline [#83447007](https://nv/flashinfer-ci/-/pipelines/83447007) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7021448685,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9677#issuecomment-7021448685",
+      "first_line": "GitLab MR [!2959](https://nv/flashinfer/-/merge_requests/2959) has been updated with latest changes, and the CI pipeline [#83723128](https://nv/flashinfer-ci/-/pipelines/83723128) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7022787743,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9677#issuecomment-7022787743",
+      "first_line": "GitLab MR [!2959](https://nv/flashinfer/-/merge_requests/2959) has been updated with latest changes, and the CI pipeline [#83736747](https://nv/flashinfer-ci/-/pipelines/83736747) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(batch_invariant): stateless call of the GDN class `gdn.bf16.c64` (a trainer's forward pass) with its boundary states",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9677,
+    "experiment_pr": 268,
+    "experiment_head": "23e2dc44809c25485a277bdb0f631c54c105666b",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 8,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

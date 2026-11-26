@@ -1,0 +1,8 @@
+{
+  "sha": "654bc454d31323052552d7e74b1bbf2aca981b2f",
+  "message": "test: probe merge check runs on isolated PRs [skip ci]",
+  "changed_files": [
+    ".github/workflows/independent-api-native-probe.yml"
+  ],
+  "agent_changed_main": false
+}

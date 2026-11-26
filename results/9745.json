@@ -1,0 +1,61 @@
+{
+  "original_number": 9745,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9745",
+  "experiment_number": 259,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/259",
+  "cohort": "new50",
+  "title": "feat(moe): routing tile query for routed FP4 MoE routing metadata",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "1c5e136f0bf92d0e6c05d0deffa87bddfdf3b84d",
+  "comparison_head_sha": "28665393925f29b10b74500a0615457041d84c53",
+  "inspected_source_tree": "5225cac7f1feafaa79b97c22052598f42770c6d5",
+  "experiment_head": "6e3b376ff124e391aea0341e5150e567a77d6d36",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6e3b376ff124e391aea0341e5150e567a77d6d36/experiments/source.json",
+  "comment_snapshot_sha256": "f2e037c91aa8461d575a541d9686f1618db9ba5edf46aebaf26dc01559247f46",
+  "reply_evidence": [
+    {
+      "id": 7031186743,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9745#issuecomment-7031186743",
+      "first_line": "GitLab MR [!3002](https://nv/flashinfer/-/merge_requests/3002) has been created, and the CI pipeline [#83872335](https://nv/flashinfer-ci/-/pipelines/83872335) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(moe): routing tile query for routed FP4 MoE routing metadata",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9745,
+    "experiment_pr": 259,
+    "experiment_head": "6e3b376ff124e391aea0341e5150e567a77d6d36",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 4,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

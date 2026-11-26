@@ -1,0 +1,176 @@
+test_actual_public_scope_note_is_not_an_internal_response (test_check_bot_run_request.GateTests.test_actual_public_scope_note_is_not_an_internal_response) ... ok
+test_command_whitespace_and_arbitrary_args (test_check_bot_run_request.GateTests.test_command_whitespace_and_arbitrary_args) ... ok
+test_cpu_and_docs_pass_without_reply (test_check_bot_run_request.GateTests.test_cpu_and_docs_pass_without_reply) ... ok
+test_deleted_reply_recomputes_and_new_head_cpu_pass_is_not_permanent (test_check_bot_run_request.GateTests.test_deleted_reply_recomputes_and_new_head_cpu_pass_is_not_permanent) ... ok
+test_existing_replies_skip_analysis_including_old_sha (test_check_bot_run_request.GateTests.test_existing_replies_skip_analysis_including_old_sha) ... ok
+test_gpu_with_no_selected_case_still_fails (test_check_bot_run_request.GateTests.test_gpu_with_no_selected_case_still_fails) ... ok
+test_scope_notes_and_stacked_pr_advice_are_valid_responses (test_check_bot_run_request.GateTests.test_scope_notes_and_stacked_pr_advice_are_valid_responses) ... ok
+test_unknown_and_api_model_errors_fail_without_claiming_gpu (test_check_bot_run_request.GateTests.test_unknown_and_api_model_errors_fail_without_claiming_gpu) ... ok
+test_unrelated_forged_and_public_notes_do_not_bypass (test_check_bot_run_request.GateTests.test_unrelated_forged_and_public_notes_do_not_bypass) ... ok
+test_waiting_message_changes_after_command (test_check_bot_run_request.GateTests.test_waiting_message_changes_after_command) ... ok
+test_added_gpu_test_is_inspected_before_the_model_request (test_check_bot_run_request.ImpactTests.test_added_gpu_test_is_inspected_before_the_model_request) ... AI scope context (evidence): {"chars": 1864, "limit": 300000, "sections": {"pr": 201, "changed_files": 264, "inventory_at_merged_tree": 115, "candidate_test_files": 167, "configuration_files": 93, "source_files": 412, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1864}
+AI scope context (selection): {"chars": 1989, "limit": 300000, "sections": {"pr": 201, "changed_files": 264, "inventory_at_merged_tree": 115, "candidate_test_files": 167, "configuration_files": 93, "source_files": 537, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1989}
+ok
+test_cpu_and_docs_impacts_allow_missing_patch_with_note (test_check_bot_run_request.ImpactTests.test_cpu_and_docs_impacts_allow_missing_patch_with_note) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+AI scope context (evidence): {"chars": 1605, "limit": 300000, "sections": {"pr": 201, "changed_files": 100, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1605}
+AI scope context (selection): {"chars": 1730, "limit": 300000, "sections": {"pr": 201, "changed_files": 100, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1730}
+ok
+test_gpu_is_independent_from_missing_selection (test_check_bot_run_request.ImpactTests.test_gpu_is_independent_from_missing_selection) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+ok
+test_impact_rejects_invented_evidence_and_missing_schema (test_check_bot_run_request.ImpactTests.test_impact_rejects_invented_evidence_and_missing_schema) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+ok
+test_selected_cpu_tests_do_not_override_gpu_impact (test_check_bot_run_request.ImpactTests.test_selected_cpu_tests_do_not_override_gpu_impact) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1755, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 467, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1755}
+ok
+test_available_body_is_not_labeled_filename_only (test_check_bot_run_request.RetryAnalysisTests.test_available_body_is_not_labeled_filename_only) ... ok
+test_budget_omitted_file_can_supply_filename_evidence (test_check_bot_run_request.RetryAnalysisTests.test_budget_omitted_file_can_supply_filename_evidence) ... ok
+test_evidence_cache_is_not_reused_for_changed_context (test_check_bot_run_request.RetryAnalysisTests.test_evidence_cache_is_not_reused_for_changed_context) ... ok
+test_failed_final_request_retries_minimal_with_same_evidence (test_check_bot_run_request.RetryAnalysisTests.test_failed_final_request_retries_minimal_with_same_evidence) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+ok
+test_invalid_evidence_is_rerequested_before_minimal_final (test_check_bot_run_request.RetryAnalysisTests.test_invalid_evidence_is_rerequested_before_minimal_final) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+ok
+test_known_cpu_or_gpu_does_not_retry (test_check_bot_run_request.RetryAnalysisTests.test_known_cpu_or_gpu_does_not_retry) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+ok
+test_missing_patch_note_is_bounded_for_large_changes (test_check_bot_run_request.RetryAnalysisTests.test_missing_patch_note_is_bounded_for_large_changes) ... ok
+test_missing_patches_are_informational_for_any_filename (test_check_bot_run_request.RetryAnalysisTests.test_missing_patches_are_informational_for_any_filename) ... ok
+test_unknown_retries_once_and_requires_bot (test_check_bot_run_request.RetryAnalysisTests.test_unknown_retries_once_and_requires_bot) ... AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (evidence): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+AI scope context (selection): {"chars": 1630, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 342, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1630}
+ok
+test_analysis_timeout_restores_publication_budget (test_check_bot_run_request.TransportTests.test_analysis_timeout_restores_publication_budget) ... ok
+test_base_advance_retries_current_base_and_completes (test_check_bot_run_request.TransportTests.test_base_advance_retries_current_base_and_completes) ... ok
+test_base_read_failure_after_begin_completes_failure (test_check_bot_run_request.TransportTests.test_base_read_failure_after_begin_completes_failure) ... ok
+test_cached_classification_is_bound_to_base_and_analysis_version (test_check_bot_run_request.TransportTests.test_cached_classification_is_bound_to_base_and_analysis_version) ... ok
+test_check_publication_targets_pr_head_and_updates_existing (test_check_bot_run_request.TransportTests.test_check_publication_targets_pr_head_and_updates_existing) ... ok
+test_comment_pagination_and_no_partial_success (test_check_bot_run_request.TransportTests.test_comment_pagination_and_no_partial_success) ... ok
+test_commit_file_comparison_is_immutable_and_count_checked (test_check_bot_run_request.TransportTests.test_commit_file_comparison_is_immutable_and_count_checked) ... ok
+test_docs_fast_path_and_no_conversation_writes (test_check_bot_run_request.TransportTests.test_docs_fast_path_and_no_conversation_writes) ... ok
+test_docs_fastpath_uses_captured_commit_files_even_after_head_aba (test_check_bot_run_request.TransportTests.test_docs_fastpath_uses_captured_commit_files_even_after_head_aba) ... ok
+test_documentation_rename_from_gpu_source_is_not_exempt (test_check_bot_run_request.TransportTests.test_documentation_rename_from_gpu_source_is_not_exempt) ... ok
+test_experimental_cpu_changes_use_behavioral_analysis (test_check_bot_run_request.TransportTests.test_experimental_cpu_changes_use_behavioral_analysis) ... FAIL
+test_experimental_exemption_is_not_a_valid_cached_classification (test_check_bot_run_request.TransportTests.test_experimental_exemption_is_not_a_valid_cached_classification) ... FAIL
+test_experimental_gpu_changes_require_response (test_check_bot_run_request.TransportTests.test_experimental_gpu_changes_require_response) ... 
+  test_experimental_gpu_changes_require_response (test_check_bot_run_request.TransportTests.test_experimental_gpu_changes_require_response) (path='flashinfer/experimental/feature/kernel.cu') ... FAIL
+  test_experimental_gpu_changes_require_response (test_check_bot_run_request.TransportTests.test_experimental_gpu_changes_require_response) (path='tests/experimental/test_new_gpu_kernel.py') ... FAIL
+test_experimental_gpu_unknown_is_not_an_exemption (test_check_bot_run_request.TransportTests.test_experimental_gpu_unknown_is_not_an_exemption) ... FAIL
+test_failure_completion_has_time_after_evidence_deadline_expires (test_check_bot_run_request.TransportTests.test_failure_completion_has_time_after_evidence_deadline_expires) ... ok
+test_final_read_failure_after_begin_completes_failure (test_check_bot_run_request.TransportTests.test_final_read_failure_after_begin_completes_failure) ... ok
+test_historical_reply_skips_all_diff_and_model_calls (test_check_bot_run_request.TransportTests.test_historical_reply_skips_all_diff_and_model_calls) ... ok
+test_push_during_analysis_never_publishes_old_success (test_check_bot_run_request.TransportTests.test_push_during_analysis_never_publishes_old_success) ... ok
+test_read_failure_updates_check_as_failure_not_command_missing (test_check_bot_run_request.TransportTests.test_read_failure_updates_check_as_failure_not_command_missing) ... ok
+test_repeated_base_advance_finishes_failed_instead_of_hanging (test_check_bot_run_request.TransportTests.test_repeated_base_advance_finishes_failed_instead_of_hanging) ... ok
+test_response_success_without_analysis_is_not_a_classification_cache (test_check_bot_run_request.TransportTests.test_response_success_without_analysis_is_not_a_classification_cache) ... ok
+test_stable_gpu_with_experimental_change_still_requires_bot (test_check_bot_run_request.TransportTests.test_stable_gpu_with_experimental_change_still_requires_bot) ... ok
+test_workflow_trust_and_event_contract (test_check_bot_run_request.TransportTests.test_workflow_trust_and_event_contract) ... ok
+
+======================================================================
+FAIL: test_experimental_cpu_changes_use_behavioral_analysis (test_check_bot_run_request.TransportTests.test_experimental_cpu_changes_use_behavioral_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kangbint/flashinfer-bot-run-no-experimental-20261126/scripts/infra/tests/test_check_bot_run_request.py", line 432, in test_experimental_cpu_changes_use_behavioral_analysis
+    self.assertEqual(("success", "cpu_only"), (result.conclusion, result.reason))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('success', 'cpu_only') != ('success', 'experimental_only')
+
+First differing element 1:
+'cpu_only'
+'experimental_only'
+
+- ('success', 'cpu_only')
+?              ^ ^
+
++ ('success', 'experimental_only')
+?              ^^ ^^^^^^^^^
+
+
+======================================================================
+FAIL: test_experimental_exemption_is_not_a_valid_cached_classification (test_check_bot_run_request.TransportTests.test_experimental_exemption_is_not_a_valid_cached_classification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kangbint/flashinfer-bot-run-no-experimental-20261126/scripts/infra/tests/test_check_bot_run_request.py", line 470, in test_experimental_exemption_is_not_a_valid_cached_classification
+    self.assertIsNone(gate.cached_analysis(checks, self.pr, "b" * 40))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'classification': 'experimental_only', 'reason': 'Pure CPU helper', 'evidence_paths': ['flashinfer/rope.py'], 'case_gap': 'No corresponding case selected', 'targets': []} is not None
+
+======================================================================
+FAIL: test_experimental_gpu_changes_require_response (test_check_bot_run_request.TransportTests.test_experimental_gpu_changes_require_response) (path='flashinfer/experimental/feature/kernel.cu')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kangbint/flashinfer-bot-run-no-experimental-20261126/scripts/infra/tests/test_check_bot_run_request.py", line 417, in test_experimental_gpu_changes_require_response
+    self.assertEqual("failure", result.conclusion)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'failure' != 'success'
+- failure
++ success
+
+
+======================================================================
+FAIL: test_experimental_gpu_changes_require_response (test_check_bot_run_request.TransportTests.test_experimental_gpu_changes_require_response) (path='tests/experimental/test_new_gpu_kernel.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kangbint/flashinfer-bot-run-no-experimental-20261126/scripts/infra/tests/test_check_bot_run_request.py", line 417, in test_experimental_gpu_changes_require_response
+    self.assertEqual("failure", result.conclusion)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'failure' != 'success'
+- failure
++ success
+
+
+======================================================================
+FAIL: test_experimental_gpu_unknown_is_not_an_exemption (test_check_bot_run_request.TransportTests.test_experimental_gpu_unknown_is_not_an_exemption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kangbint/flashinfer-bot-run-no-experimental-20261126/scripts/infra/tests/test_check_bot_run_request.py", line 443, in test_experimental_gpu_unknown_is_not_an_exemption
+    self.assertEqual(("failure", "unknown"), (result.conclusion, result.reason))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('failure', 'unknown') != ('success', 'experimental_only')
+
+First differing element 0:
+'failure'
+'success'
+
+- ('failure', 'unknown')
++ ('success', 'experimental_only')
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.029s
+
+FAILED (failures=5)
+PR #42: unknown (failure)
+PR #42: stale_evaluation (failure)
+PR #42: docs_only (success)
+PR #42: evidence_error (failure)
+PR #42: docs_only (success)
+PR #42: command_missing (failure)
+PR #42: experimental_only (success)
+PR #42: experimental_only (success)
+PR #42: experimental_only (success)
+PR #42: experimental_only (success)
+PR #42: evidence_error (failure)
+PR #42: evidence_error (failure)
+PR #42: bot_response_found (success)
+PR #42: stale_evaluation (failure)
+PR #42: docs_only (success)
+PR #42: evidence_error (failure)
+PR #42: stale_evaluation (failure)
+PR #42: stale_evaluation (failure)
+PR #42: bot_response_found (success)
+PR #42: command_missing (failure)

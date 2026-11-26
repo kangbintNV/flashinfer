@@ -1,0 +1,72 @@
+{
+  "original_number": 9917,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9917",
+  "experiment_number": 145,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/145",
+  "cohort": "old50",
+  "title": "feat(cake_gdp): add SM100a and SM103a prefill backend for chunk_gated_delta_product",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "fabcf6898012d3ed4faf33a64f48c586c58efdb5",
+  "comparison_head_sha": "6f5e8232b29f09514f032313048023971cab6b5c",
+  "inspected_source_tree": "4e19c9cd998d98e0b55b4ce2bdd7a2e539167ba3",
+  "experiment_head": "f98d4a785bece2af25f300b13f342ac692130b2e",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/f98d4a785bece2af25f300b13f342ac692130b2e/experiments/source.json",
+  "comment_snapshot_sha256": "8e511f57933686928dba6fe1d1b179e19c174d0effb89ed9edc6ae2007d8d85e",
+  "reply_evidence": [
+    {
+      "id": 7118627807,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9917#issuecomment-7118627807",
+      "first_line": "GitLab MR [!3053](https://nv/flashinfer/-/merge_requests/3053) has been created, and the CI pipeline [#84889478](https://nv/flashinfer-ci/-/pipelines/84889478) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(cake_gdp): add SM100a and SM103a prefill backend for chunk_gated_delta_product",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9917,
+    "experiment_pr": 145,
+    "experiment_head": "f98d4a785bece2af25f300b13f342ac692130b2e",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 17,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "1ad848fa66d9f78e040e0327fc2a3a17973fe1e6",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139383724879",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

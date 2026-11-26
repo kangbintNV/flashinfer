@@ -1,0 +1,61 @@
+{
+  "original_number": 9112,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9112",
+  "experiment_number": 254,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/254",
+  "cohort": "new50",
+  "title": "feat(pcie_ipc): optional bounded wait for peers (FLASHINFER_PCIE_IPC_TIMEOUT_S)",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "f140884a14da101419e53d4198d18851e9661c97",
+  "comparison_head_sha": "6022b5e826714d92cf699a48d3b52f749fcf8063",
+  "inspected_source_tree": "68c81016e211cebe014ded5b13c422da07e7f1a0",
+  "experiment_head": "0e12c3edc73807e0ecd883295f17bd26568ddb28",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/0e12c3edc73807e0ecd883295f17bd26568ddb28/experiments/source.json",
+  "comment_snapshot_sha256": "030fdcf936cf8e4660788e07fc57566eb64a99c611bbd8aa87f91fc256ca30f9",
+  "reply_evidence": [
+    {
+      "id": 7169436156,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9112#issuecomment-7169436156",
+      "first_line": "GitLab MR [!3086](https://nv/flashinfer/-/merge_requests/3086) has been created, and the CI pipeline [#85401019](https://nv/flashinfer-ci/-/pipelines/85401019) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Adds device-side IPC spin deadlines and __trap in GPU synchronization loops, with multi-GPU missing-peer tests.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9112,
+    "experiment_pr": 254,
+    "experiment_head": "0e12c3edc73807e0ecd883295f17bd26568ddb28",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 8,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

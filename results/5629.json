@@ -1,0 +1,66 @@
+{
+  "original_number": 5629,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/5629",
+  "experiment_number": 273,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/273",
+  "cohort": "new50",
+  "title": "perf(cake_nvfp4_attn): MiniMax-H3 SM120 NVFP4 varlen attention round 9: attention-kernel ceiling study on RTX 5090 / RTX PRO 6000 (kernel unchanged, route docs)",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "8b7ab98acdc6e125229c0165cdde9d6a1ab007b1",
+  "comparison_head_sha": "a31c72523ae37d82fd657de36ce2b35156c3c559",
+  "inspected_source_tree": "30cefcb252aefc983ca44ef8f28ba15db3fa4702",
+  "experiment_head": "9d767d4d6a7fcfa53df04558eb73655e86342557",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/9d767d4d6a7fcfa53df04558eb73655e86342557/experiments/source.json",
+  "comment_snapshot_sha256": "51be5e2c05edba3e3f547d55dabf3066592c7fa8c88942792a30b24ac8b41367",
+  "reply_evidence": [
+    {
+      "id": 5864481670,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5629#issuecomment-5864481670",
+      "first_line": "GitLab MR [!1752](https://nv/flashinfer/-/merge_requests/1752) has been created, and the CI pipeline [#70171184](https://nv/flashinfer-ci/-/pipelines/70171184) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 5865016332,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5629#issuecomment-5865016332",
+      "first_line": "[SUCCESS] Pipeline [#70171184](https://nv/flashinfer-ci/-/pipelines/70171184): 25/25 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "docs_only",
+  "static_reason": "Adds measured-workload/performance explanation inside an attention docstring; executable AST unchanged.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 5629,
+    "experiment_pr": 273,
+    "experiment_head": "9d767d4d6a7fcfa53df04558eb73655e86342557",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 1,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

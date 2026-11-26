@@ -1,0 +1,76 @@
+{
+  "original_number": 8479,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8479",
+  "experiment_number": 247,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/247",
+  "cohort": "new50",
+  "title": "feat(mega_gate): experimental SM120 CuTe DSL backend for prepare_mega_gate",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "a63f775b5c150704dd66e4fad9aac4dd2acf8e83",
+  "comparison_head_sha": "0df46f4a66154ecc302fcd84ad7d8c9c23fbf7c4",
+  "inspected_source_tree": "ac0eabc463c9abdf0b59dbb94c1f8a879f054a9a",
+  "experiment_head": "f45e6dcbe37c2b3057de764fa1c1e9b676a20eb7",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/f45e6dcbe37c2b3057de764fa1c1e9b676a20eb7/experiments/source.json",
+  "comment_snapshot_sha256": "4642eb4540686e9ca2d1956989ad6fad01313043cacd4217ec99f86814795cb1",
+  "reply_evidence": [
+    {
+      "id": 6788940088,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8479#issuecomment-6788940088",
+      "first_line": "GitLab MR [!2784](https://nv/flashinfer/-/merge_requests/2784) has been created, and the CI pipeline [#81195200](https://nv/flashinfer-ci/-/pipelines/81195200) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6796509558,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8479#issuecomment-6796509558",
+      "first_line": "[FAILED] Pipeline [#81195200](https://nv/flashinfer-ci/-/pipelines/81195200) — 24/29 executed test jobs passed"
+    },
+    {
+      "id": 6813066210,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8479#issuecomment-6813066210",
+      "first_line": "GitLab MR [!2784](https://nv/flashinfer/-/merge_requests/2784) has been updated with latest changes, and the CI pipeline [#81452285](https://nv/flashinfer-ci/-/pipelines/81452285) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6813765933,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8479#issuecomment-6813765933",
+      "first_line": "[SUCCESS] Pipeline [#81452285](https://nv/flashinfer-ci/-/pipelines/81452285): 29/29 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mega_gate): experimental SM120 CuTe DSL backend for prepare_mega_gate",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 8479,
+    "experiment_pr": 247,
+    "experiment_head": "f45e6dcbe37c2b3057de764fa1c1e9b676a20eb7",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 10,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

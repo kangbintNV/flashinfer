@@ -1,0 +1,81 @@
+{
+  "original_number": 9738,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9738",
+  "experiment_number": 194,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/194",
+  "cohort": "fresh50",
+  "title": "fix: narrow CuTe-DSL cache dependencies for named imports",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "f6290475e8367d2a7e7a0a396f2935f3b3f7a8f7",
+  "comparison_head_sha": "d808a844baec13d35d51fccdf95985fe8b0d06d4",
+  "inspected_source_tree": "d082f365dd3df89510ca0a1bab128961cfe393dd",
+  "experiment_head": "c4956899ec16324511e6fc80baf1be44d98c8af3",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/c4956899ec16324511e6fc80baf1be44d98c8af3/experiments/source.json",
+  "comment_snapshot_sha256": "ec2b5de3043e613759cc2cb15a9c8cd637e12a29d886ab569d2e481a70755c15",
+  "reply_evidence": [
+    {
+      "id": 7024609809,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7024609809",
+      "first_line": "Invalid `/bot run` path(s): `flashinfer/jit/_cute_dsl_source.py`. Expected `tests/<dir>`, `tests/<dir>/<file>.py`, or `all` alone."
+    },
+    {
+      "id": 7024857149,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7024857149",
+      "first_line": "**AI-suggested pytest targets** (PR head `75402a807035`):"
+    },
+    {
+      "id": 7025271294,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9738#issuecomment-7025271294",
+      "first_line": "GitLab MR [!2992](https://nv/flashinfer/-/merge_requests/2992) has been created, and the CI pipeline [#83769341](https://nv/flashinfer-ci/-/pipelines/83769341) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "AST dependency closure changes JIT artifact reuse; missing dependency can reuse a stale GPU kernel, not merely formatting.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9738,
+    "experiment_pr": 194,
+    "experiment_head": "c4956899ec16324511e6fc80baf1be44d98c8af3",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 2,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "43a02e7da075f24b6f14df2f03039d21aa09ff8a",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9738.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

@@ -1,0 +1,279 @@
+[
+  {
+    "original_number": 9771,
+    "original_pr_base_sha": "23d136dd16234b9c0f81f52991a3ca5ef007de1d",
+    "original_pr_head_sha": "5c29ee46134a4c95ad4e361e2592890a8006a246",
+    "landed_head_sha": "a7ed3574386db659bd017381ebafdd9513723125",
+    "source_merged_tree": "65031919ebf325c9736dd545871ce6449d937cd6",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "flashinfer/attention/prims_ts/kernels/fmha_decode/README.md",
+        "original_pr_head_blob": "14f0e692eb59a87ae4ef522b8616426950032eb0",
+        "landed_merged_blob": "c7dc47d30f7a2d47d84c704c4d00776dd5b200f5",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_resources/tmem_s.py",
+        "original_pr_head_blob": "08e865faa3995232bada6eb8f6369f588e2893e2",
+        "landed_merged_blob": "5ef9d5fa1003eee18cb830af4dcfbd86eb291fc8",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/attention/prims_ts/kernels/fmha_decode/fmha_decode_tasks.py",
+        "original_pr_head_blob": "03daf38016c4ebf8447309d95834becfa6f0021a",
+        "landed_merged_blob": "919532ae47cabc07e2287d925ddb3b756cd5e25f",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "tests/attention/test_attention_ts_decode.py",
+        "original_pr_head_blob": "ab754bf2839a726c5a88b3c8805c499e2aa2f4d2",
+        "landed_merged_blob": "e22e42264eb7a1c42d151c010bdb7424d3602d48",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 8464,
+    "original_pr_base_sha": "e042ba88162266cebdd9b204a3c4a8d2e4dffc50",
+    "original_pr_head_sha": "eefed87f2bb986a102c2548a8b2a0c8652672740",
+    "landed_head_sha": "0db00b2b03be18181d1b5f39bf74e04e8267ada1",
+    "source_merged_tree": "2d3fa9fc0ca9a0540de673608dea63ee4b0ed11c",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "docs/api/comm.rst",
+        "original_pr_head_blob": "801bc6ca22a4a828d3332c79a2c8838c9ffa4855",
+        "landed_merged_blob": "52a6b21c7cb7c0e15e5c185192fe7e388d6a2396",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/cake_rmsnorm_det_train_backend/cake_jit.py",
+        "original_pr_head_blob": "27942584349528abf0bcaaa69efce2c4a439157e",
+        "landed_merged_blob": "f840440367b9581f86c7ed5f74a547fba452ac36",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/cake_rmsnorm_train_backend/cake_jit.py",
+        "original_pr_head_blob": "52be7eee5bd95b82145a5552ba8bd6fcd30d62a7",
+        "landed_merged_blob": "1e897a3c9e9b98ef1167e4762d817c1db73db5aa",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/cake_rmsnorm_train_backend/cake_windows.py",
+        "original_pr_head_blob": "5a5934ffd837e445340796269fa06252bc366988",
+        "landed_merged_blob": "86a2023be65d9b41004a7eb768d1d67353e2ff01",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 9865,
+    "original_pr_base_sha": "72ea00b18cd13a00b7e04e9deff11ab53f46fbfd",
+    "original_pr_head_sha": "2d9d851b0ac9a43a7687c5d21ff95130af9469da",
+    "landed_head_sha": "8b17e7b0bfeb5c5fabe6daa2e4f26df4d006c824",
+    "source_merged_tree": "dfff8d26017326fc38490a7a69e81a8edfefeb01",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "tests/attention/test_attention_ts_decode.py",
+        "original_pr_head_blob": "dfade2ad840188f90d9ffc0513ed3d61ba1e5694",
+        "landed_merged_blob": "3942cc27184a2d7a29d64094682ae4ee551d6375",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 9892,
+    "original_pr_base_sha": "bdb7fc83825b70e2cfda46a9a63974f9077f7705",
+    "original_pr_head_sha": "d605ffbcb58c8c78768f431b15ab74ab252d3e99",
+    "landed_head_sha": "998f841964c2904993f19bb667228933d42d607e",
+    "source_merged_tree": "852f85affcd588570bb8cd28d8a89738bbe9a799",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "flashinfer/gemm/gemm_base.py",
+        "original_pr_head_blob": "fc8d962a047269bda7915b2147eba2b17449ce36",
+        "landed_merged_blob": "5a1a6ac9a310913cedef8580e1c1433b98f37dc7",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 9545,
+    "original_pr_base_sha": "74cb235c8be6d16adfb2b892f0d68f717fa2417a",
+    "original_pr_head_sha": "b6829811010ebe41a4f7dc118b1b045199a44aff",
+    "landed_head_sha": "98f7877d03e2f347ebe23fd40e343e0e3881db99",
+    "source_merged_tree": "fac55fccb094d462175653d22e7eb1a18af0c227",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "flashinfer/gemm/kernels/tgv_gemm_cute_ext.py",
+        "original_pr_head_blob": "ffe15db1fc82ba272328cff894ba375788efaf42",
+        "landed_merged_blob": "251a1ba74ea05a0f6d8f730c3bc0dcf9c927b9df",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 9817,
+    "original_pr_base_sha": "11b60e7a2431850a58feca68bf73519973d309aa",
+    "original_pr_head_sha": "160e757bc02fd9bb913f7fd79882ebb9c9a33251",
+    "landed_head_sha": "a3a5d2e8507181eb791677b7a7be94c90630217a",
+    "source_merged_tree": "89109dc7170e1d30985af9a9708319e6958284ce",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "flashinfer/moe_ep/backends/mega/kernel/sm100/standard_cutedsl.py",
+        "original_pr_head_blob": "08888407a8f11b2535e86280762fb2c80528bdb6",
+        "landed_merged_blob": "237d16fa70fb5c375c1c8e155e49a8f50f954913",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 9694,
+    "original_pr_base_sha": "ec7210591017ef90487b2c028d57759cb0b87426",
+    "original_pr_head_sha": "aad7568d18c5b15c9e65b80df450d97cd239bed2",
+    "landed_head_sha": "e4f8d55957c2452193da9b6e4711d067fa540190",
+    "source_merged_tree": "cc2b88ea6b812c61ba9591a448d54c5cfa027529",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "docs/api/gemm.rst",
+        "original_pr_head_blob": "8f36aae8811ab0f5d6bd74f04e8df8078eb40ea2",
+        "landed_merged_blob": "f785e59fbd49b55f296186ee828fd0715e2ee8f2",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/__init__.py",
+        "original_pr_head_blob": "a4f449f10575ea2703f3f54dceffbe2dd1a875ab",
+        "landed_merged_blob": "5e5b98ff77260422f93217bc4fb64bdef54847fe",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/gemm/__init__.py",
+        "original_pr_head_blob": "2098150fbbddfe09635a6cd1d0243b6abdd1747d",
+        "landed_merged_blob": "8af7e9716a3d91b2071b1c8bc2ff094247a33a96",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/gemm/gemm_base.py",
+        "original_pr_head_blob": "3a63d0c3a9bcbe3489619f13abe4790fab5fb498",
+        "landed_merged_blob": "62ac406da392a6227b84f65bdf24da1ff79aaea3",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "flashinfer/trace/templates/gemm.py",
+        "original_pr_head_blob": "c3eb6c3e3190f79d5caa6a49ca588ddfab91cf3c",
+        "landed_merged_blob": "afe26efc72ef8ef78dec9e642f76b5b7938948df",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "tests/gemm/test_unified_gemm_fuzz.py",
+        "original_pr_head_blob": "ae01a8753c5a72d043f8a0b85adbe01fcff3506c",
+        "landed_merged_blob": "9e94d3424fbb6d3d75576fbf67a840b6e7056d3c",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "tests/trace/example.py",
+        "original_pr_head_blob": "4ea1a7e98e2767ff0d55bd0cff4425052108377e",
+        "landed_merged_blob": "2c60b0557f35303dfd06d10785b42d7ecd34e376",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  },
+  {
+    "original_number": 9991,
+    "original_pr_base_sha": "a3a5d2e8507181eb791677b7a7be94c90630217a",
+    "original_pr_head_sha": "cdce8a8236a46f4d9cf6f60180ebfa26d68992fd",
+    "landed_head_sha": "7774af26fa347aefd43e2a45cb8d9ab93a7a12e4",
+    "source_merged_tree": "76d3b0f4e700316c9e06438a79e5696315599de2",
+    "frozen_files_unchanged": true,
+    "frozen_comments_unchanged": true,
+    "mismatches": [
+      {
+        "path": "flashinfer/cake_gdp_backend/__init__.py",
+        "original_pr_head_blob": "9263fadc5567eaf3e41f654d8cd1f781b5e2197a",
+        "landed_merged_blob": "cef7aa4e004c06e36aa9f7688cd83583d48c7a5c",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      },
+      {
+        "path": "tests/gdp/test_cake_gdp_prefill_bw.py",
+        "original_pr_head_blob": "55f0a86d8b3c82dcc188f427c65e561697325707",
+        "landed_merged_blob": "88461db20f7697e2b67145d72f0e8e59ac53c18f",
+        "same_status": true,
+        "same_added_removed_lines": true,
+        "original_patch_present": true,
+        "landed_patch_present": true
+      }
+    ]
+  }
+]

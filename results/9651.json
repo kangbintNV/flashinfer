@@ -1,0 +1,77 @@
+{
+  "original_number": 9651,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9651",
+  "experiment_number": 143,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/143",
+  "cohort": "old50",
+  "title": "Sync upstream SM120 scalar MMA compatibility fix",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "2561ebe1398229b67fe42ed00307fba7db4624f0",
+  "comparison_head_sha": "b2e40913a60ebfd9722dba1cf9999b1bebf18899",
+  "inspected_source_tree": "71d4678769518c95d5e1dd1edf47bedddcc8ad07",
+  "experiment_head": "8258b632ac591992c1fd952b332d9c604352db3d",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/8258b632ac591992c1fd952b332d9c604352db3d/experiments/source.json",
+  "comment_snapshot_sha256": "e40629827763a47b287310c4e9c63090bd4cdfbf9448052c6f95addba4122890",
+  "reply_evidence": [
+    {
+      "id": 6974996243,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9651#issuecomment-6974996243",
+      "first_line": "GitLab MR [!2945](https://nv/flashinfer/-/merge_requests/2945) has been created, and the CI pipeline [#83214244](https://nv/flashinfer-ci/-/pipelines/83214244) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7120452466,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9651#issuecomment-7120452466",
+      "first_line": "GitLab MR [!2945](https://nv/flashinfer/-/merge_requests/2945) has been updated with latest changes, and the CI pipeline [#84909758](https://nv/flashinfer-ci/-/pipelines/84909758) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: Sync upstream SM120 scalar MMA compatibility fix",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9651,
+    "experiment_pr": 143,
+    "experiment_head": "8258b632ac591992c1fd952b332d9c604352db3d",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 4,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "03e0f60bdcbdba49a16d8f2510483c6e7266fcb0",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139383512298",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

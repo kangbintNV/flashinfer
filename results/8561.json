@@ -1,0 +1,81 @@
+{
+  "original_number": 8561,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8561",
+  "experiment_number": 189,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/189",
+  "cohort": "fresh50",
+  "title": "fix(experimental/b12x): deterministic pivot-tie fill in persistent top-k2048",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "64b2fa17e7c33156af68cdf4dd4969cb211b024c",
+  "comparison_head_sha": "1c380998cd9a59042a9df5565f7ff03f03931b38",
+  "inspected_source_tree": "0265d8bb5bec68e0ed406a5c0df25bdef5260b68",
+  "experiment_head": "10058ba7be45e8e7a3e3b60d87aec965f7093b51",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/10058ba7be45e8e7a3e3b60d87aec965f7093b51/experiments/source.json",
+  "comment_snapshot_sha256": "3ed6ace9760ced3a87285ace0a9973167de3c66dbe94812a1f38f10f7877f04d",
+  "reply_evidence": [
+    {
+      "id": 6615835702,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6615835702",
+      "first_line": "GitLab MR [!2634](https://nv/flashinfer/-/merge_requests/2634) has been created, and the CI pipeline [#78997870](https://nv/flashinfer-ci/-/pipelines/78997870) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6620263380,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6620263380",
+      "first_line": "[SUCCESS] Pipeline [#78997870](https://nv/flashinfer-ci/-/pipelines/78997870): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 6661899364,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8561#issuecomment-6661899364",
+      "first_line": "GitLab MR [!2634](https://nv/flashinfer/-/merge_requests/2634) has been updated with latest changes, and the CI pipeline [#79539000](https://nv/flashinfer-ci/-/pipelines/79539000) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Experimental top-k radix/histogram barrier and GPU tests change; experimental status gives no exemption.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 8561,
+    "experiment_pr": 189,
+    "experiment_head": "10058ba7be45e8e7a3e3b60d87aec965f7093b51",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 2,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "49bd4c9af4c76b6013722c4241cc9797b85a1fc1",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8561.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

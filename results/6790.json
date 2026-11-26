@@ -1,0 +1,66 @@
+{
+  "original_number": 6790,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/6790",
+  "experiment_number": 248,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/248",
+  "cohort": "new50",
+  "title": "feat(mhc): add experimental mhc_pre_big_fuse_with_norm",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "ad54ecec509aa0a4ee7f86f35d10b9cb6e7fc6fe",
+  "comparison_head_sha": "b5bbf7f1cbaacf53e3d9b9bc7fdf0276d6ea894b",
+  "inspected_source_tree": "d2c242e7f635d9938a210c7e85a37e3056f930a9",
+  "experiment_head": "f8bb179b3dd6146e10b2d6dc645da6c92bba753f",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/f8bb179b3dd6146e10b2d6dc645da6c92bba753f/experiments/source.json",
+  "comment_snapshot_sha256": "fedfe24a181accd1dc8850becfb56e1c30a192eacecd9d1411de2c5b1b2ba97b",
+  "reply_evidence": [
+    {
+      "id": 6299695885,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6790#issuecomment-6299695885",
+      "first_line": "GitLab MR [!2306](https://nv/flashinfer/-/merge_requests/2306) has been created, and the CI pipeline [#75366077](https://nv/flashinfer-ci/-/pipelines/75366077) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6325133828,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/6790#issuecomment-6325133828",
+      "first_line": "[FAILED] Pipeline [#75366077](https://nv/flashinfer-ci/-/pipelines/75366077) — 26/31 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: feat(mhc): add experimental mhc_pre_big_fuse_with_norm",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 6790,
+    "experiment_pr": 248,
+    "experiment_head": "f8bb179b3dd6146e10b2d6dc645da6c92bba753f",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 10,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

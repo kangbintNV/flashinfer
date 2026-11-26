@@ -1,0 +1,61 @@
+{
+  "original_number": 9688,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9688",
+  "experiment_number": 236,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/236",
+  "cohort": "new50",
+  "title": "fix(ci): resolve CUTLASS DSL setup from the checkout root",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "a75cd12eaa8fb138f71d9d44d5151749cf699217",
+  "comparison_head_sha": "31b17a4740af9f0b597c335c576748ce2bfa40a7",
+  "inspected_source_tree": "2ec0c39c9a1ee2bd71c0c0bdc9fa9dce866289ab",
+  "experiment_head": "6f35df3cb6c4786fc6cdda5d65cdea9a9545dfce",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/6f35df3cb6c4786fc6cdda5d65cdea9a9545dfce/experiments/source.json",
+  "comment_snapshot_sha256": "63140f446124484f3e9daba7c2130b92a016a47f27703082d65a79745700a02f",
+  "reply_evidence": [
+    {
+      "id": 7001181982,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9688#issuecomment-7001181982",
+      "first_line": "GitLab MR [!2971](https://nv/flashinfer/-/merge_requests/2971) has been created, and the CI pipeline [#83510265](https://nv/flashinfer-ci/-/pipelines/83510265) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "cpu_only",
+  "static_reason": "CUTLASS DSL setup resolves checkout-root paths; new subprocess/source-path regression is CPU-only.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9688,
+    "experiment_pr": 236,
+    "experiment_head": "6f35df3cb6c4786fc6cdda5d65cdea9a9545dfce",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 2,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

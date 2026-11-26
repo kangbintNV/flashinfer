@@ -1,0 +1,77 @@
+{
+  "original_number": 9307,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9307",
+  "experiment_number": 171,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/171",
+  "cohort": "old50",
+  "title": "docs: fix API documentation and improve checker guidance",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "a3ea68269b7160f0f0821d27395a9e9c22dd2833",
+  "comparison_head_sha": "e0f21f0684e01191d0482bcd8df5a5c1e1c67cf3",
+  "inspected_source_tree": "2afdacb03a06710e6d907d01cdd8c32a4c467bbb",
+  "experiment_head": "99e1df770782e2827b0c081953ff83cfd1aa277a",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/99e1df770782e2827b0c081953ff83cfd1aa277a/experiments/source.json",
+  "comment_snapshot_sha256": "54c26db44f4582423e9a2ab04e2751a803451c8feb16fef691d12dd51fcb79f1",
+  "reply_evidence": [
+    {
+      "id": 6785395947,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9307#issuecomment-6785395947",
+      "first_line": "**AI found no pytest-applicable behavior change** (PR head `c7e84c7783a5`):"
+    },
+    {
+      "id": 6785807973,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9307#issuecomment-6785807973",
+      "first_line": "**Automatic target selection unavailable.** No CI pipeline was started. Review and specify targets with `/bot run tests/<dir-or-file>` or use `/bot run all` to request the full suite."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "cpu_only",
+  "static_reason": "API docstrings plus documentation-report workflow behavior; changed product Python non-doc AST unchanged.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9307,
+    "experiment_pr": 171,
+    "experiment_head": "99e1df770782e2827b0c081953ff83cfd1aa277a",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 31,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "83829c96d017b1332c0079b52bb1e3413576e6c5",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139386553904",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

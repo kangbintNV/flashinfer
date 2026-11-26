@@ -1,0 +1,96 @@
+{
+  "original_number": 9949,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9949",
+  "experiment_number": 202,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/202",
+  "cohort": "fresh50",
+  "title": "fix(comm): compute the Lamport clear sub-buffer offset in 64 bits",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "26075a1331ff91530706567b59389c23cc143648",
+  "comparison_head_sha": "e4e029debf92b3e04a1d8e6316319e8d63784595",
+  "inspected_source_tree": "2cbf098b23630316234a77e19459f7cd63e518f0",
+  "experiment_head": "3c764d1eac84eccb501ece3a14301257dd00bfb8",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/3c764d1eac84eccb501ece3a14301257dd00bfb8/experiments/source.json",
+  "comment_snapshot_sha256": "8a8458373bad392384f8a9eae19842bc8f99bdb79b9661fa6011368739715d6c",
+  "reply_evidence": [
+    {
+      "id": 7121771998,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7121771998",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been created, and the CI pipeline [#84924803](https://nv/flashinfer-ci/-/pipelines/84924803) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7125701140,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7125701140",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#84973197](https://nv/flashinfer-ci/-/pipelines/84973197) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7150055520,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7150055520",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85207090](https://nv/flashinfer-ci/-/pipelines/85207090) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7158536227,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7158536227",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85300232](https://nv/flashinfer-ci/-/pipelines/85300232) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7174376982,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7174376982",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85451410](https://nv/flashinfer-ci/-/pipelines/85451410) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7181797949,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9949#issuecomment-7181797949",
+      "first_line": "GitLab MR [!3057](https://nv/flashinfer/-/merge_requests/3057) has been updated with latest changes, and the CI pipeline [#85523567](https://nv/flashinfer-ci/-/pipelines/85523567) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Lamport communication clear-buffer offset changes to 64-bit arithmetic; device addressing correctness.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9949,
+    "experiment_pr": 202,
+    "experiment_head": "3c764d1eac84eccb501ece3a14301257dd00bfb8",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 4,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "0b2816186af6dad5166541486ea779bd9cdc9230",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9949.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

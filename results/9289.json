@@ -1,0 +1,86 @@
+{
+  "original_number": 9289,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9289",
+  "experiment_number": 211,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/211",
+  "cohort": "fresh50",
+  "title": "Track opt-in tactic pools in autotuning cache coverage",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "f4939b643263a7b5616006a8260a21b401d7e79e",
+  "comparison_head_sha": "d91cc6c70d2dd9b9dd34059b5a49be2916396a72",
+  "inspected_source_tree": "48a90f6b42b01896b1bbcfac7c066ff271622917",
+  "experiment_head": "d431975ea2409d7566f8f0a779f79ac98675f645",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/d431975ea2409d7566f8f0a779f79ac98675f645/experiments/source.json",
+  "comment_snapshot_sha256": "e98d920138213cc10c4dbe61678b4fe4fc7c85e51a7c8f355b816a565474cfd6",
+  "reply_evidence": [
+    {
+      "id": 6983472392,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-6983472392",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been created, and the CI pipeline [#83293936](https://nv/flashinfer-ci/-/pipelines/83293936) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6987262141,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-6987262141",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been updated with latest changes, and the CI pipeline [#83331283](https://nv/flashinfer-ci/-/pipelines/83331283) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6990464906,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-6990464906",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been updated with latest changes, and the CI pipeline [#83366453](https://nv/flashinfer-ci/-/pipelines/83366453) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7014293371,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9289#issuecomment-7014293371",
+      "first_line": "GitLab MR [!2947](https://nv/flashinfer/-/merge_requests/2947) has been created, and the CI pipeline [#83648780](https://nv/flashinfer-ci/-/pipelines/83648780) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Tactic-pool signatures change cache hit/reprofile decisions and therefore GPU tactic selection.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9289,
+    "experiment_pr": 211,
+    "experiment_head": "d431975ea2409d7566f8f0a779f79ac98675f645",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 4,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "e6f1890e57a54fb6bf9856c1616e6b956fe3c07d",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/9289.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

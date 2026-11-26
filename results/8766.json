@@ -1,0 +1,86 @@
+{
+  "original_number": 8766,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/8766",
+  "experiment_number": 208,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/208",
+  "cohort": "fresh50",
+  "title": "fix(autotuner): keep previously loaded cache files when entering autotune(cache=...)",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "4fec89015f3d456b20b42a1c067543b564efd4e0",
+  "comparison_head_sha": "f963060eb0f87c14eabab6bcff7d810eb9e87e34",
+  "inspected_source_tree": "3531946660728276700dc169feffd669c953589b",
+  "experiment_head": "8c391ab0f16ecb750c4a7737fb6da610861c94d0",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/8c391ab0f16ecb750c4a7737fb6da610861c94d0/experiments/source.json",
+  "comment_snapshot_sha256": "331651f92aed9a7ece448b63080994eb68f4dfe3152d60f6a957b41a733691e4",
+  "reply_evidence": [
+    {
+      "id": 6806546114,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6806546114",
+      "first_line": "GitLab MR [!2789](https://nv/flashinfer/-/merge_requests/2789) has been created, and the CI pipeline [#81382355](https://nv/flashinfer-ci/-/pipelines/81382355) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6810258522,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6810258522",
+      "first_line": "[SUCCESS] Pipeline [#81382355](https://nv/flashinfer-ci/-/pipelines/81382355): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 6967530392,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6967530392",
+      "first_line": "GitLab MR [!2789](https://nv/flashinfer/-/merge_requests/2789) has been updated with latest changes, and the CI pipeline [#83115803](https://nv/flashinfer-ci/-/pipelines/83115803) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6983034862,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/8766#issuecomment-6983034862",
+      "first_line": "GitLab MR [!2789](https://nv/flashinfer/-/merge_requests/2789) has been updated with latest changes, and the CI pipeline [#83290236](https://nv/flashinfer-ci/-/pipelines/83290236) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Autotune cache merge changes retained workload/runner/tactic selection, affecting subsequent GPU execution.",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 8766,
+    "experiment_pr": 208,
+    "experiment_head": "8c391ab0f16ecb750c4a7737fb6da610861c94d0",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 3,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "a8d36081b75469d85a5a217a385c834c4d96c0bb",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/blob/codex/bot-run-fresh50-20261126/results/results/8766.json",
+    "type": "commit_status"
+  },
+  "native_result": null
+}

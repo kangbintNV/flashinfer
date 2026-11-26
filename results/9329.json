@@ -1,0 +1,81 @@
+{
+  "original_number": 9329,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9329",
+  "experiment_number": 267,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/267",
+  "cohort": "new50",
+  "title": "perf(moe): one persistent DeepSeek FP8 activation kernel for the trtllm-gen MoE",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "45e0842d4a48b5849422e2f55b04af5e8b7a7163",
+  "comparison_head_sha": "d4afbc1004fcf43196e51fcf9f41b02de2e7cd43",
+  "inspected_source_tree": "d5a21b391eb4e6503758882a03c48c30aff5ae2b",
+  "experiment_head": "78f226fee39c71b7b7f0f5b0374e4eb8f0ae920a",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/78f226fee39c71b7b7f0f5b0374e4eb8f0ae920a/experiments/source.json",
+  "comment_snapshot_sha256": "884f2322d378a1e64939655a5a5abd332edc82922630792f5672d7db904b91f3",
+  "reply_evidence": [
+    {
+      "id": 6777068508,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9329#issuecomment-6777068508",
+      "first_line": "GitLab MR [!2765](https://nv/flashinfer/-/merge_requests/2765) has been created, and the CI pipeline [#81030580](https://nv/flashinfer-ci/-/pipelines/81030580) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6777976237,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9329#issuecomment-6777976237",
+      "first_line": "GitLab MR [!2765](https://nv/flashinfer/-/merge_requests/2765) has been updated with latest changes, and the CI pipeline [#81043165](https://nv/flashinfer-ci/-/pipelines/81043165) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6780735291,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9329#issuecomment-6780735291",
+      "first_line": "[SUCCESS] Pipeline [#81043165](https://nv/flashinfer-ci/-/pipelines/81043165): 29/29 executed test jobs passed"
+    },
+    {
+      "id": 6863572523,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9329#issuecomment-6863572523",
+      "first_line": "GitLab MR [!2765](https://nv/flashinfer/-/merge_requests/2765) has been updated with latest changes, and the CI pipeline [#81990677](https://nv/flashinfer-ci/-/pipelines/81990677) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 6881712313,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9329#issuecomment-6881712313",
+      "first_line": "[FAILED] Pipeline [#81990677](https://nv/flashinfer-ci/-/pipelines/81990677) — 26/30 executed test jobs passed"
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(moe): one persistent DeepSeek FP8 activation kernel for the trtllm-gen MoE",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9329,
+    "experiment_pr": 267,
+    "experiment_head": "78f226fee39c71b7b7f0f5b0374e4eb8f0ae920a",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 6,
+    "harness_files": [
+      "scripts/infra/pr_checks/fresh50_replay.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": null,
+  "native_result": null
+}

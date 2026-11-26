@@ -1,0 +1,19 @@
+test_regular_file_outside_trimmed_inventory_can_be_read (test_ai_scope_transport.EvidenceInventoryTests.test_regular_file_outside_trimmed_inventory_can_be_read) ... AI scope context (evidence): {"chars": 1570, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 282, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1570}
+AI scope context (selection): {"chars": 1814, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 526, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1814}
+ok
+test_symlinks_and_submodules_are_not_readable_evidence (test_ai_scope_transport.EvidenceInventoryTests.test_symlinks_and_submodules_are_not_readable_evidence) ... AI scope context (evidence): {"chars": 1570, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 282, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1570}
+AI scope context (evidence): {"chars": 1570, "limit": 300000, "sections": {"pr": 201, "changed_files": 125, "inventory_at_merged_tree": 115, "candidate_test_files": 142, "configuration_files": 93, "source_files": 282, "ci_files": 284, "unavailable_evidence": 2, "omitted_evidence": 138}, "omitted": {"pr_metadata": false, "changed_files": 0, "patches": 0, "inventory_at_merged_tree": 0, "candidate_test_files": 0, "unavailable_paths": 0}, "unavailable_files": 0, "sent_chars": 1570}
+ok
+test_get_pagination_without_a_shell (test_ai_scope_transport.GitHubReadTests.test_get_pagination_without_a_shell) ... ok
+test_read_errors_oversized_responses_and_deadlines_fail_closed (test_ai_scope_transport.GitHubReadTests.test_read_errors_oversized_responses_and_deadlines_fail_closed) ... ok
+test_missing_key_and_invalid_endpoint_never_send_a_request (test_ai_scope_transport.InferenceTransportTests.test_missing_key_and_invalid_endpoint_never_send_a_request) ... ok
+test_reasoning_effort_is_only_sent_when_explicitly_requested (test_ai_scope_transport.InferenceTransportTests.test_reasoning_effort_is_only_sent_when_explicitly_requested) ... ok
+test_retry_exhaustion_and_bad_responses_fail_closed (test_ai_scope_transport.InferenceTransportTests.test_retry_exhaustion_and_bad_responses_fail_closed) ... ok
+test_transient_http_and_network_errors_retry_then_succeed (test_ai_scope_transport.InferenceTransportTests.test_transient_http_and_network_errors_retry_then_succeed) ... ok
+test_resolves_current_target_tip_without_using_recorded_base (test_ai_scope_transport.MergeReadTransportTests.test_resolves_current_target_tip_without_using_recorded_base) ... ok
+test_cli_modes_write_exact_scope_and_failures_remove_stale_output (test_ai_scope_transport.ScopeCliTests.test_cli_modes_write_exact_scope_and_failures_remove_stale_output) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.031s
+
+OK

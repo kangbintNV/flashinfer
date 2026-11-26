@@ -1,0 +1,82 @@
+{
+  "original_number": 9871,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9871",
+  "experiment_number": 159,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/159",
+  "cohort": "old50",
+  "title": "test: strengthen b12x tail-N numerical and tactic coverage",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "8b17e7b0bfeb5c5fabe6daa2e4f26df4d006c824",
+  "comparison_head_sha": "5ae7c44ba8611c7ed301539756323c5be8924966",
+  "inspected_source_tree": "34a2708462865eb47ba0749b2dd8a9525fe19af4",
+  "experiment_head": "9bbe2e758cd5eb62a7670cb46290522d91232e31",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/9bbe2e758cd5eb62a7670cb46290522d91232e31/experiments/source.json",
+  "comment_snapshot_sha256": "60cddc44f1d41683fb8932f41dce0427cbda7a1bfdbb8e8357347748a2ba5341",
+  "reply_evidence": [
+    {
+      "id": 7095424332,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9871#issuecomment-7095424332",
+      "first_line": "GitLab MR [!3040](https://nv/flashinfer/-/merge_requests/3040) has been created, and the CI pipeline [#84675382](https://nv/flashinfer-ci/-/pipelines/84675382) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7097458793,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9871#issuecomment-7097458793",
+      "first_line": "GitLab MR [!3040](https://nv/flashinfer/-/merge_requests/3040) has been updated with latest changes, and the CI pipeline [#84696540](https://nv/flashinfer-ci/-/pipelines/84696540) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7102324850,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9871#issuecomment-7102324850",
+      "first_line": "GitLab MR [!3040](https://nv/flashinfer/-/merge_requests/3040) has been created, and the CI pipeline [#84734567](https://nv/flashinfer-ci/-/pipelines/84734567) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: test: strengthen b12x tail-N numerical and tactic coverage",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9871,
+    "experiment_pr": 159,
+    "experiment_head": "9bbe2e758cd5eb62a7670cb46290522d91232e31",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 2,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "21db55c7a87bd40873469566d012291fbb3c3fd7",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139385254612",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}

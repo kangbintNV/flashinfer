@@ -1,0 +1,87 @@
+{
+  "original_number": 9989,
+  "original_pr": "https://github.com/flashinfer-ai/flashinfer/pull/9989",
+  "experiment_number": 131,
+  "experiment_pr": "https://github.com/kangbintNV/flashinfer/pull/131",
+  "cohort": "old50",
+  "title": "perf(cake_gdp): warm-up split and one launch per call for the SM90 prefill",
+  "checker_sha": "b53d126acf2ca62abff733af5525ebd522035750",
+  "comparison_base_sha": "51e580305928e2cceee6798125232b01f39d7382",
+  "comparison_head_sha": "63ad355f2d313752e1a82fdabd062bea75e05392",
+  "inspected_source_tree": "6d6d776d80be6107aaa1a27ce1ebe19e47dbf26d",
+  "experiment_head": "495d8775f24b2598eba222a64799a1c8bdf7eea3",
+  "evidence_url": "https://github.com/kangbintNV/flashinfer/blob/495d8775f24b2598eba222a64799a1c8bdf7eea3/experiments/source.json",
+  "comment_snapshot_sha256": "4136007b2cebe570622d15f7f542ea88be4f71fa7a1ad3e43d9e68862f70f0e8",
+  "reply_evidence": [
+    {
+      "id": 7137576071,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9989#issuecomment-7137576071",
+      "first_line": "GitLab MR [!3071](https://nv/flashinfer/-/merge_requests/3071) has been created, and the CI pipeline [#85083167](https://nv/flashinfer-ci/-/pipelines/85083167) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7137579550,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9989#issuecomment-7137579550",
+      "first_line": "GitLab MR [!3071](https://nv/flashinfer/-/merge_requests/3071) has been created, and the CI pipeline [#85083192](https://nv/flashinfer-ci/-/pipelines/85083192) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7140245991,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9989#issuecomment-7140245991",
+      "first_line": "GitLab MR [!3071](https://nv/flashinfer/-/merge_requests/3071) has been updated with latest changes, and the CI pipeline [#85106986](https://nv/flashinfer-ci/-/pipelines/85106986) is currently running. I'll report back once the pipeline job completes."
+    },
+    {
+      "id": 7141676310,
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/9989#issuecomment-7141676310",
+      "first_line": "GitLab MR [!3071](https://nv/flashinfer/-/merge_requests/3071) has been created, and the CI pipeline [#85123165](https://nv/flashinfer-ci/-/pipelines/85123165) is currently running. I'll report back once the pipeline job completes."
+    }
+  ],
+  "formal_conclusion": "not_run",
+  "formal_reason": "awaiting_actions",
+  "formal_check_url": null,
+  "workflow_url": null,
+  "classification": "not_run",
+  "classification_is_separate_diagnostic": false,
+  "classification_reason": null,
+  "case_gap": null,
+  "selected_tests": null,
+  "analysis_attempts": [],
+  "minimal_retry": false,
+  "static_expected": "gpu_required",
+  "static_reason": "Substantive GPU behavior or device-test change reviewed in actual patch: perf(cake_gdp): warm-up split and one launch per call for the SM90 prefill",
+  "formal_assessment": "not_run",
+  "classification_assessment": "not_run",
+  "source_audit": {
+    "original_number": 9989,
+    "experiment_pr": 131,
+    "experiment_head": "495d8775f24b2598eba222a64799a1c8bdf7eea3",
+    "paths_match": true,
+    "blob_status_match": true,
+    "source_base_tree_match": true,
+    "source_head_tree_match": true,
+    "head_match": true,
+    "base_match": true,
+    "comment_hash_match": true,
+    "source_file_count": 13,
+    "harness_files": [
+      ".github/workflows/inventory-fix-replay.yml",
+      ".github/workflows/pr-test.yml",
+      "experiments/source.json",
+      "scripts/infra/pr_checks/ai_test_scope.py",
+      "scripts/infra/pr_checks/check_bot_run_request.py",
+      "scripts/infra/pr_checks/fresh50_replay.py",
+      "scripts/infra/pr_checks/gpu_impact.py"
+    ],
+    "open": true,
+    "all_match": true,
+    "legacy_merged_context_blob_difference": false,
+    "net_patch_matches_original": true,
+    "frozen_payload_preserved": true,
+    "replay_integrity_verified": true
+  },
+  "baseline": {
+    "head": "68a2cee55b24d6c1fa6cdd9f80156b3d287770af",
+    "conclusion": "success",
+    "url": "https://github.com/kangbintNV/flashinfer/runs/139379317316",
+    "type": "native_check_run"
+  },
+  "native_result": null
+}
