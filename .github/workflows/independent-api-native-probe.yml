@@ -1,0 +1,18 @@
+name: Independent PR gate native probe
+on:
+  pull_request:
+    branches: [codex/independent-api-native-20261126-base]
+permissions:
+  contents: read
+jobs:
+  api:
+    name: API compatibility native probe
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exercise native required-check binding only
+        env:
+          PROBE_HEAD: ${{ github.head_ref }}
+        run: |
+          echo "Storage experiment only; not production exception authorization."
+          if [[ "$PROBE_HEAD" == *-a ]]; then exit 0; fi
+          exit 1
