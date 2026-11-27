@@ -62,8 +62,9 @@ class HistoricalClient(gate.Client):
  def begin(self,pr,check_id=None):
   self.check_id=self.out.begin(self.target);return self.check_id
  def publish(self,pr,result,check_id=None,base_sha=None):
+  # Use the frozen base for the pinned checker's final publication verification.
+  super().publish(self.target,result,check_id,base_sha)
   self.result=asdict(result)
-  self.out.publish(self.target,result,check_id,base_sha)
  def get_pr_merge_commit(self,repository,number,base_sha,head_sha):
   commit=self.out.request(f"repos/{DEST}/git/commits/{self.m['snapshot_sha']}")
   assert [p['sha'] for p in commit['parents']]==[base_sha,head_sha]
