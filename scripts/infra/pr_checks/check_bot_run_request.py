@@ -22,6 +22,12 @@ from ai_test_scope import (
     _public_prose,
     _remaining,
 )
+from gpu_impact import (
+    EXEMPT_CLASSIFICATIONS,
+    changed_paths,
+    is_documentation,
+    is_experimental,
+)
 
 CHECK_NAME = "Bot Run Request Check"
 BOT_ID = 236526959  # Stable GitHub account ID; never rely on copied display text.
@@ -190,7 +196,7 @@ def evidence_link(item, label):
     return f"{label} (comment #{int(item['id'])})"
 
 
-def evaluate(comments, analyze):
+def bot_response_result(comments):
     reply = next((item for item in reversed(comments) if is_bot_response(item)), None)
     if reply:
         return Result(
@@ -200,6 +206,14 @@ def evaluate(comments, analyze):
             evidence_link(reply, "Internal bot response")
             + "\n\nSource and LLM analysis skipped. Pipeline creation, result and commit correspondence are not evaluated.",
         )
+    return None
+
+
+def evaluate(comments, analyze):
+    return bot_response_result(comments) or evaluate_impact(comments, analyze)
+
+
+def evaluate_impact(comments, analyze):
     command = next(
         (item for item in reversed(comments) if is_run_command(item.get("body", ""))),
         None,
@@ -244,11 +258,18 @@ def evaluate(comments, analyze):
             "- " + item["effort"] + ": " + item.get("error", "succeeded")
             for item in impact["analysis_attempts"]
         )
-    if kind in {"cpu_only", "docs_only"}:
+    if kind in EXEMPT_CLASSIFICATIONS:
+        if kind == "experimental_only":
+            details += (
+                "\n\nExperimental-only changes. `/bot run` is optional. "
+                "To run a specific experimental test via the bot, use "
+                "`/bot run tests/experimental/<test-file>.py`. "
+                "`/bot run all` skips this directory."
+            )
         return Result("success", kind, "Bot run not required", details, impact)
     if kind == "unknown":
         title, reason = "Unable to determine GPU impact", "unknown"
-        details += "\n\nNo CPU-only exemption could be established. Comment `/bot run` and wait for the internal bot response."
+        details += "\n\nNo exemption could be established. Comment `/bot run` and wait for the internal bot response."
     elif command:
         title, reason = "Waiting for flashinfer-bot", "waiting_for_bot"
     else:
@@ -261,6 +282,14 @@ def evaluate(comments, analyze):
             + "; waiting for the bot response."
         )
     return Result("failure", reason, title, details, impact)
+
+
+class PublicationBaseError(TargetSelectionError):
+    """Base verification stopped publication before the Check API write."""
+
+    def __init__(self, message, *, changed=False):
+        super().__init__(message)
+        self.changed = changed
 
 
 class Client(GitHub):
@@ -376,12 +405,30 @@ class Client(GitHub):
             data["details_url"] = (
                 f"https://github.com/{self.repository}/actions/runs/{int(run)}"
             )
+        method = "PATCH" if check_id else "POST"
+        endpoint = f"repos/{self.repository}/check-runs"
         if check_id:
-            return self.request(
-                f"repos/{self.repository}/check-runs/{int(check_id)}", "PATCH", data
-            )
-        data["head_sha"] = pr["head"]["sha"]
-        return self.request(f"repos/{self.repository}/check-runs", "POST", data)
+            endpoint += f"/{int(check_id)}"
+        else:
+            data["head_sha"] = pr["head"]["sha"]
+
+        if base_sha is not None and result.reason not in {
+            "stale_evaluation",
+            "evidence_error",
+        }:
+            # The Checks API cannot condition a head Check write on the base
+            # ref. Recheck after preparing the payload to minimize the remaining
+            # window between the ref read and the Check write.
+            try:
+                current_base = self.get_current_base_sha(pr)
+            except TargetSelectionError as error:
+                raise PublicationBaseError(str(error)) from error
+            if current_base != base_sha:
+                raise PublicationBaseError(
+                    "Base changed before publication", changed=True
+                )
+
+        return self.request(endpoint, method, data)
 
 
 def analysis_version():
@@ -413,7 +460,7 @@ def cached_analysis(checks, pr, base_sha):
                 and stored["version"] == analysis_version()
                 and isinstance(stored.get("analysis"), dict)
                 and stored["analysis"].get("classification")
-                in {"docs_only", "cpu_only", "gpu_required"}
+                in EXEMPT_CLASSIFICATIONS | {"gpu_required"}
             ):
                 return stored["analysis"]
         except (KeyError, TypeError, ValueError):
@@ -422,17 +469,44 @@ def cached_analysis(checks, pr, base_sha):
 
 
 def docs_only(changed, expected_count):
-    def is_doc(path):
-        return isinstance(path, str) and path.endswith((".md", ".rst"))
-
     return (
         bool(changed)
         and len(changed) == expected_count
         and all(
-            is_doc(item.get("filename"))
-            and (not item.get("previous_filename") or is_doc(item["previous_filename"]))
-            for item in changed
+            is_documentation(path) for item in changed for path in changed_paths(item)
         )
+    )
+
+
+def experimental_only(changed, expected_count):
+    if not changed or len(changed) != expected_count:
+        return False
+    paths = [path for item in changed for path in changed_paths(item)]
+    return any(is_experimental(path) for path in paths) and all(
+        is_experimental(path) or is_documentation(path) for path in paths
+    )
+
+
+def stale_result(will_retry):
+    return Result(
+        "failure",
+        "stale_evaluation",
+        "PR changed during evaluation",
+        "The captured head/base changed. "
+        + (
+            "Re-evaluating the current snapshot once."
+            if will_retry
+            else "Rerun this check against the current snapshot."
+        ),
+    )
+
+
+def evidence_error(error):
+    return Result(
+        "failure",
+        "evidence_error",
+        "Unable to read bot request evidence",
+        _public_prose(str(error)),
     )
 
 
@@ -454,62 +528,64 @@ def run_pr(client, number):
         base_sha = None
         retry = False
         try:
-            base_sha = client.get_current_base_sha(pr)
             comments = client.comments(number)
-            saved = cached_analysis(owned, pr, base_sha)
+            result = bot_response_result(comments)
+            if result is None:
+                base_sha = client.get_current_base_sha(pr)
+                saved = cached_analysis(owned, pr, base_sha)
 
-            def analyze():
-                if saved:
-                    return saved
-                changed = client.get_pr_files_at(pr, base_sha)
-                if docs_only(changed, pr.get("changed_files")):
-                    return {
-                        "classification": "docs_only",
-                        "reason": "Only Markdown/RST documentation changed.",
-                        "evidence_paths": [item["filename"] for item in changed],
-                        "case_gap": "",
-                        "targets": [],
-                    }
-                root = Path(__file__).resolve().parents[3]
-                return analyze_gpu_impact(
-                    PinnedPRSource(client, pr, base_sha, changed),
-                    pr,
-                    lambda path: (root / path).read_text(),
-                )
+                def analyze():
+                    if saved:
+                        return saved
+                    changed = client.get_pr_files_at(pr, base_sha)
+                    kind = None
+                    if docs_only(changed, pr.get("changed_files")):
+                        kind = "docs_only"
+                        reason = "Only Markdown/RST documentation changed."
+                    elif experimental_only(changed, pr.get("changed_files")):
+                        kind = "experimental_only"
+                        reason = "Changes are confined to experimental paths and documentation."
+                    if kind:
+                        return {
+                            "classification": kind,
+                            "reason": reason,
+                            "evidence_paths": [item["filename"] for item in changed],
+                            "case_gap": "",
+                            "targets": [],
+                        }
+                    root = Path(__file__).resolve().parents[3]
+                    return analyze_gpu_impact(
+                        PinnedPRSource(client, pr, base_sha, changed),
+                        pr,
+                        lambda path: (root / path).read_text(),
+                    )
 
-            result = evaluate(comments, analyze)
+                result = evaluate_impact(comments, analyze)
             latest = client.get_pr_details(number)
             fresh = (
                 latest["head"]["sha"] == pr["head"]["sha"]
                 and latest["base"]["ref"] == pr["base"]["ref"]
                 and latest["state"] == "open"
             )
-            if not fresh or client.get_current_base_sha(latest) != base_sha:
+            if not fresh:
                 retry = latest["state"] == "open" and latest["base"]["ref"] == "main"
-                result = Result(
-                    "failure",
-                    "stale_evaluation",
-                    "PR changed during evaluation",
-                    "The captured head/base changed. No stale success was published. "
-                    + (
-                        "Re-evaluating the current snapshot once."
-                        if attempt == 0 and retry
-                        else "Rerun this check against the current snapshot."
-                    ),
-                )
+                result = stale_result(attempt == 0 and retry)
         except TargetSelectionError as error:
-            result = Result(
-                "failure",
-                "evidence_error",
-                "Unable to read bot request evidence",
-                _public_prose(str(error)),
-            )
+            result = evidence_error(error)
         # A read can exhaust the evidence deadline. Give completion its own
         # bounded budget so an already-started Check is not left in progress.
         deadline = client.deadline
         client.deadline = time.monotonic() + 45
         try:
-            client.publish(pr, result, existing_id, base_sha)
+            try:
+                client.publish(pr, result, existing_id, base_sha)
+            except PublicationBaseError as error:
+                retry = error.changed
+                result = stale_result(attempt == 0) if retry else evidence_error(error)
+                # Verification can consume the whole deadline. The failure
+                # result needs its own bounded write and no second base read.
+                client.deadline = time.monotonic() + 45
+                client.publish(pr, result, existing_id, base_sha)
         finally:
             client.deadline = deadline
         summary = f"## {CHECK_NAME} — PR #{number}\n\n**{result.title}**\n\n{result.summary}\n"
