@@ -1,4 +1,4 @@
-name: Bot Run Request Experiment - Experimental Exemption Rerun
+name: Bot Run Request Experiment - Focused Partial Evidence Validation
 on:
   workflow_dispatch:
 permissions:
