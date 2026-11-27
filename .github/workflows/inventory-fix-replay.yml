@@ -1,4 +1,4 @@
-name: Bot Run Request Experiment - GPT-6 Luna Evidence Validation
+name: Bot Run Request Experiment - Qwen 3.8 27B Evidence Validation
 on:
   workflow_dispatch:
 permissions:
@@ -21,7 +21,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           INFERENCE_API_KEY: ${{ secrets.INFERENCE_API_KEY }}
           INFERENCE_BASE_URL: 'https://inference-api.nvidia.com/v1'
-          CI_BOT_TARGET_MODEL: 'azure/openai/gpt-6-luna'
+          CI_BOT_TARGET_MODEL: 'nvidia/qwen/qwen3.8-27b'
           CI_BOT_TARGET_TIMEOUT_SECONDS: '360'
           EXPERIMENT_CACHE: ${{ runner.temp }}/bot-run-source-cache
         run: python3 scripts/infra/pr_checks/fresh50_replay.py
