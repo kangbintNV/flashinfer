@@ -55,6 +55,13 @@ class HistoricalClient(gate.Client):
  def get_pr_files_at(self,pr,base_sha):
   assert base_sha==self.m['comparison_base_sha'] and pr['head']['sha']==self.m['comparison_head_sha']
   return copy.deepcopy(self.m['files'])
+ def python_sources_at(self,pr,base_sha,paths):
+  assert pr['head']['sha']==self.m['comparison_head_sha']
+  assert base_sha==self.m['comparison_base_sha']
+  # The frozen demo stores the original before/after tree as immutable Git trees.
+  before=self.m['comparison_base_tree'];after=self.m['comparison_head_tree']
+  self._comparison=(before,after,before)
+  yield from super().python_sources_at({'head':{'sha':after}},before,paths)
  def get_pr_files(self,n):
   assert n==self.pr['number'];return copy.deepcopy(self.m['files'])
  def comments(self,n):return [] if self.diagnostic else copy.deepcopy(self.m['comments'])
@@ -62,8 +69,9 @@ class HistoricalClient(gate.Client):
  def begin(self,pr,check_id=None):
   self.check_id=self.out.begin(self.target);return self.check_id
  def publish(self,pr,result,check_id=None,base_sha=None):
+  # Use the frozen base for the pinned checker's final publication verification.
+  super().publish(self.target,result,check_id,base_sha)
   self.result=asdict(result)
-  self.out.publish(self.target,result,check_id,base_sha)
  def get_pr_merge_commit(self,repository,number,base_sha,head_sha):
   commit=self.out.request(f"repos/{DEST}/git/commits/{self.m['snapshot_sha']}")
   assert [p['sha'] for p in commit['parents']]==[base_sha,head_sha]
@@ -73,19 +81,28 @@ class HistoricalClient(gate.Client):
   assert sha==self.m['comparison_head_tree']
   cache=Path(os.getenv('EXPERIMENT_CACHE',str(ROOT/'cache')));cache.mkdir(parents=True,exist_ok=True)
   p=cache/('tree-'+sha+'.json')
-  if p.exists():return json.loads(p.read_text())
-  result=self.out.request(f"repos/{DEST}/git/trees/{sha}?recursive=1")
-  if result.get('truncated'):raise gate.TargetSelectionError('Pinned source tree truncated')
-  temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_text(json.dumps(result));temp.replace(p)
+  if p.exists():result=json.loads(p.read_text())
+  else:
+   result=self.out.request(f"repos/{DEST}/git/trees/{sha}?recursive=1")
+   if result.get('truncated'):raise gate.TargetSelectionError('Pinned source tree truncated')
+   temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_text(json.dumps(result));temp.replace(p)
+  self.blob_paths={item['sha']:item['path'] for item in result['tree'] if item['type']=='blob'}
   return result
  def get_repository_blob(self,repository,sha,max_bytes):
+  from urllib.parse import quote
   if not __import__('re').fullmatch('[0-9a-f]{40}',sha):raise gate.TargetSelectionError('Invalid evidence blob')
   cache=Path(os.getenv('EXPERIMENT_CACHE',str(ROOT/'cache')));cache.mkdir(parents=True,exist_ok=True)
   p=cache/('blob-'+sha)
   if p.exists():raw=p.read_bytes()
   else:
-   data=self.out.request(f"repos/{DEST}/git/blobs/{sha}")
-   raw=base64.b64decode(data['content'])
+   source_commit=self.m.get('source_merge_sha',self.m['comparison_head_sha'])
+   assert __import__('re').fullmatch('[0-9a-f]{40}',source_commit)
+   path=self.blob_paths[sha]
+   url='https://raw.githubusercontent.com/flashinfer-ai/flashinfer/'+source_commit+'/'+quote(path,safe='/')
+   with urllib.request.urlopen(url,timeout=45) as response:raw=response.read(max_bytes+1)
+   if len(raw)>max_bytes:raise gate.TargetSelectionError('Evidence blob exceeds limit')
+   actual=hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()
+   if actual!=sha:raise gate.TargetSelectionError('Pinned source blob identity mismatch')
    temp=p.with_suffix('.'+str(os.getpid())+'.tmp');temp.write_bytes(raw);temp.replace(p)
   if len(raw)>max_bytes:raise gate.TargetSelectionError('Evidence blob exceeds limit')
   return raw.decode('utf-8')
@@ -104,7 +121,7 @@ def target_pr():
 
 def main():
  # Materialize trusted CI evidence only at runtime, so no upstream workflow is registered or triggered.
- for path in ('.github/workflows/pr-test.yml','scripts/infra/pr_checks/targeted_lane_scope.py'):
+ for path in ('.github/workflows/pr-test.yml','.github/workflows/pr-test-dispatch.yml','scripts/infra/pr_checks/targeted_lane_scope.py'):
   if path in MANIFEST.get('trusted_ci',{}):
    target=ROOT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(MANIFEST['trusted_ci'][path])
  for path,expected in MANIFEST['checker_sha256'].items():
