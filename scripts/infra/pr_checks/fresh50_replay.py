@@ -55,6 +55,13 @@ class HistoricalClient(gate.Client):
  def get_pr_files_at(self,pr,base_sha):
   assert base_sha==self.m['comparison_base_sha'] and pr['head']['sha']==self.m['comparison_head_sha']
   return copy.deepcopy(self.m['files'])
+ def python_sources_at(self,pr,base_sha,paths):
+  assert pr['head']['sha']==self.m['comparison_head_sha']
+  assert base_sha==self.m['comparison_base_sha']
+  # The frozen demo stores the original before/after tree as immutable Git trees.
+  before=self.m['comparison_base_tree'];after=self.m['comparison_head_tree']
+  self._comparison=(before,after,before)
+  yield from super().python_sources_at({'head':{'sha':after}},before,paths)
  def get_pr_files(self,n):
   assert n==self.pr['number'];return copy.deepcopy(self.m['files'])
  def comments(self,n):return [] if self.diagnostic else copy.deepcopy(self.m['comments'])
@@ -114,7 +121,7 @@ def target_pr():
 
 def main():
  # Materialize trusted CI evidence only at runtime, so no upstream workflow is registered or triggered.
- for path in ('.github/workflows/pr-test.yml','scripts/infra/pr_checks/targeted_lane_scope.py'):
+ for path in ('.github/workflows/pr-test.yml','.github/workflows/pr-test-dispatch.yml','scripts/infra/pr_checks/targeted_lane_scope.py'):
   if path in MANIFEST.get('trusted_ci',{}):
    target=ROOT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(MANIFEST['trusted_ci'][path])
  for path,expected in MANIFEST['checker_sha256'].items():
