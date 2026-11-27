@@ -1,4 +1,4 @@
-name: Bot Run Request Experiment - Full 150 PR Evidence Validation
+name: Bot Run Request Experiment - Host Compile and GPU Execution Validation
 on:
   workflow_dispatch:
 permissions:
