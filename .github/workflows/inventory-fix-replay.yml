@@ -1,4 +1,4 @@
-name: Bot Run Request Experiment - Focused Partial Evidence Validation
+name: Bot Run Request Experiment - Full 150 PR Evidence Validation
 on:
   workflow_dispatch:
 permissions:
